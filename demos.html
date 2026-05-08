@@ -450,7 +450,7 @@ We publish our <a href="https://github.com/SuperInstance/constraint-theory-math/
 </ul>
 
 <p>
-Negative results are data. We document them <a href="/errata">publicly</a>. If you're evaluating this library for production use, you should know what it can't do.
+Negative results are data. they are tracked in constraint-theory-ecosystem. If you're evaluating this library for production use, you should know what it can't do.
 </p>
 
 <!-- ============================================ -->
@@ -463,10 +463,8 @@ Negative results are data. We document them <a href="/errata">publicly</a>. If y
 <div class="cta-links">
 <a href="https://crates.io/crates/eisenstein">crates.io</a>
 <a href="https://github.com/SuperInstance/eisenstein">GitHub</a>
-<a href="demo-playground">Live Playground</a>
 <a href="https://github.com/SuperInstance/eisenstein-bench">Benchmarks</a>
 <a href="https://github.com/SuperInstance/eisenstein-fuzz">Fuzz Tests</a>
-<a href="/errata">Errata</a>
 </div>
 </div>
 
@@ -510,7 +508,7 @@ Benchmarks, fuzz testing, and code generation — the infrastructure we built to
 
 <h3>CUDA Benchmarks</h3>
 <p>
-We ran 54 GPU experiments on an RTX 4050 (Ada) measuring constraint throughput with Eisenstein integer operations. The results are in <a href="https://github.com/SuperInstance/constraint-theory-ecosystem">constraint-theory-ecosystem</a>. Highlights: INT8×8 achieves 341B constraints/sec, differential testing across 61M inputs produced zero mismatches, and CUDA Graphs gave 18× kernel launch speedup. The negative results (FP16 unsafe past 2048, tensor cores marginal, bank padding counterproductive) are documented in our <a href="/errata">errata</a>.
+We ran 54 GPU experiments on an RTX 4050 (Ada) measuring constraint throughput with Eisenstein integer operations. The results are in <a href="https://github.com/SuperInstance/constraint-theory-ecosystem">constraint-theory-ecosystem</a>. Highlights: INT8×8 achieves 341B constraints/sec, differential testing across 61M inputs produced zero mismatches, and CUDA Graphs gave 18× kernel launch speedup. The negative results (FP16 unsafe past 2048, tensor cores marginal, bank padding counterproductive) are documented alongside the positives.
 </p>
 
 <h3>Cross-Language Ports</h3>
@@ -531,18 +529,16 @@ The same Eisenstein arithmetic available in three languages, tested for behavior
 <footer>
 <p>
 <a href="https://superinstance.github.io/cocapn-ai-web/demo-narrows">Narrows Demo</a> ·
-<a href="demo-playground">Playground</a> ·
 <a href="demo-eisenstein">2D Explorer</a> ·
 <a href="demo-eisenstein-3d">3D Visualizer</a> ·
 <a href="demo-voxel-v2">Voxel Engine</a> ·
 <a href="demo-divergence-tolerance">DAT Demo</a> ·
-<a href="/errata">Errata</a>
 </p>
 <p style="margin-top:8px">
 <a href="https://github.com/SuperInstance/eisenstein">eisenstein</a> ·
 <a href="https://github.com/SuperInstance/constraint-theory-core">constraint-theory-core</a> ·
 <a href="https://github.com/SuperInstance/constraint-theory-ecosystem">CUDA benchmarks</a> ·
-<a href="https://github.com/SuperInstance/constraint-theory-math">Math + Errata</a> ·
+<a href="https://github.com/SuperInstance/constraint-theory-math">Math</a> ·
 <a href="https://github.com/SuperInstance/hexgrid-gen">hexgrid-gen</a>
 </p>
 <p style="margin-top:8px;font-size:.85em">
