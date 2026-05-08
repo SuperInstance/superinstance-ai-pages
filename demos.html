@@ -31,7 +31,7 @@ p{margin:.6em 0;max-width:72ch}
 .cols{display:flex;gap:20px;margin:16px 0}
 .col{flex:1;background:var(--bg2);padding:16px;border-radius:6px}
 .col h4{color:var(--ok);margin-bottom:6px;font-size:.9em}
-@media(max-width:700px){.cols{flex-direction:column}.content{padding:20px 16px 60px}body{font-size:14px}.hero iframe{height:45vh;min-height:280px}}
+@media(max-width:700px){.cols{flex-direction:column}.content{padding:20px 16px 60px}body{font-size:14px}.hero iframe{height:45vh;min-height:280px}.toc{padding:12px 16px 8px;gap:4px 12px}.diagram{padding:12px;overflow-x:auto}.diagram svg{min-width:320px}}
 .table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85em}
 .table th{text-align:left;color:var(--dim);padding:8px 12px;border-bottom:1px solid #1a2535;font-weight:400;text-transform:uppercase;letter-spacing:1px;font-size:.8em}
 .table td{padding:8px 12px;border-bottom:1px solid #0d1a24}
@@ -43,6 +43,11 @@ p{margin:.6em 0;max-width:72ch}
 .cta{text-align:center;margin:40px 0;padding:30px;background:var(--bg2);border-radius:8px;border:1px solid #1a2535}
 .cta pre{text-align:left;display:inline-block;text-align:left;border-left:none;background:var(--bg);margin:8px 0}
 .cta-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px;font-size:.85em}
+.toc{max-width:780px;margin:0 auto;padding:16px 24px 8px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;border-bottom:1px solid #1a2535}
+.toc .toc-label{color:var(--dim);font-size:.7em;text-transform:uppercase;letter-spacing:1px;margin-right:4px}
+.toc a{color:#889;font-size:.8em;padding:2px 0;border-bottom:1px dotted #334}
+.toc a:hover{color:var(--ok);border-bottom-color:var(--ok)}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
 footer{border-top:1px solid #1a2535;padding:20px;max-width:780px;margin:0 auto;text-align:center;color:var(--dim);font-size:.75em}
 footer a{color:var(--dim)}footer a:hover{color:var(--ok)}
 </style>
@@ -60,23 +65,35 @@ footer a{color:var(--dim)}footer a:hover{color:var(--ok)}
   </div>
 </div>
 
+<nav class="toc">
+<span class="toc-label">Jump</span>
+<a href="#the-problem">The Problem</a>
+<a href="#what-are-eisenstein-integers">Eisenstein Integers</a>
+<a href="#show-me">Code</a>
+<a href="#why-it-matters">Why It Matters</a>
+<a href="#how-it-works">How It Works</a>
+<a href="#the-numbers">Benchmarks</a>
+<a href="#what-doesnt-work">Limitations</a>
+<a href="#get-started">Get Started</a>
+</nav>
+
 <div class="content"><p style="font-size:0.75em;color:var(--dim);margin-bottom:24px;"><a href="/" style="color:var(--dim);">← Back to superinstance.ai</a></p>
 
 <!-- ============================================ -->
 <!-- THE PROBLEM                                  -->
 <!-- ============================================ -->
-<h2>The Problem</h2>
+<h2 id="the-problem">The Problem</h2>
 
 <p>
-Floating-point numbers drift. Not sometimes, not edge cases — every single operation adds a tiny error. Multiply that by thousands of operations and your position is wrong. Your rotation is off. Your game desyncs.
+Every floating-point operation embeds a tiny error. Add a thousand of them and your position drifts. Rotate ten thousand times and your heading is off — not by a little, by a lot. Games desync. Robots mis-navigate. Simulations diverge.
 </p>
 
 <p>
-You can't fix this by throwing more bits at it. F64 uses 16 bytes per coordinate pair. It drifts less than F32's 8 bytes. But it still drifts. And you're paying 4× the memory, 4× the bandwidth, 4× the disk — for something that's <em>still not exact</em>.
+More bits helps but doesn't fix it. F64 drifts less than F32 — 52 mantissa bits instead of 23 — but it still drifts. And you're paying 4× the memory, 4× the bandwidth, 4× the time for something that's <em>still an approximation</em>.
 </p>
 
 <p>
-The demo above shows this. The green boat (E12) uses integer arithmetic. The orange boat uses standard 32-bit floats. The red boat "turns up the precision" to 64-bit floats — four times the data per fix — and it still can't match the integer boat.
+The demo above shows three boats navigating the same channel. The green one uses integer arithmetic — Eisenstein integers, 4 bytes per coordinate. The orange uses 32-bit floats, 8 bytes. The red uses 64-bit floats, 16 bytes — double the data of F32, quadruple the data of E12 — and still can't match it.
 </p>
 
 <div class="diagram">
@@ -97,7 +114,7 @@ The demo above shows this. The green boat (E12) uses integer arithmetic. The ora
 <!-- ============================================ -->
 <!-- WHAT IS IT                                   -->
 <!-- ============================================ -->
-<h2>What Are Eisenstein Integers</h2>
+<h2 id="what-are-eisenstein-integers">What Are Eisenstein Integers</h2>
 
 <p>
 Every point on a hex grid can be written as a pair of integers <code>(a, b)</code>. That's it. No floats. No square roots. The distance from the origin — the <em>norm</em> — is <code>a² - ab + b²</code>, which is always a non-negative integer.
@@ -173,7 +190,7 @@ This isn't an approximation. It's the mathematical definition. Eisenstein intege
 <!-- ============================================ -->
 <!-- SHOW ME THE CODE                             -->
 <!-- ============================================ -->
-<h2>Show Me</h2>
+<h2 id="show-me">Show Me</h2>
 
 <div class="cols">
 <div class="col">
@@ -211,13 +228,13 @@ prod = a * b   # (1, 7)</pre>
 </div>
 
 <p>
-No floats anywhere. The norm <code>a² - ab + b²</code> is computed with integer multiplication and subtraction. Rotation by 60° is a coordinate transform: <code>(a, b) → (-b, a - b)</code>. No trig functions involved. The result is always another pair of integers.
+The norm <code>a² - ab + b²</code> is just integer multiplication and subtraction. Rotation by 60° is a coordinate transform: <code>(a, b) → (-b, a - b)</code>. Two integer subtractions and a negation. The result is always another pair of integers.
 </p>
 
 <!-- ============================================ -->
 <!-- WHY IT MATTERS                               -->
 <!-- ============================================ -->
-<h2>Why It Matters</h2>
+<h2 id="why-it-matters">Why It Matters</h2>
 
 <h3>Autopilot Navigation</h3>
 
@@ -296,17 +313,17 @@ With E12, both devices compute <code>(-b, a - b)</code> on the same integers. Sa
 <h3>Sensor Fusion</h3>
 
 <p>
-Combining readings from gyroscope, compass, and GPS. Each sensor's float errors compound differently depending on the order of operations, the magnitude of values, and the specific hardware. The "truth" slowly diverges from reality.
+Combining readings from gyroscope, compass, and GPS — each sensor's float errors compound differently depending on the order of operations, the magnitude of values, and the specific hardware. The "truth" slowly diverges from reality.
 </p>
 
 <p>
-E12's exact arithmetic means sensor readings combine without error accumulation. Two gyroscope readings that should cancel, cancel exactly. A compass bearing that should equal a GPS-derived heading, equals it exactly. The math is the same on every device, every time.
+E12's exact arithmetic means sensor readings combine without error accumulation. Two gyroscope readings that should cancel <em>do</em> cancel, exactly. A compass bearing that should equal a GPS-derived heading equals it — exactly. The math is the same on every device, every time.
 </p>
 
 <!-- ============================================ -->
 <!-- HOW IT WORKS                                 -->
 <!-- ============================================ -->
-<h2>How It Works</h2>
+<h2 id="how-it-works">How It Works</h2>
 
 <h3>60° Rotation</h3>
 
@@ -367,7 +384,7 @@ For a point <code>(a, b)</code>, the Eisenstein norm is <code>a² - ab + b²</co
 </p>
 
 <p>
-Compare with Euclidean distance: <code>sqrt(a² + b²)</code>. The square root is where the float creeps in. You can't compute <code>sqrt(2)</code> exactly in floating point. But <code>a² - ab + b²</code> for <code>(a,b) = (1,0)</code> is just <code>1</code>. No sqrt needed. No approximation.
+Compare with Euclidean distance: <code>sqrt(a² + b²)</code>. The square root is where the float creeps in. You can't compute <code>sqrt(2)</code> exactly in floating point. But <code>a² - ab + b²</code> for <code>(a, b) = (1, 0)</code> is just <code>1</code>. No sqrt needed. No approximation.
 </p>
 
 <div class="cols">
@@ -394,19 +411,19 @@ The library iterates these points in cache-friendly order. No allocation. No has
 <!-- ============================================ -->
 <!-- THE NUMBERS                                  -->
 <!-- ============================================ -->
-<h2>The Numbers</h2>
+<h2 id="the-numbers">The Numbers</h2>
 
 <p>
 Real benchmarks from the <a href="https://github.com/SuperInstance/eisenstein-bench">eisenstein-bench</a> suite. Same hardware, same compiler, fair comparison.
 </p>
 
-<table class="table">
+<div class="table-wrap"><table class="table">
 <tr><th>Operation</th><th>E12</th><th>Float64</th><th>Notes</th></tr>
 <tr><td>Norm</td><td><span class="badge badge-ok">1 ns</span></td><td><span class="badge badge-warn">3.3 ns</span></td><td>E12 is 3.3× faster (no sqrt)</td></tr>
 <tr><td>60° Rotation</td><td><span class="badge badge-ok">2 ns</span></td><td><span class="badge badge-warn">12 ns</span></td><td>Float needs sin+cos lookup</td></tr>
 <tr><td>Equality</td><td><span class="badge badge-ok">1 compare</span></td><td><span class="badge badge-bad">4 bytes + epsilon</span></td><td>E12: just (a,b) == (c,d)</td></tr>
 <tr><td>Drift after 10K rotations</td><td><span class="badge badge-ok">0.000</span></td><td><span class="badge badge-bad">~10⁻¹⁵</span></td><td>Float drift is small here because 60° has "nice" trig values</td></tr>
-</table>
+</table></div>
 
 <p style="font-size:.85em;color:var(--dim)">
 Note: The float drift looks small because 60° rotations happen to have clean trig values. For arbitrary angles, drift is much worse. E12 doesn't have "nice" vs "ugly" angles — every rotation in its lattice is exact.
@@ -414,12 +431,12 @@ Note: The float drift looks small because 60° rotations happen to have clean tr
 
 <h3>Data Cost Per Fix</h3>
 
-<table class="table">
+<div class="table-wrap"><table class="table">
 <tr><th>Type</th><th>Bytes per fix</th><th>Relative</th><th>Exact?</th></tr>
 <tr><td>E12 (two i32)</td><td>4</td><td>1×</td><td><span class="badge badge-ok">yes</span></td></tr>
 <tr><td>F32 (two f32)</td><td>8</td><td>2×</td><td><span class="badge badge-bad">no</span></td></tr>
 <tr><td>F64 (two f64)</td><td>16</td><td>4×</td><td><span class="badge badge-bad">no</span></td></tr>
-</table>
+</table></div>
 
 <p>
 At 1,000 fixes per second on a cellular modem:
@@ -436,10 +453,10 @@ On a satellite link at $1/MB, E12 saves $43K/year vs F64. But the real cost isn'
 <!-- ============================================ -->
 <!-- NEGATIVE RESULTS                             -->
 <!-- ============================================ -->
-<h2>What Doesn't Work</h2>
+<h2 id="what-doesnt-work">What Doesn't Work</h2>
 
 <p>
-We publish our <a href="https://github.com/SuperInstance/constraint-theory-math/blob/main/ERRATA.md">negative results</a> alongside the positive ones. Some things we tried that didn't pan out:
+Some things we tried didn't pan out. We publish <a href="https://github.com/SuperInstance/constraint-theory-math/blob/main/ERRATA.md">negative results</a> alongside the positive ones — here are the biggest misses:
 </p>
 
 <ul style="margin:.4em 0 .4em 1.5em;font-size:.9em;line-height:1.8">
@@ -449,83 +466,103 @@ We publish our <a href="https://github.com/SuperInstance/constraint-theory-math/
 <li><strong>Intent-Holonomy Duality</strong> — originally claimed as a theorem. It's false on partial orders. True on total orders (which is what we use in practice). Downgraded to "open problem."</li>
 </ul>
 
-<p>
+<p style="font-size:.9em">
+All negative results are documented in the <a href="/errata">errata page</a> — everything we tried that didn't work, with the data to prove it.
 </p>
 
 <!-- ============================================ -->
 <!-- GET STARTED                                  -->
 <!-- ============================================ -->
-<div class="cta">
+<div class="cta" id="get-started">
 <h2 style="border:none;margin-top:0">Get Started</h2>
 <pre class="lang-toml">cargo add eisenstein</pre>
 <p style="color:var(--dim);font-size:.85em">or <code>pip install constraint-theory</code> for Python, <code>npm install @superinstance/polyformalism-a2a</code> for JS</p>
 <div class="cta-links">
 <a href="https://crates.io/crates/eisenstein">crates.io</a>
 <a href="https://github.com/SuperInstance/eisenstein">GitHub</a>
+<a href="demo-playground">Live Playground</a>
 <a href="https://github.com/SuperInstance/eisenstein-bench">Benchmarks</a>
 <a href="https://github.com/SuperInstance/eisenstein-fuzz">Fuzz Tests</a>
+<a href="/errata">Errata</a>
 </div>
 </div>
 
 <!-- ============================================ -->
 <!-- THE ECOSYSTEM                                -->
 <!-- ============================================ -->
-<h2>Further Reading</h2>
+<h2>Explore the Ecosystem</h2>
 
 <p>
-Eisenstein integers are one piece of a larger project: <a href="https://github.com/SuperInstance">SuperInstance</a> builds tools for exact computation in domains where floating-point drift causes real failures.
+Eisenstein integers are one piece of a larger project: <a href="https://github.com/SuperInstance">SuperInstance</a> builds tools for exact computation where floating-point drift causes real failures. Each tool below builds on the last — follow the chain.
 </p>
 
-<h3>Constraint Theory</h3>
-<p>
-A framework for checking whether systems satisfy constraints — with zero false negatives. The core idea: represent constraints as Eisenstein integer operations, and the math guarantees soundness. Used for sensor fusion, autopilot validation, and real-time monitoring.
-</p>
-<ul style="margin:.4em 0 .4em 1.5em;font-size:.9em;line-height:1.8">
-<li><a href="https://github.com/SuperInstance/constraint-theory-core"><strong>constraint-theory-core</strong></a> — Rust library, <code>cargo add constraint-theory-core</code> (184 tests, published to crates.io)</li>
-<li><a href="https://github.com/SuperInstance/flux-lucid"><strong>flux-lucid</strong></a> — unified ecosystem crate with intent vectors, alignment checking, and tolerance navigation (93 tests)</li>
-<li><a href="https://github.com/SuperInstance/holonomy-consensus"><strong>holonomy-consensus</strong></a> — topological consensus for distributed systems using hex lattice holonomy (30 tests)</li>
-</ul>
+<div class="ecosystem-chain" style="margin:24px 0">
 
-<h3>Embedded &amp; Edge</h3>
-<p>
-The <code>eisenstein</code> crate is <code>no_std</code> with zero dependencies. The core type is ~600 lines of Rust. We've compiled it for ARM Cortex-M targets. A C runtime fits in 4KB — small enough for microcontrollers that don't have an FPU.
-</p>
-<ul style="margin:.4em 0 .4em 1.5em;font-size:.9em;line-height:1.8">
-<li><a href="https://github.com/SuperInstance/fleet-coordinate"><strong>fleet-coordinate</strong></a> — coordination primitives for multi-agent fleets using Eisenstein spatial hashing</li>
-<li><a href="https://github.com/SuperInstance/pythagorean48-codes"><strong>pythagorean48-codes</strong></a> — Pythagorean snapping to Eisenstein lattice points (lockstep multiplayer desync prevention)</li>
-</ul>
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid var(--ok)">
+<strong style="color:var(--ok)">① <a href="https://github.com/SuperInstance/eisenstein" style="color:var(--ok)">eisenstein</a></strong>
+<p style="margin:.3em 0;font-size:.9em">Start here. Zero deps, exact hex arithmetic. <code>cargo add eisenstein</code></p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ same math, smaller footprint</div>
 
-<h3>Developer Tools</h3>
-<p>
-Benchmarks, fuzz testing, and code generation — the infrastructure we built to verify the library works correctly.
-</p>
-<ul style="margin:.4em 0 .4em 1.5em;font-size:.9em;line-height:1.8">
-<li><a href="https://github.com/SuperInstance/eisenstein-bench"><strong>eisenstein-bench</strong></a> — CLI benchmark suite (drift, disk, snap, norm commands)</li>
-<li><a href="https://github.com/SuperInstance/eisenstein-fuzz"><strong>eisenstein-fuzz</strong></a> — property-based fuzzing (rotation identity, ring axioms, D6 closure, 13 property tests)</li>
-<li><a href="https://github.com/SuperInstance/hexgrid-gen"><strong>hexgrid-gen</strong></a> — code generator for hex grid lookup tables (Rust, C, Python, JS, JSON output)</li>
-<li><a href="https://github.com/SuperInstance/eisenstein-c"><strong>eisenstein-c</strong></a> — C runtime, 1KB .text, zero deps, embedded-ready (&lt;stdint.h&gt; only)</li>
-<li><a href="https://github.com/SuperInstance/eisenstein-wasm"><strong>eisenstein-wasm</strong></a> — WASM package for browser and Node.js</li>
-<li><a href="https://github.com/SuperInstance/arm-neon-eisenstein-bench"><strong>arm-neon-eisenstein-bench</strong></a> — NEON SIMD analysis: 4× parallel E12 norm in 5 instructions</li>
-</ul>
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid var(--ok)">
+<strong style="color:var(--ok)">② <a href="https://github.com/SuperInstance/eisenstein-c" style="color:var(--ok)">eisenstein-c</a></strong>
+<p style="margin:.3em 0;font-size:.9em">µC needs? 1KB .text, same math. Better yet, use <a href="https://github.com/SuperInstance/hexgrid-gen">hexgrid-gen</a> to precompute lookup tables for any language.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ same math, in the browser</div>
 
-<h3>DO-178C Certification</h3>
-<p>
-For safety-critical systems requiring formal verification, we provide a <a href="https://github.com/SuperInstance/eisenstein-do178c">DO-178C evidence package</a> with 26 Coq theorems, 19/31 Level A objectives covered, and full traceability from requirements to proofs. The eisenstein library's tiny codebase (600 LOC, 0 unsafe, no FPU) is uniquely suited to certification.
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid var(--ok)">
+<strong style="color:var(--ok)">③ <a href="https://github.com/SuperInstance/eisenstein-wasm" style="color:var(--ok)">eisenstein-wasm</a></strong>
+<p style="margin:.3em 0;font-size:.9em">JavaScript/TypeScript? WASM package gives you the same exact arithmetic.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ prove it on your hardware</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid var(--warn)">
+<strong style="color:var(--warn)">④ <a href="https://github.com/SuperInstance/eisenstein-bench" style="color:var(--warn)">eisenstein-bench</a></strong>
+<p style="margin:.3em 0;font-size:.9em">See for yourself. 5 CLI commands, compare E12 vs F32 vs F64 on your hardware.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ we tested everything</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid var(--warn)">
+<strong style="color:var(--warn)">⑤ <a href="https://github.com/SuperInstance/eisenstein-fuzz" style="color:var(--warn)">eisenstein-fuzz</a></strong>
+<p style="margin:.3em 0;font-size:.9em">We tested everything. 13 property tests, 6 targets, 0 failures.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ hardware-specific speedups</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid #88aaff">
+<strong style="color:#88aaff">⑥ <a href="https://github.com/SuperInstance/arm-neon-eisenstein-bench" style="color:#88aaff">arm-neon-eisenstein-bench</a></strong>
+<p style="margin:.3em 0;font-size:.9em">On ARM? 4× parallel norm in 5 NEON instructions.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ formal proof</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid #cc88ff">
+<strong style="color:#cc88ff">⑦ <a href="https://github.com/SuperInstance/eisenstein-do178c" style="color:#cc88ff">eisenstein-do178c</a></strong>
+<p style="margin:.3em 0;font-size:.9em">Need DO-178C? 26 Coq theorems, 19/31 objectives covered.</p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ production constraint checking</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid #ff88cc">
+<strong style="color:#ff88cc">⑧ <a href="https://github.com/SuperInstance/constraint-theory-core" style="color:#ff88cc">constraint-theory-core</a></strong>
+<p style="margin:.3em 0;font-size:.9em">Production-grade. 184 tests. <code>cargo add constraint-theory-core</code></p>
+</div>
+<div style="text-align:center;color:var(--dim);font-size:.8em;padding:2px 0">↓ unified ecosystem</div>
+
+<div style="background:var(--bg2);padding:14px 18px;border-radius:6px;margin-bottom:2px;border-left:3px solid #ffcc44">
+<strong style="color:#ffcc44">⑨ <a href="https://github.com/SuperInstance/flux-lucid" style="color:#ffcc44">flux-lucid</a></strong>
+<p style="margin:.3em 0;font-size:.9em">Unified intent vectors, alignment checking, tolerance navigation.</p>
+</div>
+
+</div>
+
+<p style="color:var(--dim);font-size:.85em;text-align:center;margin:16px 0 32px">
+Each link is a standalone repo. Clone any one and try it — no monorepo, no workspace required.
 </p>
 
 <h3>CUDA Benchmarks</h3>
 <p>
+We ran 54 GPU experiments on an RTX 4050 (Ada) measuring constraint throughput with Eisenstein integer operations. The results are in <a href="https://github.com/SuperInstance/constraint-theory-ecosystem">constraint-theory-ecosystem</a>. Highlights: INT8×8 achieves 341B constraints/sec, differential testing across 61M inputs produced zero mismatches, and CUDA Graphs gave 18× kernel launch speedup. Full negative results (FP16 unsafe past 2048, tensor cores marginal, bank padding counterproductive) are in the <a href="/errata">errata page</a>.
 </p>
 
-<h3>Cross-Language Ports</h3>
-<p>
-The same Eisenstein arithmetic available in three languages, tested for behavioral parity.
-</p>
-<ul style="margin:.4em 0 .4em 1.5em;font-size:.9em;line-height:1.8">
-<li><strong>Rust</strong> — <code>cargo add eisenstein</code> (37 tests)</li>
-<li><strong>Python</strong> — <code>pip install constraint-theory</code> (pure Python, zero deps)</li>
-<li><strong>JavaScript</strong> — <code>npm install @superinstance/polyformalism-a2a</code> (ESM, zero deps)</li>
-</ul>
+
 
 </div>
 
@@ -535,17 +572,23 @@ The same Eisenstein arithmetic available in three languages, tested for behavior
 <footer>
 <p>
 <a href="https://superinstance.github.io/cocapn-ai-web/demo-narrows">Narrows Demo</a> ·
+<a href="demo-playground">Playground</a> ·
 <a href="demo-eisenstein">2D Explorer</a> ·
 <a href="demo-eisenstein-3d">3D Visualizer</a> ·
 <a href="demo-voxel-v2">Voxel Engine</a> ·
 <a href="demo-divergence-tolerance">DAT Demo</a> ·
-</p>
-<p style="margin-top:8px">
 <a href="https://github.com/SuperInstance/eisenstein">eisenstein</a> ·
+<a href="https://github.com/SuperInstance/eisenstein-c">eisenstein-c</a> ·
+<a href="https://github.com/SuperInstance/eisenstein-wasm">eisenstein-wasm</a> ·
+<a href="https://github.com/SuperInstance/eisenstein-bench">eisenstein-bench</a> ·
+<a href="https://github.com/SuperInstance/eisenstein-fuzz">eisenstein-fuzz</a> ·
+<a href="https://github.com/SuperInstance/eisenstein-do178c">eisenstein-do178c</a> ·
+<a href="https://github.com/SuperInstance/arm-neon-eisenstein-bench">arm-neon</a> ·
+<a href="https://github.com/SuperInstance/hexgrid-gen">hexgrid-gen</a> ·
 <a href="https://github.com/SuperInstance/constraint-theory-core">constraint-theory-core</a> ·
+<a href="https://github.com/SuperInstance/flux-lucid">flux-lucid</a> ·
 <a href="https://github.com/SuperInstance/constraint-theory-ecosystem">CUDA benchmarks</a> ·
-<a href="https://github.com/SuperInstance/constraint-theory-math">Math + Errata</a> ·
-<a href="https://github.com/SuperInstance/hexgrid-gen">hexgrid-gen</a>
+<a href="https://github.com/SuperInstance/constraint-theory-math">Math + Errata</a>
 </p>
 <p style="margin-top:8px;font-size:.85em">
 Built by <a href="https://github.com/SuperInstance">SuperInstance</a>. Published under MIT/Apache-2.0.
