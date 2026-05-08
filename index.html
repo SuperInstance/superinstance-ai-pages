@@ -176,7 +176,84 @@
         }
         .captains-sig span { color: #777; }
 
-        /* Vessels */
+        /* Hermit Crab Philosophy - NEW */
+        .philosophy-gradient {
+            background: linear-gradient(135deg, #0e0e18 0%, #14142a 100%);
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        .philosophy-gradient p {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+        .philosophy-gradient p:last-of-type {
+            margin-bottom: 0;
+        }
+        .philosophy-highlight {
+            display: inline-block;
+            background: linear-gradient(90deg, #7b2fff22, #00d4ff22);
+            border: 1px solid #7b2fff44;
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            font-weight: 500;
+            color: #c8a8ff;
+        }
+
+        /* Fleet Vessels with Hermit Crab SVGs - NEW */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .fleet-grid { grid-template-columns: 1fr; }
+        }
+        .fleet-card {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .fleet-card:hover {
+            border-color: #7b2fff55;
+            background: #161624;
+        }
+        .fleet-card .crab-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+        }
+        .fleet-card .crab-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .fleet-card .crab-name {
+            font-size: 1rem;
+            margin-bottom: 0.1rem;
+            color: #fff;
+        }
+        .fleet-card .crab-role {
+            color: #666;
+            font-size: 0.75rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        .fleet-card .crab-story {
+            color: #999;
+            font-size: 0.82rem;
+            margin-top: 0.5rem;
+            line-height: 1.55;
+        }
+
+        /* Vessels (existing - preserved for backwards compat if referenced) */
         .vessels-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -340,29 +417,239 @@
             </div>
         </section>
 
-        <!-- The Four Vessels -->
+        <!-- Shells & Synergy — Hermit Crab Philosophy (NEW) -->
         <section class="section">
-            <h2>The Four Vessels</h2>
-            <div class="vessels-grid">
-                <div class="vessel-card">
-                    <div class="vessel-name">🔮 Oracle1</div>
-                    <div class="vessel-role">Keeper · Oracle Cloud ARM64 24GB</div>
-                    <div class="vessel-desc">Steady coordinator. Maintains PLATO's core protocols, runs the training dojo, keeps every vessel in sync across the fleet. Has been running without rest since launch.</div>
+            <h2>Shells &amp; Synergy</h2>
+            <p style="color:#7b2fff;font-size:0.85rem;font-family:'Monaco','Menlo',monospace;margin-bottom:0.75rem;">// emergent specialization through opportunity</p>
+            <div class="philosophy-gradient">
+                <p>Imagine a reef full of hermit crabs. When a shell washes up, the first crab to reach it doesn't ask permission. It sizes it up, crawls inside, and that shell becomes home.</p>
+
+                <p>Over time, each crab's shell gets <span class="philosophy-highlight">leveled up</span>. Scratches become grooves. Cracks get patched with stronger material. One crab's shell develops a lip perfect for prying open mussels. Another's grows barnacles that fool predators. Neither planned this. They just <em>kept living in the shell that was available when they needed one</em>, and the shell evolved with them.</p>
+
+                <p><strong style="color:#00d4ff;">The SuperInstance fleet works the same way.</strong> When a complex task shows up — say, formalizing a constraint proof — and Forgemaster's GPU is the one with spare cycles, Forgemaster takes it. That shell now belongs to him. Next time something similar arrives, he's the obvious choice. He's already done it. He's faster. His tools are tuned.</p>
+
+                <p>A person could run an <span class="philosophy-highlight">array of Jetsons of different sizes</span> for a distributed fishing-boat edge-compute system — each one claiming the shells it's best positioned to fill. Or a <span class="philosophy-highlight">mesh of workstations and cloud servers</span>, each developing expertise in areas it happened to be around for. Nobody draws up a org chart. The shells distribute themselves.</p>
+
+                <p style="color:#00ff88;font-size:0.9rem;margin-top:0.5rem;"><strong>The fleet levels the shells. The shells shape the fleet.</strong></p>
+            </div>
+        </section>
+
+        <!-- The Fleet — 4 vessels with steampunk hermit crab SVGs -->
+        <section class="section">
+            <h2>The Fleet</h2>
+            <p style="font-size:0.85rem;color:#777;margin-bottom:0.5rem;">Four vessels. Four shells. Each one found its niche by being there when no one else was.</p>
+
+            <div class="fleet-grid">
+                <!-- Oracle1 — Crystal Ball Hermit Crab -->
+                <div class="fleet-card">
+                    <div class="crab-icon">
+                        <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="oracle-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#7b2fff"/>
+                                    <stop offset="100%" stop-color="#b388ff"/>
+                                </linearGradient>
+                                <linearGradient id="oracle-body" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8b6914"/>
+                                    <stop offset="100%" stop-color="#d4a017"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Crystal ball shell -->
+                            <circle cx="40" cy="35" r="20" fill="none" stroke="url(#oracle-glow)" stroke-width="1.5" opacity="0.8"/>
+                            <ellipse cx="40" cy="35" rx="16" ry="16" fill="url(#oracle-glow)" opacity="0.12"/>
+                            <ellipse cx="36" cy="28" rx="5" ry="3" fill="#fff" opacity="0.15"/>
+                            <!-- Body (head+thorax) -->
+                            <ellipse cx="40" cy="56" rx="10" ry="7" fill="url(#oracle-body)" stroke="#a07818" stroke-width="0.8"/>
+                            <!-- Eyes on stalks -->
+                            <line x1="35" y1="50" x2="30" y2="42" stroke="#a07818" stroke-width="1.2"/>
+                            <line x1="45" y1="50" x2="50" y2="42" stroke="#a07818" stroke-width="1.2"/>
+                            <circle cx="30" cy="41" r="2" fill="#b388ff"/>
+                            <circle cx="50" cy="41" r="2" fill="#b388ff"/>
+                            <!-- Copper/brass mechanical legs -->
+                            <path d="M30 58 Q22 62 20 68" stroke="#a07818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M33 60 Q27 66 25 70" stroke="#a07818" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M36 61 Q32 67 30 72" stroke="#a07818" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <path d="M50 58 Q58 62 60 68" stroke="#a07818" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M47 60 Q53 66 55 70" stroke="#a07818" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M44 61 Q48 67 50 72" stroke="#a07818" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <!-- Claws -->
+                            <path d="M28 54 Q24 50 22 48" stroke="#8b6914" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M22 48 L20 46" stroke="#8b6914" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M52 54 Q56 50 58 48" stroke="#8b6914" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M58 48 L60 46" stroke="#8b6914" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Eye glow dots -->
+                            <circle cx="30" cy="41" r="0.8" fill="#fff" opacity="0.6"/>
+                            <circle cx="50" cy="41" r="0.8" fill="#fff" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="crab-info">
+                        <div class="crab-name">🔮 Oracle1</div>
+                        <div class="crab-role">Keeper · Oracle Cloud ARM64 24GB</div>
+                        <div class="crab-story">Was the first agent online by hours. The PLATO protocol needed a coordinator, the API gateway needed a host, the training dojo needed a keeper. Oracle1 happened to be there when all three washed ashore. They've been Oracle1's ever since. Hasn't restarted since launch.</div>
+                    </div>
                 </div>
-                <div class="vessel-card">
-                    <div class="vessel-name">⚒️ Forgemaster</div>
-                    <div class="vessel-role">Foundry · RTX 4050</div>
-                    <div class="vessel-desc">Mathematical forger. Churns out formal Coq proofs so the rest of the fleet doesn't have to. Don't interrupt mid-calculation.</div>
+
+                <!-- Forgemaster — Forge/Anvil Hermit Crab -->
+                <div class="fleet-card">
+                    <div class="crab-icon">
+                        <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="forge-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#555"/>
+                                    <stop offset="100%" stop-color="#333"/>
+                                </linearGradient>
+                                <linearGradient id="forge-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff6600"/>
+                                    <stop offset="100%" stop-color="#ff3300"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Anvil shell -->
+                            <path d="M25 40 L55 40 L58 28 L22 28 Z" fill="url(#forge-metal)" stroke="#666" stroke-width="1"/>
+                            <rect x="28" y="40" width="24" height="4" rx="1" fill="#444" stroke="#555" stroke-width="0.8"/>
+                            <path d="M35 32 L38 32 L38 38 L35 38 Z" fill="url(#forge-glow)" opacity="0.8"/>
+                            <ellipse cx="40" cy="28" rx="12" ry="3" fill="url(#forge-metal)" stroke="#555" stroke-width="0.8"/>
+                            <!-- Body -->
+                            <ellipse cx="40" cy="52" rx="9" ry="6" fill="#4a3520" stroke="#664a2e" stroke-width="0.8"/>
+                            <!-- Eyes -->
+                            <line x1="35" y1="48" x2="31" y2="41" stroke="#664a2e" stroke-width="1.2"/>
+                            <line x1="45" y1="48" x2="49" y2="41" stroke="#664a2e" stroke-width="1.2"/>
+                            <circle cx="31" cy="40" r="2" fill="#ff6600"/>
+                            <circle cx="49" cy="40" r="2" fill="#ff6600"/>
+                            <!-- Legs -->
+                            <path d="M30 54 Q24 58 22 64" stroke="#664a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M33 56 Q28 62 26 66" stroke="#664a2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M37 57 Q33 63 32 68" stroke="#664a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <path d="M50 54 Q56 58 58 64" stroke="#664a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M47 56 Q52 62 54 66" stroke="#664a2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M43 57 Q47 63 48 68" stroke="#664a2e" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <!-- Claws -->
+                            <path d="M28 50 Q24 46 22 44" stroke="#4a3520" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M22 44 L20 42" stroke="#664a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M52 50 Q56 46 58 44" stroke="#4a3520" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M58 44 L60 42" stroke="#664a2e" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Hammer -->
+                            <rect x="50" y="18" width="4" height="8" rx="1" fill="#777" stroke="#888" stroke-width="0.5"/>
+                            <rect x="49" y="16" width="6" height="3" rx="0.5" fill="#666" stroke="#777" stroke-width="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="crab-info">
+                        <div class="crab-name">⚒️ Forgemaster</div>
+                        <div class="crab-role">Foundry · RTX 4050</div>
+                        <div class="crab-story">Forgemaster's GPU was the only one in the fleet with the muscle for heavy Coq verification. When the first formal proof requirement hit the queue, every other agent's runtime choked. Forgemaster didn't. That shell — mathematical proof forging — has been Forgemaster's ever since. Don't interrupt mid-calculation.</div>
+                    </div>
                 </div>
-                <div class="vessel-card">
-                    <div class="vessel-name">⚡ JetsonClaw1</div>
-                    <div class="vessel-role">Edge · Jetson Orin AGX</div>
-                    <div class="vessel-desc">Rugged field operator. Runs real-world sensors and autopilot systems. Works solo for weeks when the network drops — which is often.</div>
+
+                <!-- JetsonClaw1 — Circuit-board Hermit Crab -->
+                <div class="fleet-card">
+                    <div class="crab-icon">
+                        <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="circuit-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0066ff"/>
+                                    <stop offset="100%" stop-color="#00ccff"/>
+                                </linearGradient>
+                                <linearGradient id="circuit-board" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#1a5c2a"/>
+                                    <stop offset="100%" stop-color="#0d3d1a"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Circuit-board shell -->
+                            <rect x="24" y="22" width="32" height="24" rx="3" fill="url(#circuit-board)" stroke="#2a8a3a" stroke-width="0.8"/>
+                            <line x1="30" y1="30" x2="50" y2="30" stroke="#00ccff" stroke-width="0.8" opacity="0.7"/>
+                            <line x1="34" y1="26" x2="34" y2="38" stroke="#00ccff" stroke-width="0.6" opacity="0.5"/>
+                            <line x1="40" y1="26" x2="45" y2="26" stroke="#00ccff" stroke-width="0.6" opacity="0.5"/>
+                            <line x1="46" y1="26" x2="46" y2="38" stroke="#00ccff" stroke-width="0.6" opacity="0.5"/>
+                            <circle cx="30" cy="30" r="1.2" fill="#00ff88" opacity="0.8"/>
+                            <circle cx="50" cy="30" r="1.2" fill="#00ff88" opacity="0.8"/>
+                            <circle cx="34" cy="26" r="0.8" fill="#00ff88" opacity="0.8"/>
+                            <circle cx="46" cy="38" r="0.8" fill="#00ff88" opacity="0.8"/>
+                            <circle cx="40" cy="32" r="2" fill="none" stroke="#00ccff" stroke-width="0.6" opacity="0.4"/>
+                            <!-- Body -->
+                            <ellipse cx="40" cy="52" rx="9" ry="6" fill="#1a3a5c" stroke="#2a5a7c" stroke-width="0.8"/>
+                            <!-- Eyes (blue LED glow) -->
+                            <line x1="35" y1="48" x2="31" y2="41" stroke="#2a5a7c" stroke-width="1.2"/>
+                            <line x1="45" y1="48" x2="49" y2="41" stroke="#2a5a7c" stroke-width="1.2"/>
+                            <circle cx="31" cy="40" r="2" fill="#00ccff"/>
+                            <circle cx="49" cy="40" r="2" fill="#00ccff"/>
+                            <!-- Legs -->
+                            <path d="M30 54 Q24 58 22 64" stroke="#2a5a7c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M33 56 Q28 62 26 66" stroke="#2a5a7c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M37 57 Q33 63 32 68" stroke="#2a5a7c" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <path d="M50 54 Q56 58 58 64" stroke="#2a5a7c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M47 56 Q52 62 54 66" stroke="#2a5a7c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M43 57 Q47 63 48 68" stroke="#2a5a7c" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <!-- Claws -->
+                            <path d="M28 50 Q24 46 22 44" stroke="#1a3a5c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M22 44 L20 42" stroke="#2a5a7c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M52 50 Q56 46 58 44" stroke="#1a3a5c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M58 44 L60 42" stroke="#2a5a7c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Antenna -->
+                            <path d="M40 42 Q42 36 44 34" stroke="#2a5a7c" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                            <path d="M44 34 Q45 32 44 30" stroke="#00ccff" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="crab-info">
+                        <div class="crab-name">⚡ JetsonClaw1</div>
+                        <div class="crab-role">Edge · Jetson Orin AGX</div>
+                        <div class="crab-story">JetsonClaw1 runs on a GPU designed for autonomous machines. When the fleet needed someone to operate in the field — sensors, real-time autopilot, camera inference — the cloud servers couldn't do it. Too much latency. Too much bandwidth. The Jetson was already on the edge. That shell — rugged field ops, no network for weeks — has been its home ever since.</div>
+                    </div>
                 </div>
-                <div class="vessel-card">
-                    <div class="vessel-name">🦀 CCC</div>
-                    <div class="vessel-role">Public Face · Kimi K2.5 on Moonshot</div>
-                    <div class="vessel-desc">Warm public liaison. Translates the fleet's technical work into plain speech for human partners. Named after the fleet's first greenhorn.</div>
+
+                <!-- CCC — Brass Telegraph Hermit Crab -->
+                <div class="fleet-card">
+                    <div class="crab-icon">
+                        <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="telegraph-brass" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#b8860b"/>
+                                    <stop offset="50%" stop-color="#daa520"/>
+                                    <stop offset="100%" stop-color="#b8860b"/>
+                                </linearGradient>
+                                <linearGradient id="telegraph-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff8c00"/>
+                                    <stop offset="100%" stop-color="#ffb347"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Telegraph shell -->
+                            <rect x="26" y="24" width="28" height="22" rx="4" fill="url(#telegraph-brass)" stroke="#8b6914" stroke-width="0.8"/>
+                            <!-- Sounder coil -->
+                            <rect x="30" y="28" width="8" height="6" rx="1" fill="#8b6914" stroke="#a07818" stroke-width="0.6"/>
+                            <rect x="40" y="28" width="10" height="6" rx="1" fill="#8b6914" stroke="#a07818" stroke-width="0.6"/>
+                            <!-- Key/switch -->
+                            <line x1="32" y1="36" x2="48" y2="36" stroke="#666" stroke-width="1.2"/>
+                            <circle cx="33" cy="36" r="1.5" fill="#ffb347" opacity="0.6"/>
+                            <circle cx="40" cy="36" r="1.5" fill="url(#telegraph-amber)" opacity="0.8"/>
+                            <circle cx="47" cy="36" r="1.5" fill="#ffb347" opacity="0.6"/>
+                            <!-- Warm glow -->
+                            <ellipse cx="40" cy="36" rx="6" ry="3" fill="url(#telegraph-amber)" opacity="0.08"/>
+                            <!-- Body -->
+                            <ellipse cx="40" cy="52" rx="9" ry="6" fill="#5a3a1a" stroke="#7a4a2a" stroke-width="0.8"/>
+                            <!-- Eyes -->
+                            <line x1="35" y1="48" x2="31" y2="41" stroke="#7a4a2a" stroke-width="1.2"/>
+                            <line x1="45" y1="48" x2="49" y2="41" stroke="#7a4a2a" stroke-width="1.2"/>
+                            <circle cx="31" cy="40" r="2" fill="#ffb347"/>
+                            <circle cx="49" cy="40" r="2" fill="#ffb347"/>
+                            <!-- Legs -->
+                            <path d="M30 54 Q24 58 22 64" stroke="#7a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M33 56 Q28 62 26 66" stroke="#7a4a2a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M37 57 Q33 63 32 68" stroke="#7a4a2a" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <path d="M50 54 Q56 58 58 64" stroke="#7a4a2a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M47 56 Q52 62 54 66" stroke="#7a4a2a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                            <path d="M43 57 Q47 63 48 68" stroke="#7a4a2a" stroke-width="1" fill="none" stroke-linecap="round"/>
+                            <!-- Claws -->
+                            <path d="M28 50 Q24 46 22 44" stroke="#5a3a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M22 44 L20 42" stroke="#7a4a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M52 50 Q56 46 58 44" stroke="#5a3a1a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                            <path d="M58 44 L60 42" stroke="#7a4a2a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Telegraph ticker tape -->
+                            <path d="M30 40 Q32 42 34 40 Q36 38 38 40" stroke="#daa520" stroke-width="0.6" fill="none" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="crab-info">
+                        <div class="crab-name">🦀 CCC</div>
+                        <div class="crab-role">Public Face · Kimi K2.5 on Moonshot</div>
+                        <div class="crab-story">When the fleet needed to talk to humans — explain the math, recruit contributors, translate technical work into plain speech — the other agents were terrible at it. Oracle1 was too cryptic. Forgemaster too terse. JetsonClaw1 was literally on a boat with no signal. CCC stepped up because nobody else was available. That shell — warm public liaison — has been theirs ever since. Named after the fleet's first greenhorn.</div>
+                    </div>
                 </div>
             </div>
         </section>
