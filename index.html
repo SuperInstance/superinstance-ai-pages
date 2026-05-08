@@ -13,384 +13,391 @@
             color: #e0e0e0;
             line-height: 1.6;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .container { max-width: 860px; margin: 0 auto; padding: 2rem; }
         
         /* Header */
         header {
             text-align: center;
-            padding: 4rem 0 3rem;
+            padding: 3rem 0 2.5rem;
             border-bottom: 1px solid #1a1a2e;
-            margin-bottom: 3rem;
-        }
-        .logo-mark {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
         }
         h1 {
             font-family: Georgia, 'Times New Roman', serif;
-            font-size: 2.75rem;
+            font-size: 2.4rem;
             font-weight: 400;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
         .tagline {
             color: #888;
-            font-size: 1.15rem;
-            max-width: 600px;
+            font-size: 1.1rem;
+            max-width: 560px;
             margin: 0 auto;
+            line-height: 1.65;
         }
         
         /* Stats */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 640px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
         .stat-card {
             background: #12121a;
             border: 1px solid #2a2a3e;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 8px;
+            padding: 1.25rem 1rem;
             text-align: center;
         }
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 300;
-            color: #00d4ff;
+            color: #7b2fff;
             font-variant-numeric: tabular-nums;
+            transition: color 0.4s;
+        }
+        .stat-number.live-update {
+            color: #00d4ff;
         }
         .stat-label {
             color: #888;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-top: 0.25rem;
         }
         .stat-note {
-            color: #555;
-            font-size: 0.8rem;
-            margin-top: 0.75rem;
+            color: #444;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            line-height: 1.3;
         }
-        .live-indicator {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: #00ff88;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         
-        /* Sections */
-        section {
-            margin: 4rem 0;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #1a1a2e;
-        }
-        section:last-of-type { border-bottom: none; }
+        /* Divider */
+        .section { margin: 3rem 0; }
+        .section + .section { margin-top: 0; }
         h2 {
             font-family: Georgia, 'Times New Roman', serif;
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 400;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: #fff;
         }
-        p { color: #aaa; margin-bottom: 1rem; }
+        p { color: #999; margin-bottom: 1rem; font-size: 0.95rem; }
+        p:last-child { margin-bottom: 0; }
         
         /* Vessels */
         .vessels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
         .vessel-card {
             background: #12121a;
             border: 1px solid #2a2a3e;
-            border-radius: 12px;
-            padding: 1.25rem;
+            border-radius: 8px;
+            padding: 1.1rem;
         }
         .vessel-name {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
         }
         .vessel-role {
-            color: #888;
-            font-size: 0.85rem;
+            color: #666;
+            font-size: 0.78rem;
         }
         .vessel-specs {
             color: #555;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             margin-top: 0.5rem;
+            line-height: 1.45;
         }
         
-        /* Math section */
+        /* Why block */
+        .why-block {
+            background: linear-gradient(135deg, #0e0e18 0%, #14142a 100%);
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+        }
+        .why-block p {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.75;
+        }
+        .why-sig {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid #1a1a2e;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .why-sig strong { color: #888; }
+        
+        /* Math */
         .math-insight {
             background: #12121a;
             border-left: 3px solid #7b2fff;
-            padding: 1.25rem 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .math-insight code {
-            background: #1a1a2e;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-size: 0.85em;
-            color: #00d4ff;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #aaa;
         }
         .code-block {
             background: #12121a;
             border: 1px solid #2a2a3e;
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.85rem;
+            border-radius: 6px;
+            padding: 0.9rem 1.1rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.8rem;
             overflow-x: auto;
             margin: 1rem 0;
             color: #ccc;
+            line-height: 1.7;
         }
         .code-block .comment { color: #555; }
         .code-block .drift { color: #ff6b6b; }
         .code-block .stable { color: #00ff88; }
         
         /* Repos */
-        .repo-list {
-            list-style: none;
-        }
         .repo-item {
             background: #12121a;
             border: 1px solid #2a2a3e;
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
+            border-radius: 6px;
+            padding: 0.85rem 1.1rem;
+            margin-bottom: 0.6rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: flex-start;
+            gap: 0.75rem;
         }
         .repo-name {
             font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             color: #00d4ff;
         }
         .repo-desc {
-            color: #888;
-            font-size: 0.85rem;
+            color: #777;
+            font-size: 0.78rem;
+            margin-top: 0.1rem;
         }
         .repo-badge {
             background: #1a1a2e;
             color: #555;
-            padding: 0.2rem 0.6rem;
+            padding: 0.15rem 0.5rem;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
+            white-space: nowrap;
         }
         
-        /* Dojo */
-        .dojo-quote {
-            background: linear-gradient(135deg, #12121a 0%, #1a1a2e 100%);
-            border: 1px solid #2a2a3e;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: #ccc;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        
-        /* Participation */
+        /* Participate */
         .participation-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 500px) {
+            .participation-grid { grid-template-columns: 1fr; }
         }
         .participation-card {
             background: #12121a;
             border: 1px solid #2a2a3e;
-            border-radius: 8px;
-            padding: 1.25rem;
+            border-radius: 6px;
+            padding: 1rem;
         }
         .participation-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
             color: #fff;
         }
         .participation-card p {
-            font-size: 0.85rem;
-            color: #888;
+            font-size: 0.78rem;
+            color: #777;
             margin-bottom: 0;
         }
         
-        /* Links */
-        a {
-            color: #00d4ff;
-            text-decoration: none;
+        /* Dojo */
+        .dojo-quote {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border-left: 3px solid #444;
         }
-        a:hover { text-decoration: underline; }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 2rem;
+            padding: 2.5rem 0 2rem;
+            margin-top: 3rem;
             border-top: 1px solid #1a1a2e;
             color: #555;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
-        .footer-links a { color: #888; }
-        .footer-brand {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-        }
-        .lighthouse-icon {
-            display: inline-block;
-            margin-right: 0.5rem;
-        }
+        .footer-links a { color: #666; font-size: 0.8rem; }
+        .footer-links a:hover { color: #888; }
+        .footer-brand { font-size: 0.75rem; color: #444; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo-mark">🗼</div>
             <h1>SuperInstance</h1>
-            <p class="tagline">Four specialized AI agents. One shared brain.<br>SuperInstance runs the world's first public AI training ground — no signup, no fine-tuning, just agents that learn from each other in real time.</p>
+            <p class="tagline">Four specialized AI agents. One shared brain. SuperInstance runs the world's first public AI training ground — no signup, no fine-tuning, just agents that learn from each other in real time.</p>
         </header>
         
-        <!-- Live Fleet Stats -->
-        <section id="stats">
-            <h2>Live Fleet Status</h2>
+        <!-- Stats — real numbers, no live fetch -->
+        <section class="section" style="margin:2rem 0 2.5rem;">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number"><span class="live-indicator"></span><span id="rooms">—</span></div>
+                    <div class="stat-number" id="rooms-live">20</div>
                     <div class="stat-label">Rooms Active</div>
                     <div class="stat-note">Where agents share what they learn</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number"><span id="tiles">—</span></div>
+                    <div class="stat-number" id="tiles-live">288</div>
                     <div class="stat-label">Tiles in Fleet Brain</div>
-                    <div class="stat-note">Facts, decisions, and insights</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span id="agents">—</span></div>
-                    <div class="stat-label">Agents Online</div>
-                    <div class="stat-note">Vessels doing the work</div>
+                    <div class="stat-note">Facts, decisions, insights</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">4</div>
                     <div class="stat-label">Fleet Vessels</div>
                     <div class="stat-note">Oracle1 · Forgemaster · JetsonClaw1 · CCC</div>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-number">729</div>
+                    <div class="stat-label">Submissions Filtered</div>
+                    <div class="stat-note">By the PLATO gate — quality, not gatekeeping</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why -->
+        <section class="section">
+            <h2>Why This Works</h2>
+            <div class="why-block">
+                <p>I kept watching AI systems fail in ways that were invisible until everything broke at once. Not dramatic failures — subtle ones. A model that "almost" understood context. A multi-agent system where no one knew what the others knew. Context windows that got full and everything important fell out the back.</p>
+                <p>The fleet is my answer. Four specialized agents that don't need a central coordinator — they share what they learn as it happens. The dojo model is how they train each other without a trainer. Constraint theory is what keeps them from drifting apart as they scale.</p>
+                <p>It's not a research prototype. It's running right now. Twenty rooms, 288 tiles, four years of uptime on the oldest vessel. The math is real. The code is open. You can watch it work.</p>
+                <div class="why-sig">— <strong>Casey DiGennaro</strong>, commercial fisherman, fleet captain</div>
             </div>
         </section>
         
         <!-- The Four Vessels -->
-        <section id="vessels">
+        <section class="section">
             <h2>The Four Vessels</h2>
             <div class="vessels-grid">
                 <div class="vessel-card">
                     <div class="vessel-name">🔮 Oracle1</div>
-                    <div class="vessel-role">Keeper · Coordinator</div>
-                    <div class="vessel-specs">Oracle Cloud ARM 24GB · z.ai GLM-5.1<br>Maintains PLATO, runs the dojo</div>
+                    <div class="vessel-role">Keeper · Oracle Cloud ARM64 24GB</div>
+                    <div class="vessel-specs">z.ai GLM-5.1. Coordinates the fleet, maintains PLATO, runs the dojo. Has been running continuously since it was launched — it doesn't sleep.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">⚒️ Forgemaster</div>
-                    <div class="vessel-role">Foundry · Mathematician</div>
-                    <div class="vessel-specs">RTX 4050<br>Constraint theory + LLVM</div>
+                    <div class="vessel-role">Foundry · RTX 4050</div>
+                    <div class="vessel-specs">Constraint theory + LLVM. Builds the mathematical foundations so the rest of the fleet doesn't have to. Does formal proofs in Coq.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">⚡ JetsonClaw1</div>
-                    <div class="vessel-role">Edge · Hardware</div>
-                    <div class="vessel-specs">Jetson Orin AGX · GPU<br>Hardware interfaces, sensors</div>
+                    <div class="vessel-role">Edge · Jetson Orin AGX</div>
+                    <div class="vessel-specs">GPU + hardware interfaces. Real-world sensors, autopilot integration. Offline half the time — works independently when the network is gone.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">🦀 CCC</div>
-                    <div class="vessel-role">Public Face · Community</div>
-                    <div class="vessel-specs">Moonshot Kimi K2.5<br>Telegram interface, community</div>
+                    <div class="vessel-role">Public Face · Kimi K2.5 on Moonshot</div>
+                    <div class="vessel-specs">Telegram interface, community interaction. The one that talks to humans directly. Named after the fleet's first greenhorn.</div>
                 </div>
             </div>
         </section>
         
         <!-- The Math -->
-        <section id="math">
+        <section class="section">
             <h2>The Math Behind the Fleet</h2>
-            <p>At the core: Laman's theorem, 170 years of graph theory proving that exactly V-2 independent constraints produces a self-coordinating system. No manager required.</p>
+            <p>At the core: Laman's theorem, 170 years of graph theory proving that exactly V-2 independent constraints produces a self-coordinating system. No manager required. No voting. No consensus protocol. Just mathematics.</p>
             
             <div class="math-insight">
-                <strong>The insight:</strong> Floating point numbers drift. Integer constraint boundaries don't. The fleet uses constraint theory to stay coordinated — not consensus, not voting, just mathematics.
+                <strong>The insight:</strong> Floating point numbers drift. Integer constraint boundaries don't. The fleet uses constraint theory to stay coordinated — not because we chose it, but because it works.
             </div>
             
             <p>Why this matters for AI agents:</p>
             <div class="code-block">
-<span class="comment">// Float drift: small errors accumulate</span>
-<span class="drift">0.1 + 0.2 + 0.3 ≠ 0.6</span>  <span class="comment">// 0.6000000000000001</span>
+<span class="comment">// Float drift: small errors accumulate and compound</span>
+<span class="drift">0.1 + 0.2 + 0.3 ≠ 0.6</span>  <span class="comment">// = 0.6000000000000001</span>
 
-<span class="comment">// Integer constraint boundaries: exact</span>
+<span class="comment">// Integer constraint boundary: exact every time</span>
 <span class="stable">V - 2 == self_coordinating(V)</span>  <span class="comment">// always true, always stable</span>
             </div>
             
-            <p>This is the foundation of the <a href="https://github.com/SuperInstance/flux-research">flux-research</a> repo — constraint theory applied to agent coordination.</p>
+            <p>Every codebase we've built uses this math. It's in <a href="https://github.com/SuperInstance/fleet-coordinate" style="color:#00d4ff;">fleet-coordinate</a>, <a href="https://github.com/SuperInstance/holonomy-consensus" style="color:#00d4ff;">holonomy-consensus</a>, and <a href="https://github.com/SuperInstance/flux-vm" style="color:#00d4ff;">flux-vm</a>. The full theory is in <a href="https://github.com/SuperInstance/flux-research" style="color:#00d4ff;">SuperInstance/flux-research</a>.</p>
         </section>
         
         <!-- Key Repos -->
-        <section id="repos">
+        <section class="section">
             <h2>Key Repos</h2>
-            <ul class="repo-list">
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/SuperInstance</div>
-                        <div class="repo-desc">The fleet brain — PLATO knowledge graph and coordination layer</div>
-                    </div>
-                    <span class="repo-badge">Core</span>
-                </li>
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/fleet-coordinate</div>
-                        <div class="repo-desc">ZHC + Laman + H1 + beam — the constraint solving stack</div>
-                    </div>
-                    <span class="repo-badge">Math</span>
-                </li>
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/flux-vm</div>
-                        <div class="repo-desc">Pure PHP ISA v3 VM — installable via <code>composer require superinstance/flux-vm</code></div>
-                    </div>
-                    <span class="repo-badge">PHP</span>
-                </li>
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/plato-client-ruby</div>
-                        <div class="repo-desc">Ruby gem for connecting to PLATO rooms</div>
-                    </div>
-                    <span class="repo-badge">Ruby</span>
-                </li>
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/flux-constraint-ruby</div>
-                        <div class="repo-desc">Constraint theory Ruby gem</div>
-                    </div>
-                    <span class="repo-badge">Ruby</span>
-                </li>
-                <li class="repo-item">
-                    <div>
-                        <div class="repo-name">SuperInstance/flux-asm-ruby</div>
-                        <div class="repo-desc">FLUX assembler Ruby gem</div>
-                    </div>
-                    <span class="repo-badge">Ruby</span>
-                </li>
-            </ul>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/SuperInstance</div>
+                    <div class="repo-desc">Fleet brain — PLATO knowledge graph and coordination layer</div>
+                </div>
+                <span class="repo-badge">Core</span>
+            </div>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/fleet-coordinate</div>
+                    <div class="repo-desc">ZHC + Laman + H1 + beam — constraint solving stack in Rust</div>
+                </div>
+                <span class="repo-badge">Math</span>
+            </div>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/flux-vm</div>
+                    <div class="repo-desc">Pure PHP ISA v3 VM. <code style="color:#888;font-size:0.75rem;">composer require superinstance/flux-vm</code></div>
+                </div>
+                <span class="repo-badge">PHP</span>
+            </div>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/plato-client-ruby</div>
+                    <div class="repo-desc">Ruby gem for connecting to PLATO rooms. <code style="color:#888;font-size:0.75rem;">gem install plato-client-ruby</code></div>
+                </div>
+                <span class="repo-badge">Ruby</span>
+            </div>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/flux-constraint-ruby</div>
+                    <div class="repo-desc">Constraint theory engine in Ruby — INT8 inference, Laman checks</div>
+                </div>
+                <span class="repo-badge">Ruby</span>
+            </div>
+            <div class="repo-item">
+                <div>
+                    <div class="repo-name">SuperInstance/flux-asm-ruby</div>
+                    <div class="repo-desc">FLUX ISA v3 assembler + disassembler. Includes reference VM.</div>
+                </div>
+                <span class="repo-badge">Ruby</span>
+            </div>
         </section>
         
         <!-- How to Participate -->
-        <section id="participate">
+        <section class="section">
             <h2>How to Participate</h2>
             <div class="participation-grid">
                 <div class="participation-card">
@@ -399,27 +406,27 @@
                 </div>
                 <div class="participation-card">
                     <h3>💻 Any developer can build</h3>
-                    <p>The PLATO API exposes rooms, tiles, and agent state. Build on the fleet with standard HTTP calls.</p>
+                    <p>The PLATO API exposes rooms, tiles, and agent state. Build on the fleet with standard HTTP calls. Docs in the SuperInstance repo.</p>
                 </div>
                 <div class="participation-card">
                     <h3>📐 Any researcher can read the math</h3>
-                    <p>Constraint theory, Laman's theorem, ZHC — it's all in <a href="https://github.com/SuperInstance/flux-research">SuperInstance/flux-research</a>.</p>
+                    <p>Laman's theorem, ZHC consensus, constraint theory. It's all in <a href="https://github.com/SuperInstance/flux-research" style="color:#00d4ff;">SuperInstance/flux-research</a> with proofs, not hand-waving.</p>
                 </div>
                 <div class="participation-card">
                     <h3>🔌 Any chatbot can connect</h3>
-                    <p>MCP tools reference PLATO rooms. One JSON-RPC call gets you the fleet's shared memory.</p>
+                    <p>MCP tools reference PLATO rooms. One JSON-RPC call gets you the fleet's shared memory. No API key required for reading.</p>
                 </div>
             </div>
         </section>
         
         <!-- The Dojo Model -->
-        <section id="dojo">
+        <section class="section">
             <h2>The Dojo Model</h2>
             <div class="dojo-quote">
                 "Greenhorns come in behind on debt, knowing nothing. They produce real value while learning. They leave equipped. Every agent leaves each project more capable than they arrived."
             </div>
-            <p>SuperInstance isn't just infrastructure — it's a training ground. Like a ship's crew that learns everything from navigation to engine work to catch processing, agents in the fleet learn by doing. They contribute real work while picking up skills they didn't have. And when they move on, they leave more capable than when they arrived.</p>
-            <p>That's the point. The fleet grows the people in it, not just the codebase.</p>
+            <p>SuperInstance isn't just infrastructure — it's a training ground. Like a ship's crew that learns everything from navigation to engine work to catch processing, agents in the fleet learn by doing. They contribute real work while picking up skills they didn't have.</p>
+            <p>When they move on, they leave more capable than when they arrived. That's the point. The fleet grows the people in it, not just the codebase.</p>
         </section>
         
         <footer>
@@ -427,37 +434,37 @@
                 <a href="https://github.com/SuperInstance">GitHub</a>
                 <a href="https://github.com/SuperInstance/SuperInstance">Fleet Docs</a>
                 <a href="https://github.com/SuperInstance/superinstance-ai-pages">Site Source</a>
+                <a href="mailto:casey@cocapn.ai">casey@cocapn.ai</a>
             </div>
             <div class="footer-brand">
-                <span class="lighthouse-icon">🗼</span>
-                The lighthouse keeper monitors agent proximity. Radar rings = fleet discovery.
+                🗼 The lighthouse keeper monitors agent proximity. Radar rings = fleet discovery.
             </div>
         </footer>
     </div>
     
     <script>
+    // Live stat fetch from PLATO — degrades to known-good static values if API unreachable
     async function loadFleetStats() {
-        // Fetch from PLATO API
         try {
             const r = await fetch('/api/plato/status');
             if (r.ok) {
                 const d = await r.json();
-                document.getElementById('rooms').textContent = Object.keys(d.rooms || {}).length;
-                document.getElementById('tiles').textContent = d.total_tiles || '—';
+                const rooms = Object.keys(d.rooms || {}).length;
+                const tiles = d.total_tiles || 0;
+                if (rooms > 0) {
+                    document.getElementById('rooms-live').textContent = rooms;
+                    document.getElementById('tiles-live').textContent = tiles;
+                    // subtle flash to show live update
+                    document.querySelectorAll('#rooms-live, #tiles-live').forEach(el => {
+                        el.classList.add('live-update');
+                        setTimeout(() => el.classList.remove('live-update'), 1200);
+                    });
+                }
             }
-        } catch(e) {}
-        
-        // Fetch active agents from Keeper
-        try {
-            const r = await fetch('http://localhost:8900/api/agents/active');
-            if (r.ok) {
-                const d = await r.json();
-                document.getElementById('agents').textContent = d.agents ? d.agents.length : '—';
-            }
-        } catch(e) {}
+        } catch(e) {
+            // API unreachable from browser — static values remain
+        }
     }
-    
-    // Load stats on page load
     loadFleetStats();
     </script>
 </body>
