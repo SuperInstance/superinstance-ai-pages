@@ -125,16 +125,28 @@ This is the #1 world-class blocker. A knowledge system that can't survive a rest
 
 ---
 
-## 9. Hardware — Designed But Unbuilt
+## 9. FPGA-First Hardware Path (Revised — No ASIC Until Proven)
 
-**Problem:** The CPA architecture is designed (906 lines), the P48 Verilog is written, the guard2mask GDSII pipeline is live. But no FPGA has been programmed, no silicon has been taped out.
+**Strategy:** Prove everything on FPGA before committing to silicon. The CPA architecture is designed (906 lines), the P48 Verilog is written, the guard2mask GDSII pipeline is live. The next step is NOT a $5M ASIC tapeout — it's perfecting the FPGA implementation and scaling through simulation.
 
-**What world-class looks like:**
-- Phase 1: FCP + PAU on Lattice iCE40UP5K ($50 eval board) — doable THIS QUARTER
-- Phase 2: guard2mask produces an actual GDSII that could be fabricated
-- Phase 3: 28nm MPW shuttle tapeout
+**Why FPGA-first:**
+- $50 Lattice iCE40UP5K runs FCP + PAU today
+- $250 KV260 runs full CPA emulation with headroom (6.3% fabric utilization)
+- Multiple FPGAs can be networked to simulate distributed CPA (no single point of failure)
+- FPGA is reprogrammable — wrong architecture choice costs weeks, not millions
+- The exact same FLUX bytecode runs on ESP32, Jetson, FPGA, and ASIC — proven at every step
+- ASIC tapeout happens ONLY when:
+  1. FPGA prototype proves the architecture in a real application
+  2. Volume demand justifies the NRE ($500K-$2M)
+  3. A customer pays for it
 
-**Priority:** P2 — The software stack must be solid before we commit to silicon.
+**What world-class looks like (FPGA path):**
+- Phase 1: FCP + PAU on Lattice iCE40UP5K — $50 eval board, doable THIS QUARTER
+- Phase 2: Multi-FPGA distributed CPA — 4 iCE40s simulating 128 constraint cores
+- Phase 3: guard2mask produces actual GDSII from FPGA-verified constraints
+- Phase 4: ASIC tapeout only when a customer or grant funds it
+
+**Priority:** P2 — But the FPGA prototype is the critical proof point.
 
 ---
 
