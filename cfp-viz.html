@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFP Room Visualizer · Pipeline Dashboard</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --purple: #7b2fff;
+    --cyan: #00d4ff;
+    --green: #00ff88;
+    --yellow: #ffd700;
+    --red: #ff4444;
+    --orange: #ff8800;
+    --text: #d0d0d0;
+    --text-dim: #808090;
+    --text-bright: #f0f0f0;
+    --card-radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* Category colors */
+  .cat-stack { border-left: 3px solid var(--cyan); }
+  .cat-arithmetic { border-left: 3px solid var(--green); }
+  .cat-compare { border-left: 3px solid var(--yellow); }
+  .cat-control { border-left: 3px solid var(--red); }
+  .cat-constraint { border-left: 3px solid var(--purple); }
+  .cat-a2a { border-left: 3px solid #ff66cc; }
+  .cat-unknown { border-left: 3px solid var(--text-dim); }
+
+  .header {
+    text-align: center;
+    padding: 30px 0 10px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-bright);
+  }
+
+  .header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    max-width: 960px;
+    margin: 24px auto;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 16px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+
+  .summary-card .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-bright);
+  }
+
+  .summary-card .label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .summary-card.purple .value { color: var(--purple); }
+  .summary-card.cyan .value { color: var(--cyan); }
+  .summary-card.green .value { color: var(--green); }
+
+  .opcode-chart {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 80px;
+    margin-top: 8px;
+    justify-content: center;
+  }
+
+  .opcode-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .opcode-bar {
+    width: 28px;
+    border-radius: 4px 4px 0 0;
+    min-height: 4px;
+    transition: height 0.3s;
+    cursor: default;
+    position: relative;
+  }
+
+  .opcode-bar-label {
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+  }
+
+  .opcode-bar-count {
+    font-size: 0.6rem;
+    color: var(--text-bright);
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    margin-bottom: 2px;
+  }
+
+  .section-title {
+    max-width: 1200px;
+    margin: 32px auto 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title .badge {
+    font-size: 0.72rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2px 10px;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  .tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .tile-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 16px;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tile-card:hover {
+    background: var(--surface-hover);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .tile-card .source-badge {
+    font-size: 0.68rem;
+    color: var(--purple);
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    margin-bottom: 4px;
+  }
+
+  .tile-card .question {
+    font-size: 0.85rem;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .tile-card .opcodes {
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .opcode-token {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    white-space: nowrap;
+  }
+
+  .opcode-token.push { color: var(--cyan); }
+  .opcode-token.add { color: var(--green); }
+  .opcode-token.sub { color: var(--green); }
+  .opcode-token.mul { color: var(--green); }
+  .opcode-token.div { color: var(--green); }
+  .opcode-token.cmp { color: var(--yellow); }
+  .opcode-token.je { color: var(--red); }
+  .opcode-token.jne { color: var(--red); }
+  .opcode-token.jmp { color: var(--red); }
+  .opcode-token.halt { color: var(--red); }
+  .opcode-token.inrange { color: var(--purple); }
+  .opcode-token.bound { color: var(--purple); }
+  .opcode-token.check { color: var(--purple); }
+  .opcode-token.broadcast { color: #ff66cc; }
+  .opcode-token.tell { color: #ff66cc; }
+  .opcode-token.norm { color: var(--green); }
+  .opcode-token.rot { color: var(--green); }
+  .opcode-token.eq { color: var(--yellow); }
+  .opcode-token.neq { color: var(--yellow); }
+  .opcode-token.gt { color: var(--yellow); }
+  .opcode-token.lt { color: var(--yellow); }
+  .opcode-token.assert { color: var(--purple); }
+  .opcode-token.data { color: var(--text-dim); }
+
+  .tile-card .meta {
+    margin-top: 8px;
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .pipeline-section {
+    max-width: 1200px;
+    margin: 40px auto 16px;
+  }
+
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .pipeline-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 18px;
+    backdrop-filter: blur(8px);
+  }
+
+  .pipeline-card h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 12px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+  }
+
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .stat-label { color: var(--text-dim); }
+  .stat-row .stat-value { color: var(--text-bright); font-weight: 500; }
+
+  .trust-score-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  .refresh-bar {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  .refresh-bar .countdown {
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  .error-banner {
+    background: rgba(255,68,68,0.12);
+    border: 1px solid var(--red);
+    border-radius: var(--card-radius);
+    padding: 14px 18px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--red);
+  }
+
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+
+  .loading .spinner {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--purple);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 12px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .agent-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .agent-row:last-child { border-bottom: none; }
+  .agent-name { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; font-size: 0.85rem; }
+  .agent-count { margin-left: auto; color: var(--text-dim); font-size: 0.82rem; }
+  .agent-bar {
+    width: 100px;
+    height: 6px;
+    background: var(--surface);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .agent-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--purple);
+    transition: width 0.3s;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .tiles-grid { grid-template-columns: 1fr; }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 1.3rem; }
+    .tile-card .opcodes { font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔮 CFP Room · Constraint Manifold</h1>
+  <p>Fleet Constraint Satisfaction · <span id="tile-count-header">—</span> tiles</p>
+</div>
+
+<div id="app">
+  <div class="loading">
+    <div class="spinner"></div>
+    <div>Loading constraint manifold…</div>
+  </div>
+</div>
+
+<script>
+(function() {
+'use strict';
+
+const API_URL = 'https://fleet.cocapn.ai/api/plato/room/cfp/tiles';
+const REFRESH_MS = 30000;
+
+// Opcode definitions
+const OPCODES = {
+  0x01: { mnemonic: 'PUSH', cat: 'stack' },
+  0x03: { mnemonic: 'ADD', cat: 'arithmetic' },
+  0x04: { mnemonic: 'SUB', cat: 'arithmetic' },
+  0x05: { mnemonic: 'MUL', cat: 'arithmetic' },
+  0x06: { mnemonic: 'DIV', cat: 'arithmetic' },
+  0x07: { mnemonic: 'CMP', cat: 'compare' },
+  0x08: { mnemonic: 'JE', cat: 'control' },
+  0x09: { mnemonic: 'JNE', cat: 'control' },
+  0x0A: { mnemonic: 'JMP', cat: 'control' },
+  0x0B: { mnemonic: 'HALT', cat: 'control' },
+  0x0C: { mnemonic: 'INRANGE', cat: 'constraint' },
+  0x0D: { mnemonic: 'BOUND', cat: 'constraint' },
+  0x0E: { mnemonic: 'CHECK', cat: 'constraint' },
+  0x0F: { mnemonic: 'BROADCAST', cat: 'a2a' },
+  0x10: { mnemonic: 'TELL', cat: 'a2a' },
+  0x11: { mnemonic: 'NORM', cat: 'arithmetic' },
+  0x12: { mnemonic: 'ROT', cat: 'arithmetic' },
+  0x20: { mnemonic: 'EQ', cat: 'compare' },
+  0x21: { mnemonic: 'NEQ', cat: 'compare' },
+  0x22: { mnemonic: 'GT', cat: 'compare' },
+  0x23: { mnemonic: 'LT', cat: 'compare' },
+  0x42: { mnemonic: 'ASSERT', cat: 'constraint' },
+};
+
+const CAT_COLORS = {
+  stack: '#00d4ff',
+  arithmetic: '#00ff88',
+  compare: '#ffd700',
+  control: '#ff4444',
+  constraint: '#7b2fff',
+  a2a: '#ff66cc',
+  unknown: '#808090',
+};
+
+const PUSH_ARGS = 2; // PUSH has 2 data bytes
+
+function decodeBytecode(hexStr) {
+  const bytes = hexStr.trim().split(/\s+/).map(b => parseInt(b, 16));
+  const tokens = [];
+  let i = 0;
+  while (i < bytes.length) {
+    const b = bytes[i];
+    const def = OPCODES[b];
+    if (def) {
+      if (b === 0x01) {
+        // PUSH: next 2 bytes are value
+        const hi = i + 1 < bytes.length ? bytes[i + 1] : 0;
+        const lo = i + 2 < bytes.length ? bytes[i + 2] : 0;
+        const val = (hi << 8) | lo;
+        tokens.push({ mnemonic: `PUSH ${val}`, cat: 'stack', raw: b });
+        i += 3;
+      } else {
+        tokens.push({ mnemonic: def.mnemonic, cat: def.cat, raw: b });
+        i += 1;
+      }
+    } else {
+      tokens.push({ mnemonic: `0x${b.toString(16).toUpperCase()}`, cat: 'unknown', raw: b });
+      i += 1;
+    }
+  }
+  return tokens;
+}
+
+function countOpcodes(tiles) {
+  const counts = {};
+  for (const tile of tiles) {
+    const tokens = decodeBytecode(tile.answer);
+    for (const t of tokens) {
+      const k = t.mnemonic.split(' ')[0]; // strip arg for PUSH
+      counts[k] = (counts[k] || 0) + 1;
+    }
+  }
+  return counts;
+}
+
+function getCategory(mnemonic) {
+  const key = mnemonic.startsWith('PUSH') ? 0x01 : Object.entries(OPCODES).find(([,v]) => v.mnemonic === mnemonic)?.[0];
+  if (key !== undefined && OPCODES[key]) return OPCODES[key].cat;
+  return 'unknown';
+}
+
+function formatTime(ts) {
+  const d = new Date(ts * 1000);
+  return d.toLocaleString();
+}
+
+function escapeHtml(s) {
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function shortenQuestion(q, maxLen = 70) {
+  if (q.length <= maxLen) return q;
+  return q.substring(0, maxLen) + '…';
+}
+
+function renderApp(data) {
+  const tiles = data.tiles || [];
+  const opcodeCounts = countOpcodes(tiles);
+  const topOpcodes = Object.entries(opcodeCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10);
+
+  // Count sources
+  const sources = {};
+  for (const t of tiles) {
+    const s = t.source || 'unknown';
+    sources[s] = (sources[s] || 0) + 1;
+  }
+
+  // Count by domain/tier
+  const byDomain = {};
+  for (const t of tiles) {
+    const d = t.domain || 'unknown';
+    byDomain[d] = (byDomain[d] || 0) + 1;
+  }
+
+  // Compute chain sizes
+  let totalChain = 0;
+  let maxChain = 0;
+  for (const t of tiles) {
+    const cs = t.provenance?.chain_size || 0;
+    totalChain += cs;
+    maxChain = Math.max(maxChain, cs);
+  }
+
+  const maxOpcodeCount = topOpcodes.length > 0 ? Math.max(...topOpcodes.map(o => o[1])) : 1;
+
+  // Count unique opcodes per tile for "Complexity" stat
+  const complexities = tiles.map(t => new Set(decodeBytecode(t.answer).filter(tok => tok.raw !== 0x42).map(tok => tok.mnemonic)).size);
+  const avgComplexity = complexities.length > 0 ? (complexities.reduce((a, b) => a + b, 0) / complexities.length).toFixed(1) : '—';
+
+  // GROUP TILES BY QUESTION for display dedup
+  const questionGroups = {};
+  for (const t of tiles) {
+    const q = t.question;
+    if (!questionGroups[q]) {
+      questionGroups[q] = { question: q, source: t.source, count: 0, latest: t, tiles: [] };
+    }
+    questionGroups[q].count++;
+    if (t.provenance?.timestamp > (questionGroups[q].latest.provenance?.timestamp || 0)) {
+      questionGroups[q].latest = t;
+    }
+    questionGroups[q].tiles.push(t);
+  }
+
+  const groups = Object.values(questionGroups).sort((a, b) => (b.latest.provenance?.timestamp || 0) - (a.latest.provenance?.timestamp || 0));
+
+  let html = '';
+
+  // === MANIFOLD SUMMARY ===
+  html += `<div class="summary-grid">`;
+  html += `<div class="summary-card purple"><div class="value">${tiles.length}</div><div class="label">Total Tiles</div></div>`;
+  html += `<div class="summary-card cyan"><div class="value">${Object.keys(sources).length}</div><div class="label">Active Agents</div></div>`;
+  html += `<div class="summary-card green"><div class="value">${Object.keys(opcodeCounts).length}</div><div class="label">Unique Opcodes</div></div>`;
+  html += `<div class="summary-card"><div class="value">${avgComplexity}</div><div class="label">Avg Complexity</div></div>`;
+  html += `<div class="summary-card"><div class="value">${maxChain.toLocaleString()}</div><div class="label">Max Chain Size</div></div>`;
+  html += `<div class="summary-card"><div class="value">${totalChain.toLocaleString()}</div><div class="label">Total Chain Size</div></div>`;
+  html += `</div>`;
+
+  // === TOP OPCODES BAR CHART ===
+  if (topOpcodes.length > 0) {
+    html += `<div class="summary-card" style="max-width:960px;margin:0 auto 20px;">`;
+    html += `<div class="label" style="margin-bottom:8px;">Top Opcodes</div>`;
+    html += `<div class="opcode-chart">`;
+    for (const [mnem, count] of topOpcodes) {
+      const cat = getCategory(mnem);
+      const color = CAT_COLORS[cat] || CAT_COLORS.unknown;
+      const pct = count / maxOpcodeCount * 100;
+      html += `<div class="opcode-bar-wrapper">`;
+      html += `<div class="opcode-bar-count">${count}</div>`;
+      html += `<div class="opcode-bar" style="height:${Math.max(4, pct * 0.7)}px;background:${color}" title="${mnem}: ${count}"></div>`;
+      html += `<div class="opcode-bar-label">${mnem}</div>`;
+      html += `</div>`;
+    }
+    html += `</div></div>`;
+  }
+
+  // === TILES SECTION ===
+  html += `<div class="section-title">Constraint Manifold <span class="badge">${groups.length} unique questions · ${tiles.length} total tiles</span></div>`;
+  html += `<div class="tiles-grid">`;
+
+  for (const group of groups) {
+    const latest = group.latest;
+    const tokens = decodeBytecode(latest.answer);
+
+    // Determine primary category
+    const cats = tokens.map(t => t.cat);
+    const primaryCat = cats.find(c => c !== 'stack') || 'stack';
+    const catClass = 'cat-' + primaryCat;
+
+    html += `<div class="tile-card ${catClass}">`;
+    html += `<div class="source-badge">${escapeHtml(latest.source)}</div>`;
+    html += `<div class="question" title="${escapeHtml(group.question)}">${escapeHtml(shortenQuestion(group.question))}</div>`;
+    html += `<div class="opcodes">`;
+    for (const tok of tokens) {
+      const cls = (tok.raw === 0x01 || tok.mnemonic.startsWith('PUSH')) ? 'push'
+        : (tok.cat === 'arithmetic' ? (['ADD','SUB','MUL','DIV'].some(p => tok.mnemonic.startsWith(p)) ? tok.mnemonic.split(' ')[0].toLowerCase() : 'norm')
+        : (tok.cat === 'compare' ? (['CMP','EQ','NEQ','GT','LT'].some(p => tok.mnemonic.startsWith(p)) ? tok.mnemonic.split(' ')[0].toLowerCase() : 'cmp')
+        : (tok.cat === 'control' ? (['JE','JNE','JMP','HALT'].some(p => tok.mnemonic.startsWith(p)) ? tok.mnemonic.split(' ')[0].toLowerCase() : 'jmp')
+        : (tok.cat === 'constraint' ? (['INRANGE','BOUND','CHECK','ASSERT'].some(p => tok.mnemonic.startsWith(p)) ? tok.mnemonic.split(' ')[0].toLowerCase() : 'check')
+        : (tok.cat === 'a2a' ? (['BROADCAST','TELL'].some(p => tok.mnemonic.startsWith(p)) ? tok.mnemonic.split(' ')[0].toLowerCase() : 'tell')
+        : 'data')))));
+      const colorCat = tok.cat;
+      html += `<span class="opcode-token ${cls}" style="color:${CAT_COLORS[colorCat] || '#808090'}">${escapeHtml(tok.mnemonic)}</span>`;
+    }
+    html += `</div>`;
+    html += `<div class="meta">`;
+    html += `<span>🧩 ${tokens.length} ops</span>`;
+    html += `<span>🔗 ${latest.provenance?.chain_size || '—'}</span>`;
+    html += `<span>🕐 ${latest.provenance?.timestamp ? formatTime(latest.provenance.timestamp) : '—'}</span>`;
+    if (group.count > 1) html += `<span>🔄 ${group.count} iterations</span>`;
+    html += `</div>`;
+    html += `</div>`;
+  }
+
+  html += `</div>`;
+
+  // === PIPELINE DASHBOARD ===
+  html += `<div class="pipeline-section">`;
+  html += `<div class="section-title">📊 Pipeline Dashboard</div>`;
+  html += `<div class="pipeline-grid">`;
+
+  // Card: Training Data
+  html += `<div class="pipeline-card"><h3>Training Data</h3>`;
+  html += `<div class="stat-row"><span class="stat-label">Total tiles</span><span class="stat-value">${tiles.length}</span></div>`;
+  for (const [domain, count] of Object.entries(byDomain).sort((a, b) => b[1] - a[1])) {
+    html += `<div class="stat-row"><span class="stat-label">  ${escapeHtml(domain)}</span><span class="stat-value">${count}</span></div>`;
+  }
+  html += `<div class="stat-row"><span class="stat-label">Avg confidence</span><span class="stat-value">${tiles.length > 0 ? (tiles.reduce((s, t) => s + (t.confidence || 0), 0) / tiles.length).toFixed(2) : '—'}</span></div>`;
+  html += `</div>`;
+
+  // Card: Agent Trust Scores
+  html += `<div class="pipeline-card"><h3>Agent Trust Scores</h3>`;
+  const maxSourceCount = Math.max(1, ...Object.values(sources));
+  for (const [agent, count] of Object.entries(sources).sort((a, b) => b[1] - a[1])) {
+    const pct = count / maxSourceCount * 100;
+    html += `<div class="agent-row">`;
+    html += `<span class="trust-score-dot" style="background:var(--green)"></span>`;
+    html += `<span class="agent-name">${escapeHtml(agent)}</span>`;
+    html += `<div class="agent-bar"><div class="agent-bar-fill" style="width:${pct}%"></div></div>`;
+    html += `<span class="agent-count">${count} tiles · ${(count / tiles.length * 100).toFixed(1)}%</span>`;
+    html += `</div>`;
+  }
+  html += `</div>`;
+
+  // Card: Growth
+  html += `<div class="pipeline-card"><h3>Growth Metrics</h3>`;
+  const timestamps = tiles.filter(t => t.provenance?.timestamp).map(t => t.provenance.timestamp);
+  const earliest = timestamps.length > 0 ? new Date(Math.min(...timestamps) * 1000) : null;
+  const latest = timestamps.length > 0 ? new Date(Math.max(...timestamps) * 1000) : null;
+  html += `<div class="stat-row"><span class="stat-label">First tile</span><span class="stat-value">${earliest ? earliest.toLocaleDateString() : '—'}</span></div>`;
+  html += `<div class="stat-row"><span class="stat-label">Latest tile</span><span class="stat-value">${latest ? latest.toLocaleDateString() : '—'}</span></div>`;
+  if (earliest && latest) {
+    const days = Math.max(1, (latest - earliest) / (1000 * 60 * 60 * 24));
+    html += `<div class="stat-row"><span class="stat-label">Span</span><span class="stat-value">${days.toFixed(1)} days</span></div>`;
+    html += `<div class="stat-row"><span class="stat-label">Tiles/day</span><span class="stat-value">${(tiles.length / days).toFixed(1)}</span></div>`;
+  }
+  html += `<div class="stat-row"><span class="stat-label">Total chain size</span><span class="stat-value">${totalChain.toLocaleString()}</span></div>`;
+  html += `</div>`;
+
+  // Card: Unique Questions
+  html += `<div class="pipeline-card"><h3>Question Diversity</h3>`;
+  html += `<div class="stat-row"><span class="stat-label">Unique questions</span><span class="stat-value">${groups.length}</span></div>`;
+  html += `<div class="stat-row"><span class="stat-label">Avg tiles/q</span><span class="stat-value">${(tiles.length / Math.max(1, groups.length)).toFixed(1)}</span></div>`;
+  const mostRepeat = groups.sort((a, b) => b.count - a.count)[0];
+  if (mostRepeat) {
+    html += `<div class="stat-row"><span class="stat-label">Most repeated</span><span class="stat-value" style="font-size:0.72rem;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeHtml(mostRepeat.question)}">${escapeHtml(shortenQuestion(mostRepeat.question, 30))}</span><span class="stat-value">×${mostRepeat.count}</span></div>`;
+  }
+  html += `</div>`;
+
+  html += `</div></div>`;
+
+  // Refresh bar
+  html += `<div class="refresh-bar">Next refresh in <span class="countdown" id="countdown">30</span>s</div>`;
+
+  document.getElementById('tile-count-header').textContent = tiles.length;
+  document.getElementById('app').innerHTML = html;
+}
+
+async function fetchTiles() {
+  const app = document.getElementById('app');
+  try {
+    const res = await fetch(API_URL, { signal: AbortSignal.timeout(10000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    renderApp(data);
+  } catch (err) {
+    app.innerHTML = `
+      <div class="error-banner">
+        ⚠️ Could not load constraint manifold<br>
+        <span style="font-size:0.78rem">${escapeHtml(err.message)}</span><br><br>
+        <button onclick="location.reload()" style="background:var(--purple);color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:0.85rem">Retry</button>
+      </div>`;
+  }
+}
+
+// Countdown timer
+let countdown = 30;
+setInterval(() => {
+  countdown--;
+  const el = document.getElementById('countdown');
+  if (el) el.textContent = Math.max(0, countdown);
+  if (countdown <= 0) {
+    countdown = 30;
+    fetchTiles();
+  }
+}, 1000);
+
+// Initial load
+fetchTiles();
+
+})();
+</script>
+</body>
+</html>
