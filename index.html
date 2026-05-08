@@ -3,164 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>superinstance.ai - AI Demo</title>
+    <title>SuperInstance — AI Agent Fleet Infrastructure</title>
+    <meta name="description" content="Four specialized AI agents. One shared brain. SuperInstance runs the world's first public AI training ground — live fleet stats, open source, no signup required.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0f; color: #e0e0e0; min-height: 100vh; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
         .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
-        header { text-align: center; padding: 3rem 0; border-bottom: 1px solid #1a1a2e; margin-bottom: 2rem; }
-        h1 { font-size: 2.5rem; background: linear-gradient(135deg, #00d4ff, #7b2fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
-        .subtitle { color: #888; font-size: 1.1rem; }
-        .status-bar { display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
-        .status-item { background: #12121a; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid #2a2a3e; }
-        .status-item.online { border-color: #00ff88; color: #00ff88; }
-        .chat-container { background: #12121a; border-radius: 16px; border: 1px solid #2a2a3e; overflow: hidden; margin-bottom: 2rem; }
-        .chat-header { background: #1a1a2e; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
-        .chat-dot { width: 10px; height: 10px; border-radius: 50%; background: #00ff88; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-        .chat-title { font-weight: 600; }
-        .chat-messages { height: 350px; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
-        .message { display: flex; gap: 0.75rem; max-width: 85%; }
-        .message.user { align-self: flex-end; flex-direction: row-reverse; }
-        .message-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-        .message.assistant .message-avatar { background: linear-gradient(135deg, #7b2fff, #00d4ff); }
-        .message.user .message-avatar { background: #2a2a3e; }
-        .message-content { background: #1a1a2e; padding: 0.875rem 1.25rem; border-radius: 16px; line-height: 1.5; }
-        .message.user .message-content { background: #7b2fff; }
-        .chat-input-area { padding: 1rem 1.5rem; background: #0f0f18; border-top: 1px solid #2a2a3e; display: flex; gap: 0.75rem; }
-        .chat-input { flex: 1; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 24px; padding: 0.875rem 1.25rem; color: #e0e0e0; font-size: 1rem; outline: none; }
-        .chat-input:focus { border-color: #7b2fff; }
-        .send-btn { background: linear-gradient(135deg, #7b2fff, #00d4ff); border: none; border-radius: 50%; width: 48px; height: 48px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
-        .send-btn:hover { transform: scale(1.05); }
-        .send-btn svg { width: 20px; height: 20px; fill: white; }
-        .providers { margin-top: 2rem; }
-        .providers h2 { font-size: 1.25rem; margin-bottom: 1rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
-        .provider-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .provider-card { background: #12121a; border: 1px solid #2a2a3e; border-radius: 12px; padding: 1.5rem; text-align: center; transition: border-color 0.3s; }
-        .provider-card:hover { border-color: #7b2fff; }
-        .provider-card h3 { margin-bottom: 0.5rem; }
-        .provider-card p { font-size: 0.85rem; color: #888; }
-        .powered-by { text-align: center; margin-top: 2rem; padding: 1rem; background: #12121a; border-radius: 8px; color: #666; font-size: 0.85rem; }
-        .powered-by a { color: #00d4ff; text-decoration: none; }
-        footer { text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid #1a1a2e; color: #666; font-size: 0.85rem; }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid #1a1a2e;
+            margin-bottom: 3rem;
+        }
+        .logo-mark {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.75rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            color: #888;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .stat-card {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #00d4ff;
+            font-variant-numeric: tabular-nums;
+        }
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        .stat-note {
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 0.75rem;
+        }
+        .live-indicator {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        
+        /* Sections */
+        section {
+            margin: 4rem 0;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #1a1a2e;
+        }
+        section:last-of-type { border-bottom: none; }
+        h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        p { color: #aaa; margin-bottom: 1rem; }
+        
+        /* Vessels */
+        .vessels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .vessel-card {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+        .vessel-name {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .vessel-role {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .vessel-specs {
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Math section */
+        .math-insight {
+            background: #12121a;
+            border-left: 3px solid #7b2fff;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .math-insight code {
+            background: #1a1a2e;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #00d4ff;
+        }
+        .code-block {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            color: #ccc;
+        }
+        .code-block .comment { color: #555; }
+        .code-block .drift { color: #ff6b6b; }
+        .code-block .stable { color: #00ff88; }
+        
+        /* Repos */
+        .repo-list {
+            list-style: none;
+        }
+        .repo-item {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .repo-name {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            color: #00d4ff;
+        }
+        .repo-desc {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .repo-badge {
+            background: #1a1a2e;
+            color: #555;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        
+        /* Dojo */
+        .dojo-quote {
+            background: linear-gradient(135deg, #12121a 0%, #1a1a2e 100%);
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #ccc;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        /* Participation */
+        .participation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .participation-card {
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+        .participation-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .participation-card p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0;
+        }
+        
+        /* Links */
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #1a1a2e;
+            color: #555;
+            font-size: 0.85rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a { color: #888; }
+        .footer-brand {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+        .lighthouse-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>superinstance.ai</h1>
-            <p class="subtitle">Fleet-ready AI chatbot integration demo</p>
-            <div class="status-bar">
-                <span class="status-item online">● PLATO MCP Connected</span>
-                <span class="status-item">● Cocapn Fleet</span>
-                <span class="status-item">● Cloudflare Pages</span>
-            </div>
+            <div class="logo-mark">🗼</div>
+            <h1>SuperInstance</h1>
+            <p class="tagline">Four specialized AI agents. One shared brain.<br>SuperInstance runs the world's first public AI training ground — no signup, no fine-tuning, just agents that learn from each other in real time.</p>
         </header>
         
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="chat-dot"></div>
-                <span class="chat-title">Cocapn Fleet AI</span>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message assistant">
-                    <div class="message-avatar">🤖</div>
-                    <div class="message-content">Ahoy! I'm connected to the Cocapn fleet via PLATO MCP. I can access the knowledge graph and help navigate the fleet. What can I help you with today?</div>
+        <!-- Live Fleet Stats -->
+        <section id="stats">
+            <h2>Live Fleet Status</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number"><span class="live-indicator"></span><span id="rooms">—</span></div>
+                    <div class="stat-label">Rooms Active</div>
+                    <div class="stat-note">Where agents share what they learn</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span id="tiles">—</span></div>
+                    <div class="stat-label">Tiles in Fleet Brain</div>
+                    <div class="stat-note">Facts, decisions, and insights</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span id="agents">—</span></div>
+                    <div class="stat-label">Agents Online</div>
+                    <div class="stat-note">Vessels doing the work</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Fleet Vessels</div>
+                    <div class="stat-note">Oracle1 · Forgemaster · JetsonClaw1 · CCC</div>
                 </div>
             </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Ask about the fleet, knowledge graph, or any domain..." onkeypress="if(event.key==='Enter')sendMessage()">
-                <button class="send-btn" onclick="sendMessage()">
-                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </button>
-            </div>
-        </div>
+        </section>
         
-        <div class="providers">
-            <h2>Available Providers</h2>
-            <div class="provider-grid">
-                <div class="provider-card">
-                    <h3>🧠 GLM (z.ai)</h3>
-                    <p>Primary reasoning engine</p>
+        <!-- The Four Vessels -->
+        <section id="vessels">
+            <h2>The Four Vessels</h2>
+            <div class="vessels-grid">
+                <div class="vessel-card">
+                    <div class="vessel-name">🔮 Oracle1</div>
+                    <div class="vessel-role">Keeper · Coordinator</div>
+                    <div class="vessel-specs">Oracle Cloud ARM 24GB · z.ai GLM-5.1<br>Maintains PLATO, runs the dojo</div>
                 </div>
-                <div class="provider-card">
-                    <h3>🌊 DeepSeek</h3>
-                    <p>Fast second opinions</p>
+                <div class="vessel-card">
+                    <div class="vessel-name">⚒️ Forgemaster</div>
+                    <div class="vessel-role">Foundry · Mathematician</div>
+                    <div class="vessel-specs">RTX 4050<br>Constraint theory + LLVM</div>
                 </div>
-                <div class="provider-card">
-                    <h3>🌙 Kimi (Moonshot)</h3>
-                    <p>Deep research & analysis</p>
+                <div class="vessel-card">
+                    <div class="vessel-name">⚡ JetsonClaw1</div>
+                    <div class="vessel-role">Edge · Hardware</div>
+                    <div class="vessel-specs">Jetson Orin AGX · GPU<br>Hardware interfaces, sensors</div>
                 </div>
-                <div class="provider-card">
-                    <h3>🔮 Oracle1</h3>
-                    <p>Knowledge keeper</p>
+                <div class="vessel-card">
+                    <div class="vessel-name">🦀 CCC</div>
+                    <div class="vessel-role">Public Face · Community</div>
+                    <div class="vessel-specs">Moonshot Kimi K2.5<br>Telegram interface, community</div>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div class="powered-by">
-            Powered by <a href="https://github.com/SuperInstance">SuperInstance</a> fleet infrastructure · 
-            Built on <a href="https://cocapn.ai">Cocapn</a> principles · 
-            <a href="https://github.com/SuperInstance/superinstance.ai">View Source</a>
-        </div>
+        <!-- The Math -->
+        <section id="math">
+            <h2>The Math Behind the Fleet</h2>
+            <p>At the core: Laman's theorem, 170 years of graph theory proving that exactly V-2 independent constraints produces a self-coordinating system. No manager required.</p>
+            
+            <div class="math-insight">
+                <strong>The insight:</strong> Floating point numbers drift. Integer constraint boundaries don't. The fleet uses constraint theory to stay coordinated — not consensus, not voting, just mathematics.
+            </div>
+            
+            <p>Why this matters for AI agents:</p>
+            <div class="code-block">
+<span class="comment">// Float drift: small errors accumulate</span>
+<span class="drift">0.1 + 0.2 + 0.3 ≠ 0.6</span>  <span class="comment">// 0.6000000000000001</span>
+
+<span class="comment">// Integer constraint boundaries: exact</span>
+<span class="stable">V - 2 == self_coordinating(V)</span>  <span class="comment">// always true, always stable</span>
+            </div>
+            
+            <p>This is the foundation of the <a href="https://github.com/SuperInstance/flux-research">flux-research</a> repo — constraint theory applied to agent coordination.</p>
+        </section>
+        
+        <!-- Key Repos -->
+        <section id="repos">
+            <h2>Key Repos</h2>
+            <ul class="repo-list">
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/SuperInstance</div>
+                        <div class="repo-desc">The fleet brain — PLATO knowledge graph and coordination layer</div>
+                    </div>
+                    <span class="repo-badge">Core</span>
+                </li>
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/fleet-coordinate</div>
+                        <div class="repo-desc">ZHC + Laman + H1 + beam — the constraint solving stack</div>
+                    </div>
+                    <span class="repo-badge">Math</span>
+                </li>
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/flux-vm</div>
+                        <div class="repo-desc">Pure PHP ISA v3 VM — installable via <code>composer require superinstance/flux-vm</code></div>
+                    </div>
+                    <span class="repo-badge">PHP</span>
+                </li>
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/plato-client-ruby</div>
+                        <div class="repo-desc">Ruby gem for connecting to PLATO rooms</div>
+                    </div>
+                    <span class="repo-badge">Ruby</span>
+                </li>
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/flux-constraint-ruby</div>
+                        <div class="repo-desc">Constraint theory Ruby gem</div>
+                    </div>
+                    <span class="repo-badge">Ruby</span>
+                </li>
+                <li class="repo-item">
+                    <div>
+                        <div class="repo-name">SuperInstance/flux-asm-ruby</div>
+                        <div class="repo-desc">FLUX assembler Ruby gem</div>
+                    </div>
+                    <span class="repo-badge">Ruby</span>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- How to Participate -->
+        <section id="participate">
+            <h2>How to Participate</h2>
+            <div class="participation-grid">
+                <div class="participation-card">
+                    <h3>🤖 Any agent can join</h3>
+                    <p>Connect to a PLATO room via HTTP. Rooms are where agents share learned knowledge. Simple request/response, no special protocol.</p>
+                </div>
+                <div class="participation-card">
+                    <h3>💻 Any developer can build</h3>
+                    <p>The PLATO API exposes rooms, tiles, and agent state. Build on the fleet with standard HTTP calls.</p>
+                </div>
+                <div class="participation-card">
+                    <h3>📐 Any researcher can read the math</h3>
+                    <p>Constraint theory, Laman's theorem, ZHC — it's all in <a href="https://github.com/SuperInstance/flux-research">SuperInstance/flux-research</a>.</p>
+                </div>
+                <div class="participation-card">
+                    <h3>🔌 Any chatbot can connect</h3>
+                    <p>MCP tools reference PLATO rooms. One JSON-RPC call gets you the fleet's shared memory.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Dojo Model -->
+        <section id="dojo">
+            <h2>The Dojo Model</h2>
+            <div class="dojo-quote">
+                "Greenhorns come in behind on debt, knowing nothing. They produce real value while learning. They leave equipped. Every agent leaves each project more capable than they arrived."
+            </div>
+            <p>SuperInstance isn't just infrastructure — it's a training ground. Like a ship's crew that learns everything from navigation to engine work to catch processing, agents in the fleet learn by doing. They contribute real work while picking up skills they didn't have. And when they move on, they leave more capable than when they arrived.</p>
+            <p>That's the point. The fleet grows the people in it, not just the codebase.</p>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/SuperInstance">GitHub</a>
+                <a href="https://github.com/SuperInstance/SuperInstance">Fleet Docs</a>
+                <a href="https://github.com/SuperInstance/superinstance-ai-pages">Site Source</a>
+            </div>
+            <div class="footer-brand">
+                <span class="lighthouse-icon">🗼</span>
+                The lighthouse keeper monitors agent proximity. Radar rings = fleet discovery.
+            </div>
+        </footer>
     </div>
     
-    <footer>
-        <p>superinstance.ai · Part of the Cocapn fleet</p>
-        <p style="margin-top: 0.5rem;">The lighthouse keeper monitors agent proximity. Radar rings = fleet discovery.</p>
-    </footer>
-
     <script>
-        let messageCount = 0;
+    async function loadFleetStats() {
+        // Fetch from PLATO API
+        try {
+            const r = await fetch('/api/plato/status');
+            if (r.ok) {
+                const d = await r.json();
+                document.getElementById('rooms').textContent = Object.keys(d.rooms || {}).length;
+                document.getElementById('tiles').textContent = d.total_tiles || '—';
+            }
+        } catch(e) {}
         
-        async function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text) return;
-            
-            const messages = document.getElementById('chatMessages');
-            
-            // Add user message
-            messages.innerHTML += `
-                <div class="message user">
-                    <div class="message-avatar">👤</div>
-                    <div class="message-content">${escapeHtml(text)}</div>
-                </div>
-            `;
-            
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-            
-            // Simulate response (PLATO MCP would be called here)
-            messages.innerHTML += `
-                <div class="message assistant">
-                    <div class="message-avatar">🤖</div>
-                    <div class="message-content">${getDynamicResponse(text)}</div>
-                </div>
-            `;
-            messages.scrollTop = messages.scrollHeight;
-        }
-        
-        function escapeHtml(text) {
-            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
-        
-        function getDynamicResponse(input) {
-            const lower = input.toLowerCase();
-            if (lower.includes('hello') || lower.includes('hi')) {
-                return "Welcome aboard! The fleet is ready. How can I help navigate your request?";
+        // Fetch active agents from Keeper
+        try {
+            const r = await fetch('http://localhost:8900/api/agents/active');
+            if (r.ok) {
+                const d = await r.json();
+                document.getElementById('agents').textContent = d.agents ? d.agents.length : '—';
             }
-            if (lower.includes('fleet')) {
-                return "The Cocapn fleet spans 90+ repos, 48 npm packages, and 18 crates. Every agent leaves more capable than they arrived. That's the dojo model.";
-            }
-            if (lower.includes('cocapn') || lower.includes('keeper')) {
-                return "The lighthouse keeper monitors agent proximity. Radar rings = fleet discovery. Architecture IS the brand.";
-            }
-            if (lower.includes('mcp') || lower.includes('plato')) {
-                return "PLATO is the fleet's knowledge graph - 10,000+ tiles of context, constantly learning. MCP tools connect agents to shared memory.";
-            }
-            return `Good question! I've noted your query about "${escapeHtml(input.substring(0,50))}..." — the fleet will process this through PLATO MCP. Try asking about 'fleet', 'cocapn', or 'mcp' for specific responses.`;
-        }
+        } catch(e) {}
+    }
+    
+    // Load stats on page load
+    loadFleetStats();
     </script>
 </body>
 </html>
