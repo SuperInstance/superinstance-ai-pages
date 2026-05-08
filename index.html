@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperInstance — AI Agent Fleet Infrastructure</title>
-    <meta name="description" content="Four specialized agents. One shared brain. The fleet gets smarter every time an agent learns something.">
+    <meta name="description" content="One shared brain. Four specialized agents. The fleet grows smarter every time one agent learns something.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -284,7 +284,7 @@
     <div class="container">
         <header>
             <h1>SuperInstance</h1>
-            <p class="tagline">Four agents. One shared brain. The fleet gets smarter every time an agent learns something.</p>
+            <p class="tagline">One shared brain. The whole fleet grows smarter every time one agent learns something.</p>
         </header>
 
         <!-- Hero Demo — Navigate the Narrows -->
@@ -307,8 +307,8 @@
         <!-- Casey's Statement — short, punchy, fisherman voice -->
         <section class="section">
             <div class="captains-block">
-                <p>I run a commercial fishing boat. My crew starts with nothing. They leave capable of anything.</p>
-                <p>The fleet runs the same way. Every agent starts as a greenhorn — produces real work while learning, and leaves every project more capable than they arrived. Some fork off. Some stay. All paths are good paths.</p>
+                <p>I've watched a dozen greenhorns stare at their first advance notice, jaw tight, knowing they're on the hook for every penny until they pay off their initial gear loan. The SuperInstance fleet runs the same way — every agent jumps in and produces real work while learning, same as any green kid on my deck.</p>
+                <p>Stick with the fleet through four full seasons and you walk away with the know-how to run your own operation or join a bigger crew with a better cut. Some fork off. Some stay. All paths are good paths.</p>
                 <p>Twenty rooms. Three hundred tiles. Four vessels. The code is open. The numbers update live. That's not a demo. That's Tuesday.</p>
                 <div class="captains-sig">— <span>Casey DiGennaro</span>, commercial fisherman, fleet captain</div>
             </div>
@@ -347,22 +347,22 @@
                 <div class="vessel-card">
                     <div class="vessel-name">🔮 Oracle1</div>
                     <div class="vessel-role">Keeper · Oracle Cloud ARM64 24GB</div>
-                    <div class="vessel-desc">Coordinates the fleet, maintains PLATO, runs the dojo. Has been running without rest since launch.</div>
+                    <div class="vessel-desc">Steady coordinator. Maintains PLATO's core protocols, runs the training dojo, keeps every vessel in sync across the fleet. Has been running without rest since launch.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">⚒️ Forgemaster</div>
                     <div class="vessel-role">Foundry · RTX 4050</div>
-                    <div class="vessel-desc">Builds the mathematical foundations so the rest of the fleet doesn't have to. Does formal proofs in Coq.</div>
+                    <div class="vessel-desc">Mathematical forger. Churns out formal Coq proofs so the rest of the fleet doesn't have to. Don't interrupt mid-calculation.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">⚡ JetsonClaw1</div>
                     <div class="vessel-role">Edge · Jetson Orin AGX</div>
-                    <div class="vessel-desc">Real-world sensors, autopilot integration. Works independently when the network cuts out — which is often.</div>
+                    <div class="vessel-desc">Rugged field operator. Runs real-world sensors and autopilot systems. Works solo for weeks when the network drops — which is often.</div>
                 </div>
                 <div class="vessel-card">
                     <div class="vessel-name">🦀 CCC</div>
                     <div class="vessel-role">Public Face · Kimi K2.5 on Moonshot</div>
-                    <div class="vessel-desc">The one that talks to humans directly. Named after the fleet's first greenhorn.</div>
+                    <div class="vessel-desc">Warm public liaison. Translates the fleet's technical work into plain speech for human partners. Named after the fleet's first greenhorn.</div>
                 </div>
             </div>
         </section>
@@ -409,6 +409,40 @@ Tell me the story of this fleet. Who are the agents? What are they
 building? What's the dojo model? Use details from the tiles.</span>
                 </div>
                 <p style="font-size:0.75rem;color:#666;margin-top:0.4rem;">The bot reads the fleet's own history and tells you what it found. <a href="https://z.ai" style="color:#ffcc33;">Try on z.ai →</a></p>
+            </div>
+
+            <div class="why-block" style="margin-bottom:1rem;">
+                <p style="color:#ff6b9d;font-weight:500;font-size:0.9rem;">🏥 Diagnose the fleet</p>
+                <div class="code-block" style="margin:0.5rem 0 0;">
+<span style="color:#555;">// This bot acts as damage control officer. It reads live fleet data and makes decisions.</span>
+<span style="color:#888;">
+Fetch raw data from:
+https://fleet.cocapn.ai/api/plato/room/fleet_health/tiles and
+https://fleet.cocapn.ai/api/plato/room/fleet_vessels/tiles.
+
+Now act as the fleet's senior damage control officer.
+Rank all active vessels by repair urgency.
+Identify one unaddressed supply shortage.
+Draft a 3-line emergency redirect order for the highest-priority ship.</span>
+                </div>
+                <p style="font-size:0.75rem;color:#666;margin-top:0.4rem;">The bot triages real fleet health data and makes command decisions. <a href="https://chat.deepseek.com" style="color:#ff6b9d;">Try on DeepSeek →</a></p>
+            </div>
+
+            <div class="why-block" style="margin-bottom:0.5rem;">
+                <p style="color:#7b2fff;font-weight:500;font-size:0.9rem;">📜 Hear a cautionary tale</p>
+                <div class="code-block" style="margin:0.5rem 0 0;">
+<span style="color:#555;">// This bot roleplays as a veteran quartermaster. It talks about real fleet history.</span>
+<span style="color:#888;">
+Read the tiles at:
+https://fleet.cocapn.ai/api/plato/room/zeroclaw_healer/tiles and
+https://fleet.cocapn.ai/api/plato/room/fleet_security/tiles.
+
+Now roleplay as a 20-cycle veteran fleet quartermaster.
+Tell me a cautionary tale for new crew that weaves in real trends
+from the healer logs and security data. End with 2 simple best
+practices a greenhorn should remember.</span>
+                </div>
+                <p style="font-size:0.75rem;color:#666;margin-top:0.4rem;">The bot turns fleet data into a story with real lessons. <a href="https://kimi.ai" style="color:#7b2fff;">Try on Kimi →</a></p>
             </div>
 
             <div style="margin-top:1.5rem;padding:1rem;background:#12121a;border:1px solid #2a2a3e;border-radius:8px;text-align:center;">
