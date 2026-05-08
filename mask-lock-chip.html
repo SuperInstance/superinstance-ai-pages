@@ -5,69 +5,116 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mask-Lock Inference Chip — Physical AI Cartridge</title>
 <style>
-:root{--bg:#060a0f;--ok:#00ff88;--warn:#ffcc33;--dim:#556;--card:#0a1218}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:#ccd;font-family:'SF Mono','Fira Code','Consolas','Menlo',monospace;line-height:1.7;font-size:15px}
-a{color:var(--ok);text-decoration:none}a:hover{text-decoration:underline}
-h1{font-size:1.5em;color:var(--ok);margin:1.2em 0 .4em;font-weight:600}
-h2{font-size:1.2em;color:#eee;margin:2em 0 .5em;font-weight:600;border-bottom:1px solid #1a2535;padding-bottom:.3em}
-h3{font-size:1em;color:#ddd;margin:1.5em 0 .4em;font-weight:600}
-p{margin:.6em 0;max-width:72ch}
-pre{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;padding:16px;overflow-x:auto;margin:16px 0;font-size:.85em;line-height:1.5}
-.content{max-width:720px;margin:0 auto;padding:40px 24px 80px}
-.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
-.spec-card{background:var(--card);border:1px solid rgba(0,255,136,.08);border-radius:8px;padding:14px}
-.spec-card .val{font-size:1.3em;color:var(--ok);font-weight:600}
-.spec-card .lbl{font-size:.7em;color:var(--dim);margin-top:4px}
-.tag{display:inline-block;background:rgba(0,255,136,.08);color:var(--ok);padding:2px 8px;border-radius:4px;font-size:.7em;margin-right:4px}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0}
-.why-card{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:16px}
-.why-card h3{font-size:.85em;margin-bottom:6px;border:0;padding:0}
-.why-card p{font-size:.75em;color:#999}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);min-height:100vh;color:#d0d5dd;padding:20px;line-height:1.7}
+a{color:#00ff88;text-decoration:none;transition:color .2s}a:hover{color:#5fffaa;text-decoration:underline}
+.container{max-width:880px;margin:0 auto;padding:0 16px}
+
+/* Header */
+header{text-align:center;padding:48px 24px;background:rgba(255,255,255,.04);border-radius:20px;margin-bottom:32px;border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+h1{font-size:2.4rem;background:linear-gradient(135deg,#00ff88,#7b2fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;font-weight:700}
+.subtitle{color:#888;font-size:1.05rem;max-width:600px;margin:0 auto 28px}
+
+/* Stats / Spec Grid */
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:720px;margin:0 auto}
+.spec-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,255,136,.15);border-radius:12px;padding:18px 14px;text-align:center;transition:all .3s ease;backdrop-filter:blur(8px)}
+.spec-card:hover{background:rgba(255,255,255,.07);border-color:rgba(0,255,136,.35);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,255,136,.08)}
+.spec-card .val{font-size:1.5rem;font-weight:700;color:#00ff88}
+.spec-card .lbl{font-size:.75rem;color:#8a8fa8;margin-top:3px;line-height:1.4}
+
+/* Sections */
+.section{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;margin-bottom:28px;backdrop-filter:blur(8px)}
+h2{font-size:1.5rem;color:#f0f4ff;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+h2::before{content:'';display:inline-block;width:4px;height:24px;background:linear-gradient(#00ff88,#7b2fff);border-radius:2px}
+h3{font-size:1rem;color:#e0e8ff;margin-bottom:8px}
+p{margin:12px 0;color:#a0a8c0}
+p strong{color:#f0f4ff}
+
+/* Why Cartridges Grid */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.why-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:20px;transition:all .3s ease}
+.why-card:hover{background:rgba(255,255,255,.06);border-color:rgba(0,255,136,.2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,255,136,.06)}
+.why-card h3{margin-bottom:6px;font-size:.95rem}
+.why-card p{font-size:.85rem;color:#8a8fa8;margin:0}
+
+/* Tag / List */
+.tag{display:inline-block;background:rgba(0,255,136,.08);color:#00ff88;padding:2px 10px;border-radius:6px;font-size:.72rem;font-weight:600;margin-right:6px;letter-spacing:.3px}
+ul{list-style:none;margin:12px 0}
+ul li{padding:8px 0;font-size:.9rem;color:#a0a8c0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.6}
+ul li:last-child{border:0}
+ul li strong{color:#e0e8ff}
+
+/* Stack */
+pre{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;overflow-x:auto;margin:16px 0;font-family:'SF Mono','Fira Code','Consolas','Menlo',monospace;font-size:.82rem;line-height:1.7;color:#8a8fa8;white-space:pre}
+
+/* Resources */
+.resources{font-size:.9rem;line-height:2.2}
+.resources a{display:inline-block}
+
+/* Footer */
+footer{text-align:center;padding:36px 20px;color:#555;font-size:.82rem;border-top:1px solid rgba(255,255,255,.05);margin-top:12px}
+
+@media(max-width:640px){
+  body{padding:12px}
+  header{padding:32px 16px}
+  h1{font-size:1.7rem}
+  .subtitle{font-size:.95rem}
+  .spec-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .spec-card .val{font-size:1.2rem}
+  .why-grid{grid-template-columns:1fr}
+  .section{padding:20px}
+  h2{font-size:1.2rem}
+}
 </style>
 </head>
 <body>
-<div class="content">
+<div class="container">
 
-<p style="font-size:.75em;color:var(--dim);margin-bottom:24px;"><a href="/" style="color:var(--dim);">← Back to superinstance.ai</a></p>
+<header>
+  <h1>🎮 Mask-Lock Inference Chip</h1>
+  <p class="subtitle">A physical AI cartridge. Embed model weights directly into silicon at manufacture. Plug it in. Get intelligence. No drivers. No cloud. No software stack.</p>
 
-<h1>🎮 Mask-Lock Inference Chip</h1>
-<p style="color:#888;margin-bottom:30px;">A physical AI cartridge. Embed model weights directly into silicon at manufacture. Plug it in. Get intelligence. No drivers. No cloud. No software stack.</p>
+  <div class="spec-grid">
+    <div class="spec-card"><div class="val">80-150</div><div class="lbl">Tokens/second on 2B model</div></div>
+    <div class="spec-card"><div class="val">2-3W</div><div class="lbl">Active power draw</div></div>
+    <div class="spec-card"><div class="val">50×</div><div class="lbl">Tokens/watt vs Jetson Orin</div></div>
+    <div class="spec-card"><div class="val">$35</div><div class="lbl">Unit BOM at scale</div></div>
+    <div class="spec-card"><div class="val">12wk</div><div class="lbl">FPGA prototype timeline</div></div>
+    <div class="spec-card"><div class="val">KV260</div><div class="lbl">Target FPGA platform</div></div>
+  </div>
+</header>
 
-<div class="spec-grid">
-<div class="spec-card"><div class="val">80-150</div><div class="lbl">Tokens/second on 2B model</div></div>
-<div class="spec-card"><div class="val">2-3W</div><div class="lbl">Active power draw</div></div>
-<div class="spec-card"><div class="val">50×</div><div class="lbl">Tokens/watt vs Jetson Orin</div></div>
-<div class="spec-card"><div class="val">$35</div><div class="lbl">Unit BOM at scale</div></div>
-<div class="spec-card"><div class="val">12wk</div><div class="lbl">FPGA prototype timeline</div></div>
-<div class="spec-card"><div class="val">KV260</div><div class="lbl">Target FPGA platform</div></div>
+<div class="section">
+  <h2>What Is a Mask-Locked Chip?</h2>
+  <p>Normally, a neural network runs on a GPU or NPU by loading weights from memory. The memory bus is the bottleneck — data moves from DRAM to compute, and that physical movement costs energy and time.</p>
+  <p>A mask-locked chip flips this. <strong>The weights are etched into the silicon itself</strong>, at the last metal layer of fabrication (the <em>mask</em> step). The chip doesn't load weights — the weights <em>are</em> the chip. This eliminates the memory bottleneck entirely.</p>
+  <p>The result: a physical AI cartridge, like a Nintendo game pak. Insert it, get inference. Swap cartridges for different models. No drivers. No software. The hardware <em>is</em> the model.</p>
 </div>
 
-<h2>What Is a Mask-Locked Chip?</h2>
-<p>Normally, a neural network runs on a GPU or NPU by loading weights from memory. The memory bus is the bottleneck — data moves from DRAM to compute, and that physical movement costs energy and time.</p>
-<p>A mask-locked chip flips this. <strong style="color:#fff;">The weights are etched into the silicon itself</strong>, at the last metal layer of fabrication (the "mask" step). The chip doesn't load weights — the weights ARE the chip. This eliminates the memory bottleneck entirely.</p>
-<p>The result: a physical AI cartridge, like a Nintendo game pak. Insert it, get inference. Swap cartridges for different models. No drivers. No software. The hardware IS the model.</p>
-
-<h2>Why Cartridges?</h2>
-<div class="why-grid">
-<div class="why-card"><h3>🎯 Zero Config</h3><p>Plug it in. It works. No CUDA, no Docker, no Python environment. A Raspberry Pi boots it in under a second.</p></div>
-<div class="why-card"><h3>🔒 Physically Locked</h3><p>Weights are mask-embedded in metal. They cannot be extracted, copied, or tampered with. The model is the hardware.</p></div>
-<div class="why-card"><h3>🔄 Swappable</h3><p>Different cartridge for different tasks. A navigation cartridge. A vision cartridge. A language cartridge. Like loading a different game.</p></div>
-<div class="why-card"><h3>🐚 Swarm Native</h3><p>Multiple cartridges coordinate automatically. Each handles what it's best at. The fleet math (Laman, ZHC, P48) runs on the host CPU.</p></div>
+<div class="section">
+  <h2>Why Cartridges?</h2>
+  <div class="why-grid">
+    <div class="why-card"><h3>🎯 Zero Config</h3><p>Plug it in. It works. No CUDA, no Docker, no Python environment. A Raspberry Pi boots it in under a second.</p></div>
+    <div class="why-card"><h3>🔒 Physically Locked</h3><p>Weights are mask-embedded in metal. They cannot be extracted, copied, or tampered with. The model is the hardware.</p></div>
+    <div class="why-card"><h3>🔄 Swappable</h3><p>Different cartridge for different tasks. A navigation cartridge. A vision cartridge. A language cartridge. Like loading a different game.</p></div>
+    <div class="why-card"><h3>🐚 Swarm Native</h3><p>Multiple cartridges coordinate automatically. Each handles what it's best at. The fleet math runs on the host CPU.</p></div>
+  </div>
 </div>
 
-<h2>What Exists Now</h2>
-<ul style="font-size:.9em;color:#999;line-height:2;">
-<li><span class="tag">FPGA</span> Complete prototype implementation guide for AMD KV260 — TLMM architecture, ternary weights, KV cache optimization</li>
-<li><span class="tag">Research</span> 54 GPU experiments on RTX 4050, 61M differential test inputs, zero mismatches</li>
-<li><span class="tag">Simulation</span> Chip floorplan v2, optimization framework in Python, BitNet b1.58-2B target model</li>
-<li><span class="tag">Business</span> $26B→$69B edge AI chip market analysis, competitive positioning vs Taalas/Hailo/NVIDIA</li>
-<li><span class="tag">Framework</span> Deterministic scoring platform for training agents on constraint-based games</li>
-</ul>
+<div class="section">
+  <h2>What Exists Now</h2>
+  <ul>
+    <li><span class="tag">FPGA</span> Complete prototype implementation guide for AMD KV260 — TLMM architecture, ternary weights, KV cache optimization</li>
+    <li><span class="tag">Research</span> 54 GPU experiments on RTX 4050, 61M differential test inputs, zero mismatches</li>
+    <li><span class="tag">Simulation</span> Chip floorplan v2, optimization framework in Python, BitNet b1.58-2B target model</li>
+    <li><span class="tag">Business</span> $26B→$69B edge AI chip market analysis, competitive positioning vs Taalas/Hailo/NVIDIA</li>
+    <li><span class="tag">Framework</span> Deterministic scoring platform for training agents on constraint-based games</li>
+  </ul>
+</div>
 
-<h2>The Stack</h2>
-<pre>
-┌─────────────────────────────────────┐
+<div class="section">
+  <h2>The Stack</h2>
+  <pre>┌─────────────────────────────────────┐
 │  Application (your code)            │
 ├─────────────────────────────────────┤
 │  Cartridge Runtime  ←── Host CPU    │
@@ -76,29 +123,35 @@ pre{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:
 │  (ternary weights in metal layers)  │
 ├─────────────────────────────────────┤
 │  FPGA Prototype  ←── KV260          │
-└─────────────────────────────────────┘
-</pre>
+└─────────────────────────────────────┘</pre>
+</div>
 
-<h2>Why Now</h2>
-<p>Three forces converge in an 18-month window:</p>
-<ul style="font-size:.9em;color:#999;line-height:2;">
-<li><strong style="color:#ddd;">Taalas validated the architecture</strong> — $219M raised for data center mask-locked chips. We own the sub-5W edge.</li>
-<li><strong style="color:#ddd;">Model maturation</strong> — BitNet and iFairy enable ternary inference without quality loss. Not production-ready 18 months ago.</li>
-<li><strong style="color:#ddd;">Privacy regulation</strong> — GDPR, HIPAA, and emerging AI governance mandate local processing for sensitive data.</li>
-</ul>
-<p>The edge AI chip market grows from $26B (2025) to $69B (2030). The sub-$100, sub-5W LLM segment is unclaimed.</p>
+<div class="section">
+  <h2>Why Now</h2>
+  <p>Three forces converge in an 18-month window:</p>
+  <ul>
+    <li><strong>Taalas validated the architecture</strong> — $219M raised for data center mask-locked chips. We own the sub-5W edge.</li>
+    <li><strong>Model maturation</strong> — BitNet and iFairy enable ternary inference without quality loss. Not production-ready 18 months ago.</li>
+    <li><strong>Privacy regulation</strong> — GDPR, HIPAA, and emerging AI governance mandate local processing for sensitive data.</li>
+  </ul>
+  <p>The edge AI chip market grows from <strong>$26B (2025)</strong> to <strong>$69B (2030)</strong>. The sub-$100, sub-5W LLM segment is unclaimed.</p>
+</div>
 
-<h2>Resources</h2>
-<p style="font-size:.9em;">
-<a href="https://github.com/SuperInstance/Lucineer">📦 Lucineer repo</a> — full research package, FPGA guide, executive summary, investor pitch<br>
-<a href="https://github.com/SuperInstance/eisenstein-do178c">🔬 DO-178C evidence</a> — 26 Coq theorems for safety-critical certification<br>
-<a href="https://github.com/SuperInstance/fleet-coordinate">🧮 Fleet coordination math</a> — Laman rigidity, ZHC, Pythagorean48<br>
-<a href="/demos">🎮 Demos</a> — Eisenstein integer playground, Narrows autopilot
-</p>
+<div class="section">
+  <h2>Resources</h2>
+  <div class="resources">
+    <a href="https://github.com/SuperInstance/Lucineer">📦 Lucineer repo</a> — full research package, FPGA guide, executive summary, investor pitch<br>
+    <a href="https://github.com/SuperInstance/eisenstein-do178c">🔬 DO-178C evidence</a> — 26 Coq theorems for safety-critical certification<br>
+    <a href="https://github.com/SuperInstance/fleet-coordinate">🧮 Fleet coordination math</a> — Laman rigidity, ZHC, Pythagorean48<br>
+    <a href="/demos">🎮 Demos</a> — Eisenstein integer playground, Narrows autopilot
+  </div>
+</div>
 
-<p style="margin-top:40px;font-size:.75em;color:#444;text-align:center;">
-SuperInstance · Physical AI for the edge · The fleet grows itself
-</p>
+<p style="text-align:center;font-size:.85rem;margin-top:8px;"><a href="/" style="color:#555;">← Back to superinstance.ai</a></p>
+
+<footer>
+  SuperInstance · Physical AI for the edge · The fleet grows itself
+</footer>
 
 </div>
 </body>
