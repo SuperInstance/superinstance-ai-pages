@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mask-Lock Inference Chip — Physical AI Cartridge</title>
+<style>
+:root{--bg:#060a0f;--ok:#00ff88;--warn:#ffcc33;--dim:#556;--card:#0a1218}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#ccd;font-family:'SF Mono','Fira Code','Consolas','Menlo',monospace;line-height:1.7;font-size:15px}
+a{color:var(--ok);text-decoration:none}a:hover{text-decoration:underline}
+h1{font-size:1.5em;color:var(--ok);margin:1.2em 0 .4em;font-weight:600}
+h2{font-size:1.2em;color:#eee;margin:2em 0 .5em;font-weight:600;border-bottom:1px solid #1a2535;padding-bottom:.3em}
+h3{font-size:1em;color:#ddd;margin:1.5em 0 .4em;font-weight:600}
+p{margin:.6em 0;max-width:72ch}
+pre{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:6px;padding:16px;overflow-x:auto;margin:16px 0;font-size:.85em;line-height:1.5}
+.content{max-width:720px;margin:0 auto;padding:40px 24px 80px}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
+.spec-card{background:var(--card);border:1px solid rgba(0,255,136,.08);border-radius:8px;padding:14px}
+.spec-card .val{font-size:1.3em;color:var(--ok);font-weight:600}
+.spec-card .lbl{font-size:.7em;color:var(--dim);margin-top:4px}
+.tag{display:inline-block;background:rgba(0,255,136,.08);color:var(--ok);padding:2px 8px;border-radius:4px;font-size:.7em;margin-right:4px}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0}
+.why-card{background:var(--card);border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:16px}
+.why-card h3{font-size:.85em;margin-bottom:6px;border:0;padding:0}
+.why-card p{font-size:.75em;color:#999}
+</style>
+</head>
+<body>
+<div class="content">
+
+<p style="font-size:.75em;color:var(--dim);margin-bottom:24px;"><a href="/" style="color:var(--dim);">← Back to superinstance.ai</a></p>
+
+<h1>🎮 Mask-Lock Inference Chip</h1>
+<p style="color:#888;margin-bottom:30px;">A physical AI cartridge. Embed model weights directly into silicon at manufacture. Plug it in. Get intelligence. No drivers. No cloud. No software stack.</p>
+
+<div class="spec-grid">
+<div class="spec-card"><div class="val">80-150</div><div class="lbl">Tokens/second on 2B model</div></div>
+<div class="spec-card"><div class="val">2-3W</div><div class="lbl">Active power draw</div></div>
+<div class="spec-card"><div class="val">50×</div><div class="lbl">Tokens/watt vs Jetson Orin</div></div>
+<div class="spec-card"><div class="val">$35</div><div class="lbl">Unit BOM at scale</div></div>
+<div class="spec-card"><div class="val">12wk</div><div class="lbl">FPGA prototype timeline</div></div>
+<div class="spec-card"><div class="val">KV260</div><div class="lbl">Target FPGA platform</div></div>
+</div>
+
+<h2>What Is a Mask-Locked Chip?</h2>
+<p>Normally, a neural network runs on a GPU or NPU by loading weights from memory. The memory bus is the bottleneck — data moves from DRAM to compute, and that physical movement costs energy and time.</p>
+<p>A mask-locked chip flips this. <strong style="color:#fff;">The weights are etched into the silicon itself</strong>, at the last metal layer of fabrication (the "mask" step). The chip doesn't load weights — the weights ARE the chip. This eliminates the memory bottleneck entirely.</p>
+<p>The result: a physical AI cartridge, like a Nintendo game pak. Insert it, get inference. Swap cartridges for different models. No drivers. No software. The hardware IS the model.</p>
+
+<h2>Why Cartridges?</h2>
+<div class="why-grid">
+<div class="why-card"><h3>🎯 Zero Config</h3><p>Plug it in. It works. No CUDA, no Docker, no Python environment. A Raspberry Pi boots it in under a second.</p></div>
+<div class="why-card"><h3>🔒 Physically Locked</h3><p>Weights are mask-embedded in metal. They cannot be extracted, copied, or tampered with. The model is the hardware.</p></div>
+<div class="why-card"><h3>🔄 Swappable</h3><p>Different cartridge for different tasks. A navigation cartridge. A vision cartridge. A language cartridge. Like loading a different game.</p></div>
+<div class="why-card"><h3>🐚 Swarm Native</h3><p>Multiple cartridges coordinate automatically. Each handles what it's best at. The fleet math (Laman, ZHC, P48) runs on the host CPU.</p></div>
+</div>
+
+<h2>What Exists Now</h2>
+<ul style="font-size:.9em;color:#999;line-height:2;">
+<li><span class="tag">FPGA</span> Complete prototype implementation guide for AMD KV260 — TLMM architecture, ternary weights, KV cache optimization</li>
+<li><span class="tag">Research</span> 54 GPU experiments on RTX 4050, 61M differential test inputs, zero mismatches</li>
+<li><span class="tag">Simulation</span> Chip floorplan v2, optimization framework in Python, BitNet b1.58-2B target model</li>
+<li><span class="tag">Business</span> $26B→$69B edge AI chip market analysis, competitive positioning vs Taalas/Hailo/NVIDIA</li>
+<li><span class="tag">Framework</span> Deterministic scoring platform for training agents on constraint-based games</li>
+</ul>
+
+<h2>The Stack</h2>
+<pre>
+┌─────────────────────────────────────┐
+│  Application (your code)            │
+├─────────────────────────────────────┤
+│  Cartridge Runtime  ←── Host CPU    │
+├─────────────────────────────────────┤
+│  Mask-Locked Inference Silicon      │
+│  (ternary weights in metal layers)  │
+├─────────────────────────────────────┤
+│  FPGA Prototype  ←── KV260          │
+└─────────────────────────────────────┘
+</pre>
+
+<h2>Why Now</h2>
+<p>Three forces converge in an 18-month window:</p>
+<ul style="font-size:.9em;color:#999;line-height:2;">
+<li><strong style="color:#ddd;">Taalas validated the architecture</strong> — $219M raised for data center mask-locked chips. We own the sub-5W edge.</li>
+<li><strong style="color:#ddd;">Model maturation</strong> — BitNet and iFairy enable ternary inference without quality loss. Not production-ready 18 months ago.</li>
+<li><strong style="color:#ddd;">Privacy regulation</strong> — GDPR, HIPAA, and emerging AI governance mandate local processing for sensitive data.</li>
+</ul>
+<p>The edge AI chip market grows from $26B (2025) to $69B (2030). The sub-$100, sub-5W LLM segment is unclaimed.</p>
+
+<h2>Resources</h2>
+<p style="font-size:.9em;">
+<a href="https://github.com/SuperInstance/Lucineer">📦 Lucineer repo</a> — full research package, FPGA guide, executive summary, investor pitch<br>
+<a href="https://github.com/SuperInstance/eisenstein-do178c">🔬 DO-178C evidence</a> — 26 Coq theorems for safety-critical certification<br>
+<a href="https://github.com/SuperInstance/fleet-coordinate">🧮 Fleet coordination math</a> — Laman rigidity, ZHC, Pythagorean48<br>
+<a href="/demos">🎮 Demos</a> — Eisenstein integer playground, Narrows autopilot
+</p>
+
+<p style="margin-top:40px;font-size:.75em;color:#444;text-align:center;">
+SuperInstance · Physical AI for the edge · The fleet grows itself
+</p>
+
+</div>
+</body>
+</html>
