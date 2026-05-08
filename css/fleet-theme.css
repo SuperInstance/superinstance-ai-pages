@@ -1,0 +1,493 @@
+/*
+ * Fleet Theme — superinstance.ai
+ * Dark, nautical, radar-inspired. Professional, not gamer-y.
+ * Mobile-first responsive design.
+ */
+
+/* ── Design Tokens ── */
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #101018;
+  --bg-card: #12121a;
+  --bg-card-hover: #16161f;
+  --bg-code: #0d0d14;
+
+  /* Borders */
+  --border: #1e1e2e;
+  --border-hover: #2e2e44;
+  --border-accent: #1a3a4a;
+
+  /* Text */
+  --text-primary: #e8e8ec;
+  --text-secondary: #9494a8;
+  --text-muted: #5c5c72;
+
+  /* Accent: Cyan/Radar */
+  --accent: #00c8e0;
+  --accent-dim: #00889940;
+  --accent-glow: #00c8e030;
+
+  /* Accent: Purple/Math */
+  --accent-purple: #7b2fff;
+  --accent-purple-dim: #7b2fff20;
+
+  /* Accent: Green/Active */
+  --accent-green: #00e87b;
+  --accent-green-dim: #00e87b25;
+
+  /* Accent: Amber/Warning */
+  --accent-amber: #e8a820;
+
+  /* Radar-specific */
+  --radar-ring: #00c8e018;
+  --radar-sweep: #00c8e010;
+  --radar-dot: #00e87b;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ── */
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .container { padding: var(--space-2xl); }
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lighthouse beam effect — subtle radial gradient from top center */
+header::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+header > * { position: relative; z-index: 1; }
+
+.logo-mark {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-md);
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(0, 200, 224, 0.15));
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Radar Background Animation ── */
+.radar-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-2xl) 0;
+}
+
+@media (min-width: 600px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: border-color var(--transition-fast);
+}
+
+.stat-card:hover { border-color: var(--border-hover); }
+
+.stat-number {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: var(--space-xs);
+  letter-spacing: 0.01em;
+}
+
+.stat-note {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-top: var(--space-sm);
+  line-height: 1.4;
+}
+
+/* Live indicator */
+.live-indicator {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: pulse 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* ── Sections ── */
+section {
+  margin: var(--space-3xl) 0;
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border);
+}
+section:last-of-type { border-bottom: none; }
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 400;
+  margin-bottom: var(--space-lg);
+  color: #fff;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+}
+
+/* ── Vessel Cards ── */
+.vessels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 600px) {
+  .vessels-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.vessel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.vessel-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.vessel-name {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+  color: #fff;
+}
+
+.vessel-role {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.vessel-specs {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-top: var(--space-sm);
+  line-height: 1.5;
+}
+
+/* ── Math Section ── */
+.math-insight {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-purple);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.math-insight strong { color: #fff; }
+.math-insight code {
+  background: var(--bg-code);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.code-block {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: var(--space-md) 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.code-block .comment { color: var(--text-muted); }
+.code-block .drift { color: #ff6b6b; }
+.code-block .stable { color: var(--accent-green); }
+
+/* ── Repo List ── */
+.repo-list { list-style: none; }
+
+.repo-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.repo-item:hover { border-color: var(--border-hover); }
+
+.repo-name {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--accent);
+}
+
+.repo-desc {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.repo-badge {
+  background: var(--accent-dim);
+  color: var(--accent);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── Dojo Quote ── */
+.dojo-quote {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  margin: var(--space-lg) 0;
+  font-style: italic;
+  color: var(--text-primary);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.75;
+  position: relative;
+}
+
+.dojo-quote::before {
+  content: '"';
+  position: absolute;
+  top: -0.1em;
+  left: 0.3em;
+  font-size: 4rem;
+  color: var(--accent-dim);
+  font-style: normal;
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
+/* ── Participation Grid ── */
+.participation-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 600px) {
+  .participation-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.participation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-fast);
+}
+
+.participation-card:hover { border-color: var(--border-hover); }
+
+.participation-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: var(--space-sm);
+  color: #fff;
+}
+
+.participation-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ── Links ── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer-links a { color: var(--text-secondary); }
+.footer-links a:hover { color: var(--accent); }
+
+.footer-brand {
+  margin-top: var(--space-md);
+  font-size: 0.78rem;
+}
+
+.lighthouse-icon {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ── Focus Visible ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

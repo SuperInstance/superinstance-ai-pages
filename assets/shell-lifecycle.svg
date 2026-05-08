@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 140" width="700" height="140">
+  <!-- Background -->
+  <rect width="700" height="140" fill="#0a0a0f" rx="8"/>
+
+  <!-- Title -->
+  <text x="350" y="20" text-anchor="middle" fill="#5c5c72" font-size="10" font-family="monospace" letter-spacing="2">SHELL LIFECYCLE</text>
+
+  <!-- Connecting line -->
+  <line x1="70" y1="70" x2="630" y2="70" stroke="#1e1e2e" stroke-width="2"/>
+
+  <!-- Phase 1: Spawn -->
+  <circle cx="70" cy="70" r="16" fill="#12121a" stroke="#7b2fff" stroke-width="1.5"/>
+  <text x="70" y="74" text-anchor="middle" fill="#7b2fff" font-size="10">⚡</text>
+  <text x="70" y="100" text-anchor="middle" fill="#9494a8" font-size="9" font-family="monospace">Spawn</text>
+  <text x="70" y="115" text-anchor="middle" fill="#5c5c72" font-size="7" font-family="monospace">vessel ready</text>
+
+  <!-- Phase 2: Boot -->
+  <circle cx="190" cy="70" r="16" fill="#12121a" stroke="#00c8e0" stroke-width="1.5"/>
+  <text x="190" y="74" text-anchor="middle" fill="#00c8e0" font-size="10">🚀</text>
+  <text x="190" y="100" text-anchor="middle" fill="#9494a8" font-size="9" font-family="monospace">Boot</text>
+  <text x="190" y="115" text-anchor="middle" fill="#5c5c72" font-size="7" font-family="monospace">load context</text>
+
+  <!-- Phase 3: Heartbeat -->
+  <circle cx="310" cy="70" r="16" fill="#12121a" stroke="#00e87b" stroke-width="1.5"/>
+  <text x="310" y="74" text-anchor="middle" fill="#00e87b" font-size="10">💓</text>
+  <text x="310" y="100" text-anchor="middle" fill="#9494a8" font-size="9" font-family="monospace">Heartbeat</text>
+  <text x="310" y="115" text-anchor="middle" fill="#5c5c72" font-size="7" font-family="monospace">check in</text>
+
+  <!-- Phase 4: Work -->
+  <circle cx="430" cy="70" r="16" fill="#12121a" stroke="#e8a820" stroke-width="1.5"/>
+  <text x="430" y="74" text-anchor="middle" fill="#e8a820" font-size="10">⚒️</text>
+  <text x="430" y="100" text-anchor="middle" fill="#9494a8" font-size="9" font-family="monospace">Work</text>
+  <text x="430" y="115" text-anchor="middle" fill="#5c5c72" font-size="7" font-family="monospace">produce value</text>
+
+  <!-- Phase 5: Sleep -->
+  <circle cx="550" cy="70" r="16" fill="#12121a" stroke="#5c5c72" stroke-width="1.5"/>
+  <text x="550" y="74" text-anchor="middle" fill="#5c5c72" font-size="10">🌙</text>
+  <text x="550" y="100" text-anchor="middle" fill="#9494a8" font-size="9" font-family="monospace">Sleep</text>
+  <text x="550" y="115" text-anchor="middle" fill="#5c5c72" font-size="7" font-family="monospace">compact state</text>
+
+  <!-- Arrow back: Wake → Spawn -->
+  <path d="M 566 70 Q 640 50 640 40 Q 640 30 70 30 Q 50 30 54 58" fill="none" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="350" y="38" text-anchor="middle" fill="#3a3a50" font-size="8" font-family="monospace">Wake → next cycle</text>
+
+  <!-- Cycle indicator -->
+  <text x="630" y="130" text-anchor="middle" fill="#3a3a50" font-size="7" font-family="monospace">∞ repeat</text>
+</svg>

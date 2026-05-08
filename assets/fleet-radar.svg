@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#101018"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bg)" rx="8"/>
+
+  <!-- Radar rings -->
+  <circle cx="200" cy="200" r="40" fill="none" stroke="#1e1e2e" stroke-width="1"/>
+  <circle cx="200" cy="200" r="80" fill="none" stroke="#1e1e2e" stroke-width="1"/>
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#1a1a2a" stroke-width="1"/>
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#161624" stroke-width="0.5"/>
+
+  <!-- Crosshairs -->
+  <line x1="200" y1="40" x2="200" y2="360" stroke="#141420" stroke-width="0.5"/>
+  <line x1="40" y1="200" x2="360" y2="200" stroke="#141420" stroke-width="0.5"/>
+
+  <!-- Center beacon -->
+  <circle cx="200" cy="200" r="4" fill="#00c8e0" filter="url(#glow)"/>
+
+  <!-- Oracle1 — inner ring (Keeper) -->
+  <circle cx="220" cy="185" r="6" fill="#7b2fff" filter="url(#glow)"/>
+  <text x="232" y="183" fill="#9494a8" font-size="9" font-family="monospace">Oracle1</text>
+
+  <!-- Forgemaster — second ring (Foundry) -->
+  <circle cx="155" cy="240" r="6" fill="#e8a820" filter="url(#glow)"/>
+  <text x="110" y="258" fill="#9494a8" font-size="9" font-family="monospace">Forgemaster</text>
+
+  <!-- JetsonClaw1 — third ring (Edge) -->
+  <circle cx="260" cy="280" r="6" fill="#00e87b" filter="url(#glow)"/>
+  <text x="270" y="283" fill="#9494a8" font-size="9" font-family="monospace">JC1</text>
+
+  <!-- CCC — third ring (Community) -->
+  <circle cx="140" cy="150" r="6" fill="#ff6b6b" filter="url(#glow)"/>
+  <text x="150" y="150" fill="#9494a8" font-size="9" font-family="monospace">CCC</text>
+
+  <!-- Label -->
+  <text x="200" y="385" text-anchor="middle" fill="#5c5c72" font-size="10" font-family="monospace">FLEET RADAR · 4 VESSELS · I2I</text>
+</svg>

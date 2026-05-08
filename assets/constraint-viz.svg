@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <!-- Background -->
+  <rect width="600" height="300" fill="#0a0a0f" rx="8"/>
+
+  <!-- Title -->
+  <text x="300" y="28" text-anchor="middle" fill="#5c5c72" font-size="11" font-family="monospace" letter-spacing="2">CONSTRAINT VISUALIZATION</text>
+
+  <!-- === LEFT: Float Grid (drift) === -->
+  <text x="150" y="55" text-anchor="middle" fill="#ff6b6b" font-size="12" font-weight="bold" font-family="monospace">FLOAT DRIFT</text>
+
+  <!-- Grid lines (slightly misaligned) -->
+  <g stroke="#1e1e2e" stroke-width="0.5">
+    <line x1="30" y1="70" x2="270" y2="72"/>
+    <line x1="32" y1="110" x2="271" y2="111"/>
+    <line x1="29" y1="150" x2="269" y2="151"/>
+    <line x1="31" y1="190" x2="270" y2="189"/>
+    <line x1="30" y1="230" x2="271" y2="231"/>
+    <line x1="50" y1="70" x2="52" y2="232"/>
+    <line x1="100" y1="71" x2="99" y2="230"/>
+    <line x1="150" y1="70" x2="152" y2="231"/>
+    <line x1="200" y1="71" x2="198" y2="230"/>
+    <line x1="250" y1="72" x2="251" y2="231"/>
+  </g>
+
+  <!-- Drifting dots (slightly off-grid) -->
+  <circle cx="102" cy="109" r="4" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="53" cy="150" r="4" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="199" cy="72" r="4" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="151" cy="191" r="4" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="249" cy="152" r="4" fill="#ff6b6b" opacity="0.7"/>
+  <circle cx="100" cy="230" r="4" fill="#ff6b6b" opacity="0.5"/>
+
+  <!-- Error annotations -->
+  <text x="110" y="106" fill="#ff6b6b" font-size="7" font-family="monospace">Δ 0.02</text>
+  <text x="204" y="75" fill="#ff6b6b" font-size="7" font-family="monospace">Δ 0.01</text>
+
+  <!-- Drift equation -->
+  <text x="150" y="260" text-anchor="middle" fill="#ff6b6b" font-size="9" font-family="monospace">0.1 + 0.2 + 0.3 ≠ 0.6</text>
+  <text x="150" y="280" text-anchor="middle" fill="#5c5c72" font-size="8" font-family="monospace">errors accumulate</text>
+
+  <!-- === Divider === -->
+  <line x1="300" y1="45" x2="300" y2="290" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="300" y="170" text-anchor="middle" fill="#3a3a50" font-size="10" font-family="monospace">vs</text>
+
+  <!-- === RIGHT: Integer Lattice (stable) === -->
+  <text x="450" y="55" text-anchor="middle" fill="#00e87b" font-size="12" font-weight="bold" font-family="monospace">INTEGER LATTICE</text>
+
+  <!-- Perfect grid -->
+  <g stroke="#1a3a2a" stroke-width="0.5">
+    <line x1="330" y1="70" x2="570" y2="70"/>
+    <line x1="330" y1="110" x2="570" y2="110"/>
+    <line x1="330" y1="150" x2="570" y2="150"/>
+    <line x1="330" y1="190" x2="570" y2="190"/>
+    <line x1="330" y1="230" x2="570" y2="230"/>
+    <line x1="350" y1="70" x2="350" y2="230"/>
+    <line x1="400" y1="70" x2="400" y2="230"/>
+    <line x1="450" y1="70" x2="450" y2="230"/>
+    <line x1="500" y1="70" x2="500" y2="230"/>
+    <line x1="550" y1="70" x2="550" y2="230"/>
+  </g>
+
+  <!-- Perfect dots (exactly on intersections) -->
+  <circle cx="400" cy="110" r="4" fill="#00e87b" opacity="0.8"/>
+  <circle cx="350" cy="150" r="4" fill="#00e87b" opacity="0.8"/>
+  <circle cx="500" cy="70" r="4" fill="#00e87b" opacity="0.8"/>
+  <circle cx="450" cy="190" r="4" fill="#00e87b" opacity="0.8"/>
+  <circle cx="550" cy="150" r="4" fill="#00e87b" opacity="0.8"/>
+  <circle cx="400" cy="230" r="4" fill="#00e87b" opacity="0.8"/>
+
+  <!-- Exact checkmarks -->
+  <text x="408" y="108" fill="#00e87b" font-size="7" font-family="monospace">✓ exact</text>
+  <text x="508" y="68" fill="#00e87b" font-size="7" font-family="monospace">✓ exact</text>
+
+  <!-- Stability equation -->
+  <text x="450" y="260" text-anchor="middle" fill="#00e87b" font-size="9" font-family="monospace">V - 2 = self_coordinating</text>
+  <text x="450" y="280" text-anchor="middle" fill="#5c5c72" font-size="8" font-family="monospace">always true, always stable</text>
+</svg>
