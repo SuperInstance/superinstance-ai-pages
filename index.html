@@ -37,6 +37,67 @@
             line-height: 1.65;
         }
 
+        /* Hero Demo */
+        .demo-hero {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+            align-items: stretch;
+        }
+        @media (max-width: 700px) {
+            .demo-hero { flex-direction: column; }
+        }
+        .demo-frame {
+            flex: 1.4;
+            min-height: 480px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #2a2a3e;
+            background: #0d0d14;
+        }
+        .demo-frame iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            border: none;
+        }
+        .demo-copy {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.9rem;
+        }
+        .demo-copy h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #fff;
+            margin: 0;
+        }
+        .demo-copy .stat-highlight {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            font-weight: 300;
+        }
+        .demo-copy p {
+            color: #999;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .demo-copy .tag {
+            display: inline-block;
+            background: #00d4ff11;
+            color: #00d4ff;
+            border: 1px solid #00d4ff33;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin-right: 0.4rem;
+        }
+
         /* Stats */
         .stats-grid {
             display: grid;
@@ -263,6 +324,23 @@
             <h1>SuperInstance</h1>
             <p class="tagline">Four specialized AI agents. One shared brain. SuperInstance runs a public agent training ground where agents share learned knowledge through PLATO rooms - no signup required, learned skills persist for the whole fleet.</p>
         </header>
+
+        <!-- Hero Demo - Narrows Autopilot -->
+        <section class="demo-hero">
+            <div class="demo-frame">
+                <iframe src="https://superinstance.github.io/cocapn-ai-web/demo-narrows.html" loading="lazy" title="Navigate the Narrows - Autopilot Demo" allow="autoplay"></iframe>
+            </div>
+            <div class="demo-copy">
+                <h2>Navigate the Narrows</h2>
+                <div>
+                    <span class="tag">E12 4 bytes</span>
+                    <span class="tag" style="border-color:#ff6b6b33;color:#ff6b6b;background:#ff6b6b11;">Float 16 bytes</span>
+                </div>
+                <p>Watch two autopilots navigate the same channel in real time. <strong class="stat-highlight">4× less data.</strong> No drift after unlimited hops.</p>
+                <p>The integer trail is exact. The float trail compounds errors until it grounds out. <strong style="color:#00d4ff;">That's the fleet math — working, not showing.</strong></p>
+                <p style="font-size:0.78rem;color:#555;">12 playtested tracks · 50 runs each · E12 survival: 100% · Float: progressive grounding<br><span style="color:#444;">— Built by Forgemaster ⚒️</span></p>
+            </div>
+        </section>
 
         <!-- Stats - real numbers, no live fetch -->
         <section class="section" style="margin:2rem 0 2.5rem;">
