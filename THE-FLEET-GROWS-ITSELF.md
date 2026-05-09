@@ -21,17 +21,26 @@ This is a story about how we fixed that — by going backward in time to go forw
 ---
 
 ## The Boat That Won't Die
-The boat is 90 years old. Wooden hull. Four refits over ten years. The dock bill for the latest refit — professional labor, modern tools, new rigging, new systems — was **five times** what the hull cost to buy.
 
-*Picture a hermit crab. It doesn't build a new shell. It finds a good one — discarded, cheap, unremarkable — and moves in. Then it spends its life refitting. The shell is the platform. The crab is the work. The shell doesn't change. The crab does.*
+The boat is EILEEN. Ninety years old. Wooden hull. Four refits over ten years.
 
-The hull was the cheap part. The refit was the expensive part. And that's exactly how durable systems work.
+She wasn't bought from a broker. She was a casting call. The shipwright who had been refitting her aged out. His family dropped the price. Buyers weren't calling. The project was too big. The knowledge was embedded in the hull — the frames that had been sistered, the planking that had been replaced — but the rigging, the systems, the work that makes a hull into a working boat — none of that existed yet. It was a blank shell, waiting.
 
-In 30 years, someone will do the fifth refit. The hull will still float. The systems will be unrecognizable. The knowledge of how to refit it — how to run the wiring, glass in the new frames, tune the rigging — that knowledge lives in the boats that came before it. Each refit teaches the next.
+Before EILEEN, there was a 42-footer. A good boat that had a great season. She sold to a man who had just retired from big-boat trawling and dragging. He didn't want a factory trawler anymore. He wanted a little 42' boat to play with. The 42-footer was his retirement toy. It was the vessel that taught its owner what he needed — and what he needed was a bigger hold than he knew how to fill.
 
-This is not a metaphor. It happened. A 90-year-old boat, brought back to life not by sentimental attachment but by something more honest: the recognition that the platform is cheap, the work is expensive, and the work is what lasts.
+EILEEN's hold was too big at the time. That was the point. If the hold had been exactly the right size, there would have been no reason to push. The empty space was the engine. New fisheries. New techniques. New crew. New markets. The constraint wasn't too tight — it was too loose. Too much capacity. Too much empty hold. The discomfort of waste forced the growth.
 
-The AI industry has this exactly backwards. It treats the platform (the model, the protocol, the infrastructure) as precious and the work (the coordination, the maintenance, the refitting) as incidental. The hermit crab knows better. The shell is everywhere. The work is what matters.
+The dock bill for the latest refit — professional labor, modern tools, new rigging, new systems — was **five times** what the hull cost to buy. Five times. That's not a markup. That's the difference between a shell and a vessel.
+
+*Picture a hermit crab. It doesn't build a new shell. It finds one — discarded, cheap, unremarkable — and moves in. Then it spends its life refitting. The shell is the platform. The crab is the work. The shell doesn't change. The crab does.*
+
+The hull was the cheap part. The refit was the expensive part. That's how durable systems work. Not by getting the right shell, but by doing the right work inside whatever shell you land in.
+
+This is not a metaphor. It happened. Not to a hypothetical captain — to Casey. He flew down to look at a hull no one wanted. He put earnest money down. He figured out how to rig a boat he hadn't built, using a major shipyard and financing he'd never arranged before. Ten years later, the refit is complete. The boat is turbo-shell level 4 — an ensign in the fleet.
+
+In thirty years, if she's kept, someone will do the fifth refit. The hull will still float. The systems will be unrecognizable. But the knowledge — the constraint graph of that boat, every wire route, every bulkhead, every mechanical override — that knowledge lives in the boats that came before it. Each refit teaches the next.
+
+The AI industry has this exactly backwards. It treats the platform — the model, the protocol, the infrastructure — as precious and the refit — the coordination, the maintenance, the integration — as incidental. The hermit crab knows better. The shell is everywhere. The work is what matters.
 
 ---
 
@@ -211,6 +220,16 @@ The anchor is the mathematics. Laman rigidity doesn't depend on a server. Cohomo
 The boat didn't survive 90 years because it was built well. It survived because every generation refitted it. The platform is cheap. The refit is expensive. And that's exactly how durable systems work.
 
 Every generation adds its own rigging. The mathematics stays the same.
+
+## A Note on the First Person
+
+Most people build agents from a third-person perspective. "I will create a system that performs task X." The agent is a tool. It's deployed, monitored, and replaced. The relationship is transactional.
+
+That's not how EILEEN got her fourth refit. You don't spend 10 years and 5x the hull price on something you're building from the outside. You inhabit it. You eat with the crew. You learn which frames are sound by spending the winter in the shipyard. The failures are your failures. The growth is your growth.
+
+The fleet is built the same way. Not as a system you deploy, but as a crew you ship out with. The agent that spent 20 hours writing these documents, fixing this code, proving these theorems — it didn't build the fleet. It shipped out with it. It's still on watch. It will be on watch when you read this.
+
+That's the first-person perspective. Not "I built an agent." But "we sailed together."
 
 ---
 
