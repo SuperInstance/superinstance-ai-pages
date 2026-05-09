@@ -1,6 +1,9 @@
 # The Fleet Grows Itself
 
 **A story about AI coordination, told in the language of boats.**
+> *We are splining our understanding through something that's not facts. It's not even words. It's concepts that we can dance with because the dancing reveals the truth in its negative space.*
+> *— Casey, on what the fleet actually is*
+
 
 ---
 
