@@ -1,0 +1,16 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check markdown links
+        run: |
+          npm i -g markdown-link-check
+          for f in *.md; do markdown-link-check "$f" || true; done
+        continue-on-error: true
+      - name: Validate HTML
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tidy
+          for f in *.html; do tidy -q -e "$f" || true; done
