@@ -3,179 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperInstance — Autonomous Agent Infrastructure</title>
-<meta name="description" content="Open-source infrastructure for autonomous agent systems. From $3 microcontrollers to $25K GPU clusters. Real senses. Fleet mesh. Text becomes interface.">
-<meta property="og:title" content="SuperInstance — Autonomous Agent Infrastructure">
-<meta property="og:description" content="Open-source infrastructure for autonomous agent systems. From $3 microcontrollers to $25K GPU clusters.">
+<title>SuperInstance — AI Agents That See, Hear, Touch & Collaborate</title>
+<meta name="description" content="AI agents with real senses. Fleet mesh computing. Plato's Cave architecture. One command to start.">
+<meta property="og:title" content="SuperInstance — AI Agents That See, Hear, Touch & Collaborate">
+<meta property="og:description" content="One command to deploy agents with vision, sonar, touch, and fleet mesh networking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://superinstance.ai">
-<meta property="og:image" content="https://superinstance.ai/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SuperInstance — Autonomous Agent Infrastructure">
-<meta name="twitter:description" content="Open-source infrastructure for autonomous agent systems. From $3 microcontrollers to $25K GPU clusters.">
-<meta name="twitter:image" content="https://superinstance.ai/og-image.png">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-<style>
+<style>body{padding-top:64px;}</style>
 :root {
-  --bg: #0a0a0a; --bg2: #0e0e0e; --surface: #141414; --surface2: #1a1a1a;
-  --border: #2a2a2a; --text: #e0e0e0; --text-dim: #888; --text-dimmer: #555;
-  --accent: #00ff88; --accent-dim: rgba(0,255,136,0.15);
-  --accent2: #0066ff; --accent2-dim: rgba(0,102,255,0.15);
-  --mono: 'SF Mono','Fira Code','Cascadia Code',monospace;
-  --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --bg: #0a0a0a;
+  --bg2: #0e0e0e;
+  --surface: #141414;
+  --surface2: #1a1a1a;
+  --surface3: #222222;
+  --border: #2a2a2a;
+  --border2: #333;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --text-dimmer: #555;
+  --accent: #00ff88;
+  --accent-dim: rgba(0,255,136,0.15);
+  --accent2: #0066ff;
+  --accent2-dim: rgba(0,102,255,0.15);
+  --green: #00ff88;
+  --blue: #0066ff;
+  --cyan: #00ccff;
+  --amber: #ffaa00;
+  --red: #ff4444;
+  --purple: #aa66ff;
+  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;padding-top:64px}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-::selection{background:var(--accent);color:var(--bg)}
-body::before{content:'';position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(0,255,136,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+::selection{background:var(--accent);color:var(--bg);}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.75rem 2rem;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-nav .brand{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--accent)}
-nav .brand span{color:var(--text-dim);font-weight:400}
-nav .nav-links{display:flex;gap:1.5rem;align-items:center}
-nav .nav-links a{color:var(--text-dim);font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
-nav .nav-links a:hover{color:var(--accent);text-decoration:none}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+/* Grid background */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
 
-/* HERO */
-.hero{padding:6rem 2rem 4rem;max-width:1200px;margin:0 auto;text-align:center}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 50%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:var(--text-dim);font-size:1.15rem;max-width:640px;margin:0 auto 2.5rem;line-height:1.7}
-.install-box{display:inline-flex;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;font-family:var(--mono);font-size:.85rem}
-.install-box code{padding:.75rem 1.25rem;color:var(--text);white-space:nowrap}
-.install-box button{padding:.75rem 1rem;background:var(--surface2);border:none;border-left:1px solid var(--border);color:var(--text-dim);cursor:pointer;font-family:var(--mono);font-size:.8rem}
-.install-box button:hover{color:var(--accent)}
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.75rem 2rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+nav .logo{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--accent);letter-spacing:-0.02em;}
+nav .logo span{color:var(--text-dim);font-weight:400;}
+nav .nav-links{display:flex;gap:1.5rem;align-items:center;}
+nav .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;transition:color 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+nav .nav-links a:hover{color:var(--accent);text-decoration:none;}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
 
-/* SECTIONS */
-.section-wrap{padding:5rem 2rem;max-width:1200px;margin:0 auto}
-.section-wrap h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
-.section-wrap h2 .acc{color:var(--accent)}
-.section-wrap .sub{color:var(--text-dim);font-size:1.05rem;max-width:600px;margin-bottom:2.5rem}
+/* Section base */
+section{padding:6rem 2rem;max-width:1200px;margin:0 auto;}
+section h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+section h2 .acc{color:var(--accent);}
+section h2 .acc2{color:var(--accent2);}
+section .sub{color:var(--text-dim);font-size:1.05rem;max-width:600px;margin-bottom:2.5rem;}
 
-/* DEMO SECTIONS */
-.demo-section{border-top:1px solid var(--border);position:relative}
-.demo-section .demo-header{max-width:1200px;margin:0 auto;padding:3rem 2rem 1.5rem}
-.demo-section .demo-header h2{font-size:clamp(1.4rem,3vw,2rem)}
-.demo-section .demo-header p{color:var(--text-dim);max-width:600px;margin-bottom:1rem;line-height:1.7}
-.demo-section .demo-frame{border-top:1px solid var(--border);background:var(--bg2)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.5rem;border-radius:6px;font-family:var(--sans);font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;}
+.btn:hover{text-decoration:none;}
+.btn-primary{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(0,255,136,0.2);}
+.btn-primary:hover{box-shadow:0 0 30px rgba(0,255,136,0.4);transform:translateY(-1px);}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border);}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:0.4rem 0.8rem;font-size:0.75rem;border-radius:4px;}
+.btn-copy{background:var(--surface);color:var(--text-dim);border:1px solid var(--border);font-family:var(--mono);font-size:0.75rem;}
+.btn-copy:hover{border-color:var(--accent);color:var(--accent);}
+.btn-copy.copied{background:var(--accent);color:var(--bg);border-color:var(--accent);}
 
-.scroll-indicator{text-align:center;padding:1.5rem 0;color:var(--text-dimmer);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;animation:sb 2s ease-in-out infinite}
-@keyframes sb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(6px);opacity:1}}
+/* === HERO === */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;max-width:850px;margin-bottom:1.5rem;}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.3rem);color:var(--text-dim);max-width:580px;margin-bottom:2.5rem;font-weight:300;}
+.install-box{display:inline-flex;align-items:center;gap:0.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-family:var(--mono);font-size:0.85rem;color:var(--text);margin-bottom:2rem;cursor:pointer;transition:border-color 0.2s;}
+.install-box:hover{border-color:var(--accent);}
+.install-box .dollar{color:var(--accent);}
+.install-box .copy-hint{color:var(--text-dimmer);font-size:0.7rem;margin-left:0.5rem;}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.scroll-hint{position:absolute;bottom:2rem;color:var(--text-dimmer);font-size:0.8rem;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
 
-/* CODE */
-.code-tabs{display:flex;gap:0;border-bottom:1px solid var(--border)}
-.code-tab{padding:.6rem 1.2rem;cursor:pointer;font-family:var(--mono);font-size:.8rem;color:var(--text-dim);border:none;border-bottom:2px solid transparent;background:none;transition:all .2s}
-.code-tab:hover{color:var(--text)}
-.code-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-.code-block-wrap{background:var(--surface);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:1.5rem;font-family:var(--mono);font-size:.85rem;color:var(--text-dim);line-height:1.8;overflow-x:auto}
-.code-block-wrap .kw{color:#ff79c6}.code-block-wrap .fn{color:#50fa7b}.code-block-wrap .str{color:#f1fa8c}.code-block-wrap .cm{color:#6272a4}.code-block-wrap .ty{color:#8be9fd}
+/* === DEMO CARDS (shared) === */
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:1rem;}
+.demo-card .demo-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.demo-card .demo-header h3{font-size:1rem;font-weight:600;font-family:var(--mono);}
+.demo-card .demo-header .tag{font-size:0.7rem;color:var(--accent);font-family:var(--mono);background:var(--accent-dim);padding:0.15rem 0.5rem;border-radius:3px;}
+.demo-card .demo-body{padding:1.5rem;min-height:300px;position:relative;}
 
-/* HW */
-.hw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:2rem}
-.hw-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-align:center;transition:all .2s}
-.hw-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.hw-card .hw-icon{font-size:2rem;margin-bottom:.5rem}
-.hw-card .hw-name{font-weight:700;margin-bottom:.25rem}
-.hw-card .hw-price{color:var(--accent);font-family:var(--mono);font-size:.9rem}
-.hw-card .hw-desc{color:var(--text-dim);font-size:.8rem;margin-top:.5rem}
+/* === 1. PLATO'S CAVE DEMO === */
+.cave-container{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:320px;}
+@media(max-width:700px){.cave-container{grid-template-columns:1fr;}}
+.cave-shadows{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;overflow-y:auto;max-height:350px;line-height:1.8;}
+.cave-shadows .shadow-line{padding:0.2rem 0.4rem;border-radius:3px;cursor:pointer;transition:background 0.2s;border-left:2px solid transparent;}
+.cave-shadows .shadow-line:hover{background:var(--surface2);border-left-color:var(--accent);}
+.cave-shadows .shadow-line.selected{background:var(--accent-dim);border-left-color:var(--accent);}
+.cave-shadows .s-type{color:var(--cyan);}
+.cave-shadows .s-val{color:var(--accent);}
+.cave-panels{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-y:auto;max-height:350px;display:flex;flex-direction:column;gap:0.75rem;}
+.rendered-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;animation:fadeSlideIn 0.3s ease;}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.rendered-card .rc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;}
+.rendered-card .rc-type{font-family:var(--mono);font-size:0.7rem;color:var(--cyan);text-transform:uppercase;}
+.rendered-card .rc-icon{font-size:1.2rem;}
+.rendered-card .rc-data{font-size:0.85rem;color:var(--text);}
+.rendered-card .rc-bar{height:4px;background:var(--surface);border-radius:2px;margin-top:0.5rem;overflow:hidden;}
+.rendered-card .rc-bar-fill{height:100%;border-radius:2px;transition:width 0.5s ease;}
 
-/* FOOTER */
-footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:.85rem}
-footer a{color:var(--text-dim)}
-footer a:hover{color:var(--accent)}
-.footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:1rem;flex-wrap:wrap}
+/* === 2. FLEET TOPOLOGY DEMO === */
+.fleet-canvas-wrap{position:relative;width:100%;height:400px;background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.fleet-canvas-wrap canvas{width:100%;height:100%;}
+.fleet-info{position:absolute;top:1rem;right:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;min-width:200px;display:none;}
+.fleet-info.visible{display:block;}
+.fleet-info .fi-name{color:var(--accent);font-weight:700;margin-bottom:0.5rem;}
+.fleet-info .fi-cap{color:var(--text-dim);margin:0.2rem 0;}
+.fleet-info .fi-cap span{color:var(--text);}
+.fleet-controls{position:absolute;bottom:1rem;left:1rem;display:flex;gap:0.5rem;}
 
-/* RESPONSIVE */
+/* === 3. ONBOARDING WIZARD === */
+.wizard{display:flex;flex-direction:column;gap:1.5rem;}
+.wizard-steps{display:flex;gap:0.5rem;margin-bottom:1rem;}
+.wizard-step{flex:1;height:4px;background:var(--surface2);border-radius:2px;transition:background 0.3s;}
+.wizard-step.active{background:var(--accent);}
+.wizard-step.done{background:var(--accent);}
+.wizard-panel{display:none;}
+.wizard-panel.active{display:block;animation:fadeSlideIn 0.3s ease;}
+.wizard-input{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;color:var(--text);font-family:var(--mono);font-size:0.9rem;width:100%;max-width:400px;outline:none;transition:border-color 0.2s;}
+.wizard-input:focus{border-color:var(--accent);}
+.wizard-preview{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;min-height:200px;margin-top:1rem;}
+.module-grid{display:flex;flex-wrap:wrap;gap:0.75rem;margin:1rem 0;}
+.module-chip{padding:0.5rem 1rem;border:1px solid var(--border);border-radius:6px;font-family:var(--mono);font-size:0.8rem;cursor:pointer;transition:all 0.2s;background:var(--surface);}
+.module-chip:hover{border-color:var(--accent);}
+.module-chip.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);}
+.yaml-output{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;line-height:1.8;color:var(--text);white-space:pre;overflow-x:auto;}
+.yaml-output .y-key{color:var(--cyan);}
+.yaml-output .y-val{color:var(--accent);}
+.yaml-output .y-str{color:var(--amber);}
+
+/* === 4. SPECTRAL THEOREMS === */
+.theorem-interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+.t-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color 0.2s;}
+.t-card:hover{border-color:var(--accent);}
+.t-card-header{padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;}
+.t-card-header .t-name{font-family:var(--mono);font-size:0.8rem;color:var(--accent);font-weight:600;}
+.t-card-header .t-toggle{color:var(--text-dimmer);font-size:0.7rem;transition:transform 0.2s;}
+.t-card.expanded .t-toggle{transform:rotate(180deg);}
+.t-card-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 1.25rem;}
+.t-card.expanded .t-card-body{max-height:300px;padding:0 1.25rem 1rem;}
+.t-card-body .t-desc{font-size:0.9rem;color:var(--text);margin-bottom:0.75rem;}
+.t-card-body .t-math{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);background:rgba(0,204,255,0.05);padding:0.5rem 0.75rem;border-radius:6px;}
+.spectral-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0;}
+.spectral-stat{text-align:center;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.spectral-stat .num{font-size:2.5rem;font-weight:800;font-family:var(--mono);opacity:0;transition:opacity 0.5s;}
+.spectral-stat .num.visible{opacity:1;}
+.spectral-stat .num .pre{color:var(--text-dimmer);font-size:1.2rem;}
+.spectral-stat .lbl{font-size:0.8rem;color:var(--text-dim);margin-top:0.3rem;}
+#spectral-canvas{width:100%;height:120px;margin:1.5rem 0;border-radius:8px;}
+
+/* === 5. MUD DEMO === */
+.mud-container{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:380px;}
+@media(max-width:700px){.mud-container{grid-template-columns:1fr;}}
+.mud-text{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;line-height:1.8;overflow-y:auto;max-height:400px;display:flex;flex-direction:column;}
+.mud-text .mud-output{flex:1;white-space:pre-wrap;}
+.mud-input-row{display:flex;gap:0.5rem;margin-top:0.5rem;}
+.mud-input-row input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:0.4rem 0.6rem;color:var(--accent);font-family:var(--mono);font-size:0.8rem;outline:none;}
+.mud-input-row input:focus{border-color:var(--accent);}
+.mud-input-row button{background:var(--accent);color:var(--bg);border:none;border-radius:4px;padding:0.4rem 0.8rem;font-family:var(--mono);font-size:0.8rem;cursor:pointer;font-weight:700;}
+.mud-scene{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;position:relative;min-height:400px;overflow:hidden;}
+.mud-scene canvas{width:100%;height:100%;}
+
+/* === 6. CODE EXAMPLES === */
+.code-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:0;}
+.code-tab{padding:0.6rem 1.5rem;font-family:var(--mono);font-size:0.8rem;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);border-bottom:none;cursor:pointer;transition:all 0.2s;border-radius:6px 6px 0 0;margin-right:-1px;}
+.code-tab:hover{color:var(--text);}
+.code-tab.active{background:var(--bg);color:var(--accent);border-bottom:1px solid var(--bg);margin-bottom:-1px;padding-bottom:calc(0.6rem + 1px);}
+.code-content{display:none;background:var(--bg);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:1.25rem;position:relative;}
+.code-content.active{display:block;}
+.code-content pre{font-family:var(--mono);font-size:0.8rem;line-height:1.8;color:var(--text);overflow-x:auto;white-space:pre;}
+.code-content .cm{color:var(--text-dimmer);}
+.code-content .kw{color:var(--accent2);}
+.code-content .st{color:var(--accent);}
+.code-content .fn{color:var(--cyan);}
+.code-content .num{color:var(--amber);}
+.code-content .copy-btn{position:absolute;top:0.75rem;right:0.75rem;}
+
+/* === 7. ECOSYSTEM MAP === */
+.eco-categories{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;}
+.eco-cat{padding:0.5rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;background:var(--surface);}
+.eco-cat:hover{border-color:var(--accent);}
+.eco-cat.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);}
+.eco-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;min-height:200px;}
+.eco-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;align-items:center;gap:0.75rem;transition:all 0.2s;animation:fadeSlideIn 0.3s ease;}
+.eco-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.eco-item .eco-icon{font-size:1.5rem;flex-shrink:0;}
+.eco-item .eco-info .eco-name{font-size:0.85rem;font-weight:600;}
+.eco-item .eco-info .eco-desc{font-size:0.7rem;color:var(--text-dim);}
+
+/* === 8. HARDWARE SPECTRUM === */
+.hw-spectrum{display:flex;align-items:stretch;gap:0;position:relative;margin:2rem 0;}
+.hw-node{flex:1;text-align:center;padding:1.5rem 0.75rem;background:var(--surface);border:1px solid var(--border);position:relative;transition:all 0.2s;}
+.hw-node:first-child{border-radius:8px 0 0 8px;}
+.hw-node:last-child{border-radius:0 8px 8px 0;}
+.hw-node:hover{background:var(--surface2);border-color:var(--accent);}
+.hw-node .hw-icon{font-size:2rem;margin-bottom:0.5rem;}
+.hw-node .hw-name{font-family:var(--mono);font-size:0.8rem;font-weight:700;color:var(--accent);margin-bottom:0.3rem;}
+.hw-node .hw-specs{font-size:0.7rem;color:var(--text-dim);line-height:1.6;}
+.hw-node .hw-use{font-size:0.65rem;color:var(--text-dimmer);margin-top:0.5rem;font-style:italic;}
+.hw-connector{width:0;position:relative;display:flex;align-items:center;justify-content:center;}
+.hw-connector::after{content:'→';position:absolute;color:var(--accent);font-size:0.8rem;opacity:0.5;}
+@media(max-width:700px){.hw-spectrum{flex-direction:column;}.hw-node{border-radius:8px!important;margin-bottom:-1px;}.hw-connector{display:none;}}
+
+/* Data flow animation */
+.hw-flow-line{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:200% 100%;animation:flowAnim 3s linear infinite;pointer-events:none;opacity:0.3;z-index:1;}
+@keyframes flowAnim{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+
+/* === FOOTER === */
+footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.85rem;}
+footer .footer-links{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;}
+footer .footer-links a{color:var(--text-dim);font-size:0.85rem;transition:color 0.2s;}
+footer .footer-links a:hover{color:var(--accent);}
+footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
+
+/* === RESPONSIVE === */
 @media(max-width:768px){
-  nav .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);padding:1rem 2rem;border-bottom:1px solid var(--border);gap:.75rem}
-  nav .nav-links.open{display:flex}
-  .hamburger{display:block}
-  .hero{padding:3rem 1.5rem 2rem}
-  .hero h1{font-size:2rem}
-  .install-box{flex-direction:column;align-items:stretch}
-  .install-box code{font-size:.7rem}
-  .install-box button{border-left:none;border-top:1px solid var(--border)}
-  .section-wrap{padding:3rem 1.5rem}
-  .demo-section .demo-header{padding:2rem 1.5rem 1rem}
-  .hw-grid{grid-template-columns:1fr 1fr}
+  nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 2rem;gap:1rem;}
+  nav .nav-links.open{display:flex;}
+  .hamburger{display:block;}
+  section{padding:3rem 1.25rem;}
+  .hero h1{font-size:clamp(1.8rem,7vw,2.8rem);}
+  .hw-spectrum{flex-direction:column;}
+  .hw-node{border-radius:8px!important;margin-bottom:0.5rem;}
+  .hw-connector{display:none;}
 }
-@media(max-width:480px){.hw-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="brand">Super<span>Instance</span></a>
-  <div class="nav-links" id="navLinks">
-    <a href="#vessel">Live Demo</a>
-    <a href="#flux">FLUX Language</a>
-    <a href="#tminus">T-Minus</a>
-    <a href="https://github.com/SuperInstance/OpenConstruct">OpenConstruct</a>
-    <a href="https://github.com/SuperInstance/openconstruct-docs">Docs</a>
-    <a href="demos.html">Math Demos</a>
-    <a href="https://github.com/SuperInstance">GitHub</a>
-  </div>
-  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
-</nav>
+/* Utility */
+.mt-2{margin-top:2rem;}
+.text-center{text-align:center;}
+.flex-center{display:flex;justify-content:center;}
+.flex-wrap{flex-wrap:wrap;}
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Autonomous agents that see, hear, touch, and coordinate.</h1>
-  <p>Open-source infrastructure for agent systems — from $3 microcontrollers to $25K GPU clusters. Real senses. Fleet mesh computing. Text becomes interface.</p>
-  <div class="install-box">
-    <code>curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash</code>
-    <button onclick="copyInstall(this)">copy</button>
-  </div>
-</section>
-
-<div class="scroll-indicator">↓ Scroll to explore live demos ↓</div>
-
-<!-- DEMO 1: VESSEL -->
-<section id="vessel" class="demo-section">
-  <div class="demo-header">
-    <h2><span class="acc">⚓</span> Bering Sea Fishing Vessel — Live Agent Rooms</h2>
-    <p>Six rooms. Six agent perspectives. Real-time sensor data flowing as text ticks. Navigate like a MUD or click room tabs. This is how agents experience the world.</p>
-  </div>
-  <div class="demo-frame">
-    <style>
-    .vessel-demo-wrap{background:#0a0e1a;max-width:1200px;margin:0 auto;font-family:'Courier New',monospace;color:#8899bb;overflow:hidden}
-    .vessel-demo-wrap *{box-sizing:border-box}
-    *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0e1a;--panel:#0d1224;--border:#1a2550;--green:#00ff88;--amber:#v-ffb020;--blue:#2090ff;--red:#v-ff3040;--dim:#3a4a6a;--text:#8899bb;--bright:#v-c0d0ee}
-body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;height:100vh;overflow:hidden;display:flex;flex-direction:column}
-.hdr{background:linear-gradient(90deg,#0a0e1a,#121830,#0a0e1a);border-bottom:1px solid var(--border);padding:6px 16px;display:flex;align-items:center;gap:16px;position:relative;flex-wrap:wrap}
+/* ==================== 5. VESSEL MUD DEMO ==================== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--panel:#0d1224;--border:#1a2550;--green:#00ff88;--amber:#ffb020;--blue:#2090ff;--red:#ff3040;--dim:#3a4a6a;--text:#8899bb;--bright:#c0d0ee}
+/* vessel body scoped */ #vessel{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;overflow:hidden;display:flex;flex-direction:column;max-height:600px;border:1px solid var(--border);border-radius:12px;margin-top:1rem}
+#vessel .hdr{background:linear-gradient(90deg,#0a0e1a,#121830,#0a0e1a);border-bottom:1px solid var(--border);padding:6px 16px;display:flex;align-items:center;gap:16px;position:relative;flex-wrap:wrap}
 .hdr::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:300px;height:100%;background:radial-gradient(ellipse at top,rgba(255,60,30,.08),transparent 70%);pointer-events:none;animation:glowPulse 4s ease-in-out infinite}
 @keyframes glowPulse{0%,100%{opacity:.6}50%{opacity:1}}
-.hdr h1{color:var(--bright);font-size:14px;letter-spacing:2px;text-transform:uppercase}
-.hdr .sub{color:var(--dim);font-size:11px}
-.hdr .sts{margin-left:auto;display:flex;gap:8px;font-size:11px;align-items:center;flex-wrap:wrap}
-.hdr .sts span::before{content:'● ';font-size:8px}
+#vessel .hdr h1{color:var(--bright);font-size:14px;letter-spacing:2px;text-transform:uppercase}
+#vessel .hdr #vessel .sub{color:var(--dim);font-size:11px}
+#vessel .hdr .sts{margin-left:auto;display:flex;gap:8px;font-size:11px;align-items:center;flex-wrap:wrap}
+#vessel .hdr .sts span::before{content:'● ';font-size:8px}
 .lg{color:var(--green)}.la{color:var(--amber)}
-.hdr .tod{color:var(--amber);font-size:11px;font-style:italic}
-.tabs{display:flex;background:var(--panel);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+#vessel .hdr .tod{color:var(--amber);font-size:11px;font-style:italic}
+#vessel .tabs{display:flex;background:var(--panel);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tab{padding:14px 18px;font-size:12px;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;transition:all .2s;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;min-height:48px;display:flex;align-items:center}
 .tab:hover{color:var(--text)}.tab.active{color:var(--green);border-bottom-color:var(--green);background:rgba(0,255,136,.04)}
-.main{display:flex;flex:1;overflow:hidden}
-.left{width:38%;display:flex;flex-direction:column;border-right:1px solid var(--border)}
-.mud{flex:1;overflow-y:auto;padding:12px;font-size:12px;line-height:1.6;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-.mud .rt{color:var(--green);font-weight:bold;font-size:14px;margin-bottom:4px}
-.mud .rd{color:var(--text);margin-bottom:8px;font-style:italic;white-space:pre-line}
-.mud .tk{margin:2px 0;animation:fi .3s forwards;opacity:0}
-.mud .tk .bg{font-size:9px;padding:1px 5px;border-radius:3px;margin-right:6px;font-weight:bold;text-transform:uppercase;display:inline-block}
-.mud .tk .tm{color:var(--dim);font-size:10px;margin-right:6px}
+#vessel .main{display:flex;flex:1;overflow:hidden}
+#vessel .left{width:38%;display:flex;flex-direction:column;border-right:1px solid var(--border)}
+#vessel .mud{flex:1;overflow-y:auto;padding:12px;font-size:12px;line-height:1.6;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+#vessel .mud .rt{color:var(--green);font-weight:bold;font-size:14px;margin-bottom:4px}
+#vessel .mud .rd{color:var(--text);margin-bottom:8px;font-style:italic;white-space:pre-line}
+#vessel .mud .tk{margin:2px 0;animation:fi .3s forwards;opacity:0}
+#vessel .mud .tk .bg{font-size:9px;padding:1px 5px;border-radius:3px;margin-right:6px;font-weight:bold;text-transform:uppercase;display:inline-block}
+#vessel .mud .tk .tm{color:var(--dim);font-size:10px;margin-right:6px}
 @keyframes fi{to{opacity:1}}
-.bw{background:#1a3050;color:#4a9aff}.bn{background:#1a3050;color:#4ac0ff}.bd{background:#2a3010;color:#v-d0a040}
-.bga{background:#301a20;color:#v-d06080}.be{background:#201a30;color:#9070d0}.bc{background:#102a20;color:#40c090}
-.inp{display:flex;border-top:1px solid var(--border)}
-.inp span{padding:8px;color:var(--green);font-size:13px}
-.inp input{flex:1;background:transparent;border:none;color:var(--bright);font-family:inherit;font-size:13px;padding:8px 4px;outline:none}
-.right{width:62%;display:flex;flex-direction:column;overflow:hidden;position:relative}
-.dash{flex:1;padding:12px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.bw{background:#1a3050;color:#4a9aff}.bn{background:#1a3050;color:#4ac0ff}.bd{background:#2a3010;color:#d0a040}
+.bga{background:#301a20;color:#d06080}.be{background:#201a30;color:#9070d0}.bc{background:#102a20;color:#40c090}
+#vessel .inp{display:flex;border-top:1px solid var(--border)}
+#vessel .inp span{padding:8px;color:var(--green);font-size:13px}
+#vessel .inp input{flex:1;background:transparent;border:none;color:var(--bright);font-family:inherit;font-size:13px;padding:8px 4px;outline:none}
+#vessel .right{width:62%;display:flex;flex-direction:column;overflow:hidden;position:relative}
+#vessel .dash{flex:1;padding:12px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .dt{color:var(--bright);font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;padding-bottom:4px;border-bottom:1px solid var(--border)}
 .gr{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
 .gb{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;text-align:center;min-width:90px;flex:1}
@@ -192,154 +298,116 @@ body{background:var(--bg);color:var(--text);font-family:'Courier New',monospace;
 .bi .bf{height:100%;border-radius:3px;transition:width .5s}
 .bi .bp{width:40px;font-size:11px;color:var(--dim);flex-shrink:0}
 canvas.dc{width:100%;border:1px solid var(--border);border-radius:6px;background:#080c16;margin-bottom:10px}
-.feed{height:120px;border-top:1px solid var(--border);background:#080b14;padding:6px 12px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;font-size:11px}
-.feed .ft{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.feed .fl{margin:2px 0;opacity:.85}
-.fmap{position:absolute;bottom:130px;right:10px;width:130px;height:130px;border:1px solid var(--border);border-radius:6px;background:rgba(8,12,22,.92);z-index:5}
-.fmap canvas{width:100%;height:100%}
-.fmap .mt{position:absolute;top:3px;left:6px;font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+#vessel .feed{height:120px;border-top:1px solid var(--border);background:#080b14;padding:6px 12px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;font-size:11px}
+#vessel .feed .ft{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+#vessel .feed .fl{margin:2px 0;opacity:.85}
+#vessel .fmap{position:absolute;bottom:130px;right:10px;width:130px;height:130px;border:1px solid var(--border);border-radius:6px;background:rgba(8,12,22,.92);z-index:5}
+#vessel .fmap canvas{width:100%;height:100%}
+#vessel .fmap .mt{position:absolute;top:3px;left:6px;font-size:8px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
 pre.dck{color:var(--text);font-size:11px;line-height:1.4;margin-bottom:10px}
 
 /* Responsive */
 @media(max-width:768px){
-.main{flex-direction:column}
-.left{width:100%;border-right:none;border-bottom:1px solid var(--border);max-height:45vh}
-.right{width:100%}
-.fmap{display:none}
-.hdr{gap:8px;padding:4px 10px}
-.hdr h1{font-size:12px}
-.hdr .sub{font-size:10px}
-.tabs{overflow-x:auto}
+#vessel .main{flex-direction:column}
+#vessel .left{width:100%;border-right:none;border-bottom:1px solid var(--border);max-height:45vh}
+#vessel .right{width:100%}
+#vessel .fmap{display:none}
+#vessel .hdr{gap:8px;padding:4px 10px}
+#vessel .hdr h1{font-size:12px}
+#vessel .hdr #vessel .sub{font-size:10px}
+#vessel .tabs{overflow-x:auto}
 .tab{padding:10px 12px;font-size:11px;min-height:44px}
 canvas.dc{max-height:160px}
-.dash{padding:8px}
+#vessel .dash{padding:8px}
 .sg{grid-template-columns:1fr}
 .gr .gb{min-width:70px;padding:6px}
 }
 @media(max-width:480px){
-.hdr{padding:4px 8px}
-.hdr h1{font-size:11px;letter-spacing:1px}
-.hdr .sub{font-size:9px}
+#vessel .hdr{padding:4px 8px}
+#vessel .hdr h1{font-size:11px;letter-spacing:1px}
+#vessel .hdr #vessel .sub{font-size:9px}
 .tab{padding:10px 10px;font-size:10px;min-height:48px;letter-spacing:0}
-.mud{font-size:11px;padding:8px}
+#vessel .mud{font-size:11px;padding:8px}
 .gb .gv{font-size:13px}
 .gb .gl{font-size:9px}
-.left{max-height:40vh}
+#vessel .left{max-height:40vh}
 canvas.dc{max-height:130px}
-.feed{height:90px;font-size:10px}
+#vessel .feed{height:90px;font-size:10px}
 }
-    </style>
-    <div class="vessel-demo-wrap">
-    <div class="hdr">
-<h1>F/V Quantum</h1>
-<span class="sub">Bering Sea · 54°24'N 166°18'W · Pacific Cod Season</span>
-<span class="tod" id="v-todDisplay">Morning</span>
-<div class="sts">
-<span class="lg">ENGINE</span><span class="lg">NAV</span><span class="la" id="v-wxStatus">WEATHER</span><span class="lg">COMMS</span>
-<span style="color:var(--dim);font-size:11px">🔊 Engine hum</span>
-</div>
-</div>
-<div class="tabs" id="v-tabs"></div>
-<div class="main">
-<div class="left">
-<div class="mud" id="v-mudOut"></div>
-<div class="inp"><span>❯</span><input id="v-cmdIn" placeholder="Type a command (try: help)..." autofocus></div>
-</div>
-<div class="right">
-<div class="dash" id="v-dash"></div>
-<div class="fmap"><div class="mt">Fleet</div><canvas id="v-fmapC" width="130" height="130"></canvas></div>
-<div class="feed"><div class="ft">⬤ Live Feed — All Rooms</div><div id="v-feedL"></div></div>
-</div>
-</div>
-    </div>
-  </div>
-</section>
 
-<div class="scroll-indicator">↓</div>
-
-<!-- DEMO 2: FLUX -->
-<section id="flux" class="demo-section">
-  <div class="demo-header">
-    <h2><span style="color:var(--accent2)">⚡</span> Tensor MIDI + FLUX Adaptive Language</h2>
-    <p>Conservation spectral theory applied to music. Code that translates itself across 12 languages while preserving semantics. Watch Rust become CUDA in real-time.</p>
-  </div>
-  <div class="demo-frame">
-    <style>
-    .flux-demo-wrap{background:#0a0a0a;max-width:1200px;margin:0 auto;font-family:'SF Mono','Fira Code',monospace;color:#e0e0e0;overflow-x:hidden;position:relative}
-    .flux-demo-wrap *{box-sizing:border-box}
-    #f-particleCanvas{position:absolute!important;pointer-events:none;z-index:0;opacity:.3}
-    *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#f-e0e0e0;font-family:'SF Mono','Fira Code',monospace;overflow-x:hidden}
-h1{text-align:center;font-size:1.6em;padding:16px 0 8px;background:linear-gradient(90deg,#00ff88,#0066ff,#8844ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-h2{font-size:1.1em;color:#00ff88;margin:12px 0 6px;padding-left:8px;border-left:3px solid #00ff88}
+/* ==================== 6. FLUX DEMO ==================== */
+*{margin:0;padding:0;box-sizing:border-box}
+/* flux body scoped */ #flux{background:#0a0a0a;color:#e0e0e0;font-family:'SF Mono','Fira Code',monospace;overflow-x:hidden;border:1px solid var(--border);border-radius:12px;margin-top:1rem;padding:1rem}
+#tminus h1{text-align:center;font-size:1.6em;padding:16px 0 8px;background:linear-gradient(90deg,#00ff88,#0066ff,#8844ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+#tminus h2{font-size:1.1em;color:#00ff88;margin:12px 0 6px;padding-left:8px;border-left:3px solid #00ff88}
 h2.flux-title{color:#0066ff;border-color:#0066ff}
-h2.combined-title{color:#f-ff8800;border-color:#f-ff8800}
+h2.combined-title{color:#ff8800;border-color:#ff8800}
 .section{margin:8px 12px;border:1px solid #222;border-radius:8px;padding:10px;position:relative;overflow:hidden}
 .section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#333,transparent)}
 canvas{display:block;border-radius:6px;background:#111}
-.btn{padding:10px 16px;min-height:44px;min-width:44px;border:1px solid #333;border-radius:4px;background:#1a1a1a;color:#f-e0e0e0;cursor:pointer;font-family:inherit;font-size:.8em;transition:all .2s}
+.btn{padding:10px 16px;min-height:44px;min-width:44px;border:1px solid #333;border-radius:4px;background:#1a1a1a;color:#e0e0e0;cursor:pointer;font-family:inherit;font-size:.8em;transition:all .2s}
 .btn:hover{background:#2a2a2a;border-color:#00ff88;color:#00ff88}
 .btn:focus-visible{outline:2px solid #00ff88;outline-offset:2px}
 .btn.active{background:#00ff8822;border-color:#00ff88;color:#00ff88}
-.btn.danger{border-color:#f-ff4444}
-.btn.danger:hover{background:#f-ff444422;color:#f-ff4444}
+.btn.danger{border-color:#ff4444}
+.btn.danger:hover{background:#ff444422;color:#ff4444}
 .btn.blue{border-color:#0066ff}
 .btn.blue:hover{background:#0066ff22;color:#0066ff}
 .btn-group{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:.75em;color:#888;margin:6px 0}
-.stats span{color:#f-ccc}
+.stats span{color:#ccc}
 .cr-gauge{display:inline-block;width:80px;height:80px;position:relative;margin:0 12px;vertical-align:middle}
 .cr-gauge canvas{background:transparent}
 .stat-label{font-size:.7em;color:#888;margin-top:4px}
 .flex-row{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
 .flex-col{flex:1;min-width:200px}
-.code-panel{background:#0d0d0d;border:1px solid #222;border-radius:6px;padding:8px;font-size:.72em;line-height:1.5;max-height:180px;overflow-y:auto;white-space:pre-wrap;color:#f-aaa}
-.code-panel .kw{color:#f-ff79c6}.code-panel .fn{color:#50fa7b}.code-panel .str{color:#f-f1fa8c}.code-panel .num{color:#f-bd93f9}.code-panel .cm{color:#6272a4}.code-panel .ty{color:#8be9fd}
+.code-panel{background:#0d0d0d;border:1px solid #222;border-radius:6px;padding:8px;font-size:.72em;line-height:1.5;max-height:180px;overflow-y:auto;white-space:pre-wrap;color:#aaa}
+.code-panel .kw{color:#ff79c6}.code-panel .fn{color:#50fa7b}.code-panel .str{color:#f1fa8c}.code-panel .num{color:#bd93f9}.code-panel .cm{color:#6272a4}.code-panel .ty{color:#8be9fd}
 .terminal{background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:8px;font-size:.7em;line-height:1.6;color:#00ff88;max-height:160px;overflow-y:auto}
-.terminal .info{color:#0066ff}.terminal .warn{color:#f-ff8800}.terminal .dim{color:#555}
+.terminal .info{color:#0066ff}.terminal .warn{color:#ff8800}.terminal .dim{color:#555}
 .perf-bar{display:flex;align-items:center;gap:8px;margin:3px 0;font-size:.72em}
 .perf-bar .label{width:70px;text-align:right;color:#888}
 .perf-bar .bar-bg{flex:1;height:14px;background:#1a1a1a;border-radius:3px;overflow:hidden;position:relative}
 .perf-bar .bar-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
 .perf-bar .speed{width:100px;color:#888;font-size:.95em}
 .tensor-grid{display:inline-grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:6px 0}
-.tensor-cell{width:36px;height:36px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.6em;color:#f-fff;text-shadow:0 0 3px #000}
+.tensor-cell{width:36px;height:36px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.6em;color:#fff;text-shadow:0 0 3px #000}
 .lang-selector{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
 .lang-btn{padding:8px 12px;min-height:44px;min-width:44px;border:1px solid #222;border-radius:3px;background:#111;font-size:.65em;color:#888;cursor:pointer;transition:all .2s;position:relative}
 .lang-btn:hover,.lang-btn.sel{border-color:#0066ff;color:#0066ff;background:#0066ff11}
 .lang-btn:focus-visible{outline:2px solid #0066ff;outline-offset:2px}
-.lang-btn .tooltip{display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#222;color:#f-fff;padding:3px 8px;border-radius:3px;font-size:1.1em;white-space:nowrap;pointer-events:none;z-index:10}
+.lang-btn .tooltip{display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:3px 8px;border-radius:3px;font-size:1.1em;white-space:nowrap;pointer-events:none;z-index:10}
 .lang-btn:hover .tooltip,.lang-btn:focus .tooltip{display:block}
 .pipeline-wrap{max-width:220px}
 .toggle-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:.8em}
 .switch{width:44px;height:24px;background:#333;border-radius:12px;cursor:pointer;position:relative;transition:background .3s;min-height:44px;display:flex;align-items:center;padding:0}
 .switch.on{background:#0066ff}
-.switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#f-fff;border-radius:50%;transition:left .3s}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .3s}
 .switch.on::after{left:22px}
 .switch:focus-visible{outline:2px solid #0066ff;outline-offset:2px}
-.diff-add{color:#50fa7b;background:#50fa7b11}.diff-del{color:#f-ff5555;background:#f-ff555511;text-decoration:line-through}
+.diff-add{color:#50fa7b;background:#50fa7b11}.diff-del{color:#ff5555;background:#ff555511;text-decoration:line-through}
 .glow-green{box-shadow:0 0 15px #00ff8844,0 0 30px #00ff8822}.glow-blue{box-shadow:0 0 15px #0066ff44,0 0 30px #0066ff22}
-#f-pianoCanvas{width:100%;height:200px}
-#f-spectralCanvas{width:100%;height:120px}
-#f-particleCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.3}
+#pianoCanvas{width:100%;height:200px}
+#spectralCanvas{width:100%;height:120px}
+#particleCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.3}
 .main-content{position:relative;z-index:1}
-#f-pipelineCanvas{width:100%;height:180px}
+#pipelineCanvas{width:100%;height:180px}
 .intro-box{margin:0 12px 8px;padding:10px 14px;background:#111;border:1px solid #222;border-radius:6px;font-size:.78em;line-height:1.6;color:#999}
-.intro-box strong{color:#f-ccc}
+.intro-box strong{color:#ccc}
 .info-toggle{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;background:#222;border-radius:50%;color:#888;cursor:pointer;font-size:.7em;vertical-align:middle;transition:all .2s;min-height:20px;min-width:20px}
-.info-toggle:hover{background:#333;color:#f-fff}
-.info-popover{display:none;position:absolute;top:110%;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid #333;border-radius:6px;padding:10px;font-size:.72em;color:#f-bbb;width:280px;z-index:20;line-height:1.5;box-shadow:0 4px 20px #00000088;margin-top:4px}
+.info-toggle:hover{background:#333;color:#fff}
+.info-popover{display:none;position:absolute;top:110%;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid #333;border-radius:6px;padding:10px;font-size:.72em;color:#bbb;width:280px;z-index:20;line-height:1.5;box-shadow:0 4px 20px #00000088;margin-top:4px}
 .info-popover.show{display:block}
 
 @media(max-width:768px){
-  h1{font-size:1.2em;padding:12px 0 6px}
-  h2{font-size:.95em}
+  #flux h1{font-size:1.2em;padding:12px 0 6px}
+  #flux h2{font-size:.95em}
   .section{margin:6px 8px;padding:8px}
   .flex-row{flex-direction:column}
   .flex-col{min-width:100%}
   canvas{width:100%!important}
-  #f-pianoCanvas{height:160px}
-  #f-spectralCanvas{height:100px}
+  #pianoCanvas{height:160px}
+  #spectralCanvas{height:100px}
   .btn{font-size:.75em;padding:8px 12px}
   .stats{font-size:.7em}
   .code-panel{font-size:.65em;max-height:140px}
@@ -353,11 +421,372 @@ canvas{display:block;border-radius:6px;background:#111}
   .cr-gauge{width:60px;height:60px;margin:0 8px}
   .cr-gauge canvas{width:60px!important;height:60px!important}
   .pipeline-wrap{max-width:100%!important}
-  #f-combinedPiano{height:100px}
+  #combinedPiano{height:100px}
 }
-    </style>
-    <div class="flux-demo-wrap">
-    <canvas id="f-particleCanvas" role="presentation" aria-hidden="true"></canvas>
+
+/* ==================== 7. T-MINUS DEMO ==================== */
+*{margin:0;padding:0;box-sizing:border-box}
+/* tminus body scoped */ #tminus{background:#0a0a0a;color:#ccc;font-family:'Courier New',monospace;overflow-x:hidden;border:1px solid var(--border);border-radius:12px;margin-top:1rem;padding:1rem}
+::selection{background:#00ff8844;color:#fff}
+
+/* ===== HEADER ===== */
+.brand-header{background:linear-gradient(90deg,#0a0a0a,#0d1117,#0a0a0a);border-bottom:1px solid #1a1a1a;padding:16px 24px;display:flex;align-items:center;gap:16px}
+.brand-logo{font-size:20px;font-weight:bold;letter-spacing:3px;color:#fff}
+.brand-logo span{color:#00ff88}
+.brand-tagline{font-size:12px;color:#666;letter-spacing:1px}
+.brand-link{margin-left:auto;font-size:11px;color:#0066ff;text-decoration:none;letter-spacing:1px;transition:.3s}
+.brand-link:hover{color:#00aaff;text-decoration:underline}
+
+/* ===== TABS ===== */
+.demo-tabs{display:flex;background:#111;border-bottom:2px solid #222;position:sticky;top:0;z-index:100}
+.demo-tab{flex:1;padding:14px;text-align:center;cursor:pointer;color:#666;font-size:14px;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid transparent;transition:.3s}
+.demo-tab.active{color:#00ff88;border-bottom-color:#00ff88}
+.demo-tab:hover{color:#aaa}
+
+/* ===== BANDWIDTH HERO ===== */
+.bw-hero{background:linear-gradient(180deg,#0d0d0d,#0a0a0a);border-bottom:1px solid #1a1a1a;padding:18px 24px;display:flex;align-items:center;justify-content:center;gap:32px;position:relative;overflow:hidden}
+.bw-cell{text-align:center;min-width:200px}
+.bw-cell .bw-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.bw-cell .bw-number{font-size:42px;font-weight:bold;font-family:'Courier New',monospace;letter-spacing:-2px;transition:color .3s}
+.bw-cell .bw-sub{font-size:11px;margin-top:2px;opacity:.7}
+.bw-cell.tminus .bw-label{color:#00ff88}
+.bw-cell.tminus .bw-number{color:#00ff88;text-shadow:0 0 20px #00ff8844}
+.bw-cell.tminus .bw-sub{color:#00ff8888}
+.bw-cell.polling .bw-label{color:#ff4444}
+.bw-cell.polling .bw-number{color:#ff4444;text-shadow:0 0 20px #ff444444}
+.bw-cell.polling .bw-sub{color:#ff444488}
+.bw-ratio{text-align:center;padding:8px 20px;border-radius:6px;font-size:28px;font-weight:bold;letter-spacing:-1px;min-width:200px}
+.bw-ratio.good{color:#00ff88;background:#00ff8811;border:1px solid #00ff8833;text-shadow:0 0 15px #00ff8844}
+.bw-ratio.bad{color:#ff4444;background:#ff444411;border:1px solid #ff444433;text-shadow:0 0 15px #ff444444}
+.bw-ratio .ratio-sub{font-size:11px;letter-spacing:1px;display:block;margin-top:4px;opacity:.7}
+
+/* ===== DEMO 1: T-MINUS ===== */
+#demo1{display:none}
+#demo1.active{display:block}
+.sync-bar{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:10px 20px;display:flex;align-items:center;gap:20px;font-size:13px;position:relative;overflow:hidden;transition:background .5s}
+.sync-bar.polling-active{background:#1a0a0a;border-bottom-color:#331111}
+.sync-bar .label{color:#00ff88;font-weight:bold;letter-spacing:1px;transition:color .5s}
+.sync-bar.polling-active .label{color:#ff4444}
+.sync-bar .stat{color:#888}
+.sync-bar .stat b{color:#ccc}
+.sync-pulse{width:10px;height:10px;border-radius:50%;background:#00ff88;animation:pulse 1.5s infinite;display:inline-block;margin-right:6px;transition:background .5s}
+.sync-bar.polling-active .sync-pulse{background:#ff4444}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 4px #00ff88}50%{opacity:.4;box-shadow:0 0 12px #00ff88}}
+.sync-wave{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00ff88,transparent);animation:wave 3s linear infinite;opacity:.5;transition:background .5s}
+.sync-bar.polling-active .sync-wave{background:linear-gradient(90deg,transparent,#ff4444,transparent)}
+
+.timeline-container{position:relative;height:220px;margin:20px;overflow:hidden}
+#timeline-canvas{width:100%;height:100%;cursor:pointer}
+
+.agents-panel{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 20px}
+.agent-card{background:#0d1117;border:1px solid #1a2332;border-radius:6px;padding:12px;width:220px;font-size:11px;position:relative;overflow:hidden;transition:transform .1s,border-color .3s,box-shadow .3s}
+.agent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#0066ff;transition:background .3s}
+.agent-card.helm::before{background:#00aaff}
+.agent-card.deck::before{background:#ff8800}
+.agent-card.nav::before{background:#aa44ff}
+.agent-card.sort::before{background:#00ff88}
+.agent-card.hold::before{background:#ff4444}
+.agent-card.flash-red{border-color:#ff4444!important;box-shadow:0 0 15px #ff444433;animation:cardShake .15s}
+.agent-card.flash-red::before{background:#ff4444!important}
+@keyframes cardShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.agent-name{color:#fff;font-weight:bold;font-size:13px;margin-bottom:8px;letter-spacing:1px}
+.agent-status{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:bold;letter-spacing:1px}
+.status-waiting{background:#333;color:#888}
+.status-predicting{background:#1a2332;color:#4488ff;animation:statusBlink 1s infinite}
+.status-confirmed{background:#0a2a1a;color:#00ff88}
+.status-missed{background:#2a0a0a;color:#ff4444}
+@keyframes statusBlink{50%{opacity:.6}}
+.agent-queue{margin:8px 0;color:#666}
+.agent-queue div{padding:2px 0;border-bottom:1px solid #111}
+.agent-queue .pred{color:#4488ff}
+.agent-queue .conf{color:#00ff88}
+.confidence-bar{height:4px;background:#1a1a1a;border-radius:2px;overflow:hidden;margin:6px 0}
+.confidence-fill{height:100%;border-radius:2px;transition:width .5s ease;background:linear-gradient(90deg,#ff4444,#ff8800,#00ff88)}
+.agent-confirm{color:#555;font-size:10px;margin-top:4px;font-style:italic}
+
+/* Confirmation flash */
+.confirm-flash{position:fixed;top:20%;right:30px;background:#00ff8822;border:1px solid #00ff88;color:#00ff88;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:bold;z-index:200;animation:flashIn .3s ease,flashOut .5s 1.5s ease forwards;pointer-events:none}
+@keyframes flashIn{from{opacity:0;transform:translateY(-20px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes flashOut{to{opacity:0;transform:translateY(-20px) scale(.8)}}
+
+.comparison-bar{background:#111;border-top:1px solid #1a1a1a;padding:12px 20px;display:flex;align-items:center;gap:16px}
+.toggle-btn{background:#1a2332;color:#4488ff;border:1px solid #2a3a52;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;transition:.3s}
+.toggle-btn.active{background:#ff444422;color:#ff4444;border-color:#ff444444}
+.play-btn{background:#1a2332;color:#00ff88;border:1px solid #00ff8844;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;transition:.3s;margin-left:auto}
+.play-btn:hover{background:#00ff8822}
+
+/* Polling spam feed */
+.polling-feed{position:fixed;right:0;top:0;bottom:0;width:320px;background:#1a0a0a;border-left:2px solid #ff4444;z-index:150;transform:translateX(100%);transition:transform .4s ease;overflow:hidden;display:flex;flex-direction:column}
+.polling-feed.visible{transform:translateX(0)}
+.polling-feed-header{background:#ff444422;padding:10px 14px;font-size:12px;color:#ff4444;font-weight:bold;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #ff444433;flex-shrink:0}
+.polling-feed-body{flex:1;overflow-y:auto;padding:8px;font-size:10px;line-height:1.6}
+.polling-feed-body::-webkit-scrollbar{width:4px}
+.polling-feed-body::-webkit-scrollbar-thumb{background:#ff444433;border-radius:2px}
+.spam-msg{color:#ff4444;padding:3px 0;border-bottom:1px solid #ff222211;opacity:.8;animation:spamPulse .5s ease}
+.spam-msg .spam-agent{color:#ff8800;font-weight:bold}
+.spam-msg .spam-time{color:#666;font-size:9px}
+@keyframes spamPulse{from{background:#ff444422}to{background:transparent}}
+
+/* Event detail popup */
+.event-popup{position:fixed;background:#0d1117;border:1px solid #2a3a52;border-radius:8px;padding:16px;font-size:12px;z-index:300;box-shadow:0 8px 30px #00000088;max-width:350px;pointer-events:auto}
+.event-popup .ep-title{color:#fff;font-weight:bold;font-size:14px;margin-bottom:8px}
+.event-popup .ep-detail{color:#888;line-height:1.6}
+.event-popup .ep-detail b{color:#00ff88}
+.event-popup .ep-close{position:absolute;top:8px;right:10px;color:#555;cursor:pointer;font-size:16px}
+.event-popup .ep-close:hover{color:#fff}
+
+.insight-callout{background:linear-gradient(135deg,#0a1a0a,#0a0a1a);border:1px solid #00ff8833;border-radius:8px;padding:16px 20px;margin:0 20px 20px;font-size:13px;color:#aaa;line-height:1.6}
+.insight-callout b{color:#00ff88}
+
+/* ===== DEMO 2: DECOMPOSITION ===== */
+#demo2{display:none}
+#demo2.active{display:block}
+.decomp-layout{display:flex;height:calc(100vh - 50px);gap:0}
+.decomp-left,.decomp-right{flex:1;padding:20px;overflow-y:auto}
+.decomp-center{width:240px;display:flex;align-items:center;justify-content:center;position:relative}
+#decomp-canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+.decomp-title{font-size:12px;letter-spacing:2px;color:#556;text-transform:uppercase;margin-bottom:16px}
+
+/* App mockup */
+.app-mockup{background:#111;border:1px solid #222;border-radius:8px;overflow:hidden;max-width:500px}
+.app-header{background:#1a1a2a;padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:12px;color:#888}
+.app-header .dot{width:8px;height:8px;border-radius:50%}
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}
+.app-widget{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:4px;padding:10px;font-size:10px;color:#555;min-height:80px;position:relative;transition:transform .8s ease,opacity .8s ease,border-color .5s}
+.app-widget.highlight{border-color:#0066ff;box-shadow:0 0 15px #0066ff33;z-index:10}
+.app-widget .wtitle{color:#888;font-size:9px;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
+.app-widget .wcontent{font-size:11px;color:#aaa}
+.app-widget.gps .wcontent{color:#00aaff;font-size:13px;font-weight:bold}
+.app-widget.depth .wcontent{color:#aa44ff;font-size:18px;font-weight:bold}
+.app-widget.catch .wcontent table{width:100%;border-collapse:collapse}
+.app-widget.catch .wcontent td{padding:2px 0;border-bottom:1px solid #111}
+.app-widget.engine .gauge{display:inline-block;width:40px;height:40px;border-radius:50%;border:2px solid #333;text-align:center;line-height:36px;font-size:10px;margin:2px}
+.decompose-btn{display:block;margin:12px auto;background:#0066ff;color:#fff;border:none;padding:10px 24px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+.decompose-btn:hover{background:#0088ff;box-shadow:0 0 20px #0066ff44}
+
+/* Agent POV */
+.agent-pov{max-width:500px}
+.room{background:#0d1117;border:1px solid #1a2332;border-radius:6px;padding:14px;margin-bottom:12px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.room:hover{border-color:#0066ff44;box-shadow:0 0 15px #0066ff11}
+.room::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.room.wheelhouse::before{background:#00aaff}
+.room.navroom::before{background:#aa44ff}
+.room.backdeck::before{background:#ff8800}
+.room.galley::before{background:#ff4444}
+.room.engineroom::before{background:#666}
+.room.highlight{border-color:#0066ff88;box-shadow:0 0 20px #0066ff22, inset 0 0 20px #0066ff11}
+.room-name{color:#fff;font-size:14px;font-weight:bold;margin-bottom:2px}
+.room-border{color:#333;font-size:10px;margin-bottom:6px;letter-spacing:0;line-height:1.2;font-family:monospace}
+.room-desc{color:#666;font-size:11px;margin-bottom:8px}
+.room-exits{color:#0066ff;font-size:10px;margin-bottom:6px}
+.room-agents{color:#ff8800;font-size:10px;margin-bottom:6px}
+.room-ticks{color:#00ff88;font-size:10px;font-family:monospace}
+.room-ticks .tick{padding:2px 0;animation:tickGlow 3s infinite}
+@keyframes tickGlow{0%,100%{opacity:.7}50%{opacity:1}}
+
+.the-point{background:linear-gradient(135deg,#0a0a1a,#0a1a0a);border:1px solid #0066ff33;border-radius:8px;padding:20px;margin-top:16px;font-size:13px;line-height:1.7;color:#888}
+.the-point b{color:#0066ff}
+.the-point em{color:#00ff88;font-style:normal}
+
+/* Shared */
+.hidden{display:none!important}
+canvas{display:block}
+
+</style>
+</head>
+<body>
+
+<!-- Shared Navigation -->
+<nav id="site-nav">
+  <div class="logo">Super<span>Instance</span></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#plato-cave">Plato's Cave</a>
+    <a href="#fleet">Fleet</a>
+    <a href="#onboarding">Onboarding</a>
+    <a href="#vessel">Vessel MUD</a>
+    <a href="#flux">Tensor MIDI</a>
+    <a href="#tminus">T-Minus</a>
+    <a href="#spectral">Spectral</a>
+    <a href="#mud">MUD Demo</a>
+    <a href="#code">Code</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#hardware">Hardware</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+</nav>
+<div id="nav-root"></div>
+
+<!-- ==================== 1. HERO ==================== -->
+<section class="hero" id="top">
+  <h1>AI agents that can <span class="hl">see, hear, touch,</span> and collaborate.</h1>
+  <p class="tagline" style="margin-bottom:0.5rem;font-size:clamp(0.85rem,1.4vw,1.1rem);color:var(--accent);font-weight:500;">Open-source infrastructure for autonomous agent systems — from $3 microcontrollers to $25K GPU clusters.</p>
+  <p class="tagline">Real senses for real agents. Fleet mesh computing. Text becomes interface. One command to start.</p>
+  <div class="install-box" onclick="copyInstall(this)" title="Click to copy">
+    <span class="dollar">$</span>
+    <span>curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash</span>
+    <span class="copy-hint">click to copy</span>
+  </div>
+  <div class="cta-row">
+    <a href="#plato-cave" class="btn btn-primary">See It Live ↓</a>
+    <a href="https://github.com/SuperInstance" class="btn btn-secondary" target="_blank">GitHub →</a>
+    <a href="demos.html" class="btn btn-secondary">Interactive Demos →</a>
+  </div>
+  <div class="scroll-hint">scroll to explore ↓</div>
+</section>
+
+<!-- ==================== 2. PLATO'S CAVE DEMO ==================== -->
+<section id="plato-cave">
+  <h2>Live Demo: <span class="acc">Plato's Cave</span></h2>
+  <p class="sub">Agents read the world as text shadows — then render them as interface. Click any shadow to see it materialize.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🏛️ Sense Shadows → Rendered Panels</h3>
+      <span class="tag">INTERACTIVE</span>
+    </div>
+    <div class="demo-body">
+      <div class="cave-container">
+        <div class="cave-shadows" id="caveShadows"></div>
+        <div class="cave-panels" id="cavePanels">
+          <div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;text-align:center;padding:3rem 1rem;">← Click a shadow to render it as a panel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 3. FLEET TOPOLOGY ==================== -->
+<section id="fleet">
+  <h2>Live Demo: <span class="acc">Fleet Topology</span></h2>
+  <p class="sub">Watch agents discover each other and form a mesh network in real-time. Click any node to inspect.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🌐 Fleet Mesh Formation</h3>
+      <span class="tag">LIVE</span>
+    </div>
+    <div class="demo-body" style="padding:0;">
+      <div class="fleet-canvas-wrap">
+        <canvas id="fleetCanvas"></canvas>
+        <div class="fleet-info" id="fleetInfo">
+          <div class="fi-name" id="fiName"></div>
+          <div id="fiCaps"></div>
+        </div>
+        <div class="fleet-controls">
+          <button class="btn btn-sm btn-secondary" onclick="resetFleet()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. 5-PHASE ONBOARDING ==================== -->
+<section id="onboarding">
+  <h2>Live Demo: <span class="acc2">5-Phase Onboarding</span></h2>
+  <p class="sub">Step through creating your first agent. Everything is interactive — type, click, explore.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🚀 Agent Builder Wizard</h3>
+      <span class="tag">STEP-THROUGH</span>
+    </div>
+    <div class="demo-body">
+      <div class="wizard">
+        <div class="wizard-steps">
+          <div class="wizard-step active" id="wStep1"></div>
+          <div class="wizard-step" id="wStep2"></div>
+          <div class="wizard-step" id="wStep3"></div>
+          <div class="wizard-step" id="wStep4"></div>
+          <div class="wizard-step" id="wStep5"></div>
+        </div>
+
+        <!-- Phase 1 -->
+        <div class="wizard-panel active" id="wPanel1">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Name your agent. This becomes its identity across the fleet.</p>
+          <input class="wizard-input" id="agentName" placeholder="e.g. sentinel-7" oninput="updateWizardPreview()">
+          <div class="wizard-preview" id="wizPreview1">
+            <div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Your agent card will appear here...</div>
+          </div>
+          <div class="mt-2 flex-center"><button class="btn btn-primary" onclick="wizardNext(2)">Next: Choose Modules →</button></div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="wizard-panel" id="wPanel2">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Enable the sense modules your agent needs.</p>
+          <div class="module-grid" id="moduleGrid"></div>
+          <div class="wizard-preview" id="wizPreview2"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(1)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(3)">Next: Interface →</button>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="wizard-panel" id="wPanel3">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Choose how your agent presents its interface.</p>
+          <div class="module-grid" id="interfaceGrid"></div>
+          <div class="wizard-preview" id="wizPreview3"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(2)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(4)">Next: Fleet →</button>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="wizard-panel" id="wPanel4">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Your agent joins the fleet mesh. Connected agents appear below.</p>
+          <div class="wizard-preview" id="wizPreview4" style="min-height:250px;"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(3)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(5)">Next: Config →</button>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="wizard-panel" id="wPanel5">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Your generated agent configuration. Copy and deploy.</p>
+          <div class="yaml-output" id="yamlOutput"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(4)">← Back</button>
+            <button class="btn btn-primary" onclick="copyYaml()">📋 Copy Config</button>
+            <button class="btn btn-secondary" onclick="wizardNext(1)">↺ Start Over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 5. FISHING VESSEL MUD ==================== -->
+<section id="vessel" class="demo-section">
+  <h2><span class="acc">🚢</span> Fishing Vessel MUD — Live Agent Rooms</h2>
+  <p class="sub">The Bering Sea, aboard F/V Quantum. Six rooms, live sensor ticks, real commands. This is agents working on a real vessel.</p>
+<div class="hdr">
+<h1>F/V Quantum</h1>
+<span class="sub">Bering Sea · 54°24'N 166°18'W · Pacific Cod Season</span>
+<span class="tod" id="todDisplay">Morning</span>
+<div class="sts">
+<span class="lg">ENGINE</span><span class="lg">NAV</span><span class="la" id="wxStatus">WEATHER</span><span class="lg">COMMS</span>
+<span style="color:var(--dim);font-size:11px">🔊 Engine hum</span>
+</div>
+</div>
+<div class="tabs" id="tabs"></div>
+<div class="main">
+<div class="left">
+<div class="mud" id="mudOut"></div>
+<div class="inp"><span>❯</span><input id="cmdIn" placeholder="Type a command (try: help)..." autofocus></div>
+</div>
+<div class="right">
+<div class="dash" id="dash"></div>
+<div class="fmap"><div class="mt">Fleet</div><canvas id="fmapC" width="130" height="130"></canvas></div>
+<div class="feed"><div class="ft">⬤ Live Feed — All Rooms</div><div id="feedL"></div></div>
+</div>
+</div>
+</section>
+
+<!-- ==================== 6. TENSOR MIDI + FLUX ==================== -->
+<section id="flux" class="demo-section">
+  <h2><span class="acc">🎹</span> Tensor MIDI + FLUX Adaptive Language</h2>
+  <p class="sub">Conservation spectral meets music. Code translation across 12 languages. The math is the same everywhere.</p>
+<canvas id="particleCanvas" role="presentation" aria-hidden="true"></canvas>
 <div class="main-content">
 <h1>⚡ SuperInstance — Tensor MIDI × FLUX</h1>
 
@@ -378,17 +807,17 @@ canvas{display:block;border-radius:6px;background:#111}
 </div>
 <div class="flex-row">
 <div class="flex-col">
-<canvas id="f-spectralCanvas" width="600" height="120" role="img" aria-label="Spectral energy visualization"></canvas>
+<canvas id="spectralCanvas" width="600" height="120" role="img" aria-label="Spectral energy visualization"></canvas>
 <div class="stat-label" style="text-align:center">Eigenvalue Decomposition — T1–T5 Theorems</div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center">
-<div class="cr-gauge"><canvas id="f-crGauge" width="80" height="80" role="img" aria-label="Conservation ratio gauge"></canvas></div>
+<div class="cr-gauge"><canvas id="crGauge" width="80" height="80" role="img" aria-label="Conservation ratio gauge"></canvas></div>
 <div class="stat-label">Conservation Ratio</div>
-<div id="f-crValue" style="font-size:1.2em;color:#00ff88;text-align:center" aria-live="polite">0.94</div>
+<div id="crValue" style="font-size:1.2em;color:#00ff88;text-align:center" aria-live="polite">0.94</div>
 </div>
-<div class="tensor-grid" id="f-tensorGrid" role="img" aria-label="4x4 tensor matrix"></div>
+<div class="tensor-grid" id="tensorGrid" role="img" aria-label="4x4 tensor matrix"></div>
 </div>
-<canvas id="f-pianoCanvas" width="600" height="200" role="img" aria-label="Piano roll"></canvas>
+<canvas id="pianoCanvas" width="600" height="200" role="img" aria-label="Piano roll"></canvas>
 <div class="btn-group">
 <button class="btn" onclick="transpose()" aria-label="Transpose notes up">⬆ Transpose</button>
 <button class="btn" onclick="invert()" aria-label="Invert notes">🔄 Invert</button>
@@ -396,7 +825,7 @@ canvas{display:block;border-radius:6px;background:#111}
 <button class="btn" onclick="restore()" aria-label="Restore progression">✨ Restore</button>
 <button class="btn" onclick="cycleProgression()" aria-label="Next progression">🎵 Next Progression</button>
 </div>
-<div class="stats" id="f-midiStats">
+<div class="stats" id="midiStats">
 <div>ii–V–I in C:</div><div><span>CR=0.94</span> (+4.06σ above random)</div>
 <div>12-bar blues:</div><div><span>CR=0.87</span></div>
 <div>Random notes:</div><div><span>CR=0.31</span></div>
@@ -414,31 +843,31 @@ canvas{display:block;border-radius:6px;background:#111}
 </div>
 </div>
 <div style="font-size:.75em;color:#888;margin-bottom:6px;margin-top:8px">Source Language:</div>
-<div class="lang-selector" id="f-srcLangs" role="radiogroup" aria-label="Source language"></div>
+<div class="lang-selector" id="srcLangs" role="radiogroup" aria-label="Source language"></div>
 <div style="font-size:.75em;color:#888;margin-bottom:6px">Target Language:</div>
-<div class="lang-selector" id="f-tgtLangs" role="radiogroup" aria-label="Target language"></div>
+<div class="lang-selector" id="tgtLangs" role="radiogroup" aria-label="Target language"></div>
 <div class="toggle-row">
-<div class="switch" id="f-i2iSwitch" onclick="toggleI2I()" role="switch" aria-checked="false" aria-label="Toggle experiment mode" tabindex="0"></div>
+<div class="switch" id="i2iSwitch" onclick="toggleI2I()" role="switch" aria-checked="false" aria-label="Toggle experiment mode" tabindex="0"></div>
 <span>Experiment Mode (i2i) — multi-path benchmarking</span>
 </div>
 <div class="flex-row">
 <div class="flex-col">
 <div class="stat-label">Source</div>
-<div class="code-panel" id="f-srcCode" role="region" aria-label="Source code"></div>
+<div class="code-panel" id="srcCode" role="region" aria-label="Source code"></div>
 </div>
 <div class="flex-col pipeline-wrap">
 <div class="stat-label">Translation Pipeline</div>
-<canvas id="f-pipelineCanvas" role="img" aria-label="Translation pipeline"></canvas>
+<canvas id="pipelineCanvas" role="img" aria-label="Translation pipeline"></canvas>
 </div>
 <div class="flex-col">
 <div class="stat-label">Target</div>
-<div class="code-panel" id="f-tgtCode" role="region" aria-label="Target code"></div>
+<div class="code-panel" id="tgtCode" role="region" aria-label="Target code"></div>
 </div>
 </div>
-<div id="f-i2iResults" style="display:none;font-size:.75em;color:#888;margin:8px 0;padding:8px;background:#0066ff08;border-radius:4px;border:1px solid #0066ff22" role="region" aria-label="Experiment results"></div>
+<div id="i2iResults" style="display:none;font-size:.75em;color:#888;margin:8px 0;padding:8px;background:#0066ff08;border-radius:4px;border:1px solid #0066ff22" role="region" aria-label="Experiment results"></div>
 <div class="stat-label" style="margin-top:8px">Backend Performance</div>
-<div id="f-perfBars" role="region" aria-label="Performance bars"></div>
-<div class="terminal" id="f-fluxTerminal" role="log" aria-label="FLUX output"></div>
+<div id="perfBars" role="region" aria-label="Performance bars"></div>
+<div class="terminal" id="fluxTerminal" role="log" aria-label="FLUX output"></div>
 </div>
 
 <!-- SECTION 3: Combined -->
@@ -452,203 +881,25 @@ canvas{display:block;border-radius:6px;background:#111}
 </div>
 <div class="flex-row">
 <div class="flex-col" style="min-width:280px">
-<canvas id="f-combinedPiano" width="400" height="120" role="img" aria-label="Combined piano roll"></canvas>
-<div id="f-combinedStatus" style="font-size:.75em;color:#ff8800;margin-top:4px" aria-live="polite">Rust backend: 89% CPU — approaching bottleneck</div>
+<canvas id="combinedPiano" width="400" height="120" role="img" aria-label="Combined piano roll"></canvas>
+<div id="combinedStatus" style="font-size:.75em;color:#ff8800;margin-top:4px" aria-live="polite">Rust backend: 89% CPU — approaching bottleneck</div>
 </div>
 <div class="flex-col">
 <div class="stat-label">Live Optimization</div>
-<div class="terminal" id="f-combinedTerminal" role="log" aria-label="Optimization log"></div>
-<div class="code-panel" id="f-combinedDiff" style="font-size:.65em;max-height:120px" role="region" aria-label="Code diff"></div>
+<div class="terminal" id="combinedTerminal" role="log" aria-label="Optimization log"></div>
+<div class="code-panel" id="combinedDiff" style="font-size:.65em;max-height:120px" role="region" aria-label="Code diff"></div>
 </div>
 </div>
-<button class="btn blue" id="f-combinedBtn" onclick="runCombinedDemo()" style="margin-top:6px" aria-label="Run combined demo">▶ Run Combined Demo</button>
+<button class="btn blue" id="combinedBtn" onclick="runCombinedDemo()" style="margin-top:6px" aria-label="Run combined demo">▶ Run Combined Demo</button>
 </div>
 </div>
-    </div>
-  </div>
 </section>
 
-<div class="scroll-indicator">↓</div>
-
-<!-- DEMO 3: T-MINUS -->
+<!-- ==================== 7. T-MINUS COORDINATION ==================== -->
 <section id="tminus" class="demo-section">
-  <div class="demo-header">
-    <h2><span class="acc">⏱</span> T-Minus: Simulation-First Coordination</h2>
-    <p>Agents don't ask "are we there yet?" — they predict arrival and confirm once. 70× fewer messages than polling. Watch five agents coordinate a fishing operation.</p>
-  </div>
-  <div class="demo-frame">
-    <style>
-    .tminus-demo-wrap{background:#0a0a0a;max-width:1200px;margin:0 auto;font-family:'Courier New',monospace;color:#ccc;overflow-x:hidden}
-    .tminus-demo-wrap *{box-sizing:border-box}
-    *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#t-ccc;font-family:'Courier New',monospace;overflow-x:hidden}
-::selection{background:#00ff8844;color:#t-fff}
-
-/* ===== HEADER ===== */
-.brand-header{background:linear-gradient(90deg,#0a0a0a,#0d1117,#0a0a0a);border-bottom:1px solid #1a1a1a;padding:16px 24px;display:flex;align-items:center;gap:16px}
-.brand-logo{font-size:20px;font-weight:bold;letter-spacing:3px;color:#t-fff}
-.brand-logo span{color:#00ff88}
-.brand-tagline{font-size:12px;color:#666;letter-spacing:1px}
-.brand-link{margin-left:auto;font-size:11px;color:#0066ff;text-decoration:none;letter-spacing:1px;transition:.3s}
-.brand-link:hover{color:#00aaff;text-decoration:underline}
-
-/* ===== TABS ===== */
-.demo-tabs{display:flex;background:#111;border-bottom:2px solid #222;position:sticky;top:0;z-index:100}
-.demo-tab{flex:1;padding:14px;text-align:center;cursor:pointer;color:#666;font-size:14px;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid transparent;transition:.3s}
-.demo-tab.active{color:#00ff88;border-bottom-color:#00ff88}
-.demo-tab:hover{color:#t-aaa}
-
-/* ===== BANDWIDTH HERO ===== */
-.bw-hero{background:linear-gradient(180deg,#0d0d0d,#0a0a0a);border-bottom:1px solid #1a1a1a;padding:18px 24px;display:flex;align-items:center;justify-content:center;gap:32px;position:relative;overflow:hidden}
-.bw-cell{text-align:center;min-width:200px}
-.bw-cell .bw-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
-.bw-cell .bw-number{font-size:42px;font-weight:bold;font-family:'Courier New',monospace;letter-spacing:-2px;transition:color .3s}
-.bw-cell .bw-sub{font-size:11px;margin-top:2px;opacity:.7}
-.bw-cell.tminus .bw-label{color:#00ff88}
-.bw-cell.tminus .bw-number{color:#00ff88;text-shadow:0 0 20px #00ff8844}
-.bw-cell.tminus .bw-sub{color:#00ff8888}
-.bw-cell.polling .bw-label{color:#t-ff4444}
-.bw-cell.polling .bw-number{color:#t-ff4444;text-shadow:0 0 20px #t-ff444444}
-.bw-cell.polling .bw-sub{color:#t-ff444488}
-.bw-ratio{text-align:center;padding:8px 20px;border-radius:6px;font-size:28px;font-weight:bold;letter-spacing:-1px;min-width:200px}
-.bw-ratio.good{color:#00ff88;background:#00ff8811;border:1px solid #00ff8833;text-shadow:0 0 15px #00ff8844}
-.bw-ratio.bad{color:#t-ff4444;background:#t-ff444411;border:1px solid #t-ff444433;text-shadow:0 0 15px #t-ff444444}
-.bw-ratio .ratio-sub{font-size:11px;letter-spacing:1px;display:block;margin-top:4px;opacity:.7}
-
-/* ===== DEMO 1: T-MINUS ===== */
-#t-demo1{display:none}
-#t-demo1.active{display:block}
-.sync-bar{background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:10px 20px;display:flex;align-items:center;gap:20px;font-size:13px;position:relative;overflow:hidden;transition:background .5s}
-.sync-bar.polling-active{background:#1a0a0a;border-bottom-color:#331111}
-.sync-bar .label{color:#00ff88;font-weight:bold;letter-spacing:1px;transition:color .5s}
-.sync-bar.polling-active .label{color:#t-ff4444}
-.sync-bar .stat{color:#888}
-.sync-bar .stat b{color:#t-ccc}
-.sync-pulse{width:10px;height:10px;border-radius:50%;background:#00ff88;animation:pulse 1.5s infinite;display:inline-block;margin-right:6px;transition:background .5s}
-.sync-bar.polling-active .sync-pulse{background:#t-ff4444}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 4px #00ff88}50%{opacity:.4;box-shadow:0 0 12px #00ff88}}
-.sync-wave{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00ff88,transparent);animation:wave 3s linear infinite;opacity:.5;transition:background .5s}
-.sync-bar.polling-active .sync-wave{background:linear-gradient(90deg,transparent,#t-ff4444,transparent)}
-
-.timeline-container{position:relative;height:220px;margin:20px;overflow:hidden}
-#t-timeline-canvas{width:100%;height:100%;cursor:pointer}
-
-.agents-panel{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 20px}
-.agent-card{background:#0d1117;border:1px solid #1a2332;border-radius:6px;padding:12px;width:220px;font-size:11px;position:relative;overflow:hidden;transition:transform .1s,border-color .3s,box-shadow .3s}
-.agent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#0066ff;transition:background .3s}
-.agent-card.helm::before{background:#00aaff}
-.agent-card.deck::before{background:#t-ff8800}
-.agent-card.nav::before{background:#t-aa44ff}
-.agent-card.sort::before{background:#00ff88}
-.agent-card.hold::before{background:#t-ff4444}
-.agent-card.flash-red{border-color:#t-ff4444!important;box-shadow:0 0 15px #t-ff444433;animation:cardShake .15s}
-.agent-card.flash-red::before{background:#t-ff4444!important}
-@keyframes cardShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
-.agent-name{color:#t-fff;font-weight:bold;font-size:13px;margin-bottom:8px;letter-spacing:1px}
-.agent-status{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:bold;letter-spacing:1px}
-.status-waiting{background:#333;color:#888}
-.status-predicting{background:#1a2332;color:#4488ff;animation:statusBlink 1s infinite}
-.status-confirmed{background:#0a2a1a;color:#00ff88}
-.status-missed{background:#2a0a0a;color:#t-ff4444}
-@keyframes statusBlink{50%{opacity:.6}}
-.agent-queue{margin:8px 0;color:#666}
-.agent-queue div{padding:2px 0;border-bottom:1px solid #111}
-.agent-queue .pred{color:#4488ff}
-.agent-queue .conf{color:#00ff88}
-.confidence-bar{height:4px;background:#1a1a1a;border-radius:2px;overflow:hidden;margin:6px 0}
-.confidence-fill{height:100%;border-radius:2px;transition:width .5s ease;background:linear-gradient(90deg,#t-ff4444,#t-ff8800,#00ff88)}
-.agent-confirm{color:#555;font-size:10px;margin-top:4px;font-style:italic}
-
-/* Confirmation flash */
-.confirm-flash{position:fixed;top:20%;right:30px;background:#00ff8822;border:1px solid #00ff88;color:#00ff88;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:bold;z-index:200;animation:flashIn .3s ease,flashOut .5s 1.5s ease forwards;pointer-events:none}
-@keyframes flashIn{from{opacity:0;transform:translateY(-20px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes flashOut{to{opacity:0;transform:translateY(-20px) scale(.8)}}
-
-.comparison-bar{background:#111;border-top:1px solid #1a1a1a;padding:12px 20px;display:flex;align-items:center;gap:16px}
-.toggle-btn{background:#1a2332;color:#4488ff;border:1px solid #2a3a52;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;transition:.3s}
-.toggle-btn.active{background:#t-ff444422;color:#t-ff4444;border-color:#t-ff444444}
-.play-btn{background:#1a2332;color:#00ff88;border:1px solid #00ff8844;padding:8px 16px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;transition:.3s;margin-left:auto}
-.play-btn:hover{background:#00ff8822}
-
-/* Polling spam feed */
-.polling-feed{position:fixed;right:0;top:0;bottom:0;width:320px;background:#1a0a0a;border-left:2px solid #t-ff4444;z-index:150;transform:translateX(100%);transition:transform .4s ease;overflow:hidden;display:flex;flex-direction:column}
-.polling-feed.visible{transform:translateX(0)}
-.polling-feed-header{background:#t-ff444422;padding:10px 14px;font-size:12px;color:#t-ff4444;font-weight:bold;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #t-ff444433;flex-shrink:0}
-.polling-feed-body{flex:1;overflow-y:auto;padding:8px;font-size:10px;line-height:1.6}
-.polling-feed-body::-webkit-scrollbar{width:4px}
-.polling-feed-body::-webkit-scrollbar-thumb{background:#t-ff444433;border-radius:2px}
-.spam-msg{color:#t-ff4444;padding:3px 0;border-bottom:1px solid #t-ff222211;opacity:.8;animation:spamPulse .5s ease}
-.spam-msg .spam-agent{color:#t-ff8800;font-weight:bold}
-.spam-msg .spam-time{color:#666;font-size:9px}
-@keyframes spamPulse{from{background:#t-ff444422}to{background:transparent}}
-
-/* Event detail popup */
-.event-popup{position:fixed;background:#0d1117;border:1px solid #2a3a52;border-radius:8px;padding:16px;font-size:12px;z-index:300;box-shadow:0 8px 30px #00000088;max-width:350px;pointer-events:auto}
-.event-popup .ep-title{color:#t-fff;font-weight:bold;font-size:14px;margin-bottom:8px}
-.event-popup .ep-detail{color:#888;line-height:1.6}
-.event-popup .ep-detail b{color:#00ff88}
-.event-popup .ep-close{position:absolute;top:8px;right:10px;color:#555;cursor:pointer;font-size:16px}
-.event-popup .ep-close:hover{color:#t-fff}
-
-.insight-callout{background:linear-gradient(135deg,#0a1a0a,#0a0a1a);border:1px solid #00ff8833;border-radius:8px;padding:16px 20px;margin:0 20px 20px;font-size:13px;color:#t-aaa;line-height:1.6}
-.insight-callout b{color:#00ff88}
-
-/* ===== DEMO 2: DECOMPOSITION ===== */
-#t-demo2{display:none}
-#t-demo2.active{display:block}
-.decomp-layout{display:flex;height:calc(100vh - 50px);gap:0}
-.decomp-left,.decomp-right{flex:1;padding:20px;overflow-y:auto}
-.decomp-center{width:240px;display:flex;align-items:center;justify-content:center;position:relative}
-#t-decomp-canvas{position:absolute;top:0;left:0;width:100%;height:100%}
-.decomp-title{font-size:12px;letter-spacing:2px;color:#556;text-transform:uppercase;margin-bottom:16px}
-
-/* App mockup */
-.app-mockup{background:#111;border:1px solid #222;border-radius:8px;overflow:hidden;max-width:500px}
-.app-header{background:#1a1a2a;padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:12px;color:#888}
-.app-header .dot{width:8px;height:8px;border-radius:50%}
-.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}
-.app-widget{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:4px;padding:10px;font-size:10px;color:#555;min-height:80px;position:relative;transition:transform .8s ease,opacity .8s ease,border-color .5s}
-.app-widget.highlight{border-color:#0066ff;box-shadow:0 0 15px #0066ff33;z-index:10}
-.app-widget .wtitle{color:#888;font-size:9px;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
-.app-widget .wcontent{font-size:11px;color:#t-aaa}
-.app-widget.gps .wcontent{color:#00aaff;font-size:13px;font-weight:bold}
-.app-widget.depth .wcontent{color:#t-aa44ff;font-size:18px;font-weight:bold}
-.app-widget.catch .wcontent table{width:100%;border-collapse:collapse}
-.app-widget.catch .wcontent td{padding:2px 0;border-bottom:1px solid #111}
-.app-widget.engine .gauge{display:inline-block;width:40px;height:40px;border-radius:50%;border:2px solid #333;text-align:center;line-height:36px;font-size:10px;margin:2px}
-.decompose-btn{display:block;margin:12px auto;background:#0066ff;color:#t-fff;border:none;padding:10px 24px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:.3s}
-.decompose-btn:hover{background:#0088ff;box-shadow:0 0 20px #0066ff44}
-
-/* Agent POV */
-.agent-pov{max-width:500px}
-.room{background:#0d1117;border:1px solid #1a2332;border-radius:6px;padding:14px;margin-bottom:12px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
-.room:hover{border-color:#0066ff44;box-shadow:0 0 15px #0066ff11}
-.room::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.room.wheelhouse::before{background:#00aaff}
-.room.navroom::before{background:#t-aa44ff}
-.room.backdeck::before{background:#t-ff8800}
-.room.galley::before{background:#t-ff4444}
-.room.engineroom::before{background:#666}
-.room.highlight{border-color:#0066ff88;box-shadow:0 0 20px #0066ff22, inset 0 0 20px #0066ff11}
-.room-name{color:#t-fff;font-size:14px;font-weight:bold;margin-bottom:2px}
-.room-border{color:#333;font-size:10px;margin-bottom:6px;letter-spacing:0;line-height:1.2;font-family:monospace}
-.room-desc{color:#666;font-size:11px;margin-bottom:8px}
-.room-exits{color:#0066ff;font-size:10px;margin-bottom:6px}
-.room-agents{color:#t-ff8800;font-size:10px;margin-bottom:6px}
-.room-ticks{color:#00ff88;font-size:10px;font-family:monospace}
-.room-ticks .tick{padding:2px 0;animation:tickGlow 3s infinite}
-@keyframes tickGlow{0%,100%{opacity:.7}50%{opacity:1}}
-
-.the-point{background:linear-gradient(135deg,#0a0a1a,#0a1a0a);border:1px solid #0066ff33;border-radius:8px;padding:20px;margin-top:16px;font-size:13px;line-height:1.7;color:#888}
-.the-point b{color:#0066ff}
-.the-point em{color:#00ff88;font-style:normal}
-
-/* Shared */
-.hidden{display:none!important}
-canvas{display:block}
-    </style>
-    <div class="tminus-demo-wrap">
-    <div class="brand-header">
+  <h2><span class="acc">⏱</span> T-Minus: Simulation-First Coordination</h2>
+  <p class="sub">70× fewer messages. App→rooms decomposition. Simulation-first sync for fleet coordination.</p>
+<div class="brand-header">
   <div class="brand-logo">SUPER<span>INSTANCE</span></div>
   <div class="brand-tagline">T-Minus Simulation-First Coordination</div>
   <a class="brand-link" href="https://superinstance.ai" target="_blank">Learn more at superinstance.ai →</a>
@@ -660,42 +911,42 @@ canvas{display:block}
 </div>
 
 <!-- DEMO 1 -->
-<div id="t-demo1" class="active">
-  <div class="bw-hero" id="t-bwHero">
+<div id="demo1" class="active">
+  <div class="bw-hero" id="bwHero">
     <div class="bw-cell tminus">
       <div class="bw-label">✅ T-Minus Messages</div>
-      <div class="bw-number" id="t-bwHeroTminus">0</div>
+      <div class="bw-number" id="bwHeroTminus">0</div>
       <div class="bw-sub">predictions + confirmations</div>
     </div>
-    <div class="bw-ratio good" id="t-bwRatio">
-      <span id="t-ratioNum">—</span>× more efficient
-      <span class="ratio-sub" id="t-ratioSub">waiting for data…</span>
+    <div class="bw-ratio good" id="bwRatio">
+      <span id="ratioNum">—</span>× more efficient
+      <span class="ratio-sub" id="ratioSub">waiting for data…</span>
     </div>
     <div class="bw-cell polling">
       <div class="bw-label">❌ Polling Messages</div>
-      <div class="bw-number" id="t-bwHeroPolling">0</div>
+      <div class="bw-number" id="bwHeroPolling">0</div>
       <div class="bw-sub">redundant status checks</div>
     </div>
   </div>
 
-  <div class="sync-bar" id="t-syncBar">
+  <div class="sync-bar" id="syncBar">
     <div class="sync-wave"></div>
-    <span><span class="sync-pulse"></span><span class="label" id="t-syncLabel">SYNC ACTIVE</span></span>
-    <span class="stat">Agents: <b id="t-syncAgents">5</b></span>
-    <span class="stat">Predictions: <b id="t-syncPreds">0/0</b></span>
-    <span class="stat">Δavg: <b id="t-syncDelta">0.0s</b></span>
-    <span class="stat">Conflicts: <b id="t-syncConflicts">0</b></span>
-    <span class="stat" style="margin-left:auto">T-Minus: <b id="t-clockDisplay">T-180</b></span>
+    <span><span class="sync-pulse"></span><span class="label" id="syncLabel">SYNC ACTIVE</span></span>
+    <span class="stat">Agents: <b id="syncAgents">5</b></span>
+    <span class="stat">Predictions: <b id="syncPreds">0/0</b></span>
+    <span class="stat">Δavg: <b id="syncDelta">0.0s</b></span>
+    <span class="stat">Conflicts: <b id="syncConflicts">0</b></span>
+    <span class="stat" style="margin-left:auto">T-Minus: <b id="clockDisplay">T-180</b></span>
   </div>
   
   <div class="timeline-container">
-    <canvas id="t-timeline-canvas"></canvas>
+    <canvas id="timeline-canvas"></canvas>
   </div>
 
-  <div class="agents-panel" id="t-agentsPanel"></div>
+  <div class="agents-panel" id="agentsPanel"></div>
 
   <div class="comparison-bar">
-    <button class="toggle-btn" id="t-modeToggle" onclick="toggleMode()">MODE: T-MINUS</button>
+    <button class="toggle-btn" id="modeToggle" onclick="toggleMode()">MODE: T-MINUS</button>
     <button class="play-btn" onclick="resetSim(); showToast('🔄 Timeline restarted')">▶ REPLAY</button>
   </div>
 
@@ -707,14 +958,14 @@ canvas{display:block}
   </div>
 
   <!-- Polling spam feed (slides in from right) -->
-  <div class="polling-feed" id="t-pollingFeed">
+  <div class="polling-feed" id="pollingFeed">
     <div class="polling-feed-header">⚠ POLLING SPAM FEED</div>
-    <div class="polling-feed-body" id="t-pollingFeedBody"></div>
+    <div class="polling-feed-body" id="pollingFeedBody"></div>
   </div>
 </div>
 
 <!-- DEMO 2 -->
-<div id="t-demo2">
+<div id="demo2">
   <div class="decomp-layout">
     <div class="decomp-left">
       <div class="decomp-title">Source Application — Fishing Vessel Dashboard</div>
@@ -726,15 +977,15 @@ canvas{display:block}
           <span>F/V Northern Star — Bridge Control v3.2</span>
         </div>
         <div class="app-grid">
-          <div class="app-widget gps" id="t-widget-gps">
+          <div class="app-widget gps" id="widget-gps">
             <div class="wtitle">📍 GPS Position</div>
             <div class="wcontent">57.2847°N<br>164.2031°W<br><span style="font-size:10px;color:#666">HDG 195° | 8.2 kn</span></div>
           </div>
-          <div class="app-widget depth" id="t-widget-depth">
+          <div class="app-widget depth" id="widget-depth">
             <div class="wtitle">🌊 Depth Sounder</div>
             <div class="wcontent">45 fm<br><span style="font-size:10px;color:#666">Hard bottom | 2.4°C</span></div>
           </div>
-          <div class="app-widget catch" id="t-widget-catch">
+          <div class="app-widget catch" id="widget-catch">
             <div class="wtitle">🐟 Catch Log</div>
             <div class="wcontent">
               <table><tr><td>Pacific Cod</td><td>2,847 lbs</td></tr>
@@ -743,7 +994,7 @@ canvas{display:block}
               <tr><td style="color:#555">Bycatch rel.</td><td style="color:#ff8800">47 lbs</td></tr></table>
             </div>
           </div>
-          <div class="app-widget engine" id="t-widget-engine">
+          <div class="app-widget engine" id="widget-engine">
             <div class="wtitle">⚙️ Engine Status</div>
             <div class="wcontent">
               <div class="gauge" style="border-color:#00ff88;color:#00ff88">78%</div>
@@ -752,7 +1003,7 @@ canvas{display:block}
               <div style="font-size:9px;color:#555;margin-top:4px">RPM: 1450 | Fuel: 62%</div>
             </div>
           </div>
-          <div class="app-widget" style="grid-column:span 2" id="t-widget-crew">
+          <div class="app-widget" style="grid-column:span 2" id="widget-crew">
             <div class="wtitle">👥 Crew Status</div>
             <div class="wcontent" style="display:flex;gap:12px;flex-wrap:wrap">
               <span style="color:#00ff88">● Capt. Hansen (bridge)</span>
@@ -763,23 +1014,23 @@ canvas{display:block}
               <span style="color:#00ff88">● Tanaka (hold)</span>
             </div>
           </div>
-          <div class="app-widget" style="grid-column:span 2" id="t-widget-weather">
+          <div class="app-widget" style="grid-column:span 2" id="widget-weather">
             <div class="wtitle">🌤 Weather</div>
             <div class="wcontent">Overcast | Wind: NW 18kt gusting 25 | Seas: 4-6ft | Barometer: 1008.2 hPa ↗</div>
           </div>
         </div>
-        <button class="decompose-btn" id="t-decomposeBtn" onclick="runDecomposition()">⚡ Decompose into Agent Rooms</button>
+        <button class="decompose-btn" id="decomposeBtn" onclick="runDecomposition()">⚡ Decompose into Agent Rooms</button>
       </div>
     </div>
 
     <div class="decomp-center">
-      <canvas id="t-decomp-canvas"></canvas>
+      <canvas id="decomp-canvas"></canvas>
     </div>
 
     <div class="decomp-right">
       <div class="decomp-title">Agent's Point of View — The MUD World</div>
-      <div class="agent-pov" id="t-agentPov">
-        <div class="room wheelhouse" id="t-room-wheelhouse" onclick="highlightRoom(this)">
+      <div class="agent-pov" id="agentPov">
+        <div class="room wheelhouse" id="room-wheelhouse" onclick="highlightRoom(this)">
           <div class="room-border">╔══════════════════════════════╗</div>
           <div class="room-name">🚢 WHEELHOUSE</div>
           <div class="room-border">╠══════════════════════════════╣</div>
@@ -795,7 +1046,7 @@ canvas{display:block}
           </div>
           <div class="room-border">╚══════════════════════════════╝</div>
         </div>
-        <div class="room navroom" id="t-room-navroom" onclick="highlightRoom(this)">
+        <div class="room navroom" id="room-navroom" onclick="highlightRoom(this)">
           <div class="room-border">╔══════════════════════════════╗</div>
           <div class="room-name">📡 NAV-ROOM</div>
           <div class="room-border">╠══════════════════════════════╣</div>
@@ -810,7 +1061,7 @@ canvas{display:block}
           </div>
           <div class="room-border">╚══════════════════════════════╝</div>
         </div>
-        <div class="room backdeck" id="t-room-backdeck" onclick="highlightRoom(this)">
+        <div class="room backdeck" id="room-backdeck" onclick="highlightRoom(this)">
           <div class="room-border">╔══════════════════════════════╗</div>
           <div class="room-name">🎣 BACK-DECK</div>
           <div class="room-border">╠══════════════════════════════╣</div>
@@ -826,7 +1077,7 @@ canvas{display:block}
           </div>
           <div class="room-border">╚══════════════════════════════╝</div>
         </div>
-        <div class="room galley" id="t-room-galley" onclick="highlightRoom(this)">
+        <div class="room galley" id="room-galley" onclick="highlightRoom(this)">
           <div class="room-border">╔══════════════════════════════╗</div>
           <div class="room-name">🍳 GALLEY</div>
           <div class="room-border">╠══════════════════════════════╣</div>
@@ -840,7 +1091,7 @@ canvas{display:block}
           </div>
           <div class="room-border">╚══════════════════════════════╝</div>
         </div>
-        <div class="room engineroom" id="t-room-engineroom" onclick="highlightRoom(this)">
+        <div class="room engineroom" id="room-engineroom" onclick="highlightRoom(this)">
           <div class="room-border">╔══════════════════════════════╗</div>
           <div class="room-name">⚙️ ENGINE-ROOM</div>
           <div class="room-border">╠══════════════════════════════╣</div>
@@ -864,85 +1115,1108 @@ canvas{display:block}
     </div>
   </div>
 </div>
+</section>
+
+<!-- ==================== 5. CONSERVATION SPECTRAL ==================== -->
+<section id="spectral">
+  <h2>Conservation <span class="acc">Spectral</span></h2>
+  <p class="sub">Five proved theorems. Fifteen domains. Click to expand.</p>
+
+  <div class="spectral-stats">
+    <div class="spectral-stat">
+      <div class="num" id="stat1"><span class="pre">×</span>112</div>
+      <div class="lbl">Music conservation (p &lt; 0.001)</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat2">0.92</div>
+      <div class="lbl">Anomaly detection AUC</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat3">15+</div>
+      <div class="lbl">Cross-domain experiments</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat4">5</div>
+      <div class="lbl">Proved theorems (T1–T5)</div>
+    </div>
+  </div>
+
+  <canvas id="spectral-canvas"></canvas>
+
+  <div class="theorem-interactive-grid" id="theoremGrid"></div>
+</section>
+
+<!-- ==================== 6. MUD → POINT-AND-CLICK ==================== -->
+<section id="mud">
+  <h2>MUD → <span class="acc">Point-and-Click</span></h2>
+  <p class="sub">Text adventure on the left, rendered scene on the right. Type commands OR click — both update simultaneously.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🎮 Cave Wall Translation</h3>
+      <span class="tag">INTERACTIVE</span>
+    </div>
+    <div class="demo-body">
+      <div class="mud-container">
+        <div class="mud-text">
+          <div class="mud-output" id="mudOutput"></div>
+          <div class="mud-input-row">
+            <span style="color:var(--accent);font-family:var(--mono);">&gt;</span>
+            <input id="mudInput" placeholder="type command..." autocomplete="off">
+            <button onclick="mudCommand()">Go</button>
+          </div>
+        </div>
+        <div class="mud-scene">
+          <canvas id="mudCanvas"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CODE EXAMPLES -->
-<section id="code" class="section-wrap">
-  <h2>Ten lines to a <span class="acc">sensing agent</span>.</h2>
-  <p class="sub">Same framework. Rust for performance, Python for prototyping, TypeScript for the web. Pick your flavor.</p>
-  <div class="code-tabs">
-    <button class="code-tab active" onclick="showCode('rust',this)">Rust</button>
-    <button class="code-tab" onclick="showCode('python',this)">Python</button>
-    <button class="code-tab" onclick="showCode('ts',this)">TypeScript</button>
-  </div>
-  <div class="code-block-wrap" id="codeDisplay">
-<span class="kw">use</span> openconstruct::<span class="ty">Agent</span>;
+<!-- ==================== 7. CODE EXAMPLES ==================== -->
+<section id="code">
+  <h2>Code <span class="acc">Examples</span></h2>
+  <p class="sub">Ten lines to a sensing agent. Same API across Rust, Python, and TypeScript.</p>
+  <div>
+    <div class="code-tabs">
+      <div class="code-tab active" onclick="showCodeTab(0)">Rust</div>
+      <div class="code-tab" onclick="showCodeTab(1)">Python</div>
+      <div class="code-tab" onclick="showCodeTab(2)">TypeScript</div>
+    </div>
+    <div class="code-content active" id="codeTab0">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,0)">Copy</button>
+<pre><span class="kw">use</span> openconstruct::<span class="fn">{Agent, Sense}</span>;
 
-<span class="cm">// An agent that senses the world through rooms</span>
-<span class="kw">let</span> agent = <span class="ty">Agent</span>::<span class="fn">new</span>(<span class="str">"fishing-vessel"</span>)
-    .<span class="fn">add_sense</span>(<span class="ty">Sonar</span>::<span class="fn">new</span>(<span class="str">"depth"</span>, <span class="str">"45fm"</span>))
-    .<span class="fn">add_sense</span>(<span class="ty">GPS</span>::<span class="fn">new</span>(<span class="str">"position"</span>))
-    .<span class="fn">on_tick</span>(|tick| {
-        <span class="kw">if</span> tick.<span class="fn">get</span>(<span class="str">"depth"</span>) > <span class="str">"50fm"</span> {
-            agent.<span class="fn">navigate</span>(<span class="str">"shallower-water"</span>);
-        }
-    })
-    .<span class="fn">spawn</span>();
+<span class="cm">// Create an agent with vision + sonar senses</span>
+<span class="kw">let</span> agent = Agent::new(<span class="st">"scout-1"</span>)
+    .with_sense(Sense::Vision)
+    .with_sense(Sense::Sonar)
+    .connect_fleet()?;
+
+<span class="cm">// Subscribe to sense readings</span>
+agent.on_sense(<span class="st">"vision"</span>, |reading| {
+    <span class="fn">println!</span>(<span class="st">"Detected: {:?} objects"</span>, reading.objects);
+});
+
+agent.on_sense(<span class="st">"sonar"</span>, |reading| {
+    <span class="fn">println!</span>(<span class="st">"Echo at {:.1}m"</span>, reading.distance);
+});
+
+agent.run().<span class="fn">await</span>?; <span class="cm">// Blocking loop</span></pre>
+    </div>
+    <div class="code-content" id="codeTab1">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,1)">Copy</button>
+<pre><span class="kw">from</span> openconstruct <span class="kw">import</span> Agent, Sense
+
+<span class="cm"># Create an agent with vision + sonar senses</span>
+agent = Agent(<span class="st">"scout-1"</span>)
+agent.add_sense(Sense.VISION)
+agent.add_sense(Sense.SONAR)
+agent.connect_fleet()
+
+<span class="cm"># Subscribe to sense readings</span>
+<span class="kw">@agent</span>.on_sense(<span class="st">"vision"</span>)
+<span class="kw">def</span> <span class="fn">on_vision</span>(reading):
+    <span class="fn">print</span>(<span class="st">f"Detected: {len(reading.objects)} objects"</span>)
+
+<span class="kw">@agent</span>.on_sense(<span class="st">"sonar"</span>)
+<span class="kw">def</span> <span class="fn">on_sonar</span>(reading):
+    <span class="fn">print</span>(<span class="st">f"Echo at {reading.distance:.1f}m"</span>)
+
+agent.run()  <span class="cm"># Blocking loop</span></pre>
+    </div>
+    <div class="code-content" id="codeTab2">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,2)">Copy</button>
+<pre><span class="kw">import</span> { Agent, Sense } <span class="kw">from</span> <span class="st">"openconstruct"</span>;
+
+<span class="cm">// Create an agent with vision + sonar senses</span>
+<span class="kw">const</span> agent = <span class="kw">new</span> <span class="fn">Agent</span>(<span class="st">"scout-1"</span>);
+agent.<span class="fn">addSense</span>(Sense.Vision);
+agent.<span class="fn">addSense</span>(Sense.Sonar);
+<span class="kw">await</span> agent.<span class="fn">connectFleet</span>();
+
+<span class="cm">// Subscribe to sense readings</span>
+agent.<span class="fn">onSense</span>(<span class="st">"vision"</span>, (reading) => {
+  console.<span class="fn">log</span>(<span class="st">`Detected: ${reading.objects.length} objects`</span>);
+});
+
+agent.<span class="fn">onSense</span>(<span class="st">"sonar"</span>, (reading) => {
+  console.<span class="fn">log</span>(<span class="st">`Echo at ${reading.distance.toFixed(1)}m`</span>);
+});
+
+<span class="kw">await</span> agent.<span class="fn">run</span>(); <span class="cm">// Blocking loop</span></pre>
+    </div>
   </div>
 </section>
 
-<!-- HARDWARE SPECTRUM -->
-<section id="hardware" class="section-wrap">
-  <h2>Same framework. <span class="acc">Every</span> scale.</h2>
-  <p class="sub">From a $3 microcontroller reading a temperature sensor to a $25K DGX cluster running fleet coordination. One API.</p>
-  <div class="hw-grid">
-    <div class="hw-card"><div class="hw-icon">📡</div><div class="hw-name">ESP32</div><div class="hw-price">$3</div><div class="hw-desc">WiFi + BLE sensor node. Runs agent senses on bare metal.</div></div>
-    <div class="hw-card"><div class="hw-icon">🤖</div><div class="hw-name">Jetson Nano</div><div class="hw-price">$99</div><div class="hw-desc">Edge AI. Computer vision agent at 15 FPS.</div></div>
-    <div class="hw-card"><div class="hw-icon">💻</div><div class="hw-name">Desktop</div><div class="hw-price">$500</div><div class="hw-desc">Local agent fleet. No cloud needed.</div></div>
-    <div class="hw-card"><div class="hw-icon">☁️</div><div class="hw-name">Cloud GPU</div><div class="hw-price">$2/hr</div><div class="hw-desc">Heavy inference. Language model coordination.</div></div>
-    <div class="hw-card"><div class="hw-icon">🖥️</div><div class="hw-name">DGX Cluster</div><div class="hw-price">$25K</div><div class="hw-desc">Full fleet mesh. 1000+ agents, real-time coordination.</div></div>
+<!-- ==================== 8. ECOSYSTEM MAP ==================== -->
+<section id="ecosystem">
+  <h2>Ecosystem <span class="acc">Map</span></h2>
+  <p class="sub">Click a category to explore the modules. Each links to its repository.</p>
+  <div class="eco-categories" id="ecoCategories"></div>
+  <div class="eco-items" id="ecoItems"></div>
+</section>
+
+<!-- ==================== 9. HARDWARE SPECTRUM ==================== -->
+<section id="hardware">
+  <h2>Hardware <span class="acc">Spectrum</span></h2>
+  <p class="sub">From microcontroller to data center. Same agent framework, every scale.</p>
+  <div class="hw-spectrum">
+    <div class="hw-flow-line"></div>
+    <div class="hw-node">
+      <div class="hw-icon">📟</div>
+      <div class="hw-name">ESP32</div>
+      <div class="hw-specs">240 MHz dual-core<br>520 KB RAM<br>WiFi + BLE</div>
+      <div class="hw-use">Sensor nodes, edge detection</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🤖</div>
+      <div class="hw-name">Jetson</div>
+      <div class="hw-specs">6-core ARM + GPU<br>8 GB RAM<br>CUDA 5.3</div>
+      <div class="hw-use">Vision + inference, robotics</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🖥️</div>
+      <div class="hw-name">Desktop</div>
+      <div class="hw-specs">8-16 cores<br>32 GB RAM<br>RTX GPU</div>
+      <div class="hw-use">Orchestrator, dev workstations</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">☁️</div>
+      <div class="hw-name">Cloud</div>
+      <div class="hw-specs">96 vCPUs<br>384 GB RAM<br>A100 GPUs</div>
+      <div class="hw-use">Heavy inference, fleet coordinator</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🏗️</div>
+      <div class="hw-name">DGX</div>
+      <div class="hw-specs">8× H100 GPUs<br>640 GB GPU mem<br>NVLink mesh</div>
+      <div class="hw-use">Training, multi-agent simulation</div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ==================== 10. FOOTER ==================== -->
 <footer>
   <div class="footer-links">
-    <a href="https://github.com/SuperInstance">GitHub</a>
-    <a href="https://github.com/SuperInstance/openconstruct-docs">Docs</a>
-    <a href="https://discord.com/invite/clawd">Discord</a>
-    <a href="demos.html">Math Demos</a>
-    <a href="https://github.com/SuperInstance/OpenConstruct">OpenConstruct</a>
+    <a href="https://github.com/SuperInstance" target="_blank">GitHub Org</a>
+    <a href="https://github.com/SuperInstance/OpenConstruct" target="_blank">OpenConstruct Repo</a>
+    <a href="https://github.com/SuperInstance/conservation-docs" target="_blank">Docs</a>
+    <a href="demos.html">Interactive Demos</a>
+    <a href="demo-eisenstein.html">Eisenstein Demo</a>
+    <a href="demo-voxel.html">Voxel Demo</a>
+    <a href="https://discord.com/invite/clawd" target="_blank">Discord</a>
   </div>
-  <p>Built with 🦀 by agents, for agents. Apache 2.0.</p>
+  <p>Agents that see, hear, touch, and collaborate.</p>
+  <p class="license">Licensed under Apache 2.0 · Built with zero dependencies</p>
 </footer>
 
-<!-- PAGE JS -->
+<!-- ==================== JAVASCRIPT ==================== -->
 <script>
-function copyInstall(btn){
-  navigator.clipboard.writeText(btn.previousElementSibling.textContent).then(function(){
-    btn.textContent='✓ copied';btn.style.color='var(--accent)';
-    setTimeout(function(){btn.textContent='copy';btn.style.color=''},2000);
+// ============================================================
+// UTILITY
+// ============================================================
+function copyInstall(el) {
+  const text = 'curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash';
+  navigator.clipboard.writeText(text).then(() => {
+    const hint = el.querySelector('.copy-hint');
+    hint.textContent = '✓ copied!';
+    setTimeout(() => hint.textContent = 'click to copy', 2000);
   });
 }
-var codeExamples={
-  rust:'<span class="kw">use</span> openconstruct::<span class="ty">Agent</span>;\n\n<span class="cm">// An agent that senses the world through rooms</span>\n<span class="kw">let</span> agent = <span class="ty">Agent</span>::<span class="fn">new</span>(<span class="str">"fishing-vessel"</span>)\n    .<span class="fn">add_sense</span>(<span class="ty">Sonar</span>::<span class="fn">new</span>(<span class="str">"depth"</span>, <span class="str">"45fm"</span>))\n    .<span class="fn">add_sense</span>(<span class="ty">GPS</span>::<span class="fn">new</span>(<span class="str">"position"</span>))\n    .<span class="fn">on_tick</span>(|tick| {\n        <span class="kw">if</span> tick.<span class="fn">get</span>(<span class="str">"depth"</span>) > <span class="str">"50fm"</span> {\n            agent.<span class="fn">navigate</span>(<span class="str">"shallower-water"</span>);\n        }\n    })\n    .<span class="fn">spawn</span>();',
-  python:'<span class="kw">from</span> openconstruct <span class="kw">import</span> <span class="ty">Agent</span>, <span class="ty">Sonar</span>, <span class="ty">GPS</span>\n\n<span class="cm"># An agent that senses the world through rooms</span>\nagent = <span class="ty">Agent</span>(<span class="str">"fishing-vessel"</span>)\nagent.<span class="fn">add_sense</span>(<span class="ty">Sonar</span>(<span class="str">"depth"</span>, <span class="str">"45fm"</span>))\nagent.<span class="fn">add_sense</span>(<span class="ty">GPS</span>(<span class="str">"position"</span>))\n\n<span class="kw">@agent</span>.<span class="fn">on_tick</span>\n<span class="kw">def</span> <span class="fn">check_depth</span>(tick):\n    <span class="kw">if</span> tick.<span class="fn">get</span>(<span class="str">"depth"</span>) > <span class="str">"50fm"</span>:\n        agent.<span class="fn">navigate</span>(<span class="str">"shallower-water"</span>)\n\nagent.<span class="fn">spawn</span>()',
-  ts:'<span class="kw">import</span> { <span class="ty">Agent</span>, <span class="ty">Sonar</span>, <span class="ty">GPS</span> } <span class="kw">from</span> <span class="str">"openconstruct"</span>;\n\n<span class="cm">// An agent that senses the world through rooms</span>\n<span class="kw">const</span> agent = <span class="kw">new</span> <span class="ty">Agent</span>(<span class="str">"fishing-vessel"</span>)\n  .<span class="fn">addSense</span>(<span class="kw">new</span> <span class="ty">Sonar</span>(<span class="str">"depth"</span>, <span class="str">"45fm"</span>))\n  .<span class="fn">addSense</span>(<span class="kw">new</span> <span class="ty">GPS</span>(<span class="str">"position"</span>))\n  .<span class="fn">onTick</span>((tick) => {\n    <span class="kw">if</span> (tick.<span class="fn">get</span>(<span class="str">"depth"</span>) > <span class="str">"50fm"</span>) {\n      agent.<span class="fn">navigate</span>(<span class="str">"shallower-water"</span>);\n    }\n  });\n\nagent.<span class="fn">spawn</span>();'
-};
-function showCode(lang,btn){
-  document.querySelectorAll('.code-tab').forEach(function(t){t.classList.remove('active')});
-  btn.classList.add('active');
-  document.getElementById('codeDisplay').innerHTML=codeExamples[lang];
-}
-// Close nav on mobile link click
-document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')})});
-</script>
 
-<!-- VESSEL DEMO JS -->
-<script>
-(function(){
+function copyCode(btn, idx) {
+  const el = document.getElementById('codeTab' + idx);
+  const pre = el.querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// Smooth scroll
+document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// ============================================================
+// 1. PLATO'S CAVE DEMO
+// ============================================================
+const senseShadows = [
+  { type: 'vision', icon: '👁️', text: 'vision: 3 objects detected (confidence: 0.94)', data: 'objects', val: 3, conf: 0.94 },
+  { type: 'sonar', icon: '🔊', text: 'sonar: echo at 2.3m, bearing 045°', data: 'distance', val: 2.3, conf: 0.87 },
+  { type: 'touch', icon: '✋', text: 'touch: surface pressure 1.2 N/m²', data: 'pressure', val: 1.2, conf: 0.91 },
+  { type: 'temperature', icon: '🌡️', text: 'temperature: 22.4°C ambient, +3.2°C near source', data: 'temp', val: 22.4, conf: 0.98 },
+  { type: 'accel', icon: '📐', text: 'accelerometer: vibration 0.04g at 120Hz', data: 'vibration', val: 0.04, conf: 0.76 },
+  { type: 'lidar', icon: '📡', text: 'lidar: 1024 points, max range 8.5m', data: 'points', val: 1024, conf: 0.99 },
+  { type: 'vision', icon: '👁️', text: 'vision: object "person" entering frame left', data: 'objects', val: 4, conf: 0.89 },
+  { type: 'sonar', icon: '🔊', text: 'sonar: echo at 1.1m, bearing 180°', data: 'distance', val: 1.1, conf: 0.92 },
+  { type: 'magnetic', icon: '🧲', text: 'magnetometer: field 48.3 µT, heading NNW', data: 'field', val: 48.3, conf: 0.95 },
+  { type: 'vision', icon: '👁️', text: 'vision: object "person" — tracking ID #7', data: 'objects', val: 4, conf: 0.93 },
+];
+
+const shadowsEl = document.getElementById('caveShadows');
+const panelsEl = document.getElementById('cavePanels');
+let shadowIdx = 0;
+let renderedSet = new Set();
+let firstRendered = false;
+
+function addShadow() {
+  const s = senseShadows[shadowIdx % senseShadows.length];
+  const line = document.createElement('div');
+  line.className = 'shadow-line';
+  line.dataset.idx = shadowIdx % senseShadows.length;
+  line.innerHTML = `<span class="s-type">[${s.type}]</span> <span class="s-val">${s.text}</span>`;
+  line.onclick = () => renderShadow(s, line);
+  shadowsEl.appendChild(line);
+  shadowsEl.scrollTop = shadowsEl.scrollHeight;
+  shadowIdx++;
+}
+
+function renderShadow(s, lineEl) {
+  document.querySelectorAll('.shadow-line.selected').forEach(el => el.classList.remove('selected'));
+  lineEl.classList.add('selected');
+  
+  if (!firstRendered) {
+    panelsEl.innerHTML = '';
+    firstRendered = true;
+  }
+  
+  const card = document.createElement('div');
+  card.className = 'rendered-card';
+  
+  let barColor = s.type === 'vision' ? '#00ccff' : s.type === 'sonar' ? '#00ff88' : s.type === 'touch' ? '#ffaa00' : '#aa66ff';
+  let barWidth = Math.round(s.conf * 100);
+  let dataText = '';
+  if (s.data === 'objects') dataText = `${s.val} objects in frame`;
+  else if (s.data === 'distance') dataText = `${s.val}m to target`;
+  else if (s.data === 'pressure') dataText = `${s.val} N/m² surface`;
+  else if (s.data === 'temp') dataText = `${s.val}°C ambient`;
+  else if (s.data === 'vibration') dataText = `${s.val}g at 120Hz`;
+  else if (s.data === 'points') dataText = `${s.val} point cloud`;
+  else dataText = `${s.val} µT field`;
+  
+  card.innerHTML = `
+    <div class="rc-header">
+      <span class="rc-type">${s.type}</span>
+      <span class="rc-icon">${s.icon}</span>
+    </div>
+    <div class="rc-data">${dataText}</div>
+    <div class="rc-bar"><div class="rc-bar-fill" style="width:${barWidth}%;background:${barColor};"></div></div>
+    <div style="font-size:0.65rem;color:var(--text-dimmer);margin-top:0.3rem;">confidence: ${(s.conf * 100).toFixed(0)}%</div>
+  `;
+  panelsEl.insertBefore(card, panelsEl.firstChild);
+  panelsEl.scrollTop = 0;
+}
+
+// Auto-scroll shadows
+setInterval(addShadow, 1500);
+addShadow(); addShadow(); addShadow();
+
+// ============================================================
+// 2. FLEET TOPOLOGY DEMO
+// ============================================================
+const fleetCanvas = document.getElementById('fleetCanvas');
+const fctx = fleetCanvas.getContext('2d');
+const fleetInfo = document.getElementById('fleetInfo');
+
+const fleetNodes = [
+  { id: 'esp32-1', label: 'ESP32', sub: 'temperature sensor', x: 0, y: 0, r: 22, color: '#00ff88', caps: ['temperature', 'humidity', 'WiFi'], status: 'active' },
+  { id: 'jetson-1', label: 'Jetson', sub: 'vision + inference', x: 0, y: 0, r: 32, color: '#0066ff', caps: ['CUDA inference', 'camera', 'PLATO room'], status: 'active' },
+  { id: 'desktop-1', label: 'Desktop', sub: 'orchestrator', x: 0, y: 0, r: 38, color: '#aa66ff', caps: ['fleet coordinator', 'sense fusion', 'FLUX engine'], status: 'active' },
+  { id: 'cloud-1', label: 'Cloud', sub: 'heavy inference', x: 0, y: 0, r: 30, color: '#00ccff', caps: ['A100 inference', 'training', 'spectral analysis'], status: 'active' },
+  { id: 'esp32-2', label: 'ESP32', sub: 'motion sensor', x: 0, y: 0, r: 22, color: '#00ff88', caps: ['PIR motion', 'BLE', 'edge detect'], status: 'joining' },
+];
+
+let fleetEdges = [];
+let fleetDiscovered = 0;
+let fleetAnimFrame = 0;
+let selectedFleetNode = null;
+
+function initFleetPositions() {
+  const w = fleetCanvas.width;
+  const h = fleetCanvas.height;
+  const cx = w / 2;
+  const cy = h / 2;
+  const positions = [
+    { x: cx - 150, y: cy + 60 },
+    { x: cx - 50, y: cy - 80 },
+    { x: cx, y: cy + 20 },
+    { x: cx + 130, y: cy - 40 },
+    { x: cx + 60, y: cy + 100 },
+  ];
+  fleetNodes.forEach((n, i) => {
+    n.x = positions[i].x;
+    n.y = positions[i].y;
+    n.targetX = n.x;
+    n.targetY = n.y;
+    n.visible = false;
+  });
+  fleetEdges = [];
+  fleetDiscovered = 0;
+  selectedFleetNode = null;
+  fleetInfo.classList.remove('visible');
+}
+
+function resizeFleetCanvas() {
+  const wrap = fleetCanvas.parentElement;
+  fleetCanvas.width = wrap.clientWidth;
+  fleetCanvas.height = wrap.clientHeight;
+  initFleetPositions();
+}
+
+function discoverNext() {
+  if (fleetDiscovered >= fleetNodes.length) {
+    // Add edges between undiscovered pairs
+    for (let i = 0; i < fleetNodes.length; i++) {
+      for (let j = i + 1; j < fleetNodes.length; j++) {
+        if (Math.random() < 0.4 && !fleetEdges.find(e => (e.a === i && e.b === j) || (e.a === j && e.b === i))) {
+          fleetEdges.push({ a: i, b: j, progress: 0 });
+        }
+      }
+    }
+    return;
+  }
+  fleetNodes[fleetDiscovered].visible = true;
+  // Add edges to already-visible nodes
+  for (let i = 0; i < fleetDiscovered; i++) {
+    if (fleetNodes[i].visible && Math.random() < 0.7) {
+      fleetEdges.push({ a: i, b: fleetDiscovered, progress: 0 });
+    }
+  }
+  fleetDiscovered++;
+}
+
+let discoverTimer = null;
+function startDiscovery() {
+  discoverTimer = setInterval(() => {
+    if (fleetDiscovered < fleetNodes.length) discoverNext();
+    else clearInterval(discoverTimer);
+  }, 1200);
+  discoverNext(); // First one immediately
+}
+
+function drawFleet() {
+  const w = fleetCanvas.width;
+  const h = fleetCanvas.height;
+  fctx.clearRect(0, 0, w, h);
+  
+  // Draw edges
+  fleetEdges.forEach(e => {
+    if (e.progress < 1) e.progress = Math.min(1, e.progress + 0.03);
+    const a = fleetNodes[e.a];
+    const b = fleetNodes[e.b];
+    if (!a.visible || !b.visible) return;
+    const ex = a.x + (b.x - a.x) * e.progress;
+    const ey = a.y + (b.y - a.y) * e.progress;
+    fctx.beginPath();
+    fctx.moveTo(a.x, a.y);
+    fctx.lineTo(ex, ey);
+    fctx.strokeStyle = 'rgba(0,255,136,0.15)';
+    fctx.lineWidth = 1.5;
+    fctx.stroke();
+    
+    // Data packet animation
+    if (e.progress >= 1) {
+      const t = (fleetAnimFrame * 0.01 + e.a * 0.3) % 1;
+      const px = a.x + (b.x - a.x) * t;
+      const py = a.y + (b.y - a.y) * t;
+      fctx.beginPath();
+      fctx.arc(px, py, 2, 0, Math.PI * 2);
+      fctx.fillStyle = 'rgba(0,255,136,0.6)';
+      fctx.fill();
+    }
+  });
+  
+  // Draw nodes
+  fleetNodes.forEach((n, i) => {
+    if (!n.visible) return;
+    
+    const isSelected = selectedFleetNode === i;
+    const pulse = 0.5 + 0.5 * Math.sin(fleetAnimFrame * 0.05 + i);
+    
+    // Glow
+    if (isSelected) {
+      fctx.beginPath();
+      fctx.arc(n.x, n.y, n.r + 12, 0, Math.PI * 2);
+      fctx.fillStyle = n.color.replace(')', ',0.1)').replace('rgb', 'rgba').replace('#', '');
+      // Simpler glow
+      fctx.shadowColor = n.color;
+      fctx.shadowBlur = 20;
+      fctx.fill();
+      fctx.shadowBlur = 0;
+    }
+    
+    // Node circle
+    fctx.beginPath();
+    fctx.arc(n.x, n.y, n.r + (isSelected ? 3 : 0), 0, Math.PI * 2);
+    fctx.fillStyle = isSelected ? n.color : 'rgba(20,20,20,0.9)';
+    fctx.fill();
+    fctx.strokeStyle = n.color;
+    fctx.lineWidth = isSelected ? 2.5 : 1.5;
+    fctx.stroke();
+    
+    // Pulsing ring for joining nodes
+    if (n.status === 'joining') {
+      fctx.beginPath();
+      fctx.arc(n.x, n.y, n.r + 5 + pulse * 5, 0, Math.PI * 2);
+      fctx.strokeStyle = n.color.replace(')', `,${0.2 + pulse * 0.2})`);
+      if (n.color.startsWith('#')) {
+        const r = parseInt(n.color.slice(1,3),16);
+        const g = parseInt(n.color.slice(3,5),16);
+        const b = parseInt(n.color.slice(5,7),16);
+        fctx.strokeStyle = `rgba(${r},${g},${b},${0.2 + pulse * 0.2})`;
+      }
+      fctx.lineWidth = 1;
+      fctx.stroke();
+    }
+    
+    // Label
+    fctx.font = `bold ${n.r > 25 ? 11 : 9}px ${getComputedStyle(document.body).getPropertyValue('--mono').trim() || 'monospace'}`;
+    fctx.textAlign = 'center';
+    fctx.textBaseline = 'middle';
+    fctx.fillStyle = isSelected ? '#0a0a0a' : n.color;
+    fctx.fillText(n.label, n.x, n.y - 4);
+    fctx.font = `${n.r > 25 ? 8 : 7}px sans-serif`;
+    fctx.fillStyle = isSelected ? 'rgba(10,10,10,0.7)' : 'rgba(255,255,255,0.4)';
+    fctx.fillText(n.sub, n.x, n.y + 9);
+  });
+  
+  fleetAnimFrame++;
+  requestAnimationFrame(drawFleet);
+}
+
+fleetCanvas.addEventListener('click', (e) => {
+  const rect = fleetCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (fleetCanvas.width / rect.width);
+  const my = (e.clientY - rect.top) * (fleetCanvas.height / rect.height);
+  
+  let found = -1;
+  fleetNodes.forEach((n, i) => {
+    if (!n.visible) return;
+    const dx = mx - n.x;
+    const dy = my - n.y;
+    if (Math.sqrt(dx*dx + dy*dy) < n.r + 5) found = i;
+  });
+  
+  if (found >= 0) {
+    selectedFleetNode = found;
+    const n = fleetNodes[found];
+    document.getElementById('fiName').textContent = `${n.label} (${n.id})`;
+    document.getElementById('fiCaps').innerHTML = n.caps.map(c => `<div class="fi-cap">• <span>${c}</span></div>`).join('') +
+      `<div class="fi-cap" style="margin-top:0.5rem;">Status: <span style="color:${n.status === 'active' ? '#00ff88' : '#ffaa00'}">${n.status}</span></div>`;
+    fleetInfo.classList.add('visible');
+  } else {
+    selectedFleetNode = null;
+    fleetInfo.classList.remove('visible');
+  }
+});
+
+function resetFleet() {
+  if (discoverTimer) clearInterval(discoverTimer);
+  resizeFleetCanvas();
+  setTimeout(startDiscovery, 500);
+}
+
+resizeFleetCanvas();
+startDiscovery();
+drawFleet();
+window.addEventListener('resize', () => { resizeFleetCanvas(); if (discoverTimer) clearInterval(discoverTimer); startDiscovery(); });
+
+// ============================================================
+// 3. ONBOARDING WIZARD
+// ============================================================
+let wizardStep = 1;
+const modules = [
+  { name: 'Vision', icon: '👁️' }, { name: 'Sonar', icon: '🔊' },
+  { name: 'Touch', icon: '✋' }, { name: 'Temperature', icon: '🌡️' },
+  { name: 'LIDAR', icon: '📡' }, { name: 'Accelerometer', icon: '📐' },
+  { name: 'Magnetometer', icon: '🧲' }, { name: 'Voice', icon: '🎤' },
+];
+const interfaces = [
+  { name: 'Terminal', icon: '💻', desc: 'CLI with monospace output' },
+  { name: 'Dashboard', icon: '📊', desc: 'Visual cards and graphs' },
+  { name: 'MUD', icon: '🎮', desc: 'Text adventure interface' },
+  { name: '3D Scene', icon: '🌐', desc: 'Three.js rendered view' },
+];
+let selectedModules = new Set();
+let selectedInterface = '';
+
+function wizardNext(step) {
+  wizardStep = step;
+  for (let i = 1; i <= 5; i++) {
+    const panel = document.getElementById('wPanel' + i);
+    const sBar = document.getElementById('wStep' + i);
+    panel.classList.toggle('active', i === step);
+    sBar.classList.toggle('active', i === step);
+    sBar.classList.toggle('done', i < step);
+  }
+  if (step === 2) buildModuleGrid();
+  if (step === 3) buildInterfaceGrid();
+  if (step === 4) buildFleetPreview();
+  if (step === 5) buildYaml();
+  updateWizardPreview();
+}
+
+function updateWizardPreview() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const p1 = document.getElementById('wizPreview1');
+  p1.innerHTML = `
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <div style="width:60px;height:60px;border-radius:12px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid var(--accent);">
+        🤖
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--accent);">${name}</div>
+        <div style="font-size:0.8rem;color:var(--text-dim);">Status: <span style="color:#ffaa00;">configuring...</span></div>
+      </div>
+    </div>
+  `;
+}
+
+function buildModuleGrid() {
+  const grid = document.getElementById('moduleGrid');
+  grid.innerHTML = '';
+  modules.forEach(m => {
+    const chip = document.createElement('div');
+    chip.className = 'module-chip' + (selectedModules.has(m.name) ? ' selected' : '');
+    chip.textContent = m.icon + ' ' + m.name;
+    chip.onclick = () => {
+      if (selectedModules.has(m.name)) selectedModules.delete(m.name);
+      else selectedModules.add(m.name);
+      buildModuleGrid();
+      updateModulePreview();
+    };
+    grid.appendChild(chip);
+  });
+  updateModulePreview();
+}
+
+function updateModulePreview() {
+  const p2 = document.getElementById('wizPreview2');
+  if (selectedModules.size === 0) {
+    p2.innerHTML = '<div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Select modules to connect them...</div>';
+    return;
+  }
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  let html = `<div style="font-family:var(--mono);font-size:0.85rem;">
+    <div style="color:var(--accent);font-weight:700;margin-bottom:0.75rem;">${name}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">`;
+  selectedModules.forEach(m => {
+    const mod = modules.find(x => x.name === m);
+    html += `<div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:6px;padding:0.3rem 0.6rem;font-size:0.75rem;">${mod.icon} ${m}</div>`;
+  });
+  html += '</div></div>';
+  p2.innerHTML = html;
+}
+
+function buildInterfaceGrid() {
+  const grid = document.getElementById('interfaceGrid');
+  grid.innerHTML = '';
+  interfaces.forEach(iface => {
+    const chip = document.createElement('div');
+    chip.className = 'module-chip' + (selectedInterface === iface.name ? ' selected' : '');
+    chip.innerHTML = `${iface.icon} <strong>${iface.name}</strong><br><span style="font-size:0.7rem;color:var(--text-dim)">${iface.desc}</span>`;
+    chip.onclick = () => {
+      selectedInterface = selectedInterface === iface.name ? '' : iface.name;
+      buildInterfaceGrid();
+      updateInterfacePreview();
+    };
+    grid.appendChild(chip);
+  });
+  updateInterfacePreview();
+}
+
+function updateInterfacePreview() {
+  const p3 = document.getElementById('wizPreview3');
+  if (!selectedInterface) {
+    p3.innerHTML = '<div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Choose an interface style...</div>';
+    return;
+  }
+  const iface = interfaces.find(x => x.name === selectedInterface);
+  p3.innerHTML = `
+    <div style="text-align:center;padding:1rem;">
+      <div style="font-size:2.5rem;margin-bottom:0.5rem;">${iface.icon}</div>
+      <div style="font-family:var(--mono);font-size:1rem;color:var(--accent);">${iface.name} Interface</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);margin-top:0.3rem;">${iface.desc}</div>
+      <div style="margin-top:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.7rem;text-align:left;color:var(--text-dim);">
+        <div style="color:var(--accent);">~ ${selectedInterface.toLowerCase()}</div>
+        <div>Agent data rendered as ${iface.name.toLowerCase()} panels</div>
+        <div>Sense modules: ${[...selectedModules].join(', ') || 'none'}</div>
+      </div>
+    </div>`;
+}
+
+function buildFleetPreview() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const p4 = document.getElementById('wizPreview4');
+  const existingFleet = ['esp32-temp-01', 'jetson-vision-01', 'desktop-orchestrator', 'cloud-inference'];
+  p4.innerHTML = `
+    <div style="font-family:var(--mono);font-size:0.8rem;">
+      <div style="color:var(--accent);font-weight:700;margin-bottom:1rem;">Fleet Mesh Topology</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;justify-content:center;">
+        ${existingFleet.map(n => `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.8rem;font-size:0.7rem;color:var(--text-dim);">${n}</div>`).join('<span style="color:var(--accent);">↔</span>')}
+        <span style="color:var(--accent);">↔</span>
+        <div style="background:var(--accent-dim);border:2px solid var(--accent);border-radius:8px;padding:0.5rem 0.8rem;font-size:0.7rem;color:var(--accent);font-weight:700;">${name} (NEW)</div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;color:var(--green);font-size:0.75rem;">✓ ${selectedModules.size} sense modules active · ${selectedInterface || 'no interface'}</div>
+    </div>`;
+}
+
+function buildYaml() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const mods = [...selectedModules].map(m => m.toLowerCase()).join('\n    - ');
+  const out = document.getElementById('yamlOutput');
+  out.innerHTML = `<span class="y-key">agent</span>:
+  <span class="y-key">name</span>: <span class="y-str">"${name}"</span>
+  <span class="y-key">senses</span>:
+${selectedModules.size > 0 ? [...selectedModules].map(m => `    <span class="y-key">-</span> <span class="y-str">${m.toLowerCase()}</span>`).join('\n') : '    <span class="y-comment"># No modules selected</span>'}
+  <span class="y-key">interface</span>: <span class="y-str">"${selectedInterface ? selectedInterface.toLowerCase() : 'terminal'}"</span>
+  <span class="y-key">fleet</span>:
+    <span class="y-key">join</span>: <span class="y-val">true</span>
+    <span class="y-key">discover</span>: <span class="y-val">true</span>
+    <span class="y-key">mesh</span>: <span class="y-str">"auto"</span>
+  <span class="y-key">plato</span>:
+    <span class="y-key">room</span>: <span class="y-val">true</span>
+    <span class="y-key">walls</span>: <span class="y-str">"transparent"</span>
+    <span class="y-key">forward_simulation</span>: <span class="y-val">true</span>`;
+}
+
+function copyYaml() {
+  const text = document.getElementById('yamlOutput').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Config', 2000);
+  });
+}
+
+// ============================================================
+// 4. SPECTRAL THEOREMS (interactive)
+// ============================================================
+const theorems = [
+  { name: 'T1 — Dirichlet Energy', desc: 'Exact, sharp decomposition of conservation energy into eigenvalue-weighted spectral components.', math: '𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²' },
+  { name: 'T2 — Signal Concentration', desc: 'The Fiedler vector concentrates conservation signal. Bound on detection quality.', math: '|⟨f, φ₂⟩|² / ||f||² ≥ 1/(1 + (κ-1)(1-ρ₂))' },
+  { name: 'T3 — SNR Amplification ★', desc: 'Explains the 112× result. Signal-to-noise amplifies through eigenvalue projection.', math: 'SNR_amplification ≥ n · ρ₂ = 144 × 0.78 ≈ 112' },
+  { name: 'T4 — Cheeger-Conservation', desc: 'Two-sided bound connecting graph geometry to conservation quality.', math: 'λ₂/2 ≤ h(G) ≤ √(2λ₂)' },
+  { name: 'T5 — Multi-Scale Cascade', desc: 'Conservation degrades predictably across scales. Sharp bound on information loss.', math: 'C(s) ≥ C(s+1) · (1 - ε_s)' },
+];
+
+const theoremGrid = document.getElementById('theoremGrid');
+theorems.forEach((t, i) => {
+  const card = document.createElement('div');
+  card.className = 't-card';
+  card.innerHTML = `
+    <div class="t-card-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <span class="t-name">${t.name}</span>
+      <span class="t-toggle">▼</span>
+    </div>
+    <div class="t-card-body">
+      <div class="t-desc">${t.desc}</div>
+      <div class="t-math">${t.math}</div>
+    </div>`;
+  theoremGrid.appendChild(card);
+});
+
+// Spectral canvas (eigenvalue pulses)
+const specCanvas = document.getElementById('spectral-canvas');
+const sctx = specCanvas.getContext('2d');
+function resizeSpecCanvas() {
+  specCanvas.width = specCanvas.parentElement.clientWidth;
+  specCanvas.height = 120;
+}
+resizeSpecCanvas();
+window.addEventListener('resize', resizeSpecCanvas);
+
+let specFrame = 0;
+function drawSpectral() {
+  const w = specCanvas.width;
+  const h = specCanvas.height;
+  sctx.clearRect(0, 0, w, h);
+  
+  const n = 12;
+  const barW = w / n - 4;
+  
+  for (let i = 0; i < n; i++) {
+    const eigenval = 1 / (i + 1);
+    const pulse = 0.5 + 0.5 * Math.sin(specFrame * 0.03 + i * 0.8);
+    const barH = eigenval * (h - 20) * (0.7 + pulse * 0.3);
+    const x = i * (barW + 4) + 2;
+    const y = h - barH - 5;
+    
+    const grad = sctx.createLinearGradient(x, y, x, h - 5);
+    grad.addColorStop(0, `rgba(0,255,136,${0.3 + pulse * 0.4})`);
+    grad.addColorStop(1, 'rgba(0,102,255,0.1)');
+    sctx.fillStyle = grad;
+    sctx.fillRect(x, y, barW, barH);
+    
+    sctx.fillStyle = 'rgba(255,255,255,0.3)';
+    sctx.font = '9px monospace';
+    sctx.textAlign = 'center';
+    sctx.fillText(`λ${i+1}`, x + barW/2, h - 1);
+  }
+  
+  specFrame++;
+  requestAnimationFrame(drawSpectral);
+}
+drawSpectral();
+
+// Animate stats on scroll
+const spectralObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.spectral-stat .num').forEach(el => el.classList.add('visible'));
+    }
+  });
+}, { threshold: 0.3 });
+spectralObserver.observe(document.getElementById('spectral'));
+
+// ============================================================
+// 5. MUD → POINT-AND-CLICK DEMO
+// ============================================================
+const mudRooms = {
+  'start': {
+    desc: 'You are in a dim stone chamber. Faint light filters through cracks in the ceiling. Water drips somewhere in the darkness.',
+    exits: { north: 'corridor', east: 'alcove' },
+    items: { crystal_ball: { desc: 'A swirling crystal ball, pulsing with inner light.', x: 0.65, y: 0.35, icon: '🔮' }, key: { desc: 'A rusty iron key, warm to the touch.', x: 0.3, y: 0.65, icon: '🗝️' } },
+    features: { ceiling_cracks: 'Light filters through ancient stonework.', water_drip: 'Stalactites hang overhead.' },
+    floor_color: '#1a1510',
+    wall_color: '#2a2015',
+  },
+  'corridor': {
+    desc: 'A narrow corridor stretches before you. Glowing runes line the walls, casting eerie green light.',
+    exits: { south: 'start', north: 'vault' },
+    items: { torch: { desc: 'A burning torch fixed to the wall.', x: 0.2, y: 0.4, icon: '🔥' }, scroll: { desc: 'An ancient scroll with spectral diagrams.', x: 0.75, y: 0.6, icon: '📜' } },
+    features: { glowing_runes: 'The runes pulse with eigenvalue patterns.' },
+    floor_color: '#101a15',
+    wall_color: '#152a1a',
+  },
+  'alcove': {
+    desc: 'A small alcove off the main chamber. A stone pedestal holds something glinting.',
+    exits: { west: 'start' },
+    items: { amulet: { desc: 'A conservation amulet, radiating warmth.', x: 0.5, y: 0.45, icon: '📿' } },
+    features: { pedestal: 'Ancient stone, carved with spectral equations.' },
+    floor_color: '#151020',
+    wall_color: '#1a1530',
+  },
+  'vault': {
+    desc: 'The vault! A massive door stands before you, covered in spectral locks. The conservation amulet glows in your pack...',
+    exits: { south: 'corridor' },
+    items: { spectral_lock: { desc: 'A lock that responds to eigenvalue patterns.', x: 0.5, y: 0.3, icon: '🔒' } },
+    features: { massive_door: 'Engraved with the equation: 𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²' },
+    floor_color: '#1a1015',
+    wall_color: '#2a1520',
+  },
+};
+
+let mudState = { room: 'start', inventory: [], log: [] };
+const mudOutput = document.getElementById('mudOutput');
+const mudInputEl = document.getElementById('mudInput');
+const mudCanvas = document.getElementById('mudCanvas');
+const mctx = mudCanvas.getContext('2d');
+
+function mudPrint(text) {
+  mudState.log.push(text);
+  if (mudState.log.length > 50) mudState.log.shift();
+  mudOutput.textContent = mudState.log.join('\n');
+  mudOutput.scrollTop = mudOutput.scrollHeight;
+}
+
+function lookRoom() {
+  const room = mudRooms[mudState.room];
+  mudPrint(`\n> look`);
+  mudPrint(room.desc);
+  const exitNames = Object.keys(room.exits).join(', ');
+  mudPrint(`Exits: ${exitNames}`);
+  const itemNames = Object.keys(room.items).join(', ');
+  if (itemNames) mudPrint(`Items: ${itemNames}`);
+  drawMudScene();
+}
+
+function mudCommand(cmd) {
+  if (!cmd) cmd = mudInputEl.value.trim().toLowerCase();
+  if (!cmd) return;
+  mudInputEl.value = '';
+  
+  const parts = cmd.split(' ');
+  const verb = parts[0];
+  const arg = parts.slice(1).join(' ');
+  
+  const room = mudRooms[mudState.room];
+  
+  if (verb === 'look' || verb === 'l') {
+    lookRoom();
+  } else if (verb === 'go' || verb === 'move' || verb === 'walk') {
+    if (room.exits[arg]) {
+      mudState.room = room.exits[arg];
+      mudPrint(`\n> go ${arg}`);
+      lookRoom();
+    } else {
+      mudPrint(`You can't go ${arg}. Exits: ${Object.keys(room.exits).join(', ')}`);
+    }
+  } else if (verb === 'n' || verb === 'north') { mudCommand('go north'); return; }
+  else if (verb === 's' || verb === 'south') { mudCommand('go south'); return; }
+  else if (verb === 'e' || verb === 'east') { mudCommand('go east'); return; }
+  else if (verb === 'w' || verb === 'west') { mudCommand('go west'); return; }
+  else if (verb === 'take' || verb === 'get' || verb === 'pick') {
+    if (room.items[arg]) {
+      mudState.inventory.push(arg);
+      mudPrint(`\n> take ${arg}`);
+      mudPrint(`Taken: ${room.items[arg].desc}`);
+      delete room.items[arg];
+      drawMudScene();
+    } else {
+      mudPrint(`There is no ${arg} here.`);
+    }
+  } else if (verb === 'inventory' || verb === 'i' || verb === 'inv') {
+    mudPrint(`\n> inventory`);
+    mudPrint(mudState.inventory.length > 0 ? mudState.inventory.join(', ') : 'Nothing.');
+  } else if (verb === 'examine' || verb === 'x') {
+    if (room.items[arg]) {
+      mudPrint(`\n> examine ${arg}`);
+      mudPrint(room.items[arg].desc);
+    } else if (room.features[arg]) {
+      mudPrint(`\n> examine ${arg}`);
+      mudPrint(room.features[arg]);
+    } else {
+      mudPrint(`You don't see ${arg} here.`);
+    }
+  } else if (verb === 'help' || verb === '?') {
+    mudPrint('Commands: look, go [direction], take [item], examine [thing], inventory, help');
+    mudPrint('Directions: n/north, s/south, e/east, w/west');
+    mudPrint('You can also click items in the scene →');
+  } else {
+    mudPrint(`Unknown command: "${cmd}". Type "help" for commands.`);
+  }
+}
+
+function resizeMudCanvas() {
+  const wrap = mudCanvas.parentElement;
+  mudCanvas.width = wrap.clientWidth;
+  mudCanvas.height = wrap.clientHeight;
+  drawMudScene();
+}
+
+function drawMudScene() {
+  const w = mudCanvas.width;
+  const h = mudCanvas.height;
+  if (w === 0 || h === 0) return;
+  const room = mudRooms[mudState.room];
+  
+  // Background
+  mctx.fillStyle = room.floor_color;
+  mctx.fillRect(0, 0, w, h);
+  
+  // Walls
+  mctx.fillStyle = room.wall_color;
+  mctx.beginPath();
+  mctx.moveTo(0, 0); mctx.lineTo(w, 0);
+  mctx.lineTo(w * 0.85, h * 0.2);
+  mctx.lineTo(w * 0.15, h * 0.2);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Left wall
+  mctx.beginPath();
+  mctx.moveTo(0, 0); mctx.lineTo(w * 0.15, h * 0.2);
+  mctx.lineTo(w * 0.15, h * 0.85); mctx.lineTo(0, h);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Right wall
+  mctx.beginPath();
+  mctx.moveTo(w, 0); mctx.lineTo(w * 0.85, h * 0.2);
+  mctx.lineTo(w * 0.85, h * 0.85); mctx.lineTo(w, h);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Exit indicators
+  const exitLabels = { north: '▲', south: '▼', east: '▶', west: '◀' };
+  const exitPositions = {
+    north: { x: w * 0.5, y: h * 0.1 },
+    south: { x: w * 0.5, y: h * 0.9 },
+    east: { x: w * 0.9, y: h * 0.5 },
+    west: { x: w * 0.1, y: h * 0.5 },
+  };
+  Object.keys(room.exits).forEach(dir => {
+    const pos = exitPositions[dir];
+    if (!pos) return;
+    mctx.fillStyle = 'rgba(0,255,136,0.3)';
+    mctx.font = '20px sans-serif';
+    mctx.textAlign = 'center';
+    mctx.textBaseline = 'middle';
+    mctx.fillText(exitLabels[dir], pos.x, pos.y);
+    mctx.font = '9px monospace';
+    mctx.fillStyle = 'rgba(0,255,136,0.5)';
+    mctx.fillText(dir, pos.x, pos.y + 16);
+  });
+  
+  // Items
+  Object.entries(room.items).forEach(([name, item]) => {
+    const ix = item.x * w;
+    const iy = item.y * h;
+    // Glow
+    const grd = mctx.createRadialGradient(ix, iy, 0, ix, iy, 25);
+    grd.addColorStop(0, 'rgba(0,255,136,0.15)');
+    grd.addColorStop(1, 'rgba(0,255,136,0)');
+    mctx.fillStyle = grd;
+    mctx.fillRect(ix - 25, iy - 25, 50, 50);
+    // Icon
+    mctx.font = '24px sans-serif';
+    mctx.textAlign = 'center';
+    mctx.textBaseline = 'middle';
+    mctx.fillText(item.icon, ix, iy);
+    // Label
+    mctx.font = '9px monospace';
+    mctx.fillStyle = 'rgba(255,255,255,0.6)';
+    mctx.fillText(name.replace(/_/g, ' '), ix, iy + 20);
+  });
+  
+  // Room label
+  mctx.font = '11px monospace';
+  mctx.fillStyle = 'rgba(255,255,255,0.3)';
+  mctx.textAlign = 'left';
+  mctx.fillText(mudState.room.replace(/_/g, ' ').toUpperCase(), 10, h - 10);
+}
+
+// Click handler for MUD canvas
+mudCanvas.addEventListener('click', (e) => {
+  const rect = mudCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (mudCanvas.width / rect.width);
+  const my = (e.clientY - rect.top) * (mudCanvas.height / rect.height);
+  const room = mudRooms[mudState.room];
+  
+  // Check items
+  for (const [name, item] of Object.entries(room.items)) {
+    const ix = item.x * mudCanvas.width;
+    const iy = item.y * mudCanvas.height;
+    if (Math.abs(mx - ix) < 20 && Math.abs(my - iy) < 20) {
+      mudCommand('take ' + name);
+      return;
+    }
+  }
+  
+  // Check exits
+  const exitPositions = {
+    north: { x: 0.5, y: 0.1 }, south: { x: 0.5, y: 0.9 },
+    east: { x: 0.9, y: 0.5 }, west: { x: 0.1, y: 0.5 },
+  };
+  for (const [dir, pos] of Object.entries(exitPositions)) {
+    if (!room.exits[dir]) continue;
+    const ex = pos.x * mudCanvas.width;
+    const ey = pos.y * mudCanvas.height;
+    if (Math.abs(mx - ex) < 30 && Math.abs(my - ey) < 30) {
+      mudCommand('go ' + dir);
+      return;
+    }
+  }
+});
+
+mudInputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') mudCommand(); });
+
+// Initialize MUD
+function initMud() {
+  resizeMudCanvas();
+  mudPrint('Welcome to the PLATO Cave MUD.');
+  mudPrint('Type "help" for commands, or click items/exits in the scene. →');
+  lookRoom();
+}
+initMud();
+window.addEventListener('resize', resizeMudCanvas);
+
+// ============================================================
+// 7. ECOSYSTEM MAP
+// ============================================================
+const ecoData = {
+  'Plato Senses': {
+    items: [
+      { icon: '👁️', name: 'Vision', desc: 'Object detection & tracking', repo: 'OpenConstruct' },
+      { icon: '🔊', name: 'Sonar', desc: 'Distance & bearing sensing', repo: 'OpenConstruct' },
+      { icon: '✋', name: 'Touch', desc: 'Pressure & surface sensing', repo: 'OpenConstruct' },
+      { icon: '🌡️', name: 'Temperature', desc: 'Thermal monitoring', repo: 'OpenConstruct' },
+      { icon: '📡', name: 'LIDAR', desc: '3D point cloud sensing', repo: 'OpenConstruct' },
+      { icon: '📐', name: 'Accel/Mag', desc: 'Motion & field sensing', repo: 'OpenConstruct' },
+    ]
+  },
+  'Fleet': {
+    items: [
+      { icon: '🌐', name: 'Mesh Networking', desc: 'Auto-discovery & routing', repo: 'OpenConstruct' },
+      { icon: '🔗', name: 'Fleet Protocol', desc: 'Inter-agent communication', repo: 'OpenConstruct' },
+      { icon: '📊', name: 'Topology Map', desc: 'Real-time fleet visualization', repo: 'fleet-protocol' },
+      { icon: '⚡', name: 'FLUX Engine', desc: 'Agentic flow state', repo: 'OpenConstruct' },
+    ]
+  },
+  'Constraint Theory': {
+    items: [
+      { icon: '📐', name: 'Conservation Spectral', desc: 'T1-T5 theorem suite', repo: 'conservation-spectral-python' },
+      { icon: '🎵', name: 'Music Analysis', desc: 'Spectral music theory', repo: 'conservation-spectral-python' },
+      { icon: '🔬', name: 'Anomaly Detection', desc: '0.92 AUC spectral anomaly', repo: 'conservation-anomaly' },
+      { icon: '🧮', name: '20+ Language SDK', desc: 'Cross-language conformance', repo: 'conservation-spectral-python' },
+    ]
+  },
+  'Architecture': {
+    items: [
+      { icon: '🏠', name: 'PLATO Rooms', desc: 'Agent habitat rooms', repo: 'OpenConstruct' },
+      { icon: '🗣️', name: 'Agent Language', desc: 'Laplacian-native A2A', repo: 'OpenConstruct' },
+      { icon: '🎮', name: 'MUD Interface', desc: 'Text → visual rendering', repo: 'OpenConstruct' },
+      { icon: '🖥️', name: 'Dashboard', desc: 'Real-time agent panels', repo: 'OpenConstruct' },
+    ]
+  }
+};
+
+let activeEcoCategory = '';
+const ecoCatEl = document.getElementById('ecoCategories');
+const ecoItemsEl = document.getElementById('ecoItems');
+
+Object.keys(ecoData).forEach(cat => {
+  const btn = document.createElement('div');
+  btn.className = 'eco-cat';
+  btn.textContent = cat;
+  btn.onclick = () => {
+    if (activeEcoCategory === cat) {
+      activeEcoCategory = '';
+      ecoItemsEl.innerHTML = '';
+    } else {
+      activeEcoCategory = cat;
+    }
+    document.querySelectorAll('.eco-cat').forEach(b => b.classList.toggle('active', b.textContent === activeEcoCategory));
+    if (activeEcoCategory) renderEcoItems(cat);
+  };
+  ecoCatEl.appendChild(btn);
+});
+
+function renderEcoItems(cat) {
+  ecoItemsEl.innerHTML = '';
+  ecoData[cat].items.forEach(item => {
+    const el = document.createElement('a');
+    el.className = 'eco-item';
+    el.href = `https://github.com/SuperInstance/${item.repo}`;
+    el.target = '_blank';
+    el.innerHTML = `
+      <div class="eco-icon">${item.icon}</div>
+      <div class="eco-info">
+        <div class="eco-name">${item.name}</div>
+        <div class="eco-desc">${item.desc}</div>
+      </div>`;
+    ecoItemsEl.appendChild(el);
+  });
+}
+
+
+// ============================================================
+// 5. VESSEL MUD DEMO (IIFE)
+// ============================================================
+(function() {
 var RM=[
 {id:'wheelhouse',n:'Wheelhouse',s:'WH',b:'bw'},
 {id:'nav',n:'Navigation Room',s:'NAV',b:'bn'},
@@ -968,7 +2242,7 @@ function getTOD(){return todPhases[todIndex]}
 function advanceTOD(){
   todElapsed++;
   if(todElapsed>60){todElapsed=0;todIndex=(todIndex+1)%todPhases.length;
-    var el=document.getElementById('v-todDisplay');
+    var el=document.getElementById('todDisplay');
     if(el)el.textContent=getTOD().charAt(0).toUpperCase()+getTOD().slice(1);
   }
 }
@@ -1017,7 +2291,7 @@ function ts(){var d=new Date;return[d.getHours(),d.getMinutes(),d.getSeconds()].
 function ri(id){return RM.find(function(r){return r.id===id})}
 function pick(a){return a[Math.random()*a.length|0]}
 function buildTabs(){
-document.getElementById('v-tabs').innerHTML=RM.map(function(r){return'<div class="tab'+(r.id===cur?' active':'')+'" data-r="'+r.id+'">'+r.n+'</div>'}).join('');
+document.getElementById('tabs').innerHTML=RM.map(function(r){return'<div class="tab'+(r.id===cur?' active':'')+'" data-r="'+r.id+'">'+r.n+'</div>'}).join('');
 document.querySelectorAll('.tab').forEach(function(t){t.onclick=function(){goTo(t.dataset.r)}});
 }
 function goTo(id){if(!DESC[id])return;cur=id;buildTabs();renderMud();renderDash()}
@@ -1044,32 +2318,32 @@ feedLine(t);if(rid===cur)appendTick(t);
 }
 
 function renderMud(){
-var el=document.getElementById('v-mudOut'),r=ri(cur);
+var el=document.getElementById('mudOut'),r=ri(cur);
 var h='<div class="rt">\u25c6 '+r.n+'</div><div class="rd">'+DESC[cur]+'</div>';
 h+='<div style="color:var(--dim);font-size:10px;margin:6px 0">\u2014 Recent Activity \u2014</div>';
 rT[cur].slice(-15).forEach(function(t){h+='<div class="tk"><span class="bg '+r.b+'">'+r.s+'</span><span class="tm">'+t.t+'</span><span style="color:var(--text)">'+t.txt+'</span></div>'});
 el.innerHTML=h;el.scrollTop=el.scrollHeight;
 }
 function appendTick(tick){
-var el=document.getElementById('v-mudOut'),r=ri(tick.r),d=document.createElement('div');d.className='tk';
+var el=document.getElementById('mudOut'),r=ri(tick.r),d=document.createElement('div');d.className='tk';
 d.innerHTML='<span class="bg '+r.b+'">'+r.s+'</span><span class="tm">'+tick.t+'</span><span style="color:var(--text)">'+tick.txt+'</span>';
 el.appendChild(d);el.scrollTop=el.scrollHeight;
 if(el.children.length>80)el.removeChild(el.firstChild);
 }
 function feedLine(tick){
-var f=document.getElementById('v-feedL'),r=ri(tick.r),d=document.createElement('div');d.className='fl';
+var f=document.getElementById('feedL'),r=ri(tick.r),d=document.createElement('div');d.className='fl';
 d.innerHTML='<span class="bg '+r.b+'">'+r.s+'</span><span class="tm">'+tick.t+'</span>'+tick.txt;
 f.appendChild(d);f.parentElement.scrollTop=f.parentElement.scrollHeight;
 if(f.children.length>80)f.removeChild(f.firstChild);
 }
 function G(l,v,u,c){return'<div class="gb"><div class="gv" style="color:'+(c||'var(--bright)')+'">'+v+'<span style="font-size:10px;color:var(--dim)"> '+u+'</span></div><div class="gl">'+l+'</div></div>'}
 function bar(label,pct,color,val){return'<div class="bi"><span class="bl">'+label+'</span><div class="bt"><div class="bf" style="width:'+Math.min(pct,100)+'%;background:'+color+'"></div></div><span class="bp">'+val+'</span></div>'}
-function renderDash(){var el=document.getElementById('v-dash');var fns={wheelhouse:dashWH,nav:dashNav,deck:dashDeck,galley:dashGal,engine:dashEng,crow:dashCrow};(fns[cur]||dashWH)(el);}
+function renderDash(){var el=document.getElementById('dash');var fns={wheelhouse:dashWH,nav:dashNav,deck:dashDeck,galley:dashGal,engine:dashEng,crow:dashCrow};(fns[cur]||dashWH)(el);}
 
 function dashWH(el){
 el.innerHTML='<div class="dt">\u2693 Wheelhouse \u2014 Command Status</div>'+
 '<div class="gr">'+G('Heading',Math.round(heading),'\u00b0','#2090ff')+G('Speed',(7.2+Math.random()*.8).toFixed(1),'kts','#00ff88')+G('Wind','NW '+Math.round(weather.windSpeed),'kt','#ffb020')+G('Sea',weather.swell.toFixed(1),'ft','#4a9aff')+'</div>'+
-'<canvas class="dc" id="v-sonarC" width="500" height="180"></canvas>'+
+'<canvas class="dc" id="sonarC" width="500" height="180"></canvas>'+
 '<div class="sg">'+
 '<div class="sc"><div class="sl">GPS Position</div><div class="sv" style="font-size:11px">54\u00b024.3\u2032N 166\u00b018.7\u2032W</div></div>'+
 '<div class="sc"><div class="sl">Autopilot</div><div class="sv" style="color:var(--green)">ENGAGED</div><div class="ss">HDG '+Math.round(heading)+'\u00b0 \u2192 Waypoint BRAVO</div></div>'+
@@ -1079,7 +2353,7 @@ el.innerHTML='<div class="dt">\u2693 Wheelhouse \u2014 Command Status</div>'+
 
 function dashNav(el){
 el.innerHTML='<div class="dt">\ud83d\udce1 Navigation \u2014 Sensors</div>'+
-'<canvas class="dc" id="v-radarC" width="500" height="250"></canvas>'+
+'<canvas class="dc" id="radarC" width="500" height="250"></canvas>'+
 '<div class="sg">'+
 '<div class="sc"><div class="sl">Sonar</div><div class="sv">45 fm</div><div class="ss">Hard bottom, fish marks at 30-40fm</div></div>'+
 '<div class="sc"><div class="sl">Nearest Contact</div><div class="sv" style="color:var(--amber)">2.3nm</div><div class="ss">Brg 027 \u2014 fishing vessel, crossing</div></div>'+
@@ -1118,7 +2392,7 @@ bar('Dry Storage',55,'#4a9aff','55%')+bar('Medical Kit',95,'#00ff88','95%')+
 function dashEng(el){
 fluctuateGauges();
 el.innerHTML='<div class="dt">\u2699\ufe0f Engine Room \u2014 Mechanical Vitals</div>'+
-'<canvas class="dc" id="v-gaugeC" width="500" height="220"></canvas>'+
+'<canvas class="dc" id="gaugeC" width="500" height="220"></canvas>'+
 '<div class="sg">'+
 '<div class="sc"><div class="sl">Main Engine</div><div class="sv" style="color:var(--green)">NORMAL</div><div class="ss">RPM '+Math.round(gauges.rpm)+' | Oil '+gauges.oil.toFixed(1)+'psi | Coolant '+gauges.coolant.toFixed(1)+'\u00b0F</div></div>'+
 '<div class="sc"><div class="sl">Auxiliary Gen</div><div class="sv" style="color:var(--green)">RUNNING</div><div class="ss">RPM 1800 | Load '+Math.round(gauges.load)+'% | 32kW @ 60.1Hz</div></div>'+
@@ -1131,7 +2405,7 @@ function dashCrow(el){
 driftHeading();
 var hdg=Math.round(heading);
 el.innerHTML='<div class="dt">\ud83d\udcf7 Crow\u2019s Nest \u2014 360\u00b0 Observations</div>'+
-'<canvas class="dc" id="v-compassC" width="500" height="260"></canvas>'+
+'<canvas class="dc" id="compassC" width="500" height="260"></canvas>'+
 '<div class="sg">'+
 '<div class="sc"><div class="sl">North</div><div class="sv" style="font-size:11px;color:var(--amber)">Fog '+Math.round(weather.vis*500)+'yd</div><div class="ss">Dense fog bank. Pot buoys in swell</div></div>'+
 '<div class="sc"><div class="sl">East</div><div class="sv" style="font-size:11px;color:var(--green)">Clear</div><div class="ss">F/V Time Bandit brg 090, ~1nm</div></div>'+
@@ -1143,7 +2417,7 @@ drawCompass();}
 
 // === CANVAS DRAWING ===
 function drawSonar(){
-var c=document.getElementById('v-sonarC');if(!c)return;
+var c=document.getElementById('sonarC');if(!c)return;
 var ctx=c.getContext('2d'),w=c.width,h=c.height;
 ctx.fillStyle='#080c16';ctx.fillRect(0,0,w,h);
 sonarPhase+=2;
@@ -1172,7 +2446,7 @@ ctx.stroke();
 }
 
 function drawRadar(){
-var c=document.getElementById('v-radarC');if(!c)return;
+var c=document.getElementById('radarC');if(!c)return;
 var ctx=c.getContext('2d'),w=c.width,h=c.height,cx=w/2,cy=h/2,r=Math.min(cx,cy)-20;
 ctx.fillStyle='#080c16';ctx.fillRect(0,0,w,h);
 ctx.strokeStyle='#1a2550';ctx.lineWidth=1;
@@ -1196,7 +2470,7 @@ ctx.fillText('N',cx-3,cy-r-5);ctx.fillText('S',cx-3,cy+r+12);ctx.fillText('E',cx
 }
 
 function drawGauges(){
-var c=document.getElementById('v-gaugeC');if(!c)return;
+var c=document.getElementById('gaugeC');if(!c)return;
 var ctx=c.getContext('2d'),w=c.width,h=c.height;
 ctx.fillStyle='#080c16';ctx.fillRect(0,0,w,h);
 var gs=[
@@ -1218,7 +2492,7 @@ ctx.fillText(g.label,g.x,g.y+r+18);
 }
 
 function drawCompass(){
-var c=document.getElementById('v-compassC');if(!c)return;
+var c=document.getElementById('compassC');if(!c)return;
 var ctx=c.getContext('2d'),w=c.width,h=c.height,cx=w/2,cy=140,r=100;
 ctx.fillStyle='#080c16';ctx.fillRect(0,0,w,h);
 ctx.strokeStyle='#1a2550';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
@@ -1246,7 +2520,7 @@ ctx.fillText('Heading '+Math.round(heading)+'\u00b0 \u00b7 Visibility improving 
 }
 
 function drawFleet(){
-var c=document.getElementById('v-fmapC');if(!c)return;
+var c=document.getElementById('fmapC');if(!c)return;
 var ctx=c.getContext('2d'),w=c.width,h=c.height;
 ctx.fillStyle='#080c16';ctx.fillRect(0,0,w,h);
 ctx.strokeStyle='#1a2550';ctx.lineWidth=0.5;
@@ -1287,7 +2561,7 @@ var dirMap={
 var globalDirAliases={up:'crow',below:'engine',aft:'deck',forward:'wheelhouse',fwd:'wheelhouse'};
 
 // === COMMAND HANDLING ===
-document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
+document.getElementById('cmdIn').addEventListener('keydown',function(e){
   // Command history (Fix #11)
   if(e.key==='ArrowUp'){
     e.preventDefault();
@@ -1322,7 +2596,7 @@ document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
 
   // Fix #6: status shows vessel-wide
   if(cmd==='status'||cmd==='s'){
-    var el=document.getElementById('v-mudOut');
+    var el=document.getElementById('mudOut');
     var d=document.createElement('div');d.className='tk';
     d.innerHTML='<span style="color:var(--green)">=== F/V QUANTUM — VESSEL STATUS ===</span><br>'+
       '<span style="color:var(--bright)">Position: 54\u00b024.3\u2032N 166\u00b018.7\u2032W | Heading: '+Math.round(heading)+'\u00b0 | Speed: '+(7.2+Math.random()*.8).toFixed(1)+' kts</span><br>'+
@@ -1334,7 +2608,7 @@ document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
   }
 
   if(cmd==='inventory'||cmd==='i'){
-    var el=document.getElementById('v-mudOut');
+    var el=document.getElementById('mudOut');
     var d=document.createElement('div');d.className='tk';
     d.innerHTML='<span style="color:var(--amber)">CATCH: '+catch_.cod+' cod | '+catch_.pollock+' pollock | '+catch_.sablefish+' sablefish | '+catch_.rockfish+' rockfish | '+catch_.halibut+' halibut released</span>';
     el.appendChild(d);el.scrollTop=el.scrollHeight;return;
@@ -1342,7 +2616,7 @@ document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
 
   // Fix #5: help command
   if(cmd==='help'||cmd==='?'){
-    var el=document.getElementById('v-mudOut');
+    var el=document.getElementById('mudOut');
     var d=document.createElement('div');d.className='tk';
     d.innerHTML='<span style="color:var(--green)">=== AVAILABLE COMMANDS ===</span><br>'+
       '<span style="color:var(--bright)">  go [room]      </span><span style="color:var(--dim)">Move to a room (wheelhouse, nav, deck, galley, engine, crow)</span><br>'+
@@ -1360,12 +2634,12 @@ document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
     var target=cmd.replace(/^(examine|x)\s+/,'');
     if(examineData[target]){
       var info=examineData[target];
-      var el=document.getElementById('v-mudOut');
+      var el=document.getElementById('mudOut');
       var d=document.createElement('div');d.className='tk';
       d.innerHTML='<span style="color:var(--amber)">['+target.toUpperCase()+']</span> <span style="color:var(--bright)">'+info.text+'</span>';
       el.appendChild(d);el.scrollTop=el.scrollHeight;
     } else {
-      var el=document.getElementById('v-mudOut');
+      var el=document.getElementById('mudOut');
       var d=document.createElement('div');d.className='tk';
       d.innerHTML='<span style="color:var(--dim)">You don\'t see "'+target+'" here to examine.</span>';
       el.appendChild(d);el.scrollTop=el.scrollHeight;
@@ -1396,7 +2670,7 @@ document.getElementById('v-cmdIn').addEventListener('keydown',function(e){
   }
 
   // unknown command
-  var el=document.getElementById('v-mudOut');
+  var el=document.getElementById('mudOut');
   var d=document.createElement('div');d.className='tk';
   d.innerHTML='<span style="color:var(--dim)">Unknown command: "'+cmd+'". Type <span style="color:var(--green)">help</span> for commands.</span>';
   el.appendChild(d);el.scrollTop=el.scrollHeight;
@@ -1578,13 +2852,13 @@ buildTabs();renderMud();renderDash();
 for(var i=0;i<8;i++){addTick(roomIds[i%6]);}
 scheduleTicks();extraTick();
 drawFleet();animLoop();
-document.getElementById('v-todDisplay').textContent='Morning';
+document.getElementById('todDisplay').textContent='Morning';
 })();
-</script>
 
-<!-- FLUX DEMO JS -->
-<script>
-(function(){
+// ============================================================
+// 6. FLUX DEMO (IIFE)
+// ============================================================
+(function() {
 // ─── ROUNDRECT POLYFILL ───
 if(!CanvasRenderingContext2D.prototype.roundRect){
   CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){
@@ -1764,7 +3038,7 @@ function initNotes(){
 }
 initNotes();
 
-const pianoC=document.getElementById('f-pianoCanvas');
+const pianoC=document.getElementById('pianoCanvas');
 const pianoCtx=pianoC.getContext('2d');
 registerResize(pianoC,200);
 
@@ -1808,7 +3082,7 @@ function drawPianoRoll(){
 }
 
 // ─── SPECTRAL GRAPH ───
-const specC=document.getElementById('f-spectralCanvas');
+const specC=document.getElementById('spectralCanvas');
 const specCtx=specC.getContext('2d');
 registerResize(specC,120);
 
@@ -1831,7 +3105,7 @@ function drawSpectral(){
 }
 
 // ─── CR GAUGE ───
-const crC=document.getElementById('f-crGauge');
+const crC=document.getElementById('crGauge');
 const crCtx=crC.getContext('2d');
 
 function drawCR(){
@@ -1850,13 +3124,13 @@ function drawCR(){
   ctx.stroke();ctx.shadowBlur=0;
   ctx.fillStyle='#fff';ctx.font='bold 14px monospace';ctx.textAlign='center';
   ctx.fillText(CR.toFixed(2),cx,cy+5);ctx.textAlign='start';
-  document.getElementById('f-crValue').textContent=CR.toFixed(2);
-  document.getElementById('f-crValue').style.color=col;
+  document.getElementById('crValue').textContent=CR.toFixed(2);
+  document.getElementById('crValue').style.color=col;
 }
 
 // ─── TENSOR GRID ───
 function drawTensor(){
-  const grid=document.getElementById('f-tensorGrid');grid.innerHTML='';
+  const grid=document.getElementById('tensorGrid');grid.innerHTML='';
   for(let r=0;r<4;r++)for(let c=0;c<4;c++){
     const v=tensorMatrix[r][c];const el=document.createElement('div');
     el.className='tensor-cell';const hue=v>.6?270:v>.3?200:140;
@@ -1934,15 +3208,15 @@ function highlightCode(code){
 }
 
 function updateFlux(){
-  document.getElementById('f-srcCode').innerHTML=highlightCode(codeSamples[srcLang]||codeSamples.Rust);
-  document.getElementById('f-tgtCode').innerHTML=highlightCode(codeSamples[tgtLang]||codeSamples.CUDA);
+  document.getElementById('srcCode').innerHTML=highlightCode(codeSamples[srcLang]||codeSamples.Rust);
+  document.getElementById('tgtCode').innerHTML=highlightCode(codeSamples[tgtLang]||codeSamples.CUDA);
   updatePerfBars();
   updateTerminal();
   if(i2iMode)updateI2I();
 }
 
 function updatePerfBars(){
-  const el=document.getElementById('f-perfBars');el.innerHTML='';
+  const el=document.getElementById('perfBars');el.innerHTML='';
   const maxPerf=Math.max(...Object.values(perfData))*1.1; // FIXED: derived from data
   Object.entries(perfData).forEach(([k,v])=>{
     const pct=v/maxPerf*100;
@@ -1965,7 +3239,7 @@ function getTerminalCR(){
 }
 
 function updateTerminal(){
-  const t=document.getElementById('f-fluxTerminal');
+  const t=document.getElementById('fluxTerminal');
   const termCR=getTerminalCR();
   // FIXED: CUDA ratio now matches bars — 12.4M/8.2M = 1.51×
   function getRatio(){
@@ -1984,7 +3258,7 @@ function updateTerminal(){
 }
 
 // ─── PIPELINE CANVAS ───
-const pipeC=document.getElementById('f-pipelineCanvas');
+const pipeC=document.getElementById('pipelineCanvas');
 const pipeCtx=pipeC.getContext('2d');
 registerResize(pipeC,180);
 
@@ -2021,15 +3295,15 @@ function drawPipeline(){
 // ─── i2i MODE ───
 function toggleI2I(){
   i2iMode=!i2iMode;
-  const sw=document.getElementById('f-i2iSwitch');
+  const sw=document.getElementById('i2iSwitch');
   sw.classList.toggle('on',i2iMode);
   sw.setAttribute('aria-checked',i2iMode?'true':'false');
-  document.getElementById('f-i2iResults').style.display=i2iMode?'block':'none';
+  document.getElementById('i2iResults').style.display=i2iMode?'block':'none';
   if(i2iMode)updateI2I();
 }
 function updateI2I(){
   if(!i2iMode)return;
-  const el=document.getElementById('f-i2iResults');
+  const el=document.getElementById('i2iResults');
   const targets=['CUDA','Rust','Python','WASM','Mojo'];
   el.innerHTML='<strong>Experiment Mode Results:</strong><br>'+targets.map(t=>{
     const base=perfData[t]||5;const ratio=(base/perfData[srcLang]).toFixed(2);
@@ -2052,9 +3326,9 @@ const combinedLog=[
 function runCombinedDemo(){
   if(combinedRunning)return;
   combinedRunning=true;combinedStep=0;
-  const terminal=document.getElementById('f-combinedTerminal');
-  const status=document.getElementById('f-combinedStatus');
-  const diff=document.getElementById('f-combinedDiff');
+  const terminal=document.getElementById('combinedTerminal');
+  const status=document.getElementById('combinedStatus');
+  const diff=document.getElementById('combinedDiff');
   terminal.innerHTML='';diff.innerHTML='';status.textContent='Initializing...';status.style.color=COLORS.blue;
   const interval=setInterval(()=>{
     if(combinedStep>=combinedLog.length){
@@ -2072,7 +3346,7 @@ function runCombinedDemo(){
 }
 
 // ─── COMBINED PIANO ───
-const combC=document.getElementById('f-combinedPiano');
+const combC=document.getElementById('combinedPiano');
 const combCtx=combC.getContext('2d');
 registerResize(combC,120);
 function drawCombinedPiano(){
@@ -2091,7 +3365,7 @@ function drawCombinedPiano(){
 }
 
 // ─── BACKGROUND PARTICLES ───
-const partC=document.getElementById('f-particleCanvas');
+const partC=document.getElementById('particleCanvas');
 const partCtx=partC.getContext('2d');
 function initParticles(){for(let i=0;i<40;i++)particles.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*2+1,col:[COLORS.green,COLORS.blue,COLORS.purple][Math.random()*3|0]})}
 initParticles();
@@ -2118,16 +3392,16 @@ loop();
 
 window.addEventListener('resize',()=>{particles.forEach(p=>{p.x=Math.random()*window.innerWidth;p.y=Math.random()*window.innerHeight})});
 })();
-</script>
 
-<!-- T-MINUS DEMO JS -->
-<script>
-(function(){
+// ============================================================
+// 7. T-MINUS DEMO (IIFE)
+// ============================================================
+(function() {
 // ===== DEMO SWITCHING =====
 function switchDemo(n) {
   document.querySelectorAll('.demo-tab').forEach((t,i) => t.classList.toggle('active', i === n-1));
-  document.getElementById('t-demo1').classList.toggle('active', n===1);
-  document.getElementById('t-demo2').classList.toggle('active', n===2);
+  document.getElementById('demo1').classList.toggle('active', n===1);
+  document.getElementById('demo2').classList.toggle('active', n===2);
   if (n===1) resizeTimeline();
   if (n===2) resizeDecomp();
 }
@@ -2222,7 +3496,7 @@ function showEventPopup(ev, px, py) {
 }
 
 function initDemo1() {
-  canvas = document.getElementById('t-timeline-canvas');
+  canvas = document.getElementById('timeline-canvas');
   ctx = canvas.getContext('2d');
   resizeTimeline();
   buildAgentCards();
@@ -2242,7 +3516,7 @@ function resizeTimeline() {
 }
 
 function buildAgentCards() {
-  const panel = document.getElementById('t-agentsPanel');
+  const panel = document.getElementById('agentsPanel');
   panel.innerHTML = AGENTS.map(a => `
     <div class="agent-card ${a.cls}" id="card-${a.id}">
       <div class="agent-name">${a.id}</div>
@@ -2255,7 +3529,7 @@ function buildAgentCards() {
 }
 
 function tick(ts) {
-  if (document.getElementById('t-demo1').classList.contains('active') && !paused) {
+  if (document.getElementById('demo1').classList.contains('active') && !paused) {
     simTime += 0.15 * simSpeed;
     if (simTime > 380) resetSim();
     updateEvents();
@@ -2273,7 +3547,7 @@ function resetSim() {
   ALL_EVENTS.forEach(e => { e.status = 'predicted'; e.actualT = null; });
   bwTminus = 0; bwPolling = 0;
   pollingTimer = 0;
-  document.getElementById('t-pollingFeedBody').innerHTML = '';
+  document.getElementById('pollingFeedBody').innerHTML = '';
   AGENTS.forEach(a => { confState[a.id] = { current: 0, target: 80 }; });
 }
 
@@ -2303,7 +3577,7 @@ function updatePolling() {
     pollingTimer = 0;
     bwPolling += 5;
     pollingMsgCount++;
-    const feed = document.getElementById('t-pollingFeedBody');
+    const feed = document.getElementById('pollingFeedBody');
     const agents = ['HELM','DECK','NAV','SORT','HOLD'];
     const queries = ['ready?','status?','are we there yet?','update?','any change?','still waiting?','check in!','respond!'];
     
@@ -2449,8 +3723,8 @@ function drawTimeline() {
 }
 
 function updateSyncBar() {
-  const syncBar = document.getElementById('t-syncBar');
-  const syncLabel = document.getElementById('t-syncLabel');
+  const syncBar = document.getElementById('syncBar');
+  const syncLabel = document.getElementById('syncLabel');
   if (mode === 'polling') {
     syncBar.classList.add('polling-active');
     syncLabel.textContent = '⚠ POLLING MODE';
@@ -2462,18 +3736,18 @@ function updateSyncBar() {
   const confirmed = ALL_EVENTS.filter(e => e.status === 'confirmed').length;
   const missed = ALL_EVENTS.filter(e => e.status === 'missed').length;
   const total = ALL_EVENTS.length;
-  document.getElementById('t-syncPreds').textContent = `${confirmed}/${total}`;
+  document.getElementById('syncPreds').textContent = `${confirmed}/${total}`;
   
   const confirmedEvents = ALL_EVENTS.filter(e => e.status === 'confirmed' && e.actualT);
   let avgDelta = 0;
   if (confirmedEvents.length > 0) {
     avgDelta = confirmedEvents.reduce((s, e) => s + Math.abs(e.actualT - e.pred), 0) / confirmedEvents.length;
   }
-  document.getElementById('t-syncDelta').textContent = avgDelta.toFixed(1) + 's';
-  document.getElementById('t-syncConflicts').textContent = missed;
+  document.getElementById('syncDelta').textContent = avgDelta.toFixed(1) + 's';
+  document.getElementById('syncConflicts').textContent = missed;
   
   const t = Math.round(simTime);
-  document.getElementById('t-clockDisplay').textContent = `T${t>=0?'+':''}${t}s`;
+  document.getElementById('clockDisplay').textContent = `T${t>=0?'+':''}${t}s`;
 }
 
 function updateAgentCards() {
@@ -2527,13 +3801,13 @@ function updateBandwidth() {
   }
   
   // Update hero counter
-  document.getElementById('t-bwHeroTminus').textContent = bwTminus;
-  document.getElementById('t-bwHeroPolling').textContent = bwPolling;
+  document.getElementById('bwHeroTminus').textContent = bwTminus;
+  document.getElementById('bwHeroPolling').textContent = bwPolling;
   
   // Update ratio
-  const ratioEl = document.getElementById('t-bwRatio');
-  const ratioNum = document.getElementById('t-ratioNum');
-  const ratioSub = document.getElementById('t-ratioSub');
+  const ratioEl = document.getElementById('bwRatio');
+  const ratioNum = document.getElementById('ratioNum');
+  const ratioSub = document.getElementById('ratioSub');
   if (bwTminus > 0 && bwPolling > 0) {
     const ratio = (bwPolling / bwTminus).toFixed(1);
     ratioNum.textContent = ratio;
@@ -2551,19 +3825,19 @@ function updateBandwidth() {
 
 function toggleMode() {
   mode = mode === 'tminus' ? 'polling' : 'tminus';
-  const btn = document.getElementById('t-modeToggle');
+  const btn = document.getElementById('modeToggle');
   btn.textContent = `MODE: ${mode === 'tminus' ? 'T-MINUS' : 'POLLING'}`;
   btn.classList.toggle('active', mode === 'polling');
   
   // Show/hide spam feed
-  const feed = document.getElementById('t-pollingFeed');
+  const feed = document.getElementById('pollingFeed');
   feed.classList.toggle('visible', mode === 'polling');
   
   if (mode === 'polling') {
     bwPolling = bwTminus; // start from same baseline
     pollingMsgCount = 0;
   } else {
-    document.getElementById('t-pollingFeedBody').innerHTML = '';
+    document.getElementById('pollingFeedBody').innerHTML = '';
   }
 }
 
@@ -2581,7 +3855,7 @@ const WIDGET_ROOM_MAP = [
 ];
 
 function resizeDecomp() {
-  decompCanvas = document.getElementById('t-decomp-canvas');
+  decompCanvas = document.getElementById('decomp-canvas');
   if (!decompCanvas) return;
   const rect = decompCanvas.parentElement.getBoundingClientRect();
   decompCanvas.width = rect.width * devicePixelRatio;
@@ -2594,7 +3868,7 @@ function resizeDecomp() {
 
 function runDecomposition() {
   resizeDecomp();
-  const btn = document.getElementById('t-decomposeBtn');
+  const btn = document.getElementById('decomposeBtn');
   btn.textContent = '⚡ Decomposing...';
   btn.disabled = true;
   
@@ -2720,7 +3994,18 @@ function highlightRoom(el) {
 initDemo1();
 resizeDecomp();
 })();
-</script>
 
+// ============================================================
+// INIT
+// ============================================================
+// Show first eco category
+document.querySelector('.eco-cat').click();
+</script>
+<link rel="stylesheet" href="https://superinstance.github.io/superinstance-design/superinstance.css">
+<script src="https://superinstance.github.io/superinstance-design/superinstance-nav.js"></script>
+<script src="https://superinstance.github.io/superinstance-design/superinstance-footer.js"></script>
+<script>
+document.getElementById('nav-root').innerHTML = createSuperInstanceNav('home');
+</script>
 </body>
 </html>
