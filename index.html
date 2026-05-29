@@ -9,7 +9,7 @@
 <meta property="og:description" content="One command to deploy agents with vision, sonar, touch, and fleet mesh networking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://superinstance.ai">
-<style>
+<style>body{padding-top:64px;}</style>
 :root {
   --bg: #0a0a0a;
   --bg2: #0e0e0e;
@@ -253,25 +253,13 @@ footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
 </head>
 <body>
 
-<!-- Navigation -->
-<nav>
-  <div class="logo">SuperInstance<span>.ai</span></div>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
-  <div class="nav-links">
-    <a href="#plato-cave">Plato's Cave</a>
-    <a href="#fleet">Fleet</a>
-    <a href="#onboarding">Onboarding</a>
-    <a href="#spectral">Spectral</a>
-    <a href="#mud">MUD</a>
-    <a href="#code">Code</a>
-    <a href="#ecosystem">Ecosystem</a>
-    <a href="https://github.com/SuperInstance" target="_blank">GitHub</a>
-  </div>
-</nav>
+<!-- Shared Navigation -->
+<div id="nav-root"></div>
 
 <!-- ==================== 1. HERO ==================== -->
 <section class="hero" id="top">
   <h1>AI agents that can <span class="hl">see, hear, touch,</span> and collaborate.</h1>
+  <p class="tagline" style="margin-bottom:0.5rem;font-size:clamp(0.85rem,1.4vw,1.1rem);color:var(--accent);font-weight:500;">Open-source infrastructure for autonomous agent systems — from $3 microcontrollers to $25K GPU clusters.</p>
   <p class="tagline">Real senses for real agents. Fleet mesh computing. Text becomes interface. One command to start.</p>
   <div class="install-box" onclick="copyInstall(this)" title="Click to copy">
     <span class="dollar">$</span>
@@ -598,7 +586,7 @@ agent.<span class="fn">onSense</span>(<span class="st">"sonar"</span>, (reading)
     <a href="demos.html">Interactive Demos</a>
     <a href="demo-eisenstein.html">Eisenstein Demo</a>
     <a href="demo-voxel.html">Voxel Demo</a>
-    <a href="#" onclick="window.open('','_blank')">Discord</a>
+    <a href="https://discord.com/invite/clawd" target="_blank">Discord</a>
   </div>
   <p>Agents that see, hear, touch, and collaborate.</p>
   <p class="license">Licensed under Apache 2.0 · Built with zero dependencies</p>
@@ -1440,17 +1428,17 @@ const ecoData = {
   'Fleet': {
     items: [
       { icon: '🌐', name: 'Mesh Networking', desc: 'Auto-discovery & routing', repo: 'OpenConstruct' },
-      { icon: '🔗', name: 'Fleet Protocol', desc: 'Inter-agent communication', repo: 'fleet-protocol' },
-      { icon: '📊', name: 'Topology Map', desc: 'Real-time fleet visualization', repo: 'fleet-visualizer' },
+      { icon: '🔗', name: 'Fleet Protocol', desc: 'Inter-agent communication', repo: 'OpenConstruct' },
+      { icon: '📊', name: 'Topology Map', desc: 'Real-time fleet visualization', repo: 'fleet-protocol' },
       { icon: '⚡', name: 'FLUX Engine', desc: 'Agentic flow state', repo: 'OpenConstruct' },
     ]
   },
   'Constraint Theory': {
     items: [
       { icon: '📐', name: 'Conservation Spectral', desc: 'T1-T5 theorem suite', repo: 'conservation-spectral-python' },
-      { icon: '🎵', name: 'Music Analysis', desc: 'Spectral music theory', repo: 'conservation-music' },
+      { icon: '🎵', name: 'Music Analysis', desc: 'Spectral music theory', repo: 'conservation-spectral-python' },
       { icon: '🔬', name: 'Anomaly Detection', desc: '0.92 AUC spectral anomaly', repo: 'conservation-anomaly' },
-      { icon: '🧮', name: '20+ Language SDK', desc: 'Cross-language conformance', repo: 'conservation-spectral-rs' },
+      { icon: '🧮', name: '20+ Language SDK', desc: 'Cross-language conformance', repo: 'conservation-spectral-python' },
     ]
   },
   'Architecture': {
@@ -1506,6 +1494,12 @@ function renderEcoItems(cat) {
 // ============================================================
 // Show first eco category
 document.querySelector('.eco-cat').click();
+</script>
+<link rel="stylesheet" href="https://superinstance.github.io/superinstance-design/superinstance.css">
+<script src="https://superinstance.github.io/superinstance-design/superinstance-nav.js"></script>
+<script src="https://superinstance.github.io/superinstance-design/superinstance-footer.js"></script>
+<script>
+document.getElementById('nav-root').innerHTML = createSuperInstanceNav('home');
 </script>
 </body>
 </html>
