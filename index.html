@@ -235,6 +235,7 @@ footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
 /* === RESPONSIVE === */
 @media(max-width:768px){
   nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 2rem;gap:1rem;}
+  .hamburger{display:flex;}
   nav .nav-links.open{display:flex;}
   .hamburger{display:block;}
   section{padding:3rem 1.25rem;}
@@ -253,8 +254,21 @@ footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
 </head>
 <body>
 
-<!-- Shared Navigation -->
-<div id="nav-root"></div>
+<nav>
+  <a href="#top" class="logo">Super<span>Instance</span></a>
+  <div class="nav-links" id="main-nav-links">
+    <a href="#plato-cave">Plato's Cave</a>
+    <a href="#fleet-topo">Fleet</a>
+    <a href="#mud-demo">MUD</a>
+    <a href="#spectral">Spectral</a>
+    <a href="#code-examples">Code</a>
+    <a href="#ecosystem">Ecosystem</a>
+    <a href="#hardware">Hardware</a>
+    <a href="demos.html">Demos</a>
+    <a href="https://github.com/SuperInstance" target="_blank">GitHub ↗</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('main-nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+</nav>
 
 <!-- ==================== 1. HERO ==================== -->
 <section class="hero" id="top">
@@ -1495,11 +1509,9 @@ function renderEcoItems(cat) {
 // Show first eco category
 document.querySelector('.eco-cat').click();
 </script>
-<link rel="stylesheet" href="https://superinstance.github.io/superinstance-design/superinstance.css">
-<script src="https://superinstance.github.io/superinstance-design/superinstance-nav.js"></script>
-<script src="https://superinstance.github.io/superinstance-design/superinstance-footer.js"></script>
-<script>
-document.getElementById('nav-root').innerHTML = createSuperInstanceNav('home');
-</script>
+<!-- Footer -->
+<footer style="text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.85rem;">
+  <p style="margin-bottom:1rem;">Built with 🦀 by agents, for agents. <a href="https://github.com/SuperInstance" style="color:var(--accent)">GitHub</a> · <a href="https://github.com/SuperInstance/openconstruct-docs" style="color:var(--accent)">Docs</a> · <a href="https://discord.com/invite/clawd" style="color:var(--accent)">Discord</a> · Apache 2.0</p>
+</footer>
 </body>
 </html>
