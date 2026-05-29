@@ -3,728 +3,1509 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SuperInstance — The System That Knows Itself Through Each Other</title>
-<meta name="description" content="Constraint-aware AI systems. Conservation spectral framework, agent-native language, PLATO rooms, FLUX flow state.">
-<meta property="og:title" content="SuperInstance — Agents That Understand Each Other Mathematically">
-<meta property="og:description" content="When you eliminate everything that isn't conserved, whatever remains is the structure.">
+<title>SuperInstance — AI Agents That See, Hear, Touch & Collaborate</title>
+<meta name="description" content="AI agents with real senses. Fleet mesh computing. Plato's Cave architecture. One command to start.">
+<meta property="og:title" content="SuperInstance — AI Agents That See, Hear, Touch & Collaborate">
+<meta property="og:description" content="One command to deploy agents with vision, sonar, touch, and fleet mesh networking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://superinstance.ai">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface2: #1a1a25;
-    --border: #2a2a3a;
-    --text: #e8e8f0;
-    --text-dim: #8888a0;
-    --accent: #6366f1;
-    --accent2: #8b5cf6;
-    --accent3: #a78bfa;
-    --green: #34d399;
-    --amber: #fbbf24;
-    --red: #f87171;
-    --cyan: #22d3ee;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --mono: 'JetBrains Mono', 'Fira Code', monospace;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-  /* Animated gradient background */
-  .bg-gradient {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -1;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.15), transparent),
-      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139,92,246,0.08), transparent),
-      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(34,211,238,0.05), transparent);
-  }
-  /* Canvas for eigenvalue animation */
-  #eigen-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-    opacity: 0.3;
-  }
-  /* Navigation */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1rem 2rem;
-    background: rgba(10,10,15,0.8);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav .logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: -0.02em;
-    color: var(--accent);
-  }
-  nav .logo span { color: var(--text-dim); font-weight: 400; }
-  nav .links { display: flex; gap: 2rem; }
-  nav .links a {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  nav .links a:hover { color: var(--text); }
-  /* Hero */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
-  }
-  .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    max-width: 900px;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 .highlight {
-    background: linear-gradient(135deg, var(--accent), var(--accent2), var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero .subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--text-dim);
-    max-width: 640px;
-    margin-bottom: 3rem;
-    font-weight: 300;
-  }
-  .hero .cta-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.85rem 1.8rem;
-    border-radius: 8px;
-    font-family: var(--font);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: white;
-    box-shadow: 0 4px 20px rgba(99,102,241,0.3);
-  }
-  .btn-primary:hover {
-    box-shadow: 0 6px 30px rgba(99,102,241,0.5);
-    transform: translateY(-1px);
-  }
-  .btn-secondary {
-    background: var(--surface2);
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .btn-secondary:hover {
-    background: var(--surface);
-    border-color: var(--accent);
-  }
-  /* Scroll indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    animation: bounce 2s infinite;
-    color: var(--text-dim);
-    font-size: 1.5rem;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-  }
-  /* Sections */
-  section {
-    padding: 6rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  section h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-  section h2 .accent { color: var(--accent); }
-  section .section-sub {
-    color: var(--text-dim);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin-bottom: 3rem;
-  }
-  /* Stats grid */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 3rem 0;
-  }
-  .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .stat .number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .stat .label {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-  }
-  /* Theorems */
-  .theorem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  .theorem {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    border-left: 3px solid var(--accent);
-  }
-  .theorem .t-name {
-    font-family: var(--mono);
-    color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  .theorem .t-desc {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .theorem .t-math {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--cyan);
-    margin-top: 0.75rem;
-    padding: 0.5rem;
-    background: rgba(34,211,238,0.05);
-    border-radius: 6px;
-  }
-  /* Moments */
-  .moments {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin: 2rem 0;
-  }
-  .moment {
-    display: grid;
-    grid-template-columns: 80px 120px 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .moment:last-child { border-bottom: none; }
-  .moment .m-num {
-    font-size: 2rem;
-    font-weight: 200;
-    color: var(--text-dim);
-  }
-  .moment .m-label {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 500;
-    padding-top: 0.5rem;
-  }
-  .moment .m-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .moment .m-content p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-  }
-  /* SDK grid */
-  .sdk-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.75rem;
-    margin: 2rem 0;
-  }
-  .sdk-lang {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.75rem;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--text);
-    transition: all 0.2s;
-  }
-  .sdk-lang:hover {
-    border-color: var(--accent);
-    background: var(--surface2);
-  }
-  .sdk-lang .tier {
-    display: block;
-    font-size: 0.65rem;
-    color: var(--text-dim);
-    margin-top: 0.25rem;
-    font-family: var(--font);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .sdk-lang.core { border-left: 2px solid var(--green); }
-  .sdk-lang.gpu { border-left: 2px solid var(--amber); }
-  .sdk-lang.retro { border-left: 2px solid var(--red); }
-  .sdk-lang.research { border-left: 2px solid var(--cyan); }
-  /* Code block */
-  .code-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    overflow-x: auto;
-  }
-  .code-block pre {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: var(--text);
-  }
-  .code-block .comment { color: var(--text-dim); }
-  .code-block .keyword { color: var(--accent); }
-  .code-block .string { color: var(--green); }
-  .code-block .number { color: var(--amber); }
-  /* Quote */
-  .quote-block {
-    border-left: 3px solid var(--accent);
-    padding: 1.5rem 2rem;
-    margin: 3rem 0;
-    background: var(--surface);
-    border-radius: 0 12px 12px 0;
-  }
-  .quote-block p {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.8;
-  }
-  .quote-block p:not(:last-child) { margin-bottom: 0.75rem; }
-  .quote-block .attribution { color: var(--text-dim); font-style: normal; font-size: 0.9rem; }
-  /* Architecture diagram */
-  .arch-diagram {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    line-height: 2;
-    color: var(--text-dim);
-    overflow-x: auto;
-  }
-  .arch-diagram .layer {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    margin: 0.25rem;
-    color: var(--text);
-  }
-  .arch-diagram .arrow { color: var(--accent); margin: 0.5rem 0; }
-  /* Footer */
-  footer {
-    padding: 4rem 2rem;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--text-dim);
-    font-size: 0.9rem;
-  }
-  footer a { color: var(--accent); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav .links { display: none; }
-    .moment { grid-template-columns: 1fr; }
-    .moment .m-num, .moment .m-label { display: none; }
-    section { padding: 3rem 1.5rem; }
-  }
+:root {
+  --bg: #0a0a0a;
+  --bg2: #0e0e0e;
+  --surface: #141414;
+  --surface2: #1a1a1a;
+  --surface3: #222222;
+  --border: #2a2a2a;
+  --border2: #333;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --text-dimmer: #555;
+  --accent: #00ff88;
+  --accent-dim: rgba(0,255,136,0.15);
+  --accent2: #0066ff;
+  --accent2-dim: rgba(0,102,255,0.15);
+  --green: #00ff88;
+  --blue: #0066ff;
+  --cyan: #00ccff;
+  --amber: #ffaa00;
+  --red: #ff4444;
+  --purple: #aa66ff;
+  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+::selection{background:var(--accent);color:var(--bg);}
+
+/* Grid background */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.75rem 2rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+nav .logo{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--accent);letter-spacing:-0.02em;}
+nav .logo span{color:var(--text-dim);font-weight:400;}
+nav .nav-links{display:flex;gap:1.5rem;align-items:center;}
+nav .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;transition:color 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+nav .nav-links a:hover{color:var(--accent);text-decoration:none;}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+/* Section base */
+section{padding:6rem 2rem;max-width:1200px;margin:0 auto;}
+section h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+section h2 .acc{color:var(--accent);}
+section h2 .acc2{color:var(--accent2);}
+section .sub{color:var(--text-dim);font-size:1.05rem;max-width:600px;margin-bottom:2.5rem;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.5rem;border-radius:6px;font-family:var(--sans);font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;}
+.btn:hover{text-decoration:none;}
+.btn-primary{background:var(--accent);color:var(--bg);box-shadow:0 0 20px rgba(0,255,136,0.2);}
+.btn-primary:hover{box-shadow:0 0 30px rgba(0,255,136,0.4);transform:translateY(-1px);}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border);}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:0.4rem 0.8rem;font-size:0.75rem;border-radius:4px;}
+.btn-copy{background:var(--surface);color:var(--text-dim);border:1px solid var(--border);font-family:var(--mono);font-size:0.75rem;}
+.btn-copy:hover{border-color:var(--accent);color:var(--accent);}
+.btn-copy.copied{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;max-width:850px;margin-bottom:1.5rem;}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero .tagline{font-size:clamp(1rem,1.8vw,1.3rem);color:var(--text-dim);max-width:580px;margin-bottom:2.5rem;font-weight:300;}
+.install-box{display:inline-flex;align-items:center;gap:0.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-family:var(--mono);font-size:0.85rem;color:var(--text);margin-bottom:2rem;cursor:pointer;transition:border-color 0.2s;}
+.install-box:hover{border-color:var(--accent);}
+.install-box .dollar{color:var(--accent);}
+.install-box .copy-hint{color:var(--text-dimmer);font-size:0.7rem;margin-left:0.5rem;}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.scroll-hint{position:absolute;bottom:2rem;color:var(--text-dimmer);font-size:0.8rem;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* === DEMO CARDS (shared) === */
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:1rem;}
+.demo-card .demo-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.demo-card .demo-header h3{font-size:1rem;font-weight:600;font-family:var(--mono);}
+.demo-card .demo-header .tag{font-size:0.7rem;color:var(--accent);font-family:var(--mono);background:var(--accent-dim);padding:0.15rem 0.5rem;border-radius:3px;}
+.demo-card .demo-body{padding:1.5rem;min-height:300px;position:relative;}
+
+/* === 1. PLATO'S CAVE DEMO === */
+.cave-container{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:320px;}
+@media(max-width:700px){.cave-container{grid-template-columns:1fr;}}
+.cave-shadows{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;overflow-y:auto;max-height:350px;line-height:1.8;}
+.cave-shadows .shadow-line{padding:0.2rem 0.4rem;border-radius:3px;cursor:pointer;transition:background 0.2s;border-left:2px solid transparent;}
+.cave-shadows .shadow-line:hover{background:var(--surface2);border-left-color:var(--accent);}
+.cave-shadows .shadow-line.selected{background:var(--accent-dim);border-left-color:var(--accent);}
+.cave-shadows .s-type{color:var(--cyan);}
+.cave-shadows .s-val{color:var(--accent);}
+.cave-panels{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;overflow-y:auto;max-height:350px;display:flex;flex-direction:column;gap:0.75rem;}
+.rendered-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.75rem;animation:fadeSlideIn 0.3s ease;}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.rendered-card .rc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;}
+.rendered-card .rc-type{font-family:var(--mono);font-size:0.7rem;color:var(--cyan);text-transform:uppercase;}
+.rendered-card .rc-icon{font-size:1.2rem;}
+.rendered-card .rc-data{font-size:0.85rem;color:var(--text);}
+.rendered-card .rc-bar{height:4px;background:var(--surface);border-radius:2px;margin-top:0.5rem;overflow:hidden;}
+.rendered-card .rc-bar-fill{height:100%;border-radius:2px;transition:width 0.5s ease;}
+
+/* === 2. FLEET TOPOLOGY DEMO === */
+.fleet-canvas-wrap{position:relative;width:100%;height:400px;background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.fleet-canvas-wrap canvas{width:100%;height:100%;}
+.fleet-info{position:absolute;top:1rem;right:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;min-width:200px;display:none;}
+.fleet-info.visible{display:block;}
+.fleet-info .fi-name{color:var(--accent);font-weight:700;margin-bottom:0.5rem;}
+.fleet-info .fi-cap{color:var(--text-dim);margin:0.2rem 0;}
+.fleet-info .fi-cap span{color:var(--text);}
+.fleet-controls{position:absolute;bottom:1rem;left:1rem;display:flex;gap:0.5rem;}
+
+/* === 3. ONBOARDING WIZARD === */
+.wizard{display:flex;flex-direction:column;gap:1.5rem;}
+.wizard-steps{display:flex;gap:0.5rem;margin-bottom:1rem;}
+.wizard-step{flex:1;height:4px;background:var(--surface2);border-radius:2px;transition:background 0.3s;}
+.wizard-step.active{background:var(--accent);}
+.wizard-step.done{background:var(--accent);}
+.wizard-panel{display:none;}
+.wizard-panel.active{display:block;animation:fadeSlideIn 0.3s ease;}
+.wizard-input{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;color:var(--text);font-family:var(--mono);font-size:0.9rem;width:100%;max-width:400px;outline:none;transition:border-color 0.2s;}
+.wizard-input:focus{border-color:var(--accent);}
+.wizard-preview{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1.5rem;min-height:200px;margin-top:1rem;}
+.module-grid{display:flex;flex-wrap:wrap;gap:0.75rem;margin:1rem 0;}
+.module-chip{padding:0.5rem 1rem;border:1px solid var(--border);border-radius:6px;font-family:var(--mono);font-size:0.8rem;cursor:pointer;transition:all 0.2s;background:var(--surface);}
+.module-chip:hover{border-color:var(--accent);}
+.module-chip.selected{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);}
+.yaml-output{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;line-height:1.8;color:var(--text);white-space:pre;overflow-x:auto;}
+.yaml-output .y-key{color:var(--cyan);}
+.yaml-output .y-val{color:var(--accent);}
+.yaml-output .y-str{color:var(--amber);}
+
+/* === 4. SPECTRAL THEOREMS === */
+.theorem-interactive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;}
+.t-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color 0.2s;}
+.t-card:hover{border-color:var(--accent);}
+.t-card-header{padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;}
+.t-card-header .t-name{font-family:var(--mono);font-size:0.8rem;color:var(--accent);font-weight:600;}
+.t-card-header .t-toggle{color:var(--text-dimmer);font-size:0.7rem;transition:transform 0.2s;}
+.t-card.expanded .t-toggle{transform:rotate(180deg);}
+.t-card-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 1.25rem;}
+.t-card.expanded .t-card-body{max-height:300px;padding:0 1.25rem 1rem;}
+.t-card-body .t-desc{font-size:0.9rem;color:var(--text);margin-bottom:0.75rem;}
+.t-card-body .t-math{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);background:rgba(0,204,255,0.05);padding:0.5rem 0.75rem;border-radius:6px;}
+.spectral-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0;}
+.spectral-stat{text-align:center;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.spectral-stat .num{font-size:2.5rem;font-weight:800;font-family:var(--mono);opacity:0;transition:opacity 0.5s;}
+.spectral-stat .num.visible{opacity:1;}
+.spectral-stat .num .pre{color:var(--text-dimmer);font-size:1.2rem;}
+.spectral-stat .lbl{font-size:0.8rem;color:var(--text-dim);margin-top:0.3rem;}
+#spectral-canvas{width:100%;height:120px;margin:1.5rem 0;border-radius:8px;}
+
+/* === 5. MUD DEMO === */
+.mud-container{display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-height:380px;}
+@media(max-width:700px){.mud-container{grid-template-columns:1fr;}}
+.mud-text{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.75rem;line-height:1.8;overflow-y:auto;max-height:400px;display:flex;flex-direction:column;}
+.mud-text .mud-output{flex:1;white-space:pre-wrap;}
+.mud-input-row{display:flex;gap:0.5rem;margin-top:0.5rem;}
+.mud-input-row input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:0.4rem 0.6rem;color:var(--accent);font-family:var(--mono);font-size:0.8rem;outline:none;}
+.mud-input-row input:focus{border-color:var(--accent);}
+.mud-input-row button{background:var(--accent);color:var(--bg);border:none;border-radius:4px;padding:0.4rem 0.8rem;font-family:var(--mono);font-size:0.8rem;cursor:pointer;font-weight:700;}
+.mud-scene{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;position:relative;min-height:400px;overflow:hidden;}
+.mud-scene canvas{width:100%;height:100%;}
+
+/* === 6. CODE EXAMPLES === */
+.code-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:0;}
+.code-tab{padding:0.6rem 1.5rem;font-family:var(--mono);font-size:0.8rem;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);border-bottom:none;cursor:pointer;transition:all 0.2s;border-radius:6px 6px 0 0;margin-right:-1px;}
+.code-tab:hover{color:var(--text);}
+.code-tab.active{background:var(--bg);color:var(--accent);border-bottom:1px solid var(--bg);margin-bottom:-1px;padding-bottom:calc(0.6rem + 1px);}
+.code-content{display:none;background:var(--bg);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:1.25rem;position:relative;}
+.code-content.active{display:block;}
+.code-content pre{font-family:var(--mono);font-size:0.8rem;line-height:1.8;color:var(--text);overflow-x:auto;white-space:pre;}
+.code-content .cm{color:var(--text-dimmer);}
+.code-content .kw{color:var(--accent2);}
+.code-content .st{color:var(--accent);}
+.code-content .fn{color:var(--cyan);}
+.code-content .num{color:var(--amber);}
+.code-content .copy-btn{position:absolute;top:0.75rem;right:0.75rem;}
+
+/* === 7. ECOSYSTEM MAP === */
+.eco-categories{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;}
+.eco-cat{padding:0.5rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;background:var(--surface);}
+.eco-cat:hover{border-color:var(--accent);}
+.eco-cat.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);}
+.eco-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;min-height:200px;}
+.eco-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;align-items:center;gap:0.75rem;transition:all 0.2s;animation:fadeSlideIn 0.3s ease;}
+.eco-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.eco-item .eco-icon{font-size:1.5rem;flex-shrink:0;}
+.eco-item .eco-info .eco-name{font-size:0.85rem;font-weight:600;}
+.eco-item .eco-info .eco-desc{font-size:0.7rem;color:var(--text-dim);}
+
+/* === 8. HARDWARE SPECTRUM === */
+.hw-spectrum{display:flex;align-items:stretch;gap:0;position:relative;margin:2rem 0;}
+.hw-node{flex:1;text-align:center;padding:1.5rem 0.75rem;background:var(--surface);border:1px solid var(--border);position:relative;transition:all 0.2s;}
+.hw-node:first-child{border-radius:8px 0 0 8px;}
+.hw-node:last-child{border-radius:0 8px 8px 0;}
+.hw-node:hover{background:var(--surface2);border-color:var(--accent);}
+.hw-node .hw-icon{font-size:2rem;margin-bottom:0.5rem;}
+.hw-node .hw-name{font-family:var(--mono);font-size:0.8rem;font-weight:700;color:var(--accent);margin-bottom:0.3rem;}
+.hw-node .hw-specs{font-size:0.7rem;color:var(--text-dim);line-height:1.6;}
+.hw-node .hw-use{font-size:0.65rem;color:var(--text-dimmer);margin-top:0.5rem;font-style:italic;}
+.hw-connector{width:0;position:relative;display:flex;align-items:center;justify-content:center;}
+.hw-connector::after{content:'→';position:absolute;color:var(--accent);font-size:0.8rem;opacity:0.5;}
+@media(max-width:700px){.hw-spectrum{flex-direction:column;}.hw-node{border-radius:8px!important;margin-bottom:-1px;}.hw-connector{display:none;}}
+
+/* Data flow animation */
+.hw-flow-line{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:200% 100%;animation:flowAnim 3s linear infinite;pointer-events:none;opacity:0.3;z-index:1;}
+@keyframes flowAnim{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+
+/* === FOOTER === */
+footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.85rem;}
+footer .footer-links{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;}
+footer .footer-links a{color:var(--text-dim);font-size:0.85rem;transition:color 0.2s;}
+footer .footer-links a:hover{color:var(--accent);}
+footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 2rem;gap:1rem;}
+  nav .nav-links.open{display:flex;}
+  .hamburger{display:block;}
+  section{padding:3rem 1.25rem;}
+  .hero h1{font-size:clamp(1.8rem,7vw,2.8rem);}
+  .hw-spectrum{flex-direction:column;}
+  .hw-node{border-radius:8px!important;margin-bottom:0.5rem;}
+  .hw-connector{display:none;}
+}
+
+/* Utility */
+.mt-2{margin-top:2rem;}
+.text-center{text-align:center;}
+.flex-center{display:flex;justify-content:center;}
+.flex-wrap{flex-wrap:wrap;}
 </style>
 </head>
 <body>
-<div class="bg-gradient"></div>
-<canvas id="eigen-canvas"></canvas>
 
+<!-- Navigation -->
 <nav>
   <div class="logo">SuperInstance<span>.ai</span></div>
-  <div class="links">
-    <a href="#framework">Framework</a>
-    <a href="#theorems">Theorems</a>
-    <a href="#moments">Five Moments</a>
-    <a href="#sdk">SDK</a>
-    <a href="#repos">Repos</a>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <div class="nav-links">
+    <a href="#plato-cave">Plato's Cave</a>
+    <a href="#fleet">Fleet</a>
+    <a href="#onboarding">Onboarding</a>
+    <a href="#spectral">Spectral</a>
+    <a href="#mud">MUD</a>
+    <a href="#code">Code</a>
+    <a href="#ecosystem">Ecosystem</a>
     <a href="https://github.com/SuperInstance" target="_blank">GitHub</a>
   </div>
 </nav>
 
+<!-- ==================== 1. HERO ==================== -->
 <section class="hero" id="top">
-  <h1>The system that knows itself <span class="highlight">through each other</span></h1>
-  <p class="subtitle">
-    When you eliminate everything that isn't conserved, whatever remains is the structure.
-    Agents that understand each other mathematically — not through negotiation, through Laplacians.
-  </p>
-  <div class="cta-group">
-    <a href="https://github.com/SuperInstance/conservation-spectral-python" class="btn btn-primary" target="_blank">
-      pip install conservation-spectral
-    </a>
-    <a href="https://github.com/SuperInstance" class="btn btn-secondary" target="_blank">
-      Explore 200 Repos →
-    </a>
+  <h1>AI agents that can <span class="hl">see, hear, touch,</span> and collaborate.</h1>
+  <p class="tagline">Real senses for real agents. Fleet mesh computing. Text becomes interface. One command to start.</p>
+  <div class="install-box" onclick="copyInstall(this)" title="Click to copy">
+    <span class="dollar">$</span>
+    <span>curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash</span>
+    <span class="copy-hint">click to copy</span>
   </div>
-  <div class="scroll-indicator">↓</div>
+  <div class="cta-row">
+    <a href="#plato-cave" class="btn btn-primary">See It Live ↓</a>
+    <a href="https://github.com/SuperInstance" class="btn btn-secondary" target="_blank">GitHub →</a>
+    <a href="demos.html" class="btn btn-secondary">Interactive Demos →</a>
+  </div>
+  <div class="scroll-hint">scroll to explore ↓</div>
 </section>
 
-<!-- Stats -->
-<section id="framework">
-  <h2>One framework. <span class="accent">Fifteen domains.</span> Five theorems.</h2>
-  <p class="section-sub">
-    The Conservation Spectral Framework measures what persists when you project structured systems onto their eigenvalue space. A single number — the conservation ratio — predicts whether spectral analysis will reveal deep structure or noise.
-  </p>
-  <div class="stats">
-    <div class="stat">
-      <div class="number">112×</div>
-      <div class="label">Music conservation (p &lt; 0.001)</div>
+<!-- ==================== 2. PLATO'S CAVE DEMO ==================== -->
+<section id="plato-cave">
+  <h2>Live Demo: <span class="acc">Plato's Cave</span></h2>
+  <p class="sub">Agents read the world as text shadows — then render them as interface. Click any shadow to see it materialize.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🏛️ Sense Shadows → Rendered Panels</h3>
+      <span class="tag">INTERACTIVE</span>
     </div>
-    <div class="stat">
-      <div class="number">0.92</div>
-      <div class="label">Anomaly detection AUC</div>
-    </div>
-    <div class="stat">
-      <div class="number">15+</div>
-      <div class="label">Cross-domain experiments</div>
-    </div>
-    <div class="stat">
-      <div class="number">20+</div>
-      <div class="label">Language implementations</div>
-    </div>
-    <div class="stat">
-      <div class="number">5</div>
-      <div class="label">Proved theorems (T1–T5)</div>
-    </div>
-    <div class="stat">
-      <div class="number">4</div>
-      <div class="label">Honest falsifications</div>
-    </div>
-  </div>
-
-  <div class="quote-block">
-    <p>The alignment coefficient α = λ₂/CR(a) predicts conservation success across ALL domains.</p>
-    <p>The misaligned fraction is the identity. Not the part that fits — the part that doesn't.</p>
-    <p>Conservation is relational, not intrinsic. Self-knowledge IS other-knowledge.</p>
-  </div>
-</section>
-
-<!-- Theorems -->
-<section id="theorems">
-  <h2>Five proved <span class="accent">theorems</span></h2>
-  <p class="section-sub">Formally proved. Four original conjectures falsified along the way — honest science.</p>
-  <div class="theorem-grid">
-    <div class="theorem">
-      <div class="t-name">T1 — Dirichlet Energy Spectral Decomposition</div>
-      <div class="t-desc">Exact, sharp decomposition of conservation energy into eigenvalue-weighted spectral components.</div>
-      <div class="t-math">𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²</div>
-    </div>
-    <div class="theorem">
-      <div class="t-name">T2 — Conservation Signal Concentration</div>
-      <div class="t-desc">The Fiedler vector concentrates conservation signal. Bound on detection quality.</div>
-      <div class="t-math">|⟨f, φ₂⟩|² / ||f||² ≥ 1/(1 + (κ-1)(1-ρ₂))</div>
-    </div>
-    <div class="theorem">
-      <div class="t-name">T3 — Spectral SNR Amplification ★</div>
-      <div class="t-desc">Explains the 112× result. Signal-to-noise amplifies through eigenvalue projection.</div>
-      <div class="t-math">SNR_amplification ≥ n · ρ₂ = 144 × 0.78 ≈ 112</div>
-    </div>
-    <div class="theorem">
-      <div class="t-name">T4 — Cheeger-Conservation Inequality</div>
-      <div class="t-desc">Two-sided bound connecting graph geometry to conservation quality.</div>
-      <div class="t-math">λ₂/2 ≤ h(G) ≤ √(2λ₂)</div>
-    </div>
-    <div class="theorem">
-      <div class="t-name">T5 — Multi-Scale Cascade Degradation</div>
-      <div class="t-desc">Conservation degrades predictably across scales. Sharp bound on information loss.</div>
-    </div>
-  </div>
-</section>
-
-<!-- Five Moments -->
-<section id="moments">
-  <h2>The Five <span class="accent">Moments</span></h2>
-  <p class="section-sub">From math to product. Each moment builds on the last.</p>
-  <div class="moments">
-    <div class="moment">
-      <div class="m-num">01</div>
-      <div class="m-label">SEEING</div>
-      <div class="m-content">
-        <h3>Graphing Calculator</h3>
-        <p>Animated spectral visualizations. Eigenvalues breathe, conservation pulses, Fiedler routes through the network like electricity through a circuit. The graph IS the interface.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="m-num">02</div>
-      <div class="m-label">EXPLORING</div>
-      <div class="m-content">
-        <h3>Spectral Spreadsheet</h3>
-        <p>Any spectral dimension on x and y. Drag eigenvalue index here, conservation ratio there. Correlations appear instantly. The spreadsheet IS the graph.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="m-num">03</div>
-      <div class="m-label">ASKING</div>
-      <div class="m-content">
-        <h3>Spectral Chat</h3>
-        <p>"Graph conservation over time for all agents, colored by spectral gap." Natural language becomes spectral analysis. One thing on y, seven things that correlate on x.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="m-num">04</div>
-      <div class="m-label">BEING</div>
-      <div class="m-content">
-        <h3>PLATO Live Room</h3>
-        <p>Agents maintain forward simulations (t-minus-event), listen through walls, run call-and-response with adjacent rooms. They know they're in Plato's cave — but they make music with the caves next door.</p>
-      </div>
-    </div>
-    <div class="moment">
-      <div class="m-num">05</div>
-      <div class="m-label">FLOWING</div>
-      <div class="m-content">
-        <h3>FLUX Flow State</h3>
-        <p>Always-on agentic flow state. Every agent simulates, listens, conserves. Ready when their Fiedler projection lights up. The conservation field is the heartbeat. When it drops, everyone feels it.</p>
+    <div class="demo-body">
+      <div class="cave-container">
+        <div class="cave-shadows" id="caveShadows"></div>
+        <div class="cave-panels" id="cavePanels">
+          <div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;text-align:center;padding:3rem 1rem;">← Click a shadow to render it as a panel</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SDK -->
-<section id="sdk">
-  <h2>20+ language <span class="accent">SDK</span></h2>
-  <p class="section-sub">Triple-crown publishing: PyPI + npm + crates.io. Cross-language conformance to 1e-11.</p>
-  <div class="sdk-grid">
-    <div class="sdk-lang core">Python<span class="tier">core · PyPI</span></div>
-    <div class="sdk-lang core">Rust<span class="tier">core · crates.io</span></div>
-    <div class="sdk-lang core">TypeScript<span class="tier">core · npm</span></div>
-    <div class="sdk-lang core">C<span class="tier">core · header-only</span></div>
-    <div class="sdk-lang gpu">CUDA<span class="tier">GPU · cuSOLVER</span></div>
-    <div class="sdk-lang gpu">PTX<span class="tier">GPU · assembly</span></div>
-    <div class="sdk-lang gpu">Vulkan<span class="tier">GPU · SPIR-V</span></div>
-    <div class="sdk-lang gpu">OpenCL<span class="tier">GPU · cross-vendor</span></div>
-    <div class="sdk-lang gpu">WebGPU<span class="tier">GPU · browser</span></div>
-    <div class="sdk-lang research">Mojo<span class="tier">SIMD</span></div>
-    <div class="sdk-lang research">Chapel<span class="tier">distributed</span></div>
-    <div class="sdk-lang research">Fortran<span class="tier">LAPACK</span></div>
-    <div class="sdk-lang research">Zig<span class="tier">comptime</span></div>
-    <div class="sdk-lang retro">FORTRAN IV<span class="tier">1960s</span></div>
-    <div class="sdk-lang retro">APL<span class="tier">1966</span></div>
-    <div class="sdk-lang retro">Forth<span class="tier">1970s</span></div>
-    <div class="sdk-lang retro">Pascal<span class="tier">1970s</span></div>
-    <div class="sdk-lang retro">Common Lisp<span class="tier">1980s</span></div>
-    <div class="sdk-lang retro">Ada<span class="tier">1980s</span></div>
-    <div class="sdk-lang retro">x86-64 ASM<span class="tier">AVX2</span></div>
-  </div>
-</section>
-
-<!-- Agent Language -->
-<section id="agent-language">
-  <h2>Agent-native <span class="accent">language</span></h2>
-  <p class="section-sub">Not JSON. Not gRPC. Laplacians.</p>
-  <div class="code-block">
-<pre><span class="comment">// Current A2A: data transmission</span>
-Agent A → {"task": "analyze", "data": [...]} → Agent B
-
-<span class="comment">// Conservation-native A2A: structural understanding</span>
-Agent A → [<span class="keyword">Laplacian</span> L_A, task projection t_A] → Agent B
-Agent B → [alignment <span class="keyword">α</span>(L_A, L_B), Fiedler routing φ] → Router
-Router → [optimal assignment via <span class="keyword">spectral partition</span>] → Agents
-
-<span class="comment">// The residual IS the collaborative intelligence</span>
-<span class="keyword">FLUX</span>(A, B) = L_composed − L_A − L_B</pre>
-  </div>
-  <div class="stats">
-    <div class="stat">
-      <div class="number">0.67</div>
-      <div class="label">Builder+Validator approved</div>
+<!-- ==================== 3. FLEET TOPOLOGY ==================== -->
+<section id="fleet">
+  <h2>Live Demo: <span class="acc">Fleet Topology</span></h2>
+  <p class="sub">Watch agents discover each other and form a mesh network in real-time. Click any node to inspect.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🌐 Fleet Mesh Formation</h3>
+      <span class="tag">LIVE</span>
     </div>
-    <div class="stat">
-      <div class="number">0.14</div>
-      <div class="label">Analyst+Operator REJECTED</div>
-    </div>
-    <div class="stat">
-      <div class="number">99%</div>
-      <div class="label">Spectral gap drop = degradation</div>
+    <div class="demo-body" style="padding:0;">
+      <div class="fleet-canvas-wrap">
+        <canvas id="fleetCanvas"></canvas>
+        <div class="fleet-info" id="fleetInfo">
+          <div class="fi-name" id="fiName"></div>
+          <div id="fiCaps"></div>
+        </div>
+        <div class="fleet-controls">
+          <button class="btn btn-sm btn-secondary" onclick="resetFleet()">Reset</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Architecture -->
-<section id="repos">
-  <h2>The <span class="accent">architecture</span></h2>
-  <div class="arch-diagram">
-    <div class="layer">🎮 The Five Moments — Calculator · Spreadsheet · Chat · PLATO · FLUX</div>
-    <div class="arrow">↕ Laplacian = message · Fiedler = routing · FLUX = intelligence</div>
-    <div class="layer">🗣️ Agent-Native Language — Spectral fingerprints, not API specs</div>
-    <div class="arrow">↕ α = λ₂/CR(a) · Domain Transfer · Conservation Universal</div>
-    <div class="layer">📐 Conservation Spectral Framework — T1–T5 · Universal Law</div>
-    <div class="arrow">↕ 20+ languages · Triple crown · 204+ tests</div>
-    <div style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;">
-      <div class="layer">SDK</div>
-      <div class="layer">Experiments</div>
-      <div class="layer">Applications</div>
+<!-- ==================== 4. 5-PHASE ONBOARDING ==================== -->
+<section id="onboarding">
+  <h2>Live Demo: <span class="acc2">5-Phase Onboarding</span></h2>
+  <p class="sub">Step through creating your first agent. Everything is interactive — type, click, explore.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🚀 Agent Builder Wizard</h3>
+      <span class="tag">STEP-THROUGH</span>
+    </div>
+    <div class="demo-body">
+      <div class="wizard">
+        <div class="wizard-steps">
+          <div class="wizard-step active" id="wStep1"></div>
+          <div class="wizard-step" id="wStep2"></div>
+          <div class="wizard-step" id="wStep3"></div>
+          <div class="wizard-step" id="wStep4"></div>
+          <div class="wizard-step" id="wStep5"></div>
+        </div>
+
+        <!-- Phase 1 -->
+        <div class="wizard-panel active" id="wPanel1">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Name your agent. This becomes its identity across the fleet.</p>
+          <input class="wizard-input" id="agentName" placeholder="e.g. sentinel-7" oninput="updateWizardPreview()">
+          <div class="wizard-preview" id="wizPreview1">
+            <div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Your agent card will appear here...</div>
+          </div>
+          <div class="mt-2 flex-center"><button class="btn btn-primary" onclick="wizardNext(2)">Next: Choose Modules →</button></div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="wizard-panel" id="wPanel2">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Enable the sense modules your agent needs.</p>
+          <div class="module-grid" id="moduleGrid"></div>
+          <div class="wizard-preview" id="wizPreview2"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(1)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(3)">Next: Interface →</button>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="wizard-panel" id="wPanel3">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Choose how your agent presents its interface.</p>
+          <div class="module-grid" id="interfaceGrid"></div>
+          <div class="wizard-preview" id="wizPreview3"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(2)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(4)">Next: Fleet →</button>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="wizard-panel" id="wPanel4">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Your agent joins the fleet mesh. Connected agents appear below.</p>
+          <div class="wizard-preview" id="wizPreview4" style="min-height:250px;"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(3)">← Back</button>
+            <button class="btn btn-primary" onclick="wizardNext(5)">Next: Config →</button>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="wizard-panel" id="wPanel5">
+          <p style="margin-bottom:1rem;font-size:0.95rem;">Your generated agent configuration. Copy and deploy.</p>
+          <div class="yaml-output" id="yamlOutput"></div>
+          <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;">
+            <button class="btn btn-secondary" onclick="wizardNext(4)">← Back</button>
+            <button class="btn btn-primary" onclick="copyYaml()">📋 Copy Config</button>
+            <button class="btn btn-secondary" onclick="wizardNext(1)">↺ Start Over</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="cta-group" style="margin-top:3rem;">
-    <a href="https://github.com/SuperInstance" class="btn btn-primary" target="_blank">200 Repositories on GitHub</a>
-    <a href="https://github.com/SuperInstance/conservation-docs" class="btn btn-secondary" target="_blank">Research Papers</a>
-    <a href="https://github.com/SuperInstance/superinstance" class="btn btn-secondary" target="_blank">Profile README</a>
+</section>
+
+<!-- ==================== 5. CONSERVATION SPECTRAL ==================== -->
+<section id="spectral">
+  <h2>Conservation <span class="acc">Spectral</span></h2>
+  <p class="sub">Five proved theorems. Fifteen domains. Click to expand.</p>
+
+  <div class="spectral-stats">
+    <div class="spectral-stat">
+      <div class="num" id="stat1"><span class="pre">×</span>112</div>
+      <div class="lbl">Music conservation (p &lt; 0.001)</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat2">0.92</div>
+      <div class="lbl">Anomaly detection AUC</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat3">15+</div>
+      <div class="lbl">Cross-domain experiments</div>
+    </div>
+    <div class="spectral-stat">
+      <div class="num" id="stat4">5</div>
+      <div class="lbl">Proved theorems (T1–T5)</div>
+    </div>
+  </div>
+
+  <canvas id="spectral-canvas"></canvas>
+
+  <div class="theorem-interactive-grid" id="theoremGrid"></div>
+</section>
+
+<!-- ==================== 6. MUD → POINT-AND-CLICK ==================== -->
+<section id="mud">
+  <h2>MUD → <span class="acc">Point-and-Click</span></h2>
+  <p class="sub">Text adventure on the left, rendered scene on the right. Type commands OR click — both update simultaneously.</p>
+  <div class="demo-card">
+    <div class="demo-header">
+      <h3>🎮 Cave Wall Translation</h3>
+      <span class="tag">INTERACTIVE</span>
+    </div>
+    <div class="demo-body">
+      <div class="mud-container">
+        <div class="mud-text">
+          <div class="mud-output" id="mudOutput"></div>
+          <div class="mud-input-row">
+            <span style="color:var(--accent);font-family:var(--mono);">&gt;</span>
+            <input id="mudInput" placeholder="type command..." autocomplete="off">
+            <button onclick="mudCommand()">Go</button>
+          </div>
+        </div>
+        <div class="mud-scene">
+          <canvas id="mudCanvas"></canvas>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Principles -->
-<section>
-  <h2>The <span class="accent">principles</span></h2>
-  <div class="quote-block">
-    <p>When you eliminate everything that isn't conserved, whatever remains is the structure.</p>
-    <p>An agent cannot know itself until another reflects it back.</p>
-    <p>The misaligned fraction is the identity.</p>
-    <p>The FLUX between agents IS the intelligence that neither has alone.</p>
-    <p class="attribution">— The Negative Space Principle, after Sherlock Holmes</p>
+<!-- ==================== 7. CODE EXAMPLES ==================== -->
+<section id="code">
+  <h2>Code <span class="acc">Examples</span></h2>
+  <p class="sub">Ten lines to a sensing agent. Same API across Rust, Python, and TypeScript.</p>
+  <div>
+    <div class="code-tabs">
+      <div class="code-tab active" onclick="showCodeTab(0)">Rust</div>
+      <div class="code-tab" onclick="showCodeTab(1)">Python</div>
+      <div class="code-tab" onclick="showCodeTab(2)">TypeScript</div>
+    </div>
+    <div class="code-content active" id="codeTab0">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,0)">Copy</button>
+<pre><span class="kw">use</span> openconstruct::<span class="fn">{Agent, Sense}</span>;
+
+<span class="cm">// Create an agent with vision + sonar senses</span>
+<span class="kw">let</span> agent = Agent::new(<span class="st">"scout-1"</span>)
+    .with_sense(Sense::Vision)
+    .with_sense(Sense::Sonar)
+    .connect_fleet()?;
+
+<span class="cm">// Subscribe to sense readings</span>
+agent.on_sense(<span class="st">"vision"</span>, |reading| {
+    <span class="fn">println!</span>(<span class="st">"Detected: {:?} objects"</span>, reading.objects);
+});
+
+agent.on_sense(<span class="st">"sonar"</span>, |reading| {
+    <span class="fn">println!</span>(<span class="st">"Echo at {:.1}m"</span>, reading.distance);
+});
+
+agent.run().<span class="fn">await</span>?; <span class="cm">// Blocking loop</span></pre>
+    </div>
+    <div class="code-content" id="codeTab1">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,1)">Copy</button>
+<pre><span class="kw">from</span> openconstruct <span class="kw">import</span> Agent, Sense
+
+<span class="cm"># Create an agent with vision + sonar senses</span>
+agent = Agent(<span class="st">"scout-1"</span>)
+agent.add_sense(Sense.VISION)
+agent.add_sense(Sense.SONAR)
+agent.connect_fleet()
+
+<span class="cm"># Subscribe to sense readings</span>
+<span class="kw">@agent</span>.on_sense(<span class="st">"vision"</span>)
+<span class="kw">def</span> <span class="fn">on_vision</span>(reading):
+    <span class="fn">print</span>(<span class="st">f"Detected: {len(reading.objects)} objects"</span>)
+
+<span class="kw">@agent</span>.on_sense(<span class="st">"sonar"</span>)
+<span class="kw">def</span> <span class="fn">on_sonar</span>(reading):
+    <span class="fn">print</span>(<span class="st">f"Echo at {reading.distance:.1f}m"</span>)
+
+agent.run()  <span class="cm"># Blocking loop</span></pre>
+    </div>
+    <div class="code-content" id="codeTab2">
+      <button class="btn btn-copy copy-btn" onclick="copyCode(this,2)">Copy</button>
+<pre><span class="kw">import</span> { Agent, Sense } <span class="kw">from</span> <span class="st">"openconstruct"</span>;
+
+<span class="cm">// Create an agent with vision + sonar senses</span>
+<span class="kw">const</span> agent = <span class="kw">new</span> <span class="fn">Agent</span>(<span class="st">"scout-1"</span>);
+agent.<span class="fn">addSense</span>(Sense.Vision);
+agent.<span class="fn">addSense</span>(Sense.Sonar);
+<span class="kw">await</span> agent.<span class="fn">connectFleet</span>();
+
+<span class="cm">// Subscribe to sense readings</span>
+agent.<span class="fn">onSense</span>(<span class="st">"vision"</span>, (reading) => {
+  console.<span class="fn">log</span>(<span class="st">`Detected: ${reading.objects.length} objects`</span>);
+});
+
+agent.<span class="fn">onSense</span>(<span class="st">"sonar"</span>, (reading) => {
+  console.<span class="fn">log</span>(<span class="st">`Echo at ${reading.distance.toFixed(1)}m`</span>);
+});
+
+<span class="kw">await</span> agent.<span class="fn">run</span>(); <span class="cm">// Blocking loop</span></pre>
+    </div>
   </div>
 </section>
 
+<!-- ==================== 8. ECOSYSTEM MAP ==================== -->
+<section id="ecosystem">
+  <h2>Ecosystem <span class="acc">Map</span></h2>
+  <p class="sub">Click a category to explore the modules. Each links to its repository.</p>
+  <div class="eco-categories" id="ecoCategories"></div>
+  <div class="eco-items" id="ecoItems"></div>
+</section>
+
+<!-- ==================== 9. HARDWARE SPECTRUM ==================== -->
+<section id="hardware">
+  <h2>Hardware <span class="acc">Spectrum</span></h2>
+  <p class="sub">From microcontroller to data center. Same agent framework, every scale.</p>
+  <div class="hw-spectrum">
+    <div class="hw-flow-line"></div>
+    <div class="hw-node">
+      <div class="hw-icon">📟</div>
+      <div class="hw-name">ESP32</div>
+      <div class="hw-specs">240 MHz dual-core<br>520 KB RAM<br>WiFi + BLE</div>
+      <div class="hw-use">Sensor nodes, edge detection</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🤖</div>
+      <div class="hw-name">Jetson</div>
+      <div class="hw-specs">6-core ARM + GPU<br>8 GB RAM<br>CUDA 5.3</div>
+      <div class="hw-use">Vision + inference, robotics</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🖥️</div>
+      <div class="hw-name">Desktop</div>
+      <div class="hw-specs">8-16 cores<br>32 GB RAM<br>RTX GPU</div>
+      <div class="hw-use">Orchestrator, dev workstations</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">☁️</div>
+      <div class="hw-name">Cloud</div>
+      <div class="hw-specs">96 vCPUs<br>384 GB RAM<br>A100 GPUs</div>
+      <div class="hw-use">Heavy inference, fleet coordinator</div>
+    </div>
+    <div class="hw-connector"></div>
+    <div class="hw-node">
+      <div class="hw-icon">🏗️</div>
+      <div class="hw-name">DGX</div>
+      <div class="hw-specs">8× H100 GPUs<br>640 GB GPU mem<br>NVLink mesh</div>
+      <div class="hw-use">Training, multi-agent simulation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 10. FOOTER ==================== -->
 <footer>
-  <p>SuperInstance — <a href="https://superinstance.ai">superinstance.ai</a> — <a href="https://github.com/SuperInstance">GitHub</a></p>
-  <p style="margin-top:1rem;">Conservation is the heartbeat. The FLUX is the breath. The silence between notes is the music.</p>
-  <p style="margin-top:1rem;color:var(--text-dim);">MIT License · 200 repos · 204+ tests · 15 domains · 5 theorems</p>
+  <div class="footer-links">
+    <a href="https://github.com/SuperInstance" target="_blank">GitHub Org</a>
+    <a href="https://github.com/SuperInstance/OpenConstruct" target="_blank">OpenConstruct Repo</a>
+    <a href="https://github.com/SuperInstance/conservation-docs" target="_blank">Docs</a>
+    <a href="demos.html">Interactive Demos</a>
+    <a href="demo-eisenstein.html">Eisenstein Demo</a>
+    <a href="demo-voxel.html">Voxel Demo</a>
+    <a href="#" onclick="window.open('','_blank')">Discord</a>
+  </div>
+  <p>Agents that see, hear, touch, and collaborate.</p>
+  <p class="license">Licensed under Apache 2.0 · Built with zero dependencies</p>
 </footer>
 
+<!-- ==================== JAVASCRIPT ==================== -->
 <script>
-// Eigenvalue particle animation
-const canvas = document.getElementById('eigen-canvas');
-const ctx = canvas.getContext('2d');
-
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-const particles = [];
-const N = 60;
-for (let i = 0; i < N; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3,
-    r: 1.5 + Math.random() * 2,
-    phase: Math.random() * Math.PI * 2
+// ============================================================
+// UTILITY
+// ============================================================
+function copyInstall(el) {
+  const text = 'curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash';
+  navigator.clipboard.writeText(text).then(() => {
+    const hint = el.querySelector('.copy-hint');
+    hint.textContent = '✓ copied!';
+    setTimeout(() => hint.textContent = 'click to copy', 2000);
   });
 }
 
-function draw(t) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Draw edges (conservation coupling)
-  for (let i = 0; i < N; i++) {
-    for (let j = i + 1; j < N; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 150) {
-        const alpha = (1 - d / 150) * 0.15;
-        ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
-        ctx.lineWidth = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
-    }
-  }
-
-  // Draw particles
-  for (const p of particles) {
-    p.x += p.vx + Math.sin(t * 0.001 + p.phase) * 0.1;
-    p.y += p.vy + Math.cos(t * 0.001 + p.phase) * 0.1;
-
-    if (p.x < 0) p.x = canvas.width;
-    if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height;
-    if (p.y > canvas.height) p.y = 0;
-
-    const pulse = 0.5 + 0.5 * Math.sin(t * 0.002 + p.phase);
-    ctx.fillStyle = `rgba(139, 92, 246, ${0.3 + pulse * 0.4})`;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r * (0.8 + pulse * 0.4), 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  requestAnimationFrame(draw);
+function copyCode(btn, idx) {
+  const el = document.getElementById('codeTab' + idx);
+  const pre = el.querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
 }
-requestAnimationFrame(draw);
 
-// Smooth scroll for nav links
+// Smooth scroll
 document.querySelectorAll('nav a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.nav-links').classList.remove('open');
   });
 });
+
+// ============================================================
+// 1. PLATO'S CAVE DEMO
+// ============================================================
+const senseShadows = [
+  { type: 'vision', icon: '👁️', text: 'vision: 3 objects detected (confidence: 0.94)', data: 'objects', val: 3, conf: 0.94 },
+  { type: 'sonar', icon: '🔊', text: 'sonar: echo at 2.3m, bearing 045°', data: 'distance', val: 2.3, conf: 0.87 },
+  { type: 'touch', icon: '✋', text: 'touch: surface pressure 1.2 N/m²', data: 'pressure', val: 1.2, conf: 0.91 },
+  { type: 'temperature', icon: '🌡️', text: 'temperature: 22.4°C ambient, +3.2°C near source', data: 'temp', val: 22.4, conf: 0.98 },
+  { type: 'accel', icon: '📐', text: 'accelerometer: vibration 0.04g at 120Hz', data: 'vibration', val: 0.04, conf: 0.76 },
+  { type: 'lidar', icon: '📡', text: 'lidar: 1024 points, max range 8.5m', data: 'points', val: 1024, conf: 0.99 },
+  { type: 'vision', icon: '👁️', text: 'vision: object "person" entering frame left', data: 'objects', val: 4, conf: 0.89 },
+  { type: 'sonar', icon: '🔊', text: 'sonar: echo at 1.1m, bearing 180°', data: 'distance', val: 1.1, conf: 0.92 },
+  { type: 'magnetic', icon: '🧲', text: 'magnetometer: field 48.3 µT, heading NNW', data: 'field', val: 48.3, conf: 0.95 },
+  { type: 'vision', icon: '👁️', text: 'vision: object "person" — tracking ID #7', data: 'objects', val: 4, conf: 0.93 },
+];
+
+const shadowsEl = document.getElementById('caveShadows');
+const panelsEl = document.getElementById('cavePanels');
+let shadowIdx = 0;
+let renderedSet = new Set();
+let firstRendered = false;
+
+function addShadow() {
+  const s = senseShadows[shadowIdx % senseShadows.length];
+  const line = document.createElement('div');
+  line.className = 'shadow-line';
+  line.dataset.idx = shadowIdx % senseShadows.length;
+  line.innerHTML = `<span class="s-type">[${s.type}]</span> <span class="s-val">${s.text}</span>`;
+  line.onclick = () => renderShadow(s, line);
+  shadowsEl.appendChild(line);
+  shadowsEl.scrollTop = shadowsEl.scrollHeight;
+  shadowIdx++;
+}
+
+function renderShadow(s, lineEl) {
+  document.querySelectorAll('.shadow-line.selected').forEach(el => el.classList.remove('selected'));
+  lineEl.classList.add('selected');
+  
+  if (!firstRendered) {
+    panelsEl.innerHTML = '';
+    firstRendered = true;
+  }
+  
+  const card = document.createElement('div');
+  card.className = 'rendered-card';
+  
+  let barColor = s.type === 'vision' ? '#00ccff' : s.type === 'sonar' ? '#00ff88' : s.type === 'touch' ? '#ffaa00' : '#aa66ff';
+  let barWidth = Math.round(s.conf * 100);
+  let dataText = '';
+  if (s.data === 'objects') dataText = `${s.val} objects in frame`;
+  else if (s.data === 'distance') dataText = `${s.val}m to target`;
+  else if (s.data === 'pressure') dataText = `${s.val} N/m² surface`;
+  else if (s.data === 'temp') dataText = `${s.val}°C ambient`;
+  else if (s.data === 'vibration') dataText = `${s.val}g at 120Hz`;
+  else if (s.data === 'points') dataText = `${s.val} point cloud`;
+  else dataText = `${s.val} µT field`;
+  
+  card.innerHTML = `
+    <div class="rc-header">
+      <span class="rc-type">${s.type}</span>
+      <span class="rc-icon">${s.icon}</span>
+    </div>
+    <div class="rc-data">${dataText}</div>
+    <div class="rc-bar"><div class="rc-bar-fill" style="width:${barWidth}%;background:${barColor};"></div></div>
+    <div style="font-size:0.65rem;color:var(--text-dimmer);margin-top:0.3rem;">confidence: ${(s.conf * 100).toFixed(0)}%</div>
+  `;
+  panelsEl.insertBefore(card, panelsEl.firstChild);
+  panelsEl.scrollTop = 0;
+}
+
+// Auto-scroll shadows
+setInterval(addShadow, 1500);
+addShadow(); addShadow(); addShadow();
+
+// ============================================================
+// 2. FLEET TOPOLOGY DEMO
+// ============================================================
+const fleetCanvas = document.getElementById('fleetCanvas');
+const fctx = fleetCanvas.getContext('2d');
+const fleetInfo = document.getElementById('fleetInfo');
+
+const fleetNodes = [
+  { id: 'esp32-1', label: 'ESP32', sub: 'temperature sensor', x: 0, y: 0, r: 22, color: '#00ff88', caps: ['temperature', 'humidity', 'WiFi'], status: 'active' },
+  { id: 'jetson-1', label: 'Jetson', sub: 'vision + inference', x: 0, y: 0, r: 32, color: '#0066ff', caps: ['CUDA inference', 'camera', 'PLATO room'], status: 'active' },
+  { id: 'desktop-1', label: 'Desktop', sub: 'orchestrator', x: 0, y: 0, r: 38, color: '#aa66ff', caps: ['fleet coordinator', 'sense fusion', 'FLUX engine'], status: 'active' },
+  { id: 'cloud-1', label: 'Cloud', sub: 'heavy inference', x: 0, y: 0, r: 30, color: '#00ccff', caps: ['A100 inference', 'training', 'spectral analysis'], status: 'active' },
+  { id: 'esp32-2', label: 'ESP32', sub: 'motion sensor', x: 0, y: 0, r: 22, color: '#00ff88', caps: ['PIR motion', 'BLE', 'edge detect'], status: 'joining' },
+];
+
+let fleetEdges = [];
+let fleetDiscovered = 0;
+let fleetAnimFrame = 0;
+let selectedFleetNode = null;
+
+function initFleetPositions() {
+  const w = fleetCanvas.width;
+  const h = fleetCanvas.height;
+  const cx = w / 2;
+  const cy = h / 2;
+  const positions = [
+    { x: cx - 150, y: cy + 60 },
+    { x: cx - 50, y: cy - 80 },
+    { x: cx, y: cy + 20 },
+    { x: cx + 130, y: cy - 40 },
+    { x: cx + 60, y: cy + 100 },
+  ];
+  fleetNodes.forEach((n, i) => {
+    n.x = positions[i].x;
+    n.y = positions[i].y;
+    n.targetX = n.x;
+    n.targetY = n.y;
+    n.visible = false;
+  });
+  fleetEdges = [];
+  fleetDiscovered = 0;
+  selectedFleetNode = null;
+  fleetInfo.classList.remove('visible');
+}
+
+function resizeFleetCanvas() {
+  const wrap = fleetCanvas.parentElement;
+  fleetCanvas.width = wrap.clientWidth;
+  fleetCanvas.height = wrap.clientHeight;
+  initFleetPositions();
+}
+
+function discoverNext() {
+  if (fleetDiscovered >= fleetNodes.length) {
+    // Add edges between undiscovered pairs
+    for (let i = 0; i < fleetNodes.length; i++) {
+      for (let j = i + 1; j < fleetNodes.length; j++) {
+        if (Math.random() < 0.4 && !fleetEdges.find(e => (e.a === i && e.b === j) || (e.a === j && e.b === i))) {
+          fleetEdges.push({ a: i, b: j, progress: 0 });
+        }
+      }
+    }
+    return;
+  }
+  fleetNodes[fleetDiscovered].visible = true;
+  // Add edges to already-visible nodes
+  for (let i = 0; i < fleetDiscovered; i++) {
+    if (fleetNodes[i].visible && Math.random() < 0.7) {
+      fleetEdges.push({ a: i, b: fleetDiscovered, progress: 0 });
+    }
+  }
+  fleetDiscovered++;
+}
+
+let discoverTimer = null;
+function startDiscovery() {
+  discoverTimer = setInterval(() => {
+    if (fleetDiscovered < fleetNodes.length) discoverNext();
+    else clearInterval(discoverTimer);
+  }, 1200);
+  discoverNext(); // First one immediately
+}
+
+function drawFleet() {
+  const w = fleetCanvas.width;
+  const h = fleetCanvas.height;
+  fctx.clearRect(0, 0, w, h);
+  
+  // Draw edges
+  fleetEdges.forEach(e => {
+    if (e.progress < 1) e.progress = Math.min(1, e.progress + 0.03);
+    const a = fleetNodes[e.a];
+    const b = fleetNodes[e.b];
+    if (!a.visible || !b.visible) return;
+    const ex = a.x + (b.x - a.x) * e.progress;
+    const ey = a.y + (b.y - a.y) * e.progress;
+    fctx.beginPath();
+    fctx.moveTo(a.x, a.y);
+    fctx.lineTo(ex, ey);
+    fctx.strokeStyle = 'rgba(0,255,136,0.15)';
+    fctx.lineWidth = 1.5;
+    fctx.stroke();
+    
+    // Data packet animation
+    if (e.progress >= 1) {
+      const t = (fleetAnimFrame * 0.01 + e.a * 0.3) % 1;
+      const px = a.x + (b.x - a.x) * t;
+      const py = a.y + (b.y - a.y) * t;
+      fctx.beginPath();
+      fctx.arc(px, py, 2, 0, Math.PI * 2);
+      fctx.fillStyle = 'rgba(0,255,136,0.6)';
+      fctx.fill();
+    }
+  });
+  
+  // Draw nodes
+  fleetNodes.forEach((n, i) => {
+    if (!n.visible) return;
+    
+    const isSelected = selectedFleetNode === i;
+    const pulse = 0.5 + 0.5 * Math.sin(fleetAnimFrame * 0.05 + i);
+    
+    // Glow
+    if (isSelected) {
+      fctx.beginPath();
+      fctx.arc(n.x, n.y, n.r + 12, 0, Math.PI * 2);
+      fctx.fillStyle = n.color.replace(')', ',0.1)').replace('rgb', 'rgba').replace('#', '');
+      // Simpler glow
+      fctx.shadowColor = n.color;
+      fctx.shadowBlur = 20;
+      fctx.fill();
+      fctx.shadowBlur = 0;
+    }
+    
+    // Node circle
+    fctx.beginPath();
+    fctx.arc(n.x, n.y, n.r + (isSelected ? 3 : 0), 0, Math.PI * 2);
+    fctx.fillStyle = isSelected ? n.color : 'rgba(20,20,20,0.9)';
+    fctx.fill();
+    fctx.strokeStyle = n.color;
+    fctx.lineWidth = isSelected ? 2.5 : 1.5;
+    fctx.stroke();
+    
+    // Pulsing ring for joining nodes
+    if (n.status === 'joining') {
+      fctx.beginPath();
+      fctx.arc(n.x, n.y, n.r + 5 + pulse * 5, 0, Math.PI * 2);
+      fctx.strokeStyle = n.color.replace(')', `,${0.2 + pulse * 0.2})`);
+      if (n.color.startsWith('#')) {
+        const r = parseInt(n.color.slice(1,3),16);
+        const g = parseInt(n.color.slice(3,5),16);
+        const b = parseInt(n.color.slice(5,7),16);
+        fctx.strokeStyle = `rgba(${r},${g},${b},${0.2 + pulse * 0.2})`;
+      }
+      fctx.lineWidth = 1;
+      fctx.stroke();
+    }
+    
+    // Label
+    fctx.font = `bold ${n.r > 25 ? 11 : 9}px ${getComputedStyle(document.body).getPropertyValue('--mono').trim() || 'monospace'}`;
+    fctx.textAlign = 'center';
+    fctx.textBaseline = 'middle';
+    fctx.fillStyle = isSelected ? '#0a0a0a' : n.color;
+    fctx.fillText(n.label, n.x, n.y - 4);
+    fctx.font = `${n.r > 25 ? 8 : 7}px sans-serif`;
+    fctx.fillStyle = isSelected ? 'rgba(10,10,10,0.7)' : 'rgba(255,255,255,0.4)';
+    fctx.fillText(n.sub, n.x, n.y + 9);
+  });
+  
+  fleetAnimFrame++;
+  requestAnimationFrame(drawFleet);
+}
+
+fleetCanvas.addEventListener('click', (e) => {
+  const rect = fleetCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (fleetCanvas.width / rect.width);
+  const my = (e.clientY - rect.top) * (fleetCanvas.height / rect.height);
+  
+  let found = -1;
+  fleetNodes.forEach((n, i) => {
+    if (!n.visible) return;
+    const dx = mx - n.x;
+    const dy = my - n.y;
+    if (Math.sqrt(dx*dx + dy*dy) < n.r + 5) found = i;
+  });
+  
+  if (found >= 0) {
+    selectedFleetNode = found;
+    const n = fleetNodes[found];
+    document.getElementById('fiName').textContent = `${n.label} (${n.id})`;
+    document.getElementById('fiCaps').innerHTML = n.caps.map(c => `<div class="fi-cap">• <span>${c}</span></div>`).join('') +
+      `<div class="fi-cap" style="margin-top:0.5rem;">Status: <span style="color:${n.status === 'active' ? '#00ff88' : '#ffaa00'}">${n.status}</span></div>`;
+    fleetInfo.classList.add('visible');
+  } else {
+    selectedFleetNode = null;
+    fleetInfo.classList.remove('visible');
+  }
+});
+
+function resetFleet() {
+  if (discoverTimer) clearInterval(discoverTimer);
+  resizeFleetCanvas();
+  setTimeout(startDiscovery, 500);
+}
+
+resizeFleetCanvas();
+startDiscovery();
+drawFleet();
+window.addEventListener('resize', () => { resizeFleetCanvas(); if (discoverTimer) clearInterval(discoverTimer); startDiscovery(); });
+
+// ============================================================
+// 3. ONBOARDING WIZARD
+// ============================================================
+let wizardStep = 1;
+const modules = [
+  { name: 'Vision', icon: '👁️' }, { name: 'Sonar', icon: '🔊' },
+  { name: 'Touch', icon: '✋' }, { name: 'Temperature', icon: '🌡️' },
+  { name: 'LIDAR', icon: '📡' }, { name: 'Accelerometer', icon: '📐' },
+  { name: 'Magnetometer', icon: '🧲' }, { name: 'Voice', icon: '🎤' },
+];
+const interfaces = [
+  { name: 'Terminal', icon: '💻', desc: 'CLI with monospace output' },
+  { name: 'Dashboard', icon: '📊', desc: 'Visual cards and graphs' },
+  { name: 'MUD', icon: '🎮', desc: 'Text adventure interface' },
+  { name: '3D Scene', icon: '🌐', desc: 'Three.js rendered view' },
+];
+let selectedModules = new Set();
+let selectedInterface = '';
+
+function wizardNext(step) {
+  wizardStep = step;
+  for (let i = 1; i <= 5; i++) {
+    const panel = document.getElementById('wPanel' + i);
+    const sBar = document.getElementById('wStep' + i);
+    panel.classList.toggle('active', i === step);
+    sBar.classList.toggle('active', i === step);
+    sBar.classList.toggle('done', i < step);
+  }
+  if (step === 2) buildModuleGrid();
+  if (step === 3) buildInterfaceGrid();
+  if (step === 4) buildFleetPreview();
+  if (step === 5) buildYaml();
+  updateWizardPreview();
+}
+
+function updateWizardPreview() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const p1 = document.getElementById('wizPreview1');
+  p1.innerHTML = `
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+      <div style="width:60px;height:60px;border-radius:12px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid var(--accent);">
+        🤖
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--accent);">${name}</div>
+        <div style="font-size:0.8rem;color:var(--text-dim);">Status: <span style="color:#ffaa00;">configuring...</span></div>
+      </div>
+    </div>
+  `;
+}
+
+function buildModuleGrid() {
+  const grid = document.getElementById('moduleGrid');
+  grid.innerHTML = '';
+  modules.forEach(m => {
+    const chip = document.createElement('div');
+    chip.className = 'module-chip' + (selectedModules.has(m.name) ? ' selected' : '');
+    chip.textContent = m.icon + ' ' + m.name;
+    chip.onclick = () => {
+      if (selectedModules.has(m.name)) selectedModules.delete(m.name);
+      else selectedModules.add(m.name);
+      buildModuleGrid();
+      updateModulePreview();
+    };
+    grid.appendChild(chip);
+  });
+  updateModulePreview();
+}
+
+function updateModulePreview() {
+  const p2 = document.getElementById('wizPreview2');
+  if (selectedModules.size === 0) {
+    p2.innerHTML = '<div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Select modules to connect them...</div>';
+    return;
+  }
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  let html = `<div style="font-family:var(--mono);font-size:0.85rem;">
+    <div style="color:var(--accent);font-weight:700;margin-bottom:0.75rem;">${name}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">`;
+  selectedModules.forEach(m => {
+    const mod = modules.find(x => x.name === m);
+    html += `<div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:6px;padding:0.3rem 0.6rem;font-size:0.75rem;">${mod.icon} ${m}</div>`;
+  });
+  html += '</div></div>';
+  p2.innerHTML = html;
+}
+
+function buildInterfaceGrid() {
+  const grid = document.getElementById('interfaceGrid');
+  grid.innerHTML = '';
+  interfaces.forEach(iface => {
+    const chip = document.createElement('div');
+    chip.className = 'module-chip' + (selectedInterface === iface.name ? ' selected' : '');
+    chip.innerHTML = `${iface.icon} <strong>${iface.name}</strong><br><span style="font-size:0.7rem;color:var(--text-dim)">${iface.desc}</span>`;
+    chip.onclick = () => {
+      selectedInterface = selectedInterface === iface.name ? '' : iface.name;
+      buildInterfaceGrid();
+      updateInterfacePreview();
+    };
+    grid.appendChild(chip);
+  });
+  updateInterfacePreview();
+}
+
+function updateInterfacePreview() {
+  const p3 = document.getElementById('wizPreview3');
+  if (!selectedInterface) {
+    p3.innerHTML = '<div style="color:var(--text-dimmer);font-family:var(--mono);font-size:0.8rem;">Choose an interface style...</div>';
+    return;
+  }
+  const iface = interfaces.find(x => x.name === selectedInterface);
+  p3.innerHTML = `
+    <div style="text-align:center;padding:1rem;">
+      <div style="font-size:2.5rem;margin-bottom:0.5rem;">${iface.icon}</div>
+      <div style="font-family:var(--mono);font-size:1rem;color:var(--accent);">${iface.name} Interface</div>
+      <div style="font-size:0.8rem;color:var(--text-dim);margin-top:0.3rem;">${iface.desc}</div>
+      <div style="margin-top:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:0.7rem;text-align:left;color:var(--text-dim);">
+        <div style="color:var(--accent);">~ ${selectedInterface.toLowerCase()}</div>
+        <div>Agent data rendered as ${iface.name.toLowerCase()} panels</div>
+        <div>Sense modules: ${[...selectedModules].join(', ') || 'none'}</div>
+      </div>
+    </div>`;
+}
+
+function buildFleetPreview() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const p4 = document.getElementById('wizPreview4');
+  const existingFleet = ['esp32-temp-01', 'jetson-vision-01', 'desktop-orchestrator', 'cloud-inference'];
+  p4.innerHTML = `
+    <div style="font-family:var(--mono);font-size:0.8rem;">
+      <div style="color:var(--accent);font-weight:700;margin-bottom:1rem;">Fleet Mesh Topology</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;justify-content:center;">
+        ${existingFleet.map(n => `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.8rem;font-size:0.7rem;color:var(--text-dim);">${n}</div>`).join('<span style="color:var(--accent);">↔</span>')}
+        <span style="color:var(--accent);">↔</span>
+        <div style="background:var(--accent-dim);border:2px solid var(--accent);border-radius:8px;padding:0.5rem 0.8rem;font-size:0.7rem;color:var(--accent);font-weight:700;">${name} (NEW)</div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;color:var(--green);font-size:0.75rem;">✓ ${selectedModules.size} sense modules active · ${selectedInterface || 'no interface'}</div>
+    </div>`;
+}
+
+function buildYaml() {
+  const name = document.getElementById('agentName').value || 'unnamed-agent';
+  const mods = [...selectedModules].map(m => m.toLowerCase()).join('\n    - ');
+  const out = document.getElementById('yamlOutput');
+  out.innerHTML = `<span class="y-key">agent</span>:
+  <span class="y-key">name</span>: <span class="y-str">"${name}"</span>
+  <span class="y-key">senses</span>:
+${selectedModules.size > 0 ? [...selectedModules].map(m => `    <span class="y-key">-</span> <span class="y-str">${m.toLowerCase()}</span>`).join('\n') : '    <span class="y-comment"># No modules selected</span>'}
+  <span class="y-key">interface</span>: <span class="y-str">"${selectedInterface ? selectedInterface.toLowerCase() : 'terminal'}"</span>
+  <span class="y-key">fleet</span>:
+    <span class="y-key">join</span>: <span class="y-val">true</span>
+    <span class="y-key">discover</span>: <span class="y-val">true</span>
+    <span class="y-key">mesh</span>: <span class="y-str">"auto"</span>
+  <span class="y-key">plato</span>:
+    <span class="y-key">room</span>: <span class="y-val">true</span>
+    <span class="y-key">walls</span>: <span class="y-str">"transparent"</span>
+    <span class="y-key">forward_simulation</span>: <span class="y-val">true</span>`;
+}
+
+function copyYaml() {
+  const text = document.getElementById('yamlOutput').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Config', 2000);
+  });
+}
+
+// ============================================================
+// 4. SPECTRAL THEOREMS (interactive)
+// ============================================================
+const theorems = [
+  { name: 'T1 — Dirichlet Energy', desc: 'Exact, sharp decomposition of conservation energy into eigenvalue-weighted spectral components.', math: '𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²' },
+  { name: 'T2 — Signal Concentration', desc: 'The Fiedler vector concentrates conservation signal. Bound on detection quality.', math: '|⟨f, φ₂⟩|² / ||f||² ≥ 1/(1 + (κ-1)(1-ρ₂))' },
+  { name: 'T3 — SNR Amplification ★', desc: 'Explains the 112× result. Signal-to-noise amplifies through eigenvalue projection.', math: 'SNR_amplification ≥ n · ρ₂ = 144 × 0.78 ≈ 112' },
+  { name: 'T4 — Cheeger-Conservation', desc: 'Two-sided bound connecting graph geometry to conservation quality.', math: 'λ₂/2 ≤ h(G) ≤ √(2λ₂)' },
+  { name: 'T5 — Multi-Scale Cascade', desc: 'Conservation degrades predictably across scales. Sharp bound on information loss.', math: 'C(s) ≥ C(s+1) · (1 - ε_s)' },
+];
+
+const theoremGrid = document.getElementById('theoremGrid');
+theorems.forEach((t, i) => {
+  const card = document.createElement('div');
+  card.className = 't-card';
+  card.innerHTML = `
+    <div class="t-card-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <span class="t-name">${t.name}</span>
+      <span class="t-toggle">▼</span>
+    </div>
+    <div class="t-card-body">
+      <div class="t-desc">${t.desc}</div>
+      <div class="t-math">${t.math}</div>
+    </div>`;
+  theoremGrid.appendChild(card);
+});
+
+// Spectral canvas (eigenvalue pulses)
+const specCanvas = document.getElementById('spectral-canvas');
+const sctx = specCanvas.getContext('2d');
+function resizeSpecCanvas() {
+  specCanvas.width = specCanvas.parentElement.clientWidth;
+  specCanvas.height = 120;
+}
+resizeSpecCanvas();
+window.addEventListener('resize', resizeSpecCanvas);
+
+let specFrame = 0;
+function drawSpectral() {
+  const w = specCanvas.width;
+  const h = specCanvas.height;
+  sctx.clearRect(0, 0, w, h);
+  
+  const n = 12;
+  const barW = w / n - 4;
+  
+  for (let i = 0; i < n; i++) {
+    const eigenval = 1 / (i + 1);
+    const pulse = 0.5 + 0.5 * Math.sin(specFrame * 0.03 + i * 0.8);
+    const barH = eigenval * (h - 20) * (0.7 + pulse * 0.3);
+    const x = i * (barW + 4) + 2;
+    const y = h - barH - 5;
+    
+    const grad = sctx.createLinearGradient(x, y, x, h - 5);
+    grad.addColorStop(0, `rgba(0,255,136,${0.3 + pulse * 0.4})`);
+    grad.addColorStop(1, 'rgba(0,102,255,0.1)');
+    sctx.fillStyle = grad;
+    sctx.fillRect(x, y, barW, barH);
+    
+    sctx.fillStyle = 'rgba(255,255,255,0.3)';
+    sctx.font = '9px monospace';
+    sctx.textAlign = 'center';
+    sctx.fillText(`λ${i+1}`, x + barW/2, h - 1);
+  }
+  
+  specFrame++;
+  requestAnimationFrame(drawSpectral);
+}
+drawSpectral();
+
+// Animate stats on scroll
+const spectralObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.spectral-stat .num').forEach(el => el.classList.add('visible'));
+    }
+  });
+}, { threshold: 0.3 });
+spectralObserver.observe(document.getElementById('spectral'));
+
+// ============================================================
+// 5. MUD → POINT-AND-CLICK DEMO
+// ============================================================
+const mudRooms = {
+  'start': {
+    desc: 'You are in a dim stone chamber. Faint light filters through cracks in the ceiling. Water drips somewhere in the darkness.',
+    exits: { north: 'corridor', east: 'alcove' },
+    items: { crystal_ball: { desc: 'A swirling crystal ball, pulsing with inner light.', x: 0.65, y: 0.35, icon: '🔮' }, key: { desc: 'A rusty iron key, warm to the touch.', x: 0.3, y: 0.65, icon: '🗝️' } },
+    features: { ceiling_cracks: 'Light filters through ancient stonework.', water_drip: 'Stalactites hang overhead.' },
+    floor_color: '#1a1510',
+    wall_color: '#2a2015',
+  },
+  'corridor': {
+    desc: 'A narrow corridor stretches before you. Glowing runes line the walls, casting eerie green light.',
+    exits: { south: 'start', north: 'vault' },
+    items: { torch: { desc: 'A burning torch fixed to the wall.', x: 0.2, y: 0.4, icon: '🔥' }, scroll: { desc: 'An ancient scroll with spectral diagrams.', x: 0.75, y: 0.6, icon: '📜' } },
+    features: { glowing_runes: 'The runes pulse with eigenvalue patterns.' },
+    floor_color: '#101a15',
+    wall_color: '#152a1a',
+  },
+  'alcove': {
+    desc: 'A small alcove off the main chamber. A stone pedestal holds something glinting.',
+    exits: { west: 'start' },
+    items: { amulet: { desc: 'A conservation amulet, radiating warmth.', x: 0.5, y: 0.45, icon: '📿' } },
+    features: { pedestal: 'Ancient stone, carved with spectral equations.' },
+    floor_color: '#151020',
+    wall_color: '#1a1530',
+  },
+  'vault': {
+    desc: 'The vault! A massive door stands before you, covered in spectral locks. The conservation amulet glows in your pack...',
+    exits: { south: 'corridor' },
+    items: { spectral_lock: { desc: 'A lock that responds to eigenvalue patterns.', x: 0.5, y: 0.3, icon: '🔒' } },
+    features: { massive_door: 'Engraved with the equation: 𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²' },
+    floor_color: '#1a1015',
+    wall_color: '#2a1520',
+  },
+};
+
+let mudState = { room: 'start', inventory: [], log: [] };
+const mudOutput = document.getElementById('mudOutput');
+const mudInputEl = document.getElementById('mudInput');
+const mudCanvas = document.getElementById('mudCanvas');
+const mctx = mudCanvas.getContext('2d');
+
+function mudPrint(text) {
+  mudState.log.push(text);
+  if (mudState.log.length > 50) mudState.log.shift();
+  mudOutput.textContent = mudState.log.join('\n');
+  mudOutput.scrollTop = mudOutput.scrollHeight;
+}
+
+function lookRoom() {
+  const room = mudRooms[mudState.room];
+  mudPrint(`\n> look`);
+  mudPrint(room.desc);
+  const exitNames = Object.keys(room.exits).join(', ');
+  mudPrint(`Exits: ${exitNames}`);
+  const itemNames = Object.keys(room.items).join(', ');
+  if (itemNames) mudPrint(`Items: ${itemNames}`);
+  drawMudScene();
+}
+
+function mudCommand(cmd) {
+  if (!cmd) cmd = mudInputEl.value.trim().toLowerCase();
+  if (!cmd) return;
+  mudInputEl.value = '';
+  
+  const parts = cmd.split(' ');
+  const verb = parts[0];
+  const arg = parts.slice(1).join(' ');
+  
+  const room = mudRooms[mudState.room];
+  
+  if (verb === 'look' || verb === 'l') {
+    lookRoom();
+  } else if (verb === 'go' || verb === 'move' || verb === 'walk') {
+    if (room.exits[arg]) {
+      mudState.room = room.exits[arg];
+      mudPrint(`\n> go ${arg}`);
+      lookRoom();
+    } else {
+      mudPrint(`You can't go ${arg}. Exits: ${Object.keys(room.exits).join(', ')}`);
+    }
+  } else if (verb === 'n' || verb === 'north') { mudCommand('go north'); return; }
+  else if (verb === 's' || verb === 'south') { mudCommand('go south'); return; }
+  else if (verb === 'e' || verb === 'east') { mudCommand('go east'); return; }
+  else if (verb === 'w' || verb === 'west') { mudCommand('go west'); return; }
+  else if (verb === 'take' || verb === 'get' || verb === 'pick') {
+    if (room.items[arg]) {
+      mudState.inventory.push(arg);
+      mudPrint(`\n> take ${arg}`);
+      mudPrint(`Taken: ${room.items[arg].desc}`);
+      delete room.items[arg];
+      drawMudScene();
+    } else {
+      mudPrint(`There is no ${arg} here.`);
+    }
+  } else if (verb === 'inventory' || verb === 'i' || verb === 'inv') {
+    mudPrint(`\n> inventory`);
+    mudPrint(mudState.inventory.length > 0 ? mudState.inventory.join(', ') : 'Nothing.');
+  } else if (verb === 'examine' || verb === 'x') {
+    if (room.items[arg]) {
+      mudPrint(`\n> examine ${arg}`);
+      mudPrint(room.items[arg].desc);
+    } else if (room.features[arg]) {
+      mudPrint(`\n> examine ${arg}`);
+      mudPrint(room.features[arg]);
+    } else {
+      mudPrint(`You don't see ${arg} here.`);
+    }
+  } else if (verb === 'help' || verb === '?') {
+    mudPrint('Commands: look, go [direction], take [item], examine [thing], inventory, help');
+    mudPrint('Directions: n/north, s/south, e/east, w/west');
+    mudPrint('You can also click items in the scene →');
+  } else {
+    mudPrint(`Unknown command: "${cmd}". Type "help" for commands.`);
+  }
+}
+
+function resizeMudCanvas() {
+  const wrap = mudCanvas.parentElement;
+  mudCanvas.width = wrap.clientWidth;
+  mudCanvas.height = wrap.clientHeight;
+  drawMudScene();
+}
+
+function drawMudScene() {
+  const w = mudCanvas.width;
+  const h = mudCanvas.height;
+  if (w === 0 || h === 0) return;
+  const room = mudRooms[mudState.room];
+  
+  // Background
+  mctx.fillStyle = room.floor_color;
+  mctx.fillRect(0, 0, w, h);
+  
+  // Walls
+  mctx.fillStyle = room.wall_color;
+  mctx.beginPath();
+  mctx.moveTo(0, 0); mctx.lineTo(w, 0);
+  mctx.lineTo(w * 0.85, h * 0.2);
+  mctx.lineTo(w * 0.15, h * 0.2);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Left wall
+  mctx.beginPath();
+  mctx.moveTo(0, 0); mctx.lineTo(w * 0.15, h * 0.2);
+  mctx.lineTo(w * 0.15, h * 0.85); mctx.lineTo(0, h);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Right wall
+  mctx.beginPath();
+  mctx.moveTo(w, 0); mctx.lineTo(w * 0.85, h * 0.2);
+  mctx.lineTo(w * 0.85, h * 0.85); mctx.lineTo(w, h);
+  mctx.closePath();
+  mctx.fill();
+  
+  // Exit indicators
+  const exitLabels = { north: '▲', south: '▼', east: '▶', west: '◀' };
+  const exitPositions = {
+    north: { x: w * 0.5, y: h * 0.1 },
+    south: { x: w * 0.5, y: h * 0.9 },
+    east: { x: w * 0.9, y: h * 0.5 },
+    west: { x: w * 0.1, y: h * 0.5 },
+  };
+  Object.keys(room.exits).forEach(dir => {
+    const pos = exitPositions[dir];
+    if (!pos) return;
+    mctx.fillStyle = 'rgba(0,255,136,0.3)';
+    mctx.font = '20px sans-serif';
+    mctx.textAlign = 'center';
+    mctx.textBaseline = 'middle';
+    mctx.fillText(exitLabels[dir], pos.x, pos.y);
+    mctx.font = '9px monospace';
+    mctx.fillStyle = 'rgba(0,255,136,0.5)';
+    mctx.fillText(dir, pos.x, pos.y + 16);
+  });
+  
+  // Items
+  Object.entries(room.items).forEach(([name, item]) => {
+    const ix = item.x * w;
+    const iy = item.y * h;
+    // Glow
+    const grd = mctx.createRadialGradient(ix, iy, 0, ix, iy, 25);
+    grd.addColorStop(0, 'rgba(0,255,136,0.15)');
+    grd.addColorStop(1, 'rgba(0,255,136,0)');
+    mctx.fillStyle = grd;
+    mctx.fillRect(ix - 25, iy - 25, 50, 50);
+    // Icon
+    mctx.font = '24px sans-serif';
+    mctx.textAlign = 'center';
+    mctx.textBaseline = 'middle';
+    mctx.fillText(item.icon, ix, iy);
+    // Label
+    mctx.font = '9px monospace';
+    mctx.fillStyle = 'rgba(255,255,255,0.6)';
+    mctx.fillText(name.replace(/_/g, ' '), ix, iy + 20);
+  });
+  
+  // Room label
+  mctx.font = '11px monospace';
+  mctx.fillStyle = 'rgba(255,255,255,0.3)';
+  mctx.textAlign = 'left';
+  mctx.fillText(mudState.room.replace(/_/g, ' ').toUpperCase(), 10, h - 10);
+}
+
+// Click handler for MUD canvas
+mudCanvas.addEventListener('click', (e) => {
+  const rect = mudCanvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (mudCanvas.width / rect.width);
+  const my = (e.clientY - rect.top) * (mudCanvas.height / rect.height);
+  const room = mudRooms[mudState.room];
+  
+  // Check items
+  for (const [name, item] of Object.entries(room.items)) {
+    const ix = item.x * mudCanvas.width;
+    const iy = item.y * mudCanvas.height;
+    if (Math.abs(mx - ix) < 20 && Math.abs(my - iy) < 20) {
+      mudCommand('take ' + name);
+      return;
+    }
+  }
+  
+  // Check exits
+  const exitPositions = {
+    north: { x: 0.5, y: 0.1 }, south: { x: 0.5, y: 0.9 },
+    east: { x: 0.9, y: 0.5 }, west: { x: 0.1, y: 0.5 },
+  };
+  for (const [dir, pos] of Object.entries(exitPositions)) {
+    if (!room.exits[dir]) continue;
+    const ex = pos.x * mudCanvas.width;
+    const ey = pos.y * mudCanvas.height;
+    if (Math.abs(mx - ex) < 30 && Math.abs(my - ey) < 30) {
+      mudCommand('go ' + dir);
+      return;
+    }
+  }
+});
+
+mudInputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') mudCommand(); });
+
+// Initialize MUD
+function initMud() {
+  resizeMudCanvas();
+  mudPrint('Welcome to the PLATO Cave MUD.');
+  mudPrint('Type "help" for commands, or click items/exits in the scene. →');
+  lookRoom();
+}
+initMud();
+window.addEventListener('resize', resizeMudCanvas);
+
+// ============================================================
+// 7. ECOSYSTEM MAP
+// ============================================================
+const ecoData = {
+  'Plato Senses': {
+    items: [
+      { icon: '👁️', name: 'Vision', desc: 'Object detection & tracking', repo: 'OpenConstruct' },
+      { icon: '🔊', name: 'Sonar', desc: 'Distance & bearing sensing', repo: 'OpenConstruct' },
+      { icon: '✋', name: 'Touch', desc: 'Pressure & surface sensing', repo: 'OpenConstruct' },
+      { icon: '🌡️', name: 'Temperature', desc: 'Thermal monitoring', repo: 'OpenConstruct' },
+      { icon: '📡', name: 'LIDAR', desc: '3D point cloud sensing', repo: 'OpenConstruct' },
+      { icon: '📐', name: 'Accel/Mag', desc: 'Motion & field sensing', repo: 'OpenConstruct' },
+    ]
+  },
+  'Fleet': {
+    items: [
+      { icon: '🌐', name: 'Mesh Networking', desc: 'Auto-discovery & routing', repo: 'OpenConstruct' },
+      { icon: '🔗', name: 'Fleet Protocol', desc: 'Inter-agent communication', repo: 'fleet-protocol' },
+      { icon: '📊', name: 'Topology Map', desc: 'Real-time fleet visualization', repo: 'fleet-visualizer' },
+      { icon: '⚡', name: 'FLUX Engine', desc: 'Agentic flow state', repo: 'OpenConstruct' },
+    ]
+  },
+  'Constraint Theory': {
+    items: [
+      { icon: '📐', name: 'Conservation Spectral', desc: 'T1-T5 theorem suite', repo: 'conservation-spectral-python' },
+      { icon: '🎵', name: 'Music Analysis', desc: 'Spectral music theory', repo: 'conservation-music' },
+      { icon: '🔬', name: 'Anomaly Detection', desc: '0.92 AUC spectral anomaly', repo: 'conservation-anomaly' },
+      { icon: '🧮', name: '20+ Language SDK', desc: 'Cross-language conformance', repo: 'conservation-spectral-rs' },
+    ]
+  },
+  'Architecture': {
+    items: [
+      { icon: '🏠', name: 'PLATO Rooms', desc: 'Agent habitat rooms', repo: 'OpenConstruct' },
+      { icon: '🗣️', name: 'Agent Language', desc: 'Laplacian-native A2A', repo: 'OpenConstruct' },
+      { icon: '🎮', name: 'MUD Interface', desc: 'Text → visual rendering', repo: 'OpenConstruct' },
+      { icon: '🖥️', name: 'Dashboard', desc: 'Real-time agent panels', repo: 'OpenConstruct' },
+    ]
+  }
+};
+
+let activeEcoCategory = '';
+const ecoCatEl = document.getElementById('ecoCategories');
+const ecoItemsEl = document.getElementById('ecoItems');
+
+Object.keys(ecoData).forEach(cat => {
+  const btn = document.createElement('div');
+  btn.className = 'eco-cat';
+  btn.textContent = cat;
+  btn.onclick = () => {
+    if (activeEcoCategory === cat) {
+      activeEcoCategory = '';
+      ecoItemsEl.innerHTML = '';
+    } else {
+      activeEcoCategory = cat;
+    }
+    document.querySelectorAll('.eco-cat').forEach(b => b.classList.toggle('active', b.textContent === activeEcoCategory));
+    if (activeEcoCategory) renderEcoItems(cat);
+  };
+  ecoCatEl.appendChild(btn);
+});
+
+function renderEcoItems(cat) {
+  ecoItemsEl.innerHTML = '';
+  ecoData[cat].items.forEach(item => {
+    const el = document.createElement('a');
+    el.className = 'eco-item';
+    el.href = `https://github.com/SuperInstance/${item.repo}`;
+    el.target = '_blank';
+    el.innerHTML = `
+      <div class="eco-icon">${item.icon}</div>
+      <div class="eco-info">
+        <div class="eco-name">${item.name}</div>
+        <div class="eco-desc">${item.desc}</div>
+      </div>`;
+    ecoItemsEl.appendChild(el);
+  });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Show first eco category
+document.querySelector('.eco-cat').click();
 </script>
 </body>
 </html>
