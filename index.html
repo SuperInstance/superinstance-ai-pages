@@ -195,6 +195,30 @@ section .sub{color:var(--text-dim);font-size:1.05rem;max-width:600px;margin-bott
 .code-content .num{color:var(--amber);}
 .code-content .copy-btn{position:absolute;top:0.75rem;right:0.75rem;}
 
+/* === NERVOUS SYSTEM SECTION === */
+.signal-chain{display:flex;align-items:center;gap:0.5rem;margin:1.5rem 0;flex-wrap:nowrap;overflow-x:auto;padding:0.5rem 0;}
+.signal-chain .l{flex:1;min-width:70px;text-align:center;padding:0.75rem 0.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:all 0.3s;}
+.signal-chain .l:hover{border-color:var(--accent);transform:translateY(-2px);}
+.signal-chain .l .l-name{font-family:var(--mono);font-size:0.8rem;font-weight:700;}
+.signal-chain .l .l-desc{font-size:0.65rem;color:var(--text-dim);margin-top:0.2rem;}
+.signal-chain .l .l-pct{font-size:1.4rem;font-weight:800;font-family:var(--mono);margin:0.3rem 0;}
+.signal-chain .l .l-bar{height:4px;background:var(--surface3);border-radius:2px;overflow:hidden;margin-top:0.3rem;}
+.signal-chain .l .l-bar-fill{height:100%;border-radius:2px;transition:width 0.5s;}
+.signal-chain .arrow{color:var(--text-dimmer);font-size:1.2rem;flex-shrink:0;}
+
+.nervous-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin:1.5rem 0;}
+.nervous-stats .n-stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.nervous-stats .n-stat .n-num{font-size:1.6rem;font-weight:800;font-family:var(--mono);color:var(--accent);}
+.nervous-stats .n-stat .n-lbl{font-size:0.75rem;color:var(--text-dim);margin-top:0.3rem;}
+.nervous-stats .n-stat .n-bar{height:3px;background:var(--surface3);border-radius:2px;margin-top:0.5rem;overflow:hidden;}
+.nervous-stats .n-stat .n-bar-fill{height:100%;border-radius:2px;}
+
+@media(max-width:600px){
+  .signal-chain{flex-wrap:wrap;justify-content:center;}
+  .signal-chain .arrow{transform:rotate(90deg);}
+  .nervous-stats{grid-template-columns:repeat(2,1fr);}
+}
+
 /* === 7. ECOSYSTEM MAP === */
 .eco-categories{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;}
 .eco-cat{padding:0.5rem 1.2rem;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;background:var(--surface);}
@@ -609,6 +633,7 @@ canvas{display:block}
     <a href="#spectral">Spectral</a>
     <a href="#mud">MUD Demo</a>
     <a href="#code">Code</a>
+    <a href="#nervous">Nervous System</a>
     <a href="#ecosystem">Ecosystem</a>
     <a href="#hardware">Hardware</a>
   </div>
@@ -1247,6 +1272,82 @@ agent.<span class="fn">onSense</span>(<span class="st">"sonar"</span>, (reading)
 
 <span class="kw">await</span> agent.<span class="fn">run</span>(); <span class="cm">// Blocking loop</span></pre>
     </div>
+  </div>
+</section>
+
+<!-- ==================== NERVOUS SYSTEM ==================== -->
+<section id="nervous">
+  <h2><span class="acc">🧠</span> The Nervous System</h2>
+  <p class="sub">Every PLATO room distills its intelligence through a five-layer signal chain — from raw cloud LLM calls down to tiny local models that handle 99.6% of decisions without ever reaching the network.</p>
+
+  <div class="signal-chain">
+    <div class="l">
+      <div class="l-name" style="color:var(--accent)">L0</div>
+      <div class="l-desc">Deadband</div>
+      <div class="l-pct" style="color:var(--accent)">76%</div>
+      <div class="l-bar"><div class="l-bar-fill" style="width:76%;background:var(--accent)"></div></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="l">
+      <div class="l-name" style="color:var(--cyan)">L1</div>
+      <div class="l-desc">Nano Model</div>
+      <div class="l-pct" style="color:var(--cyan)">14%</div>
+      <div class="l-bar"><div class="l-bar-fill" style="width:14%;background:var(--cyan)"></div></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="l">
+      <div class="l-name" style="color:var(--amber)">L2</div>
+      <div class="l-desc">Room LoRA</div>
+      <div class="l-pct" style="color:var(--amber)">8%</div>
+      <div class="l-bar"><div class="l-bar-fill" style="width:8%;background:var(--amber)"></div></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="l">
+      <div class="l-name" style="color:var(--red)">L3</div>
+      <div class="l-desc">Small Model</div>
+      <div class="l-pct" style="color:var(--red)">2%</div>
+      <div class="l-bar"><div class="l-bar-fill" style="width:2%;background:var(--red)"></div></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="l">
+      <div class="l-name" style="color:var(--purple)">L4</div>
+      <div class="l-desc">Cloud LLM</div>
+      <div class="l-pct" style="color:var(--purple)">0.4%</div>
+      <div class="l-bar"><div class="l-bar-fill" style="width:0.4%;background:var(--purple)"></div></div>
+    </div>
+  </div>
+
+  <div class="nervous-stats">
+    <div class="n-stat">
+      <div class="n-num" style="color:var(--accent)">76%</div>
+      <div class="n-lbl">Algorithmic (L0)</div>
+      <div class="n-bar"><div class="n-bar-fill" style="width:76%;background:var(--accent)"></div></div>
+    </div>
+    <div class="n-stat">
+      <div class="n-num" style="color:var(--cyan)">14%</div>
+      <div class="n-lbl">Nano Model (L1)</div>
+      <div class="n-bar"><div class="n-bar-fill" style="width:14%;background:var(--cyan)"></div></div>
+    </div>
+    <div class="n-stat">
+      <div class="n-num" style="color:var(--amber)">8%</div>
+      <div class="n-lbl">Room LoRA (L2)</div>
+      <div class="n-bar"><div class="n-bar-fill" style="width:8%;background:var(--amber)"></div></div>
+    </div>
+    <div class="n-stat">
+      <div class="n-num" style="color:var(--red)">2%</div>
+      <div class="n-lbl">Cloud (L3–L4)</div>
+      <div class="n-bar"><div class="n-bar-fill" style="width:2%;background:var(--red)"></div></div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+    <a href="https://superinstance.github.io/plato-browser/" class="btn btn-primary" target="_blank">🚀 Try It Live</a>
+    <a href="https://github.com/SuperInstance/plato-nervous/blob/main/PLATO-NERVOUS-SYSTEM.md" class="btn btn-secondary" target="_blank">📖 Read the Architecture</a>
+  </div>
+
+  <div style="margin-top:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;">
+    <p style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.5rem;">🧪 <strong style="color:var(--accent)">Live demo</strong> — see the signal chain in action with simulated engine room sensors:</p>
+    <iframe src="https://superinstance.github.io/plato-browser/" style="width:100%;height:480px;border:none;border-radius:8px;" loading="lazy" title="PLATO Nervous System Browser Demo"></iframe>
   </div>
 </section>
 
