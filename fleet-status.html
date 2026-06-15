@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SuperInstance — Fleet Dashboard</title>
+<meta name="description" content="Live fleet status dashboard — Conservation Law, GC PID, Edge Services, Pipeline health.">
+<meta property="og:title" content="SuperInstance — Fleet Dashboard">
+<meta property="og:description" content="Live fleet status — Conservation Law, GC PID, Edge Services, Pipeline health.">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #0e0e0e;
+  --surface: #141414;
+  --surface2: #1a1a1a;
+  --surface3: #222222;
+  --border: #2a2a2a;
+  --border2: #333;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --text-dimmer: #555;
+  --accent: #00ff88;
+  --accent-dim: rgba(0,255,136,0.15);
+  --accent2: #0066ff;
+  --accent2-dim: rgba(0,102,255,0.15);
+  --green: #00ff88;
+  --blue: #0066ff;
+  --cyan: #00ccff;
+  --amber: #ffaa00;
+  --red: #ff4444;
+  --purple: #aa66ff;
+  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{padding-top:64px;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--accent);color:var(--bg);}
+
+/* Grid background */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.75rem 2rem;background:rgba(10,10,10,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+nav .logo{font-family:var(--mono);font-weight:700;font-size:1.1rem;color:var(--accent);letter-spacing:-0.02em;}
+nav .logo span{color:var(--text-dim);font-weight:400;}
+nav .nav-links{display:flex;gap:1.5rem;align-items:center;}
+nav .nav-links a{color:var(--text-dim);text-decoration:none;font-size:0.8rem;font-weight:500;transition:color 0.2s;text-transform:uppercase;letter-spacing:0.05em;}
+nav .nav-links a:hover{color:var(--accent);text-decoration:none;}
+nav .nav-links a.active{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+/* Dashboard layout */
+.dashboard{padding:2rem;max-width:1400px;margin:0 auto;}
+.dashboard h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem;}
+.dashboard h1 .acc{color:var(--accent);}
+.dashboard .sub{color:var(--text-dim);font-size:1rem;margin-bottom:2rem;}
+.dashboard .last-updated{font-family:var(--mono);font-size:0.75rem;color:var(--text-dimmer);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;}
+.dashboard .last-updated .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+.overview-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+.overview-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color 0.2s;}
+.overview-card:hover{border-color:var(--accent);}
+.overview-card .oc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;}
+.overview-card .oc-header h3{font-family:var(--mono);font-size:0.8rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+.overview-card .oc-header .oc-icon{font-size:1.3rem;color:var(--accent);}
+.overview-card .oc-value{font-size:2rem;font-weight:800;font-family:var(--mono);letter-spacing:-0.03em;}
+.overview-card .oc-value.green{color:var(--green);}
+.overview-card .oc-value.amber{color:var(--amber);}
+.overview-card .oc-value.red{color:var(--red);}
+.overview-card .oc-value.blue{color:var(--blue);}
+.overview-card .oc-value.cyan{color:var(--cyan);}
+.overview-card .oc-label{font-size:0.8rem;color:var(--text-dim);margin-top:0.25rem;}
+.overview-card .oc-bar{height:4px;background:var(--surface3);border-radius:2px;margin-top:0.75rem;overflow:hidden;}
+.overview-card .oc-bar-fill{height:100%;border-radius:2px;transition:width 0.5s ease;}
+
+/* Section cards */
+.section-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:1.25rem;overflow:hidden;}
+.section-card .sc-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.section-card .sc-header h2{font-size:1rem;font-weight:700;font-family:var(--mono);}
+.section-card .sc-header .sc-badge{font-size:0.7rem;font-family:var(--mono);padding:0.2rem 0.6rem;border-radius:4px;}
+.sc-badge.online{background:var(--accent-dim);color:var(--green);}
+.sc-badge.warning{background:rgba(255,170,0,0.15);color:var(--amber);}
+.sc-badge.offline{background:rgba(255,68,68,0.15);color:var(--red);}
+.section-card .sc-body{padding:1.25rem;}
+
+/* Metric grid */
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;}
+.metric{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;}
+.metric .m-name{font-family:var(--mono);font-size:0.7rem;color:var(--text-dimmer);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem;}
+.metric .m-value{font-size:1.5rem;font-weight:700;font-family:var(--mono);}
+.metric .m-value.green{color:var(--green);}
+.metric .m-value.amber{color:var(--amber);}
+.metric .m-value.red{color:var(--red);}
+.metric .m-value.cyan{color:var(--cyan);}
+.metric .m-value.blue{color:var(--blue);}
+.metric .m-sub{font-size:0.75rem;color:var(--text-dim);margin-top:0.2rem;}
+
+/* Status list */
+.status-list{display:flex;flex-direction:column;gap:0.5rem;}
+.status-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;}
+.status-item .si-name{font-family:var(--mono);font-size:0.85rem;font-weight:600;}
+.status-item .si-status{font-size:0.75rem;font-family:var(--mono);display:flex;align-items:center;gap:0.4rem;}
+.si-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.si-dot.green{background:var(--green);}
+.si-dot.red{background:var(--red);}
+.si-dot.amber{background:var(--amber);}
+
+/* Pipeline steps */
+.pipeline-steps{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.pipeline-step{display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-family:var(--mono);font-size:0.75rem;}
+.pipeline-step .ps-icon{font-size:0.9rem;}
+.pipeline-step .ps-name{color:var(--text);}
+
+/* Error state */
+.error-state{text-align:center;padding:3rem 1rem;}
+.error-state .err-icon{font-size:3rem;margin-bottom:1rem;color:var(--amber);}
+.error-state .err-text{color:var(--text-dim);font-size:0.95rem;}
+.error-state .err-retry{margin-top:1rem;padding:0.5rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--accent);cursor:pointer;font-family:var(--sans);font-size:0.85rem;transition:border-color 0.2s;}
+.error-state .err-retry:hover{border-color:var(--accent);background:var(--accent-dim);}
+
+/* Loading shimmer */
+@keyframes shimmer{0%{opacity:0.6;}50%{opacity:1;}100%{opacity:0.6;}}
+.loading{animation:shimmer 1.5s ease-in-out infinite;color:var(--text-dimmer);}
+
+/* Footer */
+footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.85rem;}
+footer .footer-links{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;}
+footer .footer-links a{color:var(--text-dim);font-size:0.85rem;transition:color 0.2s;}
+footer .footer-links a:hover{color:var(--accent);}
+footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
+
+/* Responsive */
+@media(max-width:768px){
+  nav .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:1rem 2rem;gap:1rem;}
+  nav .nav-links.open{display:flex;}
+  .hamburger{display:block;}
+  .dashboard{padding:1.25rem;}
+  .overview-cards{grid-template-columns:1fr;}
+  .metric-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SuperInstance <span>⎔</span></div>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="demos.html">Explore</a>
+    <a href="fleet-status.html" class="active">Fleet</a>
+    <a href="https://github.com/SuperInstance">GitHub</a>
+  </div>
+</nav>
+
+<div class="dashboard">
+  <h1>⚡ Live <span class="acc">Fleet Dashboard</span></h1>
+  <p class="sub">Real-time status of the SuperInstance fleet — Conservation Law, GC PID, edge services, and pipeline health.</p>
+  <div class="last-updated"><span class="dot"></span><span id="lastUpdated">Connecting...</span></div>
+
+  <!-- Loading state -->
+  <div id="loadingState" style="text-align:center;padding:4rem 1rem;">
+    <p style="font-family:var(--mono);font-size:1rem;color:var(--text-dim);" class="loading">⟳ Loading fleet telemetry...</p>
+  </div>
+
+  <!-- Error state -->
+  <div id="errorState" style="display:none;">
+    <div class="error-state">
+      <div class="err-icon">⚠</div>
+      <p class="err-text">Could not reach the fleet telemetry API. The dashboard will retry automatically.</p>
+      <button class="err-retry" onclick="fetchFleetStatus()">↻ Retry Now</button>
+    </div>
+  </div>
+
+  <!-- Dashboard content -->
+  <div id="dashboardContent" style="display:none;">
+
+    <!-- Overview cards -->
+    <div class="overview-cards" id="overviewCards"></div>
+
+    <!-- Conservation Law Section -->
+    <div class="section-card">
+      <div class="sc-header">
+        <h2>🧮 <span class="acc">Conservation Law</span></h2>
+        <span class="sc-badge online" id="conservationBadge">LIVE</span>
+      </div>
+      <div class="sc-body">
+        <div class="metric-grid" id="conservationMetrics"></div>
+      </div>
+    </div>
+
+    <!-- GC PID Section -->
+    <div class="section-card">
+      <div class="sc-header">
+        <h2>♻️ <span class="acc">GC PID Controller</span></h2>
+        <span class="sc-badge online" id="gcBadge">LIVE</span>
+      </div>
+      <div class="sc-body">
+        <div class="metric-grid" id="gcMetrics"></div>
+      </div>
+    </div>
+
+    <!-- Edge Services Section -->
+    <div class="section-card">
+      <div class="sc-header">
+        <h2>☁️ <span class="acc">Edge Services</span></h2>
+        <span class="sc-badge online" id="edgeBadge">LIVE</span>
+      </div>
+      <div class="sc-body">
+        <div class="status-list" id="edgeServices"></div>
+      </div>
+    </div>
+
+    <!-- Pipeline Status Section -->
+    <div class="section-card">
+      <div class="sc-header">
+        <h2>🔁 <span class="acc">Pipeline Status</span></h2>
+        <span class="sc-badge online" id="pipelineBadge">ALL GREEN</span>
+      </div>
+      <div class="sc-body">
+        <div class="pipeline-steps" id="pipelineSteps"></div>
+      </div>
+    </div>
+
+    <!-- Agent Signal Preview -->
+    <div class="section-card">
+      <div class="sc-header">
+        <h2>📡 <span class="acc">Agent Signal Array</span></h2>
+        <span class="sc-badge online" id="signalBadge">ACTIVE</span>
+      </div>
+      <div class="sc-body">
+        <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.75rem;">Confidence distribution across <span id="agentCount">0</span> agents</p>
+        <div id="signalBar" style="display:flex;gap:2px;height:60px;align-items:flex-end;"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="demos.html">Explore</a>
+    <a href="fleet-status.html">Fleet</a>
+    <a href="https://github.com/SuperInstance">GitHub</a>
+  </div>
+  <p>SuperInstance — Every App Is a MUD</p>
+  <div class="license">© 2026 SuperInstance</div>
+</footer>
+
+<script>
+const API_BASE = 'https://fleet-dashboard-api.casey-digennaro.workers.dev';
+const REFRESH_MS = 10000;
+let refreshTimer = null;
+
+function fmtTime() {
+  const n = new Date();
+  return n.toLocaleTimeString('en-US', { hour12: false }) + '.' + String(n.getMilliseconds()).padStart(3,'0');
+}
+
+function statusColor(val, low, high) {
+  if (val <= low) return 'green';
+  if (val <= high) return 'amber';
+  return 'red';
+}
+
+function barPct(val, max) {
+  return Math.min(100, Math.round((val / max) * 100));
+}
+
+function makeMetric(name, value, cls, sub) {
+  const m = document.createElement('div');
+  m.className = 'metric';
+  m.innerHTML = `<div class="m-name">${name}</div><div class="m-value ${cls}">${value}</div>${sub ? `<div class="m-sub">${sub}</div>` : ''}`;
+  return m;
+}
+
+async function fetchFleetStatus() {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+
+    document.getElementById('loadingState').style.display = '';
+    document.getElementById('errorState').style.display = 'none';
+    document.getElementById('dashboardContent').style.display = 'none';
+
+    const resp = await fetch(API_BASE + '/api/fleet/status', {
+      signal: controller.signal,
+      headers: { 'Accept': 'application/json' }
+    });
+    clearTimeout(timeout);
+
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('errorState').style.display = 'none';
+    document.getElementById('dashboardContent').style.display = '';
+
+    document.getElementById('lastUpdated').textContent = `Updated ${fmtTime()} · ${REFRESH_MS/1000}s auto-refresh`;
+    renderFleetStatus(data);
+  } catch (e) {
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('errorState').style.display = '';
+    document.getElementById('dashboardContent').style.display = 'none';
+    document.getElementById('lastUpdated').textContent = `⚠ Failed at ${fmtTime()} · retrying...`;
+  }
+}
+
+function renderFleetStatus(data) {
+  const s = data.status || {};
+  const agents = data.agents || [];
+
+  // === Overview Cards ===
+  const overview = document.getElementById('overviewCards');
+  overview.innerHTML = '';
+
+  const cards = [
+    { label: 'γ Complexity', value: s.gamma != null ? s.gamma.toFixed(2) : '—', cls: statusColor(s.gamma || 0, 500, 1000), icon: '⚡', pct: barPct(s.gamma || 0, 2000) },
+    { label: 'η Efficiency', value: s.eta != null ? s.eta.toFixed(2) : '—', cls: 'green', icon: '📈', pct: barPct(s.eta || 0, 1000) },
+    { label: 'C Total Cost', value: s.C != null ? s.C.toFixed(2) : '—', cls: statusColor(s.C || 0, 1000, 2000), icon: '🔬', pct: barPct(s.C || 0, 4000) },
+    { label: 'γ/η Ratio', value: s.ratio != null ? s.ratio.toFixed(2) : '—', cls: statusColor(s.ratio || 0, 3, 5), icon: '⚖️', pct: barPct(s.ratio || 0, 10) },
+    { label: 'Agent Count', value: s.agentCount || agents.length , cls: 'cyan', icon: '🤖', pct: barPct(s.agentCount || agents.length, 200) },
+    { label: 'Services', value: s.serviceCount || '—', cls: 'blue', icon: '⚙️', pct: barPct(s.serviceCount || 0, 50) },
+  ];
+
+  cards.forEach(c => {
+    const card = document.createElement('div');
+    card.className = 'overview-card';
+    card.innerHTML = `
+      <div class="oc-header">
+        <h3>${c.label}</h3>
+        <span class="oc-icon">${c.icon}</span>
+      </div>
+      <div class="oc-value ${c.cls}">${c.value}</div>
+      <div class="oc-bar"><div class="oc-bar-fill" style="width:${c.pct}%;background:var(--${c.cls})"></div></div>
+    `;
+    overview.appendChild(card);
+  });
+
+  // === Conservation Law ===
+  const cons = document.getElementById('conservationMetrics');
+  cons.innerHTML = '';
+  const consItems = [
+    { name: 'γ (Complexity)', value: s.gamma != null ? s.gamma.toFixed(2) : '—', cls: statusColor(s.gamma || 0, 500, 1000), sub: 'disk% × 10 + load × 100' },
+    { name: 'η (Efficiency)', value: s.eta != null ? s.eta.toFixed(2) : '—', cls: 'green', sub: 'active services × 10' },
+    { name: 'C (Total Cost)', value: s.C != null ? s.C.toFixed(2) : '—', cls: statusColor(s.C || 0, 1000, 2000), sub: 'γ + η' },
+    { name: 'Ratio', value: s.ratio != null ? s.ratio.toFixed(2) : '—', cls: statusColor(s.ratio || 0, 3, 5), sub: 'γ/η · healthy < 5' },
+  ];
+  consItems.forEach(c => cons.appendChild(makeMetric(c.name, c.value, c.cls, c.sub)));
+
+  // === GC PID ===
+  const gc = document.getElementById('gcMetrics');
+  gc.innerHTML = '';
+  const gcItems = [
+    { name: 'Aggression', value: s.gcAggression != null ? s.gcAggression.toFixed(2) + '×' : '—', cls: statusColor(s.gcAggression || 0, 2, 4), sub: 'PID multiplier' },
+    { name: 'Setpoint', value: s.gcSetpoint != null ? s.gcSetpoint + '%' : '—', cls: 'cyan', sub: 'target free space' },
+    { name: 'Disk Used', value: s.diskUsedPercent != null ? s.diskUsedPercent + '%' : '—', cls: statusColor(s.diskUsedPercent || 0, 60, 80), sub: 'current usage' },
+    { name: 'Disk Free', value: s.diskFreePercent != null ? s.diskFreePercent + '%' : '—', cls: 'green', sub: 'remaining' },
+  ];
+  gcItems.forEach(c => gc.appendChild(makeMetric(c.name, c.value, c.cls, c.sub)));
+
+  // === Edge Services ===
+  const edge = document.getElementById('edgeServices');
+  edge.innerHTML = '';
+  const services = s.services || [
+    { name: 'fleet-dashboard-api', status: 'online' },
+    { name: 'fleet-murmur-worker (nebula)', status: data.nebulaStatus || 'unknown' },
+    { name: 'superinstance.ai Pages', status: 'online' },
+    { name: 'fleet-registry-worker', status: 'online' },
+  ];
+  services.forEach(svc => {
+    const el = document.createElement('div');
+    el.className = 'status-item';
+    const ok = svc.status === 'online' || svc.status === 'ok' || svc.status === 'healthy';
+    el.innerHTML = `
+      <span class="si-name">${svc.name}</span>
+      <span class="si-status"><span class="si-dot ${ok ? 'green' : 'red'}"></span>${ok ? 'Online' : svc.status}</span>
+    `;
+    edge.appendChild(el);
+  });
+
+  // === Pipeline Status ===
+  const pipeline = document.getElementById('pipelineSteps');
+  pipeline.innerHTML = '';
+  const pipelineSteps = data.pipeline || [
+    'collect', 'conservation-meter', 'rotation-feed', 'harbor',
+    'headspace-rs', 'pulse-cron', 'pulse-embed', 'pulse-webhook',
+    'pulse-self-tune', 'gc-intelligent', 'cf-feed-integration'
+  ];
+  const pipelineStatuses = data.pipelineStatus || {};
+  pipelineSteps.forEach(step => {
+    const el = document.createElement('div');
+    el.className = 'pipeline-step';
+    const ok = pipelineStatuses[step] !== 'red' && pipelineStatuses[step] !== 'error';
+    el.innerHTML = `
+      <span class="ps-icon">${ok ? '✅' : '❌'}</span>
+      <span class="ps-name">${step}</span>
+    `;
+    if (!ok) el.style.borderColor = 'var(--red)';
+    pipeline.appendChild(el);
+  });
+
+  // === Agent Signal Array ===
+  document.getElementById('agentCount').textContent = agents.length;
+  const signalBar = document.getElementById('signalBar');
+  signalBar.innerHTML = '';
+  if (agents.length > 0) {
+    agents.forEach(a => {
+      const conf = a.confidence != null ? a.confidence : (a.confidenceLevel != null ? a.confidenceLevel : 0.5);
+      const h = Math.max(4, Math.round(conf * 60));
+      const bar = document.createElement('div');
+      bar.style.cssText = `flex:1;height:${h}px;background:var(--accent);border-radius:2px 2px 0 0;opacity:${0.3 + conf * 0.7};transition:height 0.5s;`;
+      signalBar.appendChild(bar);
+    });
+  } else {
+    // Show placeholder bars
+    for (let i = 0; i < 20; i++) {
+      const h = 10 + Math.round(Math.sin(i) * 20 + 20);
+      const bar = document.createElement('div');
+      bar.style.cssText = `flex:1;height:${h}px;background:var(--accent-dim);border-radius:2px 2px 0 0;opacity:0.4;`;
+      signalBar.appendChild(bar);
+    }
+  }
+}
+
+// Initial fetch
+fetchFleetStatus();
+
+// Auto-refresh
+clearInterval(refreshTimer);
+refreshTimer = setInterval(fetchFleetStatus, REFRESH_MS);
+</script>
+</body>
+</html>
