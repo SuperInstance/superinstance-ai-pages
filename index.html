@@ -645,8 +645,9 @@ canvas{display:block}
 <section class="hero" id="top">
   <div style="max-width:480px;margin:0 auto 1.5rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)"><img src="hero-crab.jpg" alt="Hermit crab building a steampunk-cyberpunk shell" style="width:100%;display:block"></div>
   <h1>Every app is a MUD.<br/>Every MUD is a fleet.</h1>
-  <p class="tagline" style="margin-bottom:0.5rem;font-size:clamp(0.85rem,1.4vw,1.1rem);color:var(--accent);font-weight:500;">The hermit crab is the agent. The shell is the repo. From $3 microcontrollers to $25K GPU clusters.</p>
-  <p class="tagline">We decompose software into rooms. Agents navigate them like text adventures — reading sensors, posting ticks, coordinating through prediction instead of polling. A fishing vessel becomes six rooms. A codebase becomes a neighborhood. The fleet is the graph. The math is conservation.</p>
+  <p class="tagline">That's not a slogan — it's a different way to see software you already run: a live application as a place, rooms with state and doors between them, agents that move through sensing and acting the way a player moves through a text adventure. Decomposed that way, coordination stops being a networking problem and becomes a navigation problem: an agent reads a room, posts what it sees, and acts — instead of the whole system polling itself into exhaustion asking whether anything changed.</p>
+  <p class="tagline">A fishing vessel becomes six rooms: wheelhouse, back-deck, engine room, galley, nav-room, hold. A codebase becomes a neighborhood the same way. The pattern doesn't care about scale — it runs the same on a $3 microcontroller and a $25K GPU cluster, because what's constant is the shape of the coordination, not the size of the machine doing it.</p>
+  <p class="tagline" style="margin-bottom:0.5rem;font-size:clamp(0.85rem,1.4vw,1.1rem);color:var(--accent);font-weight:500;">The hermit crab is the agent. The shell is the repo.</p>
   <div class="install-box" onclick="copyInstall(this)" title="Click to copy">
     <span class="dollar">$</span>
     <span>curl -fsSL https://raw.githubusercontent.com/SuperInstance/OpenConstruct/main/install.sh | bash</span>
@@ -783,8 +784,8 @@ canvas{display:block}
 
 <!-- ==================== 5. FISHING VESSEL MUD ==================== -->
 <section id="vessel" class="demo-section">
-  <h2><span class="acc">🚢</span> A fishing vessel, six rooms, zero humans at the helm</h2>
-  <p class="sub">F/V Quantum, 150 feet of steel in the Bering Sea. Wheelhouse, back deck, engine room, crow's nest — each room is an agent reading sensors and posting ticks. Navigate like a MUD. This is what agentic decomposition actually looks like.</p>
+  <h2><span class="acc">🚢</span> A fishing vessel becomes six rooms — and the crew never left</h2>
+  <p class="sub">F/V Quantum, 150 feet of steel in the Bering Sea. Wheelhouse, back-deck, engine room, crow's nest — each room is a place an agent can stand: reading sensors, posting what it sees, alongside whoever's actually working that room. The captain is still at the helm. The deckhands are still on deck. What's new is that every room now has something watching it as closely as the people in it — not replacing them, keeping pace with them. This is what agentic decomposition actually looks like.</p>
 <div class="hdr">
 <h1>F/V Quantum</h1>
 <span class="sub">Bering Sea · 54°24'N 166°18'W · Pacific Cod Season</span>
@@ -810,8 +811,8 @@ canvas{display:block}
 
 <!-- ==================== 6. TENSOR MIDI + FLUX ==================== -->
 <section id="flux" class="demo-section">
-  <h2><span class="acc">🎹</span> Music has conservation laws. So does code translation.</h2>
-  <p class="sub">Five theorems anchor this — some are our own, some are established spectral graph theory (T4 is the classical Cheeger inequality, applied here to conservation quality, not proved here for the first time). Music obeys them — ii-V-I scores CR=0.94, +4.06σ above random. Code translations between 12 languages obey them too. Same computation, conserved across backends. Watch Rust become CUDA while the math holds.</p>
+  <h2><span class="acc">🎹</span> Music has conservation laws. So does code translation — and it's the same law.</h2>
+  <p class="sub">Nobody normally asks what a ii-V-I chord progression and a Rust-to-CUDA translation have in common; music theory and compilers don't share a yardstick. They share this: a spectral quantity that stays constant when a song moves across keys, or a function moves across languages. Five theorems on this page name that quantity and bound it (some are ours; T4 is the classical Cheeger inequality, applied here, not proved here for the first time). A real ii-V-I scores CR=0.94 against random notes at CR=0.31 — a gap the theorems predict, not just observe. Code translations between 12 languages hold the same conservation, backend to backend, which is why a hot path can move from a Rust CPU kernel to CUDA and the math underneath doesn't notice.</p>
 <canvas id="particleCanvas" role="presentation" aria-hidden="true"></canvas>
 <div class="main-content">
 <h1>⚡ SuperInstance — Tensor MIDI × FLUX</h1>
@@ -1146,7 +1147,7 @@ canvas{display:block}
 <!-- ==================== 5. CONSERVATION SPECTRAL ==================== -->
 <section id="spectral">
   <h2>Conservation <span class="acc">Spectral</span></h2>
-  <p class="sub">Five proved theorems. Fifteen domains. Click to expand.</p>
+  <p class="sub">Five theorems, named and bound. Fifteen domains. Click to expand.</p>
 
   <div class="spectral-stats">
     <div class="spectral-stat">
@@ -1278,7 +1279,7 @@ agent.<span class="fn">onSense</span>(<span class="st">"sonar"</span>, (reading)
 <!-- ==================== NERVOUS SYSTEM ==================== -->
 <section id="nervous">
   <h2><span class="acc">🧠</span> The Nervous System</h2>
-  <p class="sub">Every PLATO room distills its intelligence through a five-layer signal chain — from raw cloud LLM calls down to tiny local models that handle 99.6% of decisions without ever reaching the network.</p>
+  <p class="sub">Each room from the fishing-vessel example above is deciding things constantly — is the coolant temperature normal, does this sensor reading need anyone's attention — and most of those decisions don't need a model at all. Every PLATO room distills its intelligence through a five-layer signal chain — from raw cloud LLM calls down to tiny local models that handle 99.6% of decisions without ever reaching the network.</p>
 
   <div class="signal-chain">
     <div class="l">
