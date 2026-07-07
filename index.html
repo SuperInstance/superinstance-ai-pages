@@ -811,7 +811,7 @@ canvas{display:block}
 <!-- ==================== 6. TENSOR MIDI + FLUX ==================== -->
 <section id="flux" class="demo-section">
   <h2><span class="acc">🎹</span> Music has conservation laws. So does code translation.</h2>
-  <p class="sub">We proved five theorems about spectral conservation in graphs. Music obeys them — ii-V-I scores CR=0.94, +4.06σ above random. Code translations between 12 languages obey them too. Same computation, conserved across backends. Watch Rust become CUDA while the math holds.</p>
+  <p class="sub">Five theorems anchor this — some are our own, some are established spectral graph theory (T4 is the classical Cheeger inequality, applied here to conservation quality, not proved here for the first time). Music obeys them — ii-V-I scores CR=0.94, +4.06σ above random. Code translations between 12 languages obey them too. Same computation, conserved across backends. Watch Rust become CUDA while the math holds.</p>
 <canvas id="particleCanvas" role="presentation" aria-hidden="true"></canvas>
 <div class="main-content">
 <h1>⚡ SuperInstance — Tensor MIDI × FLUX</h1>
@@ -1910,7 +1910,7 @@ const theorems = [
   { name: 'T1 — Dirichlet Energy', desc: 'Exact, sharp decomposition of conservation energy into eigenvalue-weighted spectral components.', math: '𝒢(f) = Σₖ λₖ |⟨f, φₖ⟩|²' },
   { name: 'T2 — Signal Concentration', desc: 'The Fiedler vector concentrates conservation signal. Bound on detection quality.', math: '|⟨f, φ₂⟩|² / ||f||² ≥ 1/(1 + (κ-1)(1-ρ₂))' },
   { name: 'T3 — SNR Amplification ★', desc: 'Explains the 112× result. Signal-to-noise amplifies through eigenvalue projection.', math: 'SNR_amplification ≥ n · ρ₂ = 144 × 0.78 ≈ 112' },
-  { name: 'T4 — Cheeger-Conservation', desc: 'Two-sided bound connecting graph geometry to conservation quality.', math: 'λ₂/2 ≤ h(G) ≤ √(2λ₂)' },
+  { name: 'T4 — Cheeger-Conservation', desc: 'The classical Cheeger inequality (a decades-old result in spectral graph theory, not ours) — applied here to bound conservation quality by graph geometry.', math: 'λ₂/2 ≤ h(G) ≤ √(2λ₂)' },
   { name: 'T5 — Multi-Scale Cascade', desc: 'Conservation degrades predictably across scales. Sharp bound on information loss.', math: 'C(s) ≥ C(s+1) · (1 - ε_s)' },
 ];
 
