@@ -84,7 +84,8 @@ section .sub{color:var(--text-dim);font-size:1.05rem;max-width:600px;margin-bott
 .hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;max-width:850px;margin-bottom:1.5rem;}
 .hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero .tagline{font-size:clamp(1rem,1.8vw,1.3rem);color:var(--text-dim);max-width:580px;margin-bottom:2.5rem;font-weight:300;}
-.install-box{display:inline-flex;align-items:center;gap:0.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-family:var(--mono);font-size:0.85rem;color:var(--text);margin-bottom:2rem;cursor:pointer;transition:border-color 0.2s;}
+.install-box{display:inline-flex;flex-wrap:wrap;align-items:center;gap:0.5rem;max-width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;font-family:var(--mono);font-size:0.85rem;color:var(--text);margin-bottom:2rem;cursor:pointer;transition:border-color 0.2s;}
+.install-box span{overflow-wrap:anywhere;min-width:0;}
 .install-box:hover{border-color:var(--accent);}
 .install-box .dollar{color:var(--accent);}
 .install-box .copy-hint{color:var(--text-dimmer);font-size:0.7rem;margin-left:0.5rem;}
@@ -266,6 +267,8 @@ footer .license{color:var(--text-dimmer);font-size:0.75rem;margin-top:1rem;}
   .hw-spectrum{flex-direction:column;}
   .hw-node{border-radius:8px!important;margin-bottom:0.5rem;}
   .hw-connector{display:none;}
+  .bw-hero{flex-wrap:wrap;gap:16px;}
+  .bw-cell{min-width:120px;}
 }
 
 /* Utility */
@@ -3556,7 +3559,6 @@ AGENTS.forEach(a => { confState[a.id] = { current: 0, target: 80 }; });
 
 // Timeline click handling
 let eventPopup = null;
-canvas.addEventListener('click', handleTimelineClick);
 
 function handleTimelineClick(e) {
   if (eventPopup) { eventPopup.remove(); eventPopup = null; }
@@ -3601,6 +3603,7 @@ function showEventPopup(ev, px, py) {
 function initDemo1() {
   canvas = document.getElementById('timeline-canvas');
   ctx = canvas.getContext('2d');
+  canvas.addEventListener('click', handleTimelineClick);
   resizeTimeline();
   buildAgentCards();
   window.addEventListener('resize', resizeTimeline);
