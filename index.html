@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SuperInstance — Every App Is a MUD</title>
-<meta name="description" content="AI agents with real senses. Fleet mesh computing. Plato's Cave architecture. One command to start.">
+<meta name="description" content="Documentation and interactive demos for the SuperInstance / Cocapn Fleet project: structuring applications as room-based environments coordinated by agents.">
 <meta property="og:title" content="SuperInstance — AI Agents That See, Hear, Touch & Collaborate">
-<meta property="og:description" content="One command to deploy agents with vision, sonar, touch, and fleet mesh networking.">
+<meta property="og:description" content="Documentation and interactive demos for the SuperInstance / Cocapn Fleet project: structuring applications as room-based environments coordinated by agents.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://superinstance.ai">
 <style>body{padding-top:64px;}
@@ -927,8 +927,8 @@ canvas{display:block}
 
 <!-- ==================== 7. T-MINUS COORDINATION ==================== -->
 <section id="tminus" class="demo-section">
-  <h2><span class="acc">⏱</span> Stop polling. Start predicting.</h2>
-  <p class="sub">70× fewer messages. App→rooms decomposition. Simulation-first sync for fleet coordination.</p>
+  <h2><span class="acc">⏱</span> T-Minus — simulation-first coordination</h2>
+  <p class="sub">Compares message counts between polling and prediction-based coordination. Agents publish predicted event times and confirm once at that moment, instead of repeatedly polling for status.</p>
 <div class="brand-header">
   <div class="brand-logo">SUPER<span>INSTANCE</span></div>
   <div class="brand-tagline">T-Minus Simulation-First Coordination</div>
@@ -981,10 +981,11 @@ canvas{display:block}
   </div>
 
   <div class="insight-callout">
-    <b>⚡ Key Insight:</b> T-Minus coordination uses <b>70× fewer messages</b> than polling. 
-    Agents don't ask "are we there yet?" — they <b>predict arrival</b> and <b>confirm once</b>. 
-    Each agent publishes predictions, subscribes to others, and acts at the predicted moment. 
-    No polling loop. No wasted cycles. Just synchronized precision.
+    <b>⚡ How it works:</b> Each agent publishes a predicted event time,
+    subscribes to other agents' predictions, and acts at the predicted moment.
+    Polling repeatedly asks "are we there yet?"; T-Minus confirms once.
+    The ratio shown above is the live message count from this simulation —
+    it varies with the scenario, not a fixed figure.
   </div>
 
   <!-- Polling spam feed (slides in from right) -->
