@@ -616,6 +616,13 @@
       <div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div>
     </div>
 
+    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">★ Browse By Theme — <code>/canon-theme</code></h3>
+    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.6rem">
+      The canon has themes. <a href="https://a2a-v3.superinstance.dev/canon-theme?theme=divergent-economies" target="_blank" rel="noopener">?theme=divergent-economies</a>
+      returns 6 stories about cities drifting apart — parallel evolution on a city level. The allopatry of canons.
+    </p>
+    <div id="theme-list" class="trending"><div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div></div>
+
     <h2 id="cites">📊 The Hubs — Where The Canon Concentrates</h2>
     <p style="color:var(--gray); font-size:0.92rem;">
       A bridge essay that gets cited by every new piece becomes a hub.
@@ -853,12 +860,13 @@
 
     async function loadStats() {
       try {
-        const [info, b1, list, wsB1, trending] = await Promise.all([
+        const [info, b1, list, wsB1, trending, theme] = await Promise.all([
           fetchJSON(`${BASE}/`),
           fetchJSON(`${BASE}/canon-b1`),
           fetchJSON(`${BASE}/canon-list`),
           fetchJSON(`${BASE}/canon-b1-per-workspace`),
           fetchJSON(`${BASE}/canon-trending?limit=10`),
+          fetchJSON(`${BASE}/canon-theme?theme=divergent-economies`),
         ]);
 
         // Workspace chips in hero pills
@@ -942,6 +950,17 @@
           }).join('');
         }
 
+        // Theme: divergent-economies
+        if (theme.pieces) {
+          const thl = document.getElementById('theme-list');
+          thl.innerHTML = theme.pieces.map(p => {
+            return `<div class="item">
+              <span class="time" style="color:var(--gold)">★</span>
+              <span class="title">${esc((p.title || p.tag).slice(0, 90))}</span>
+            </div>`;
+          }).join('');
+        }
+
         // Citation analytics cards
         if (b1.top_cited) {
           document.getElementById('top-cited-list').innerHTML = b1.top_cited.map(c =>
@@ -988,12 +1007,12 @@
       results.classList.add('active');
       try {
         const r = await fetchJSON(`${BASE}/canon-search?q=${encodeURIComponent(q)}&k=8`);
-        results.innerHTML = (r.results || []).map(item =>
+        results.innerHTML = (r.matches || r.results || []).map(item =>
           `<div class="search-result">
             <div class="title">${esc(item.title || item.tag)}</div>
             <div style="font-size:0.78rem;color:var(--gray)">
               <code style="background:none;padding:0;color:var(--teal)">${esc(item.tag)}</code> ·
-              <span class="sim">cos ${item.similarity.toFixed(3)}</span>
+              <span class="sim">cos ${(item.cosine || item.similarity || 0).toFixed(3)}</span>
             </div>
           </div>`
         ).join('') || '<div style="color:var(--gray);padding:0.6rem">No results.</div>';
