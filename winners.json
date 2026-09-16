@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:57:03.078891Z",
+  "generated_at": "2026-09-16T16:58:42.328895Z",
   "n_scenarios": 4,
   "scenarios": [
     {
@@ -18,6 +18,13 @@
         {
           "label": "v2",
           "total_resonance": 4.08,
+          "dm_closing": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v3",
+          "total_resonance": 3.99,
           "dm_closing": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
