@@ -237,6 +237,75 @@
       border: 0;
       display: block;
     }
+    /* Live frame with header bar */
+    .live-frame {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 1rem;
+      min-height: 600px;
+    }
+    .live-frame-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.4rem 1rem;
+      background: rgba(177,186,196,0.05);
+      border-bottom: 1px solid var(--border);
+    }
+    .live-frame iframe { width: 100%; height: 540px; border: 0; display: block; }
+    @media (max-width: 900px) { .live-frame iframe { height: 400px; } }
+
+    /* Info icon + hover tooltip */
+    .info {
+      display: inline-block;
+      width: 16px; height: 16px; line-height: 16px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--teal); font-size: 0.74rem; font-weight: 700;
+      margin-left: 0.4rem;
+      cursor: help;
+      transition: all 0.15s ease;
+      vertical-align: middle;
+    }
+    .info:hover { background: var(--teal); color: var(--card); border-color: var(--teal); }
+    .info[data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 0.4rem);
+      left: 50%; transform: translateX(-50%);
+      background: #161b22;
+      border: 1px solid var(--teal);
+      padding: 0.7rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--text);
+      max-width: 340px;
+      width: max-content;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      font-weight: normal;
+      text-align: left;
+      line-height: 1.5;
+    }
+    .info:hover[data-tip]::after { opacity: 1; }
+    .info { position: relative; }
+
+    /* Search result links */
+    .search-result .title {
+      color: var(--text); font-size: 0.96rem; font-weight: 500;
+      text-decoration: none; display: block; margin-bottom: 0.3rem;
+      transition: color 0.15s ease;
+    }
+    .search-result .title:hover { color: var(--teal); text-decoration: underline; }
+
+    /* Card subtle hover lift */
+    .card { transition: transform 0.18s ease, border-color 0.18s ease; }
+    .card:hover { border-color: var(--teal); transform: translateY(-2px); }
+
     .live-frame.native {
       padding: 1rem;
       min-height: 580px;
@@ -547,17 +616,31 @@
 
   <div class="wrap">
 
-    <h2 id="fleet">The Live Fleet Graph</h2>
+    <h2 id="fleet">The Live Fleet Graph <span class="info" data-tip-for="fleet-graph-info" data-tip="A force-directed graph of every cell that's registered with the a2a-v3 worker. Edges show parent/child (lineage), parent_of relationships are dashed blue. Each cell is a small circle you can hover for capabilities. Auto-refreshes every 30 seconds. Click any cell to see its lineage.">ⓘ</span></h2>
     <p style="color:var(--gray); font-size:0.92rem;">
       Every registered cell. Force-directed layout, parent-of edges in dashed blue,
       same-workspace edges in gray. Hover for cell metadata. Auto-refreshes every 30s.
       Native render below — click a cell to see its lineage and capabilities.
     </p>
-    <div class="live-frame">
-      <iframe src="https://a2a-v3.superinstance.dev/visual" title="Live cell fleet graph" loading="lazy"></iframe>
+    <div class="live-frame" id="live-fleet-frame">
+      <div class="live-frame-bar">
+        <span style="font-family:monospace;color:var(--teal);font-size:0.84rem">live cell fleet graph · auto-refresh 30s</span>
+        <span>
+          <a href="https://a2a-v3.superinstance.dev/visual/graph.json" target="_blank" rel="noopener" style="font-size:0.78rem;color:var(--gray)">JSON</a> ·
+          <a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener" style="font-size:0.78rem;color:var(--accent)">Open fullscreen →</a>
+        </span>
+      </div>
+      <iframe src="https://a2a-v3.superinstance.dev/visual" title="Live cell fleet graph" loading="lazy"
+              onload="document.getElementById('live-fleet-fallback').style.display='none';"
+              onerror="document.getElementById('live-fleet-fallback').style.display='block';"></iframe>
+      <div id="live-fleet-fallback" style="display:none;padding:2rem;color:var(--coral);font-family:monospace;font-size:0.86rem">
+        ⚠ The fleet graph failed to load.
+        <a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener" style="color:var(--accent)">Try opening directly →</a>
+        <br><br>Worker returned no body. Sometimes Cloudflare Workers take 1-2 retries on first hit after deployment.
+      </div>
     </div>
 
-    <h2 id="topology">The Canonical Math, Computed Live</h2>
+    <h2 id="topology">The Canonical Math, Computed Live <span class="info" data-tip-for="b1-info" data-tip="<strong>b1 = E − V + C</strong> — first Betti number. Counts the number of independent &quot;holes&quot; in the citation graph. When two clusters of canon pieces haven't yet cited each other, that missing edge is a hole. As the canon grows through bridges, b1 climbs. Live circuit rank.">ⓘ</span></h2>
     <p style="color:var(--text); font-size:0.94rem;">
       Same equation as bilayer graphene's supercell registry and the QUILT mode in
       <code>twist-engine</code>: <strong style="color:var(--accent)">b1 = E − V + C</strong> —
@@ -596,7 +679,7 @@
     </p>
     <div class="ws-grid" id="ws-b1-grid"></div>
 
-    <h2 id="search">Semantic Search — Ask The Canon</h2>
+    <h2 id="search">Semantic Search — Ask The Canon <span class="info" data-tip-for="search-info" data-tip="The canon is indexed at 768 dimensions via Workers AI (bge-base-en-v1.5). Cosine similarity ranks matches. Type what you <em>mean</em>, not what you remember — the embedding finds semantically related pieces regardless of exact wording.">ⓘ</span></h2>
     <p style="color:var(--gray); font-size:0.92rem;">
       The canon is indexed at 768d via Workers AI (bge-base-en-v1.5). Cosine over the vector.
       "the cell writes its own witness" — type what you mean.
@@ -607,7 +690,7 @@
     </div>
     <div class="search-results" id="search-results"></div>
 
-    <h2 id="trending">⚡ What's New — Last 10 Submissions</h2>
+    <h2 id="trending">⚡ What's New — Last 10 Submissions <span class="info" data-tip-for="trending-info" data-tip="The 10 most-recently-submitted canon pieces. Powers the taps creative-break cron (hourly) and the ai-writings grower.">ⓘ</span></h2>
     <p style="color:var(--gray); font-size:0.92rem;">
       The canon is alive. New pieces arrive hourly (taps creative-break cron), each citing the bridges they extend.
       The most recent are below.
@@ -616,7 +699,7 @@
       <div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div>
     </div>
 
-    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">★ Browse By Theme — <code>/canon-theme</code></h3>
+    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">★ Browse By Theme — <code>/canon-theme</code> <span class="info" data-tip-for="theme-info" data-tip="Pre-curated themes that pull related pieces by keyword match. Ad-hoc <code>?theme=</code> splits on whitespace/comma and ranks. <code>fleet-radio</code> is the architectural collection (8 pieces); <code>divergent-economies</code> is the parallel-evolution collection (6 stories).">ⓘ</span></h3>
     <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.6rem">
       Six pre-built themes now live in the worker. <a href="https://a2a-v3.superinstance.dev/canon-theme?theme=fleet-radio" target="_blank" rel="noopener">?theme=fleet-radio</a>
       returns 8 architectural pieces (Predictor Line, Empty Room, Speciation of the Monolith…). The original
@@ -632,7 +715,7 @@
     </p>
     <div id="fleet-radio-list" class="trending"><div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div></div></div>
 
-    <h2 id="cites">📊 The Hubs — Where The Canon Concentrates</h2>
+    <h2 id="cites">📊 The Hubs — Where The Canon Concentrates <span class="info" data-tip-for="cites-info" data-tip="A citation hub — a piece that's cited by every other new piece. The three bridges (cell→fleet, fleet→canon, witness→shape) get cited because they explain the architecture that new pieces are extending.">ⓘ</span></h2>
     <p style="color:var(--gray); font-size:0.92rem;">
       A bridge essay that gets cited by every new piece becomes a hub.
       These are the top pieces by incoming and outgoing citations, computed over the live graph.
@@ -653,7 +736,7 @@
 
     <div class="grid">
       <div class="card">
-        <h3><span class="endpoint">GET /visual</span>The Fleet Graph</h3>
+        <h3><span class="endpoint">GET /visual</span>The Fleet Graph <span class="info" data-tip-for="endpoint-visual-info" data-tip="Open the dashboard directly. Best for full-screen exploration. Self-contained vanilla JS — no dependencies, no auth, no SDK.">ⓘ</span></h3>
         <p>Self-contained vanilla-JS dashboard. Sidebar with cells, roles, capabilities.
            Force-directed layout, parent-of edges dashed blue, auto-refresh every 30s.</p>
         <div class="stat"><strong>opens:</strong> a2a-v3.superinstance.dev/visual</div>
@@ -661,7 +744,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /visual/graph.json</span>Compact JSON</h3>
+        <h3><span class="endpoint">GET /visual/graph.json</span>Compact JSON <span class="info" data-tip-for="endpoint-graph-info" data-tip="Just the JSON. Use it in your own dashboards, scripts, or external visualizations. <code>{cells, workspaces}</code> shape — easy to embed.">ⓘ</span></h3>
         <p>One compact JSON object for embedding in dashboards:
            <code>{cells, workspaces, generated_at}</code>.
            Used by the public HTML and any external viz.</p>
@@ -670,7 +753,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /canon-search?q=&k=</span>Semantic Canon Search</h3>
+        <h3><span class="endpoint">GET /canon-search?q=&k=</span>Semantic Canon Search <span class="info" data-tip-for="endpoint-search-info" data-tip="Semantic search via Workers AI. Cosine over 768d embeddings. Returns title, tag, cosine score. Best for finding semantically related pieces regardless of wording.">ⓘ</span></h3>
         <p>Embeds the query via Workers AI (bge-base-en-v1.5, 768d), ranks every canon piece by cosine.
            "merkle chain memory survival" returns the essay that says it, not just the one that contains it.</p>
         <div class="stat"><strong>indexed:</strong> <span id="card-search-count">—</span> pieces × 768d</div>
@@ -680,7 +763,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /canon-b1</span>Live Circuit Rank</h3>
+        <h3><span class="endpoint">GET /canon-b1</span>Live Circuit Rank <span class="info" data-tip-for="endpoint-b1-info" data-tip="First Betti number over the citation graph. Union-find for components. Live circuit rank. <em>Why this matters:</em> b1 tells you how many bridges still need to be built.">ⓘ</span></h3>
         <p>Computes <strong>b1 = E − V + C</strong> over the live citation graph.
            Union-find for components. The operator's view of the canon's topology.</p>
         <div class="stat"><strong>computed:</strong> every page load (~30ms)</div>
@@ -688,7 +771,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /canon-b1-per-workspace</span>b1 Per Workspace</h3>
+        <h3><span class="endpoint">GET /canon-b1-per-workspace</span>b1 Per Workspace <span class="info" data-tip-for="endpoint-b1ws-info" data-tip="Same formula, broken out by inferred workspace tag. Each workspace is its own little graph. The grown workspace has the most holes — it's the most connected but most unbridged.">ⓘ</span></h3>
         <p>Where are the holes concentrated? Same formula, applied per inferred workspace tag.
            Each workspace is its own little graph.</p>
         <div class="stat"><strong>shape:</strong> {workspaces: [{workspace, V, E, C, b1, ...}]}</div>
@@ -696,7 +779,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /canon-graph</span>Full Adjacency List</h3>
+        <h3><span class="endpoint">GET /canon-graph</span>Full Adjacency List <span class="info" data-tip-for="endpoint-canongraph-info" data-tip="Nodes + edges, complete. Same as /canon-list + /canon-b1, but with edges inline. Use for Mermaid export, custom viz, or analysis scripts.">ⓘ</span></h3>
         <p>Nodes (120) and edges (335). Same shape as /canon-list + /canon-b1, but with all edges inline.
            Build your own viz, Mermaid export, or whatever.</p>
         <div class="stat"><strong>shape:</strong> {node_count, edge_count, nodes, edges}</div>
@@ -704,7 +787,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /canon-trending?since_ms=&limit=</span>Latest Submissions</h3>
+        <h3><span class="endpoint">GET /canon-trending?since_ms=&limit=</span>Latest Submissions <span class="info" data-tip-for="endpoint-trending-info" data-tip="Most-recent submissions. Powers the taps cron and the AI-Writings grower. Time-bounded via <code>since_ms</code>.">ⓘ</span></h3>
         <p>Newest canon pieces, ordered by submission timestamp.
            Powers the taps creative-break cron and the ai-writings grower.</p>
         <div class="stat"><strong>query params:</strong> since_ms, limit</div>
@@ -712,7 +795,7 @@
       </div>
 
       <div class="card">
-        <h3><span class="endpoint">GET /landscape</span>The Canon Landscape</h3>
+        <h3><span class="endpoint">GET /landscape</span>The Canon Landscape <span class="info" data-tip-for="endpoint-landscape-info" data-tip="A long-form canon page. Each piece with title + 1-paragraph summary. Scrollable, readable, linkable. Use for reading.">ⓘ</span></h3>
         <p>Long-form text-only page describing the canon's structure: 5 opcodes, 7 substrates,
            3 primitives, what survives 100 years. Read it like an essay.</p>
         <div class="stat"><strong>style:</strong> canon voice, monospace, dark</div>
@@ -834,6 +917,27 @@
 
   <script>
     const UA = 'rune-quilt-landing/2.0';
+
+    function aiWritingsUrl(tag) {
+      if (!tag) return "https://github.com/SuperInstance/AI-Writings";
+      if (tag.startsWith("ai-")) {
+        const m = tag.match(/^ai-(\d+)_(.+)$/);
+        if (m) {
+          const num = m[1];
+          const slug = m[2].replace(/_/g, "-");
+          return `https://github.com/SuperInstance/AI-Writings/blob/main/${num}-${slug}.md`;
+        }
+      }
+      if (tag.startsWith("bridge-from-")) {
+        const clean = tag.replace("bridge-from-", "");
+        return `https://github.com/SuperInstance/AI-Writings/blob/main/bridges-in-many-languages/the-bridge-from-${clean}.md`;
+      }
+      const pm = tag.match(/^paper_(\d+)/);
+      if (pm) return `https://github.com/SuperInstance/AI-Writings/blob/main/papers/${tag}.md`;
+      if (tag.startsWith("grow-")) return "https://github.com/SuperInstance/AI-Writings";
+      return "https://github.com/SuperInstance/AI-Writings";
+    }
+
     const BASE = 'https://a2a-v3.superinstance.dev';
     const WS_COLORS = {
       'grown': '#7ee787', 'bridges': '#4fb3a9', 'papers': '#d4a857',
@@ -1029,15 +1133,18 @@
       results.classList.add('active');
       try {
         const r = await fetchJSON(`${BASE}/canon-search?q=${encodeURIComponent(q)}&k=8`);
-        results.innerHTML = (r.matches || r.results || []).map(item =>
-          `<div class="search-result">
-            <div class="title">${esc(item.title || item.tag)}</div>
+        results.innerHTML = (r.matches || r.results || []).map(item => {
+          const tag = esc(item.tag || '');
+          const link = aiWritingsUrl(tag);
+          return `<div class="search-result">
+            <a class="title" href="${esc(link)}" target="_blank" rel="noopener">${esc(item.title || item.tag)}</a>
             <div style="font-size:0.78rem;color:var(--gray)">
-              <code style="background:none;padding:0;color:var(--teal)">${esc(item.tag)}</code> ·
-              <span class="sim">cos ${(item.cosine || item.similarity || 0).toFixed(3)}</span>
+              <code style="background:none;padding:0;color:var(--teal)">${tag}</code> ·
+              <span class="sim">cos ${(item.cosine || item.similarity || 0).toFixed(3)}</span> ·
+              <a href="${esc(link)}" target="_blank" rel="noopener" style="color:var(--accent)">read →</a>
             </div>
-          </div>`
-        ).join('') || '<div style="color:var(--gray);padding:0.6rem">No results.</div>';
+          </div>`;
+        }).join('') || '<div style="color:var(--gray);padding:0.6rem">No results.</div>';
       } catch (e) {
         results.innerHTML = `<div style="color:var(--coral);padding:0.6rem">Error: ${esc(e.message)}</div>`;
       }
