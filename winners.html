@@ -139,11 +139,24 @@ async function loadCorpus() {
   return await r.json();
 }
 
-async function loadRun(slug, v) {
+let BUNDLE = null;
+async function loadBundle() {
+  if (BUNDLE) return BUNDLE;
   try {
-    const r = await fetch(`/winners-data/${slug}/v${v}.json`, {cache: 'no-cache'});
-    return r.ok ? await r.json() : null;
-  } catch(e) { return null; }
+    const r = await fetch('/winners-bundle.json', {cache: 'no-cache'});
+    if (r.ok) {
+      BUNDLE = await r.json();
+      return BUNDLE;
+    }
+  } catch(e) {}
+  return null;
+}
+async function loadRun(slug, v) {
+  const bundle = await loadBundle();
+  if (!bundle) return null;
+  const s = bundle.scenarios.find(x => x.slug === slug);
+  if (!s) return null;
+  return s.versions[v-1] || null;
 }
 
 async function loadScenario(slug) {
