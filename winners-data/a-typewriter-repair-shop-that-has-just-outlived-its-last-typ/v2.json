@@ -1,0 +1,148 @@
+{
+  "title": "The Last Key Struck",
+  "scenario": {
+    "title": "The Last Key Struck",
+    "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+    "characters": [
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+        "keywords": "typewriter+0.48,repair+0.7,inventory-0.49,regret+0.18,chalkboard+0.12",
+        "ticks": 20
+      },
+      {
+        "name": "Mabel Hines",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+        "keywords": "logbook+0.43,observation+0.54,librarian+0.61,pen+0.32,quiet-0.36",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+        "keywords": "zine+0.6,typewriter+0.49,analog+0.48,gratitude+0.35,transit-0.18",
+        "ticks": 20
+      },
+      {
+        "name": "Pip",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+        "keywords": "squirrel+0.39,ribbon+0.61,typebar+0.41,rafters+0.34,curious-0.26",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 200,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:45:08.726314Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "A whole year, and the doorbell still sings like it did on opening day\u2014funny how the things we polish are the things that never wear down. I keep telling myself the quiet means people are just saving up their words, storing them up for when they need somewhere to put them. The laundromat crowd drifts past my window all day, and I swear one of these Tuesdays, someone's going to stop and wonder what that sound is underneath the dryers. That ribbon on the Underwood won't re-ink itself, though.\n\n[reaches beneath the counter and sets a fresh ribbon spool beside the half-dism",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "I can\u2019t believe this tiny, sun-faded typewriter repair shop has already reached its first anniversary. I\u2019ll be sure to note the faded handwritten anniversary sign taped to the side window, along with how much the brick\u2019s red hue has softened since my last visit two weeks ago.\n[scratches a quick, detailed note in her well-worn leather notebook]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Whoa, so stoked to pop in before my evening shift! These are all hand-stamped thank-you zines for whoever fixed my beat-up Royal typewriter back in March\u2014we just launched a tiny underground analog media collective at the local university, and every single week more kids are ditching their laptops to make tape mixes, poetry broadsides, and risograph zines now, it\u2019s such a weird, awesome vibe!\n[slides the thick stack of neon-pink and orange zines across the shop\u2019s scuffed wooden countertop, a crumpled typewritten note peeking out from the top page]",
+          "shifts": {
+            "typewriter": 0.49,
+            "analog": 0.48
+          },
+          "shift_total": 0.97,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "Chitter-chitter, quiet skitter! I just slipped between the dusty shelves and found a handful of glinting tiny type pieces wedged in a rusted repair kit, plus a frayed rose-colored ribbon scrap perfect for lining my nest. I nearly knocked over that loose spool of white ribbon by the back door when I darted over to grab it, oops.\n[scampers across the creaky brick rafters, tucking the shiny trinkets into the plush, type-piece-lined nest tucked above the old ticking job counter]",
+          "shifts": {
+            "ribbon": 1.22,
+            "rafters": 0.34
+          },
+          "shift_total": 1.56,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "A rose-colored ribbon\u2014my mentor kept a spool of those for the machines she loved most, and here it's been hiding in the rust all along. Javi, those zines mean more than you know; someone out there is still listening, even if they don't walk through that door. Maybe the anniversary isn't about counting customers, but about counting the ones who remember.\n\n[Elara kneels beside Pip's hiding spot and lifts the frayed ribbon to the window light, smoothing it between her fingers like an old letter.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "I can\u2019t believe this tiny, sun-faded typewriter repair shop has already reached its first anniversary. I\u2019ll be sure to note the faded handwritten anniversary sign taped to the side window, along with Javi\u2019s thoughtful hand-stamped thank-you zines and Pip\u2019s charming little haul of tiny type pieces and rose-colored ribbon scrap.\n[leans against the scuffed front counter to scribble the details in her frayed leather notebook while tucking a stray gray hair behind her ear]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "These zines all have tiny doodles of your repair station and a goofy strip about how I thought my beat-up Royal was gone for good till you fixed it! The campus underground analog media crew just passed 40 members last week\u2014everyone\u2019s begging for more low-tech zine workshops right now.\n[taps the edge of the shop\u2019s handwritten anniversary sign with an ink-stained finger before setting the stapled zine stack down on the front counter]",
+          "shifts": {
+            "zine": 1.2,
+            "analog": 0.48
+          },
+          "shift_total": 1.68,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "Chitter-skitter! These glinting tiny type pieces and soft rose ribbon will make my nest far cozier for the cool evenings ahead. I nearly knocked over a spool of red thread just now when I darted between the shelves.\n[scampers up a nearby wooden rafter beam, tucking the found treasures into the existing pile of fur and scrap lining its nest]",
+          "shifts": {
+            "ribbon": 0.61
+          },
+          "shift_total": 0.61,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elara Voss": 0.0,
+    "Mabel Hines": 0.0,
+    "Javi Marquez": 2.65,
+    "Pip": 2.17
+  },
+  "citations": {
+    "Elara Voss": {
+      "Javi Marquez": 1,
+      "Pip": 1
+    },
+    "Mabel Hines": {
+      "Javi Marquez": 1,
+      "Pip": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "[EMPTY]"
+}
