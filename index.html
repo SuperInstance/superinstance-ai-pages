@@ -336,7 +336,8 @@ async function loadRuneQuilt() {
     set('rq-ws', info.workspaces);
     set('rq-pieces', list.count);
     set('rq-edges', b1.E);
-    set('rq-b1', b1.b1);
+    set('rq-b1', b1.b1 + ' · ' + (info.workspaces_detail || []).slice(0, 3)
+      .map(w => w.name + ':' + w.count).join(' '));
   } catch (e) { /* leave placeholders on error */ }
 }
 loadRuneQuilt();

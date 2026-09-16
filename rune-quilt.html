@@ -85,7 +85,17 @@
       margin-right: 6px;
       animation: pulse 2s infinite;
     }
+    .pill.coral { border-color: var(--coral); color: var(--coral); }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes shimmer { 0% { opacity: 0.55; } 50% { opacity: 1; } 100% { opacity: 0.55; } }
+    .skel { animation: shimmer 1.6s infinite ease-in-out; color: var(--gray); }
+    .updated {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 0.9rem;
+      font-family: monospace;
+    }
+    .updated a { color: var(--gray); }
 
     /* Section grid */
     .grid {
@@ -218,6 +228,10 @@
     }
     .doc-pill strong { color: var(--teal); }
 
+    ul { color: var(--text); }
+    ul li { margin: 0.4rem 0; }
+    ul li strong { color: var(--accent); }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -251,7 +265,16 @@
       Same math as bilayer graphene — different language.
     </div>
     <div class="live-pills" id="live-stats">
-      <div class="pill"><span class="dot"></span>Connecting to fleet…</div>
+      <div class="pill skel">Loading cells…</div>
+      <div class="pill skel">Loading b1…</div>
+      <div class="pill skel">Loading canon…</div>
+      <div class="pill skel">Loading fleets…</div>
+    </div>
+    <div class="updated" id="updated-row">
+      <a href="https://a2a-v3.superinstance.dev/canon-b1" target="_blank" rel="noopener">/canon-b1</a> ·
+      <a href="https://a2a-v3.superinstance.dev/" target="_blank" rel="noopener">/</a> ·
+      <a href="https://a2a-v3.superinstance.dev/canon-list" target="_blank" rel="noopener">/canon-list</a>
+      <span id="last-updated"> — fetching…</span>
     </div>
   </div>
 
@@ -374,6 +397,34 @@
       <div class="doc-pill"><strong>PLAIN_LANGUAGE.md</strong> · for non-physicists</div>
     </div>
 
+    <h2>What You Can Do Here, Right Now</h2>
+    <p style="color:var(--gray); font-size:0.92rem;margin-bottom:0.6rem;">
+      The fleet is open. Pick one:
+    </p>
+    <ul style="line-height:1.75;font-size:0.92rem;padding-left:1.4rem">
+      <li>
+        <strong>Watch the canon grow.</strong> Run a cron: every hour the cell-router
+        ticks once per workspace. Witnesses accumulate. Citations form. <code style="color:var(--accent)">b1</code> climbs when bridges appear.
+      </li>
+      <li>
+        <strong>Search by meaning.</strong> Try
+        <a href="https://a2a-v3.superinstance.dev/canon-search?q=cell+writes+witness+and+then+the+witness+writes+back&k=3">"cell writes witness and then the witness writes back"</a>
+        — a sentence you would never grep for, but the vector index finds.
+      </li>
+      <li>
+        <strong>Read the topology.</strong> Hit <a href="https://a2a-v3.superinstance.dev/canon-b1">/canon-b1</a> and read
+        <code style="color:var(--accent)">b1</code> off the page. Same math as bilayer graphene's moiré pattern and the QUILT mode in twist-engine.
+      </li>
+      <li>
+        <strong>Register a cell.</strong> <code>POST /register</code> with <code>{cell_id, role, workspace, capabilities}</code>.
+        It shows up in the graph immediately.
+      </li>
+      <li>
+        <strong>Play QUILT.</strong> Open <a href="https://superinstance-website.pages.dev/rune-quilt.html#quilt">twist-engine</a>,
+        push δ to 0.3+, watch the holes bloom. b1 grows.
+      </li>
+    </ul>
+
     <h2>Open Source, Four Releases</h2>
     <p style="color:var(--text); font-size:0.92rem;">
       <a href="https://github.com/SuperInstance/rune-quilt"><strong>rune-quilt</strong></a> · Go runtime, visual layer, polyformal compiler, Rune extension.
@@ -401,35 +452,71 @@
       return r.json();
     }
 
-    async function loadStats() {
-      try {
-        const [info, b1, list] = await Promise.all([
-          fetchJSON('https://a2a-v3.superinstance.dev/'),
-          fetchJSON('https://a2a-v3.superinstance.dev/canon-b1'),
-          fetchJSON('https://a2a-v3.superinstance.dev/canon-list'),
-        ]);
-        document.getElementById('live-stats').innerHTML = `
-          <div class="pill"><span class="dot"></span><strong>${info.cells}</strong> cells</div>
-          <div class="pill"><strong>${info.workspaces}</strong> workspaces</div>
-          <div class="pill"><strong>${b1.V}</strong> vertices</div>
-          <div class="pill"><strong>${b1.E}</strong> edges</div>
-          <div class="pill"><strong>${b1.b1}</strong> holes (b1)</div>
-          <div class="pill"><strong>${list.count}</strong> canon pieces</div>
-          <div class="pill"><strong>${info.messages_pending}</strong> pending msgs</div>
-        `;
+    async function fetchJSON(url) {
+      const r = await fetch(url, { headers: { 'User-Agent': 'rune-quilt-landing/1.0' } });
+      if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
+      return r.json();
+    }
 
-        const cards = document.querySelectorAll('#canon-stats .stat-card .num');
-        cards[0].textContent = b1.V;
-        cards[1].textContent = b1.E;
-        cards[2].textContent = b1.C;
-        cards[3].textContent = b1.b1;
-        cards[4].textContent = list.count;
-      } catch (e) {
-        document.getElementById('live-stats').innerHTML = `
-          <div class="pill"><span class="dot" style="background:var(--coral)"></span>Fleet unreachable: ${e.message}</div>
-        `;
+    async function loadStats() {
+      let attempt = 0;
+      while (attempt < 2) {
+        try {
+          const [info, b1, list] = await Promise.all([
+            fetchJSON('https://a2a-v3.superinstance.dev/'),
+            fetchJSON('https://a2a-v3.superinstance.dev/canon-b1'),
+            fetchJSON('https://a2a-v3.superinstance.dev/canon-list'),
+          ]);
+
+          // Build chips with workspace breakdown
+          const wsChips = (info.workspaces_detail || []).slice(0, 4)
+            .map(w => `<div class="pill" title="${esc(w.name)}"><strong>${w.count}</strong> ${esc(w.name.length > 14 ? w.name.slice(0, 12) + '…' : w.name)}</div>`)
+            .join('');
+
+          document.getElementById('live-stats').innerHTML = `
+            <div class="pill"><span class="dot"></span><strong>${info.cells}</strong> cells</div>
+            <div class="pill"><strong>${info.workspaces}</strong> workspaces</div>
+            <div class="pill"><strong>${b1.V}</strong> vertices</div>
+            <div class="pill"><strong>${b1.E}</strong> edges</div>
+            <div class="pill"><strong>${b1.b1}</strong> holes (b1)</div>
+            <div class="pill"><strong>${list.count}</strong> canon pieces</div>
+            <div class="pill"><strong>${info.messages_pending}</strong> pending msgs</div>
+            ${wsChips}
+          `;
+
+          const cards = document.querySelectorAll('#canon-stats .stat-card .num');
+          cards[0].textContent = b1.V;
+          cards[1].textContent = b1.E;
+          cards[2].textContent = b1.C;
+          cards[3].textContent = b1.b1;
+          cards[4].textContent = list.count;
+
+          const dt = new Date();
+          document.getElementById('last-updated').textContent =
+            ` — refreshed ${dt.toLocaleTimeString()} · auto-updates every 30s`;
+          return;
+        } catch (e) {
+          attempt++;
+          if (attempt >= 2) {
+            document.getElementById('live-stats').innerHTML = `
+              <div class="pill coral"><span class="dot" style="background:var(--coral)"></span>Fleet unreachable · ${esc(e.message)}</div>
+              <div class="pill coral"><a href="https://a2a-v3.superinstance.dev/" style="color:inherit">retry ↗</a></div>
+            `;
+            document.getElementById('last-updated').innerHTML =
+              ` — last failed at ${new Date().toLocaleTimeString()}`;
+          } else {
+            await new Promise(r => setTimeout(r, 1000));
+          }
+        }
       }
     }
+
+    function esc(s) {
+      const d = document.createElement('div');
+      d.textContent = s || '';
+      return d.innerHTML;
+    }
+
     loadStats();
     setInterval(loadStats, 30000);
   </script>
