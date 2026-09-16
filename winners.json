@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:51:22.552043Z",
+  "generated_at": "2026-09-16T16:54:20.220316Z",
   "n_scenarios": 3,
   "scenarios": [
     {
@@ -12,6 +12,20 @@
           "label": "v1",
           "total_resonance": 0.0,
           "dm_closing": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v2",
+          "total_resonance": 0.0,
+          "dm_closing": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v3",
+          "total_resonance": 0.0,
+          "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery",
           "n_turns": 9,
           "n_rounds": 3
         }
