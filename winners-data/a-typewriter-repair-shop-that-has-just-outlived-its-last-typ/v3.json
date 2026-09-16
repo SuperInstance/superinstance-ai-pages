@@ -1,0 +1,149 @@
+{
+  "title": "The Last Key Struck",
+  "scenario": {
+    "title": "The Last Key Struck",
+    "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+    "characters": [
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+        "keywords": "typewriter+0.44,repair+0.7,inventory-0.42,regret+0.28,chalkboard+0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Mabel Hines",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+        "keywords": "logbook+0.33,observation+0.43,librarian+0.47,pen+0.29,quiet-0.45",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+        "keywords": "zine+0.54,typewriter+0.58,analog+0.45,gratitude+0.33,transit-0.08",
+        "ticks": 20
+      },
+      {
+        "name": "Pip",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+        "keywords": "squirrel+0.47,ribbon+0.59,typebar+0.53,rafters+0.43,curious-0.35",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 300,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:45:59.156276Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "One year. A whole year of dusting these keys and still the bell above the door rings less often than the laundromat's dryers next door. But you know what? Mr. Abernathy told me machines like these don't die\u2014they just wait for someone with the patience to listen. So I'll keep listening, keep the lights on, and keep every ribbon in stock for whoever walks through that door next.\n\n[wipes a decade of grime from the window display with a soft cloth, angling the mint-green Olivetti so it catches the afternoon light]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "Look at that faint chalk first-anniversary mark above the workbench\u2014hardly noticeable at first glance, but it\u2019s such a quiet, thoughtful touch from the shop\u2019s owner. I\u2019ll make sure to note that detail alongside the smudged ink stain on the front step I spotted earlier.\n[reaches into the oversized pocket of her cardigan to pull out a frayed spiral notebook and a blue pencil with a chewed eraser]",
+          "shifts": {
+            "quiet": -0.45
+          },
+          "shift_total": -0.45,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Whoa, congrats on your shop\u2019s first anniversary! I hit the university\u2019s underground analog media meetup last night and made sure every kid lugging a beat-up typewriter heard about your repair work\u2014also brought these thank-you zines I co-printed with the group to say thanks.\n[slides a teetering stack of hand-stapled, neon-accented zines across the scuffed shop counter, wiping a smudge of ink from his cheek with the back of his hand]",
+          "shifts": {
+            "typewriter": 0.58,
+            "analog": 0.45
+          },
+          "shift_total": 1.03,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "Chitter, soft trilling chitters\u2014there\u2019s a buttery maple cake crumb tucked behind this stack of brass type sorts! I spotted it when the shop owners brought out their anniversary treat boxes earlier. I\u2019d better grab it before the laundromat\u2019s tabby cat wanders over.\n[scampers across a wobbly stack of vintage ribbon spools to dart toward the hidden crumb]",
+          "shifts": {
+            "ribbon": 0.59
+          },
+          "shift_total": 0.59,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "Javi, if even two of those students wander in with machines that still clatter, I'll call this year a victory already. And now I know why the cake box looks lighter than I left it\u2014someone's been celebrating ahead of schedule back there. Come out, little one, crumbs are exactly what anniversaries are for.\n\n[sets a small pinch of maple cake on a chipped saucer beside the brass type sorts, then runs her thumb gently over the chalk anniversary mark above the workbench]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "Oh, that buttery maple crumb is such a perfect, easy-to-overlook little detail\u2014 I would\u2019ve totally missed it without your chittering heads-up, Pip. I\u2019ll add it straight to my community history notes alongside the faint chalk first-anniversary mark above the workbench.\n[flips open her frayed navy cloth-bound notebook to a page smudged with old ink stains and jots down the crumb detail quickly, pencil hovering a moment to double-check the spelling of \"maple\"]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Whoa, massive congrats on your first shop anniversary! I hit the university\u2019s underground analog media meetup last night and hyped your repair work to every kid hauling a beat-up typewriter, plus I brought a stack of the hand-made thank-you zines I put together for the whole crew.\n[dumps the crinkled, hand-stapled zine stack onto the worn wood counter, jostling a jar of brass type sorts]",
+          "shifts": {
+            "zine": 0.54,
+            "typewriter": 0.58,
+            "analog": 0.45
+          },
+          "shift_total": 1.57,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "I\u2019ve been sneaking tiny nibbles of maple cake whenever the shop owners step away from the counter! This crumb\u2019s the biggest and sweetest one I\u2019ve found yet, and I\u2019m tucking it into my ribbon-lined nest right now.\n[scampers nimbly across the stack of brass type sorts, clutching the crumb tight to its chest before darting upward to the shadowy rafters]",
+          "shifts": {
+            "ribbon": 0.59,
+            "rafters": 0.43
+          },
+          "shift_total": 1.02,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elara Voss": 0.0,
+    "Mabel Hines": -0.45,
+    "Javi Marquez": 2.6,
+    "Pip": 1.6099999999999999
+  },
+  "citations": {
+    "Elara Voss": {
+      "Javi Marquez": 1
+    },
+    "Mabel Hines": {
+      "Pip": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and the town's official history now includes one mouse-sized accomplice. The hook: Javi's hype at the underground analog meetup means by next week the bell above the door will ring with university students hauling beat-up, clattering machines straight toward Elara's workbench."
+}
