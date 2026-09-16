@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>erised — a mirror for cooperative fiction</title>
+<meta name="description" content="Run model-only cooperative fiction. Authors the conditions; the fiction plays itself. Open source. MIT."/>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel-2: #1c2128;
+    --text: #c9d1d9;
+    --accent: #d4a857;
+    --teal: #4fb3a9;
+    --rose: #d4577e;
+    --green: #00c080;
+    --purple: #9a60d9;
+    --gray: #888;
+    --border: #30363d;
+    --scar: rgba(212, 87, 126, 0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; min-height: 100vh; }
+  body { padding: 24px 32px; }
+  .header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+  .title { font-size: 28px; font-weight: 600; color: #f0f6fc; letter-spacing: -0.02em; }
+  .title .accent { color: var(--accent); font-weight: 700; }
+  .tagline { font-size: 14px; color: var(--gray); font-style: italic; }
+  .controls { display: flex; gap: 8px; align-items: center; }
+  button { background: var(--panel); color: var(--text); border: 1px solid var(--border); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.15s; }
+  button:hover { border-color: var(--teal); background: var(--panel-2); }
+  button.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+  button.primary:hover { background: #e6b86a; }
+  button.danger { border-color: var(--rose); color: var(--rose); }
+  button.danger:hover { background: var(--scar); }
+  .grid { display: grid; grid-template-columns: 320px 1fr 320px; gap: 16px; }
+  @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .panel h3 { color: var(--accent); font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; font-weight: 600; }
+  .panel h3 small { color: var(--gray); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 8px; }
+  .character { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+  .character.scarred { border-color: var(--rose); background: var(--scar); }
+  .character .name { color: var(--teal); font-weight: 600; font-size: 14px; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+  .character .name input { background: none; border: none; color: var(--teal); font-weight: 600; font-size: 14px; width: 70%; }
+  .character .name input:focus { outline: 1px solid var(--teal); border-radius: 3px; padding: 2px 4px; }
+  .character .meta { font-size: 11px; color: var(--gray); margin-bottom: 6px; }
+  .character .meta select { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 4px; font-size: 11px; padding: 2px 4px; }
+  .character textarea { width: 100%; min-height: 80px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 8px; font-size: 12px; font-family: inherit; resize: vertical; }
+  .character .remove { background: none; color: var(--rose); border: 1px solid var(--rose); padding: 2px 8px; font-size: 11px; border-radius: 4px; }
+  .character .remove:hover { background: var(--rose); color: var(--bg); }
+  .character .add-keyword { background: none; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; font-size: 11px; border-radius: 4px; margin-top: 6px; }
+  .character .add-keyword:hover { background: var(--accent); color: var(--bg); }
+  .character .ticks { font-size: 11px; color: var(--accent); margin-top: 6px; font-weight: 600; }
+  .character .ticks .used { color: var(--gray); font-weight: 400; }
+  .setting { width: 100%; min-height: 120px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 12px; font-size: 14px; font-family: inherit; line-height: 1.5; resize: vertical; }
+  .transcript { max-height: 70vh; overflow-y: auto; }
+  .round { margin-bottom: 20px; border: 1px solid var(--border); border-radius: 8px; padding: 14px; background: var(--panel-2); }
+  .round.scarred { border-color: var(--rose); background: var(--scar); }
+  .round-label { color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; font-weight: 600; }
+  .turn { padding: 10px 12px; border-left: 3px solid var(--teal); margin-bottom: 8px; background: var(--bg); border-radius: 0 6px 6px 0; }
+  .turn.dm { border-left-color: var(--accent); }
+  .turn .speaker { color: var(--teal); font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+  .turn.dm .speaker { color: var(--accent); }
+  .turn .text { font-size: 14px; line-height: 1.55; }
+  .turn .action { color: var(--gray); font-style: italic; margin-top: 6px; font-size: 12px; }
+  .turn .shift { margin-top: 6px; font-size: 11px; color: var(--gray); }
+  .stats { display: flex; gap: 16px; margin-bottom: 16px; }
+  .stat { background: var(--panel-2); border: 1px solid var(--border); padding: 8px 12px; border-radius: 6px; flex: 1; }
+  .stat .label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; }
+  .stat .value { font-size: 18px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+  .citation-graph { font-size: 12px; }
+  .citation-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .citation-row:last-child { border: none; }
+  .citation-row .from { color: var(--teal); }
+  .citation-row .to { color: var(--purple); }
+  .citation-row .count { color: var(--accent); font-weight: 600; }
+  .scar-list { font-size: 12px; }
+  .scar-item { padding: 8px; background: var(--scar); border-left: 3px solid var(--rose); margin-bottom: 6px; border-radius: 0 4px 4px 0; }
+  .scar-item .when { color: var(--rose); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .loading { color: var(--gray); font-style: italic; padding: 12px; }
+  .skel { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); padding: 12px; border-radius: 4px; }
+  .help { font-size: 12px; color: var(--gray); margin-bottom: 8px; line-height: 1.5; }
+  details summary { cursor: pointer; color: var(--accent); font-size: 12px; padding: 6px 0; }
+  details[open] summary { margin-bottom: 8px; }
+  .preset-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .preset-btn { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+  .preset-btn:hover { border-color: var(--teal); }
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <div class="title">eri<span class="accent">·</span>sed</div>
+    <div class="tagline">a mirror for cooperative fiction — model-only TTRPG engine</div>
+  </div>
+  <div class="controls">
+    <button id="tick-btn" class="primary">Tick →</button>
+    <button id="open-btn">Open</button>
+    <button id="rewind-btn" class="danger">Rewind</button>
+    <button id="end-btn">End Scene</button>
+    <button id="reset-btn">Reset</button>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- LEFT: cast -->
+  <div class="panel">
+    <h3>Cast <small>· characters with goals, LLMs, tendencies</small></h3>
+    <div class="help">Each character has a name, an LLM (Z.AI / DeepInfra / Claude), and a "sheet" of tendencies + word-association probabilities. The harness calls all characters in parallel each tick.</div>
+    <div class="preset-bar">
+      <button class="preset-btn" data-preset="blank">+ blank</button>
+      <button class="preset-btn" data-preset="mechanic">+ mechanic</button>
+      <button class="preset-btn" data-preset="shepherd">+ shepherd</button>
+      <button class="preset-btn" data-preset="chronicler">+ chronicler</button>
+      <button class="preset-btn" data-preset="skeptic">+ skeptic</button>
+    </div>
+    <div id="cast"></div>
+  </div>
+
+  <!-- CENTER: setting + transcript -->
+  <div class="panel">
+    <h3>Setting <small>· the prose that frames the world</small></h3>
+    <textarea id="setting" class="setting" placeholder="Set the scene. Where are we? What's at stake? What does each character need to do in the next hour of in-fiction time?"></textarea>
+    <div class="preset-bar" style="margin-top:8px">
+      <button class="preset-btn" data-setting="quilt">Quilt at 12 months</button>
+      <button class="preset-btn" data-setting="monastery">Monastery of Cells</button>
+      <button class="preset-btn" data-setting="coral">Coral Reef</button>
+      <button class="preset-btn" data-setting="railway">Railway</button>
+    </div>
+
+    <h3 style="margin-top:20px">Transcript <small>· rounds stacked as seams</small></h3>
+    <div id="transcript" class="transcript">
+      <div class="loading">Hit "Tick →" to begin. The DM will open the scene, then each character responds in parallel.</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: stats + scars -->
+  <div class="panel">
+    <h3>Time Economy</h3>
+    <div class="stats">
+      <div class="stat"><div class="label">Tick</div><div class="value" id="tick-num">0</div></div>
+      <div class="stat"><div class="label">Scarred</div><div class="value" id="scar-num">0</div></div>
+    </div>
+    <div id="cast-ticks"></div>
+
+    <h3 style="margin-top:18px">Resonance Graph <small>· who cites whom</small></h3>
+    <div id="citation-graph" class="citation-graph">
+      <div class="help">Citations accumulate as characters reference each other across rounds. The most-cited cells earn the most resonance.</div>
+    </div>
+
+    <h3 style="margin-top:18px">Scars <small>· preserved through rewind</small></h3>
+    <div id="scar-list" class="scar-list">
+      <div class="help">When the simulation breaks down and you rewind, the scar of the breakdown is preserved. You can't patch over it. The next iteration has to address it.</div>
+    </div>
+
+    <h3 style="margin-top:18px">About</h3>
+    <details>
+      <summary>What is erised?</summary>
+      <div class="help" style="margin-top:8px">
+        <strong>erised</strong> = <em>desire</em> reversed. A mirror for cooperative fiction. The operator authors the conditions — state, cadence, cast, setting — and the fiction plays itself. Power is given, not taken. Time is finite; resonance earns more.
+        <br><br>
+        Built on the Quilt cell-fabric runtime. Open source. MIT. Inspired by Plato's cave (the cell as first-person spatial observer), the philosophers' stone (transmutation through resonance), and the Mirror of Erised (showing the heart's desire).
+      </div>
+    </details>
+    <details style="margin-top:8px">
+      <summary>How to read the run</summary>
+      <div class="help" style="margin-top:8px">
+        Each round: DM opens → characters respond in parallel → their word-association shifts accumulate → citations are tracked → next round. The character with the highest cumulative net shift has the most resonance in the field.
+        <br><br>
+        "Scar" = a tick where the simulation broke down (a character's response went off, the DM closed prematurely, the budget ran out). Scars are visible across rewinds. They are the unit of learning.
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// erised v0.1.0 — single-file engine
+// Uses DeepInfra + Z.AI as backends. Browser calls them directly via fetch
+// from the user's API keys (entered in dialog at first run, stored in localStorage).
+// ============================================================================
+
+const DEFAULTS = {
+  setting: 'A year has passed on the *Quilt Fleet*. The Celestine Crown sits in drydock, repaired — keel-crystals humming again, lift-dust stabilized. The fleet has grown: 200 cells across 11 workspaces, b1 holding at 480. Three crew members have been operating this whole time. A fourth has joined, late. They are in the chart house, watching the live canon graph breathe.',
+  characters: [
+    {
+      name: 'Mechanic',
+      llm: 'zai:glm-4.5',
+      tendencies: 'Implements carefully. Watches for rust. Distrusts specs you can\'t read in two pages.',
+      keywords: 'rust+0.4 torque+0.5 spec+0.3 lock+0.4 ledger-0.2 salt-0.2',
+      ticks: 20,
+    },
+    {
+      name: 'Shepherd',
+      llm: 'deepinfra:ByteDance/Seed-2.0-mini',
+      tendencies: 'Tends the canon. Watches the soul. Asks "what is this becoming?" before "is this correct?"',
+      keywords: 'canon+0.5 voice+0.5 soul+0.4 ledger-0.2 rust-0.2',
+      ticks: 20,
+    },
+    {
+      name: 'Chronicler',
+      llm: 'deepinfra:ByteDance/Seed-2.0-code',
+      tendencies: 'Counts and double-entries. Tracks every reference. Worries about orphans.',
+      keywords: 'ledger+0.5 cite+0.5 canon+0.4 b1+0.5 graph+0.4 fleet+0.3',
+      ticks: 20,
+    },
+    {
+      name: 'Skeptic',
+      llm: 'deepinfra:ByteDance/Seed-2.0-code',
+      tendencies: 'Asks why. Suspects narrative. Tracks what hasn\'t been tested.',
+      keywords: 'why+0.5 if+0.4 but+0.4 rust+0.3 crack+0.5 void+0.4 ledger-0.2',
+      ticks: 20,
+    },
+  ],
+};
+
+const PRESETS = {
+  blank: { name: 'New character', llm: 'deepinfra:ByteDance/Seed-2.0-mini', tendencies: '', keywords: '', ticks: 20 },
+  mechanic: { name: 'Mechanic', llm: 'zai:glm-4.5', tendencies: 'Implements carefully. Watches for rust.', keywords: 'rust+0.4 torque+0.5 spec+0.3 lock+0.4', ticks: 20 },
+  shepherd: { name: 'Shepherd', llm: 'deepinfra:ByteDance/Seed-2.0-mini', tendencies: 'Tends the canon. Asks soul-questions.', keywords: 'canon+0.5 voice+0.5 soul+0.4', ticks: 20 },
+  chronicler: { name: 'Chronicler', llm: 'deepinfra:ByteDance/Seed-2.0-code', tendencies: 'Counts and double-entries.', keywords: 'ledger+0.5 cite+0.5 b1+0.5', ticks: 20 },
+  skeptic: { name: 'Skeptic', llm: 'deepinfra:ByteDance/Seed-2.0-code', tendencies: 'Asks why. Suspects narrative.', keywords: 'why+0.5 if+0.4 but+0.4 crack+0.5', ticks: 20 },
+};
+
+const SETTINGS = {
+  quilt: DEFAULTS.setting,
+  monastery: 'A monastery of two hundred monks, arranged in eleven cloisters, has been copying a single living scripture for a year. The scripture breathes — lines move, new margins appear, old paragraphs fold under themselves. Today one cloister has fallen silent and another has begun writing in a hand the abbot doesn\'t recognize.',
+  coral: 'A coral reef of two hundred polyps has been growing a single living skeleton for a year. The skeleton breathes — new calcium ridges appear overnight, old chambers dissolve. Today one polyp colony has gone dormant and another has begun building in a shape the old matriarch doesn\'t recognize.',
+  railway: 'A railway of two hundred stations has been running a single living timetable for a year. The timetable breathes — new departures appear overnight, old arrivals merge. Today one station has gone silent and another has begun running a schedule the central dispatcher doesn\'t recognize.',
+};
+
+let state = {
+  setting: DEFAULTS.setting,
+  characters: JSON.parse(JSON.stringify(DEFAULTS.characters)),
+  transcript: [],
+  tick: 0,
+  citations: {},  // { from: { to: count } }
+  scars: [],
+  resonance: {}, // { name: net_shift }
+  apiKeys: JSON.parse(localStorage.getItem('erised-keys') || '{}'),
+};
+
+// ----------------------------------------------------------------------------
+// Persistence
+// ----------------------------------------------------------------------------
+
+function save() {
+  localStorage.setItem('erised-state', JSON.stringify({
+    setting: state.setting,
+    characters: state.characters,
+    transcript: state.transcript,
+    tick: state.tick,
+    citations: state.citations,
+    scars: state.scars,
+    resonance: state.resonance,
+  }));
+}
+
+function load() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('erised-state') || 'null');
+    if (saved) Object.assign(state, saved);
+  } catch (e) { /* ignore */ }
+}
+
+// ----------------------------------------------------------------------------
+// Cast rendering
+// ----------------------------------------------------------------------------
+
+function renderCast() {
+  const el = document.getElementById('cast');
+  el.innerHTML = state.characters.map((c, i) => {
+    const resonance = (state.resonance[c.name] || 0).toFixed(2);
+    const scarred = state.scars.some(s => s.character === c.name);
+    return `
+      <div class="character ${scarred ? 'scarred' : ''}">
+        <div class="name">
+          <input data-i="${i}" data-f="name" value="${esc(c.name)}" />
+          <button class="remove" data-remove="${i}">×</button>
+        </div>
+        <div class="meta">
+          <select data-i="${i}" data-f="llm">
+            <option value="zai:glm-4.5" ${c.llm === 'zai:glm-4.5' ? 'selected' : ''}>Z.AI · glm-4.5</option>
+            <option value="deepinfra:ByteDance/Seed-2.0-mini" ${c.llm === 'deepinfra:ByteDance/Seed-2.0-mini' ? 'selected' : ''}>DeepInfra · Seed-2.0-mini</option>
+            <option value="deepinfra:ByteDance/Seed-2.0-code" ${c.llm === 'deepinfra:ByteDance/Seed-2.0-code' ? 'selected' : ''}>DeepInfra · Seed-2.0-code</option>
+            <option value="deepinfra:moonshotai/Kimi-K3" ${c.llm === 'deepinfra:moonshotai/Kimi-K3' ? 'selected' : ''}>DeepInfra · Kimi-K3</option>
+          </select>
+        </div>
+        <textarea data-i="${i}" data-f="tendencies" placeholder="tendencies, tendencies, known unknowns, speaking style...">${esc(c.tendencies)}</textarea>
+        <div style="margin-top:6px">
+          <input data-i="${i}" data-f="keywords" placeholder="word→shift, e.g. canon+0.5 ledger-0.2" style="width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:6px;font-size:11px;font-family:monospace" value="${esc(c.keywords)}" />
+        </div>
+        <div class="ticks">⏱ ${c.ticks - ticksUsed(c.name)} ticks left <span class="used">(of ${c.ticks} earned)</span> · resonance ${resonance}</div>
+        <button class="add-keyword" style="display:none">+ keyword</button>
+      </div>
+    `;
+  }).join('');
+
+  // Wire up
+  el.querySelectorAll('input, textarea, select').forEach(el => {
+    el.addEventListener('input', e => {
+      const i = parseInt(e.target.dataset.i);
+      const f = e.target.dataset.f;
+      if (state.characters[i]) state.characters[i][f] = e.target.value;
+      save();
+    });
+  });
+  el.querySelectorAll('button[data-remove]').forEach(b => {
+    b.addEventListener('click', () => {
+      const i = parseInt(b.dataset.remove);
+      state.characters.splice(i, 1);
+      renderCast();
+      save();
+    });
+  });
+}
+
+function ticksUsed(name) {
+  return state.transcript.reduce((n, r) =>
+    n + (r.turns ? r.turns.filter(t => t.name === name && t.text && !t.text.startsWith('[ERROR')).length : 0), 0);
+}
+
+// ----------------------------------------------------------------------------
+// Citation tracking
+// ----------------------------------------------------------------------------
+
+function updateCitations(round) {
+  if (!round.turns) return;
+  // Detect references: "X's word", "as X said", "she [name]"
+  for (const turn of round.turns) {
+    if (!turn.text || turn.text.startsWith('[ERROR')) continue;
+    const lower = turn.text.toLowerCase();
+    for (const other of state.characters) {
+      if (other.name === turn.name) continue;
+      // Match full name or first name
+      const namesToTry = [other.name.toLowerCase()];
+      const firstName = other.name.split(' ')[0].toLowerCase();
+      if (firstName && firstName !== other.name.toLowerCase()) namesToTry.push(firstName);
+      for (const n of namesToTry) {
+        if (n.length < 3) continue;
+        const count = (lower.match(new RegExp('\\b' + n + '\\b', 'g')) || []).length;
+        if (count > 0) {
+          if (!state.citations[turn.name]) state.citations[turn.name] = {};
+          state.citations[turn.name][other.name] = (state.citations[turn.name][other.name] || 0) + count;
+        }
+      }
+    }
+  }
+}
+
+function updateResonance(round) {
+  if (!round.turns) return;
+  for (const turn of round.turns) {
+    if (!turn.text || turn.text.startsWith('[ERROR')) continue;
+    // Word-association shifts
+    const char = state.characters.find(c => c.name === turn.name);
+    if (!char) continue;
+    let total = 0;
+    const keywords = parseKeywords(char.keywords);
+    for (const [word, shift] of Object.entries(keywords)) {
+      const count = (turn.text.toLowerCase().match(new RegExp('\\b' + word + '\\b', 'g')) || []).length;
+      if (count > 0) total += shift * count;
+    }
+    state.resonance[turn.name] = (state.resonance[turn.name] || 0) + total;
+  }
+}
+
+function parseKeywords(s) {
+  const out = {};
+  if (!s) return out;
+  // Parse "word+0.5, word-0.2, ..." or "word → shift"
+  for (const part of s.split(/[,\n;]+/)) {
+    const m = part.match(/(\S+?)\s*(?:→|=)\s*([+-]?\d*\.?\d+)/);
+    if (m) out[m[1].trim().toLowerCase()] = parseFloat(m[2]);
+    else {
+      // Try "word+0.5" format
+      const m2 = part.match(/(\S+?)\s*([+-]\s*\d*\.?\d+)/);
+      if (m2) out[m2[1].trim().toLowerCase()] = parseFloat(m2[2].replace(/\s+/g, ''));
+    }
+  }
+  return out;
+}
+
+// ----------------------------------------------------------------------------
+// Rendering
+// ----------------------------------------------------------------------------
+
+function renderTranscript() {
+  const el = document.getElementById('transcript');
+  if (state.transcript.length === 0) {
+    el.innerHTML = '<div class="loading">Hit "Tick →" to begin. The DM will open the scene, then each character responds in parallel.</div>';
+    return;
+  }
+  el.innerHTML = state.transcript.map(r => {
+    const isScar = state.scars.some(s => s.tick === r.tick);
+    const turnsHtml = (r.turns || []).map(t => {
+      const isDM = t.name === 'DM';
+      const shifts = (t.shifts && Object.keys(t.shifts).length)
+        ? `<div class="shift">shifts: ${Object.entries(t.shifts).map(([k,v]) => `${k}=${v.toFixed(2)}`).join(', ')} (net ${t.shift_total ? t.shift_total.toFixed(2) : '0.00'})</div>`
+        : '';
+      const actionMatch = (t.text || '').match(/\[([^\]]+)\]/);
+      const action = actionMatch ? `<div class="action">[${actionMatch[1]}]</div>` : '';
+      const prose = (t.text || '').replace(/\[[^\]]+\]/g, '').trim();
+      return `
+        <div class="turn ${isDM ? 'dm' : ''}">
+          <div class="speaker">${esc(t.name)}${isDM ? ' (game-master)' : ''}</div>
+          <div class="text">${esc(prose)}</div>
+          ${action}
+          ${shifts}
+        </div>`;
+    }).join('');
+    return `
+      <div class="round ${isScar ? 'scarred' : ''}">
+        <div class="round-label">Round ${r.tick}${isScar ? ' · SCARRED' : ''}</div>
+        ${turnsHtml}
+      </div>
+    `;
+  }).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function renderStats() {
+  document.getElementById('tick-num').textContent = state.tick;
+  document.getElementById('scar-num').textContent = state.scars.length;
+
+  // Cast ticks
+  const ticksEl = document.getElementById('cast-ticks');
+  ticksEl.innerHTML = state.characters.map(c => {
+    const used = ticksUsed(c.name);
+    const earned = state.resonance[c.name] ? Math.floor(state.resonance[c.name]) : 0;
+    const total = c.ticks + earned;
+    return `<div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 0;border-bottom:1px solid var(--border)"><span style="color:var(--teal)">${esc(c.name)}</span><span style="color:var(--accent)">${total - used} / ${total}</span></div>`;
+  }).join('');
+
+  // Citation graph
+  const citEl = document.getElementById('citation-graph');
+  const edges = [];
+  for (const [from, toMap] of Object.entries(state.citations)) {
+    for (const [to, count] of Object.entries(toMap)) {
+      edges.push({ from, to, count });
+    }
+  }
+  edges.sort((a, b) => b.count - a.count);
+  if (edges.length === 0) {
+    citEl.innerHTML = '<div class="help">Citations accumulate as characters reference each other across rounds.</div>';
+  } else {
+    citEl.innerHTML = edges.slice(0, 12).map(e =>
+      `<div class="citation-row"><span class="from">${esc(e.from)}</span> <span style="color:var(--gray)">→</span> <span class="to">${esc(e.to)}</span> <span class="count">×${e.count}</span></div>`
+    ).join('');
+  }
+
+  // Scars
+  const scarEl = document.getElementById('scar-list');
+  if (state.scars.length === 0) {
+    scarEl.innerHTML = '<div class="help">No scars yet. If a character runs out of ticks or the simulation breaks down, the scar is recorded here.</div>';
+  } else {
+    scarEl.innerHTML = state.scars.map(s =>
+      `<div class="scar-item"><div class="when">tick ${s.tick} · ${esc(s.kind)}</div><div>${esc(s.note)}</div></div>`
+    ).join('');
+  }
+}
+
+function render() {
+  renderCast();
+  renderTranscript();
+  renderStats();
+}
+
+// ----------------------------------------------------------------------------
+// LLM calling
+// ----------------------------------------------------------------------------
+
+function getKey(prefix) {
+  // Get API key from localStorage, prompt if missing
+  let key = state.apiKeys[prefix];
+  if (!key) {
+    key = prompt(`Enter your ${prefix.toUpperCase()}_TOKEN (or paste one) — saved in localStorage:`);
+    if (key) {
+      state.apiKeys[prefix] = key;
+      localStorage.setItem('erised-keys', JSON.stringify(state.apiKeys));
+    }
+  }
+  return key;
+}
+
+async function callLLM(char, userMessage, systemMessage) {
+  const [prefix, model] = char.llm.split(':');
+  const key = getKey(prefix);
+  if (!key) return `[ERROR: no ${prefix.toUpperCase()}_TOKEN]`;
+
+  if (prefix === 'zai') {
+    const res = await fetch('https://api.z.ai/api/coding/paas/v4/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
+      body: JSON.stringify({
+        model, messages: [
+          { role: 'system', content: systemMessage },
+          { role: 'user', content: userMessage },
+        ],
+        temperature: 0.9, max_tokens: 600,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) return `[ERROR: ${data.error.message}]`;
+    return data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '[EMPTY]';
+  }
+  if (prefix === 'deepinfra') {
+    const res = await fetch('https://api.deepinfra.com/v1/openai/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
+      body: JSON.stringify({
+        model, messages: [
+          { role: 'system', content: systemMessage },
+          { role: 'user', content: userMessage },
+        ],
+        temperature: 0.95, max_tokens: 600,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) return `[ERROR: ${data.error.message}]`;
+    return data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '[EMPTY]';
+  }
+  return `[ERROR: unknown LLM prefix ${prefix}]`;
+}
+
+function buildCharacterSystem(c) {
+  return `You are ${c.name}. ${c.tendencies}. Stay in character. Output a single in-character utterance (2-4 sentences) followed by a single in-character action in brackets like [climbs the boom, sniffs the salt]. Speak ONLY in character. NEVER reason out loud. NEVER explain your process.`;
+}
+
+function buildCharacterUser(setting, history, tickNum) {
+  const recent = history.slice(-6).map(h => {
+    if (h.turns) return h.turns.map(t => `[${t.name}]: ${(t.text || '').slice(0, 200)}`).join('\n');
+    return `[DM]: ${(h.text || '').slice(0, 200)}`;
+  }).join('\n\n');
+  return `Round ${tickNum}.
+
+Setting: ${setting}
+
+Prior turns:
+${recent}
+
+Your move. Speak + action.`;
+}
+
+function buildDMSystem() {
+  return `You are a tight maritime-fantasy game-master. Output ONLY in-character GM narration. NEVER reason out loud. NEVER explain your process. NEVER invent cast members not given to you.`;
+}
+
+function buildDMOpeningPrompt(setting, cast) {
+  return `Open the night. In 3-4 sentences: who's here, what's the immediate problem, what do they need to do in the next hour. End with a question or call to action.
+
+Setting: ${setting}
+
+Cast: ${cast.map(c => c.name).join(', ')}
+
+Output ONLY prose. No preamble.`;
+}
+
+function buildDMClosingPrompt(recentTurns) {
+  return `What just happened:
+${recentTurns}
+
+End the session in 2-3 sentences: what was resolved, what carries over, what's next session's hook. End on an unresolved thread. Output ONLY the GM narration.`;
+}
+
+// ----------------------------------------------------------------------------
+// Tick logic
+// ----------------------------------------------------------------------------
+
+async function runTick() {
+  if (!state.setting.trim()) {
+    alert('Set the scene first (or click a preset).');
+    return;
+  }
+  if (state.characters.length < 2) {
+    alert('Add at least 2 characters.');
+    return;
+  }
+  const tickBtn = document.getElementById('tick-btn');
+  tickBtn.disabled = true;
+  tickBtn.textContent = '...';
+
+  state.tick++;
+  const transcriptEl = document.getElementById('transcript');
+
+  // Round 0 = DM opening
+  if (state.tick === 1 && state.transcript.length === 0) {
+    transcriptEl.innerHTML = '<div class="loading">DM is opening the scene...</div>';
+    const dmOpen = await callLLM(
+      { llm: 'zai:glm-4.5' },
+      buildDMOpeningPrompt(state.setting, state.characters),
+      buildDMSystem()
+    );
+    if (dmOpen.startsWith('[ERROR')) {
+      addScar(state.tick, 'dm-error', dmOpen);
+    }
+    state.transcript.push({ tick: 1, turns: [{ name: 'DM', text: dmOpen }] });
+    render();
+    save();
+    tickBtn.disabled = false;
+    tickBtn.textContent = 'Tick →';
+    return;
+  }
+
+  // Subsequent rounds = all characters respond in parallel
+  transcriptEl.innerHTML = '<div class="loading">All characters are responding in parallel...</div>';
+  const history = state.transcript;
+  const promises = state.characters.map(async c => {
+    const ticks = c.ticks + Math.floor(state.resonance[c.name] || 0);
+    const used = ticksUsed(c.name);
+    if (used >= ticks) {
+      return { name: c.name, text: `[off-screen — out of ticks]`, shifts: {}, shift_total: 0 };
+    }
+    try {
+      const text = await callLLM(c, buildCharacterUser(state.setting, history, state.tick), buildCharacterSystem(c));
+      const keywords = parseKeywords(c.keywords);
+      const shifts = {};
+      let total = 0;
+      const lower = (text || '').toLowerCase();
+      for (const [w, s] of Object.entries(keywords)) {
+        const cnt = (lower.match(new RegExp('\\b' + w + '\\b', 'g')) || []).length;
+        if (cnt > 0) { shifts[w] = s * cnt; total += s * cnt; }
+      }
+      return { name: c.name, text, shifts, shift_total: total };
+    } catch (e) {
+      return { name: c.name, text: `[ERROR: ${e.message}]`, shifts: {}, shift_total: 0 };
+    }
+  });
+  const turns = await Promise.all(promises);
+  const round = { tick: state.tick, turns };
+  state.transcript.push(round);
+  updateCitations(round);
+  updateResonance(round);
+  // Check for scars
+  for (const t of turns) {
+    if (t.text && t.text.startsWith('[ERROR')) {
+      addScar(state.tick, 'character-error', `${t.name} errored: ${t.text.slice(0, 100)}`);
+    }
+    if (t.text && t.text.startsWith('[off-screen')) {
+      addScar(state.tick, 'off-screen', `${t.name} ran out of ticks`);
+    }
+  }
+  render();
+  save();
+  tickBtn.disabled = false;
+  tickBtn.textContent = 'Tick →';
+}
+
+async function endScene() {
+  if (state.transcript.length === 0) return;
+  const lastRound = state.transcript[state.transcript.length - 1];
+  const recentTurns = lastRound.turns.map(t => `[${t.name}]: ${t.text}`).join('\n\n');
+  const closing = await callLLM(
+    { llm: 'zai:glm-4.5' },
+    buildDMClosingPrompt(recentTurns),
+    buildDMSystem()
+  );
+  state.transcript.push({ tick: state.tick, turns: [{ name: 'DM', text: closing }] });
+  render();
+  save();
+}
+
+function rewind() {
+  if (state.transcript.length === 0) return;
+  // Drop the last round, but add a scar
+  const lastRound = state.transcript[state.transcript.length - 1];
+  const names = (lastRound.turns || []).map(t => t.name).join(', ');
+  addScar(state.tick, 'rewind', `Dropped round ${state.tick} (${names}) — preserved as scar`);
+  state.transcript.pop();
+  state.tick = Math.max(0, state.tick - 1);
+  render();
+  save();
+}
+
+function addScar(tick, kind, note) {
+  // Avoid duplicate scars for the same tick
+  if (!state.scars.some(s => s.tick === tick && s.kind === kind && s.note === note)) {
+    state.scars.push({ tick, kind, note });
+  }
+}
+
+function resetAll() {
+  if (!confirm('Reset everything? This clears the transcript, scars, and citations.')) return;
+  state.transcript = [];
+  state.tick = 0;
+  state.citations = {};
+  state.scars = [];
+  state.resonance = {};
+  render();
+  save();
+}
+
+// ----------------------------------------------------------------------------
+// Wire up
+// ----------------------------------------------------------------------------
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  load();
+  document.getElementById('setting').value = state.setting;
+  document.getElementById('tick-btn').onclick = runTick;
+  document.getElementById('end-btn').onclick = endScene;
+  document.getElementById('rewind-btn').onclick = rewind;
+  document.getElementById('reset-btn').onclick = resetAll;
+
+  document.querySelectorAll('.preset-btn[data-preset]').forEach(b => {
+    b.onclick = () => {
+      const key = b.dataset.preset;
+      state.characters.push(JSON.parse(JSON.stringify(PRESETS[key])));
+      render();
+      save();
+    };
+  });
+  document.querySelectorAll('.preset-btn[data-setting]').forEach(b => {
+    b.onclick = () => {
+      const k = b.dataset.setting;
+      if (SETTINGS[k]) {
+        state.setting = SETTINGS[k];
+        document.getElementById('setting').value = state.setting;
+        save();
+      }
+    };
+  });
+
+  render();
+});
+</script>
+</body>
+</html>
