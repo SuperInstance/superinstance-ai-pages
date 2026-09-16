@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:58:42.328895Z",
+  "generated_at": "2026-09-16T17:01:45.667352Z",
   "scenarios": [
     {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
@@ -924,6 +924,289 @@
           },
           "dm_opening": "The gale has shutters rattling across Cape Halcyon as Mara Hales fights the ticket kiosk's dead radio, Elara Voss stakes tarps on the sea-watch parapet, and Javi Rojas splashes down into the lower storage cell where the cracked roof has let brine creep into the archive boxes of",
           "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery. Next session: as you climb to"
+        }
+      ]
+    },
+    {
+      "slug": "a-neighborhood-fraternal-lodge-with-declining-membershi",
+      "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+      "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
+      "scenario": {
+        "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+        "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
+        "characters": [
+          {
+            "name": "Marnie Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Only prioritizes the lodge\u2019s monthly dues revenue and operational audits, refusing to dip into long-held maintenance reserves unless membership numbers jump by 30% or more",
+            "keywords": "ledger+0.6 audit+0.3 dues-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Clay Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Fights to preserve the lodge\u2019s century-old traditions as a neighborhood safe space, organizing impromptu potlucks and cold-calling former members to bring back a sense of communal belonging",
+            "keywords": "story+0.7 porch-swing+0.3 legacy-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Zoe Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Proposes modern, youth-focused outreach tactics like trivia nights and Instagram campaigns to attract younger neighborhood residents, bridging the gap between the lodge\u2019s old guard and new locals",
+            "keywords": "social-media+0.5 trivia+0.4 modernize-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": [
+        {
+          "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+          "scenario": {
+            "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+            "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
+            "characters": [
+              {
+                "name": "Marnie Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Only prioritizes the lodge\u2019s monthly dues revenue and operational audits, refusing to dip into long-held maintenance reserves unless membership numbers jump by 30% or more",
+                "keywords": "ledger+0.6 audit+0.3 dues-0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Clay Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Fights to preserve the lodge\u2019s century-old traditions as a neighborhood safe space, organizing impromptu potlucks and cold-calling former members to bring back a sense of communal belonging",
+                "keywords": "story+0.7 porch-swing+0.3 legacy-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Zoe Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Proposes modern, youth-focused outreach tactics like trivia nights and Instagram campaigns to attract younger neighborhood residents, bridging the gap between the lodge\u2019s old guard and new locals",
+                "keywords": "social-media+0.5 trivia+0.4 modernize-0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-16T16:59:59.476678Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marnie Hale",
+                  "text": "I\u2019m wrapping up a spot-check of this month\u2019s lodge dues payments and prepping for our quarterly operational audit next week. If you\u2019ve come to flag the scuffed brick facade or the leaky basement faucet, those maintenance requests can\u2019t be funded from our reserves until membership rolls swell by 30% or more.\n[Clutching a water-stained binder crammed with dues receipts and audit checklists, she taps a pen aggressively against a stack of past-due notices stuck to her clipboard]",
+                  "shifts": {
+                    "audit": 0.6,
+                    "dues": -0.8
+                  },
+                  "shift_total": -0.2,
+                  "role": ""
+                },
+                {
+                  "name": "Clay Torres",
+                  "text": "Hey, I\u2019m Clay from the Fading Lantern Lodge right here on this block. We\u2019re putting together a communal potluck this weekend, and I\u2019m stopping by anyone who might want a spot at the table\u2014even if you haven\u2019t stepped foot here since your kid\u2019s little league banquet years ago.\n[He tucks a crumpled potluck flyer featuring the lodge\u2019s faded 1950s holiday party photo under the arm of a beat-up lawn chair left on the sidewalk, brushing a fleck of bodega potato chip dust off his worn flannel cuff.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Zoe Marquez",
+                  "text": "\"Hey neighbors grabbing coffee at the bodega or folding laundry at the spot next door! We\u2019re trying to bridge the old lodge regulars and new locals with weekly trivia nights and an Instagram campaign spotlighting local Maple Street gems, plus we\u2019re giving away free craft soda and lodge swag to participants. Stop by to grab a flyer and learn more!\"\n[I kneel to tuck a stack of neon pink flyers printed with a glowing lantern doodle and scannable QR code into the laundromat\u2019s window, then flash a grin at a pair of college students browsing the bodega\u2019s snack rack.]",
+                  "shifts": {
+                    "trivia": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marnie Hale",
+                  "text": "I\u2019m just wrapping up my spot-check of this month\u2019s lodge dues and prepping for next week\u2019s operational audit, so I don\u2019t have much extra time right now. I can jot down the potluck details to pass along to the stewardship committee later, but I can\u2019t divert focus from these payments right now.\n[She stacks her crumpled audit checklists and loose payment receipts back into a labeled leather binder, brushing a fleck of red brick dust off the cover before shifting it under one arm.]",
+                  "shifts": {
+                    "audit": 0.6,
+                    "dues": -0.4
+                  },
+                  "shift_total": 0.2,
+                  "role": ""
+                },
+                {
+                  "name": "Clay Torres",
+                  "text": "\"Hey there, sorry I cut in\u2014Zoe\u2019s exactly right about bridging our old lodge crew and new local folks this weekend\u2019s potluck. I cold-called a handful of former members this week, and they\u2019re bringing their family\u2019s treasured recipes to share with the block.\" [Holds up a stack of smudged handwritten recipe cards and nods toward the laundromat\u2019s sliding glass doors to flag over a couple folding laundry inside.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Zoe Marquez",
+                  "text": "\"Hey neighbors grabbing coffee at the bodega or folding laundry at the spot next door! We\u2019re trying to bridge the old lodge regulars and new locals with a free trivia night on the lodge\u2019s back patio next Friday, plus an Instagram Reels campaign spotlighting our historic space for anyone who\u2019s never stepped inside. We\u2019ve also got sign-up sheets for this weekend\u2019s communal potluck\u2014feel free to grab one no matter what you bring, even just great company!\"\n[She holds up a stack of neon pink flyers and props a handwritten chalkboard sign advertising the events against the laundromat\u2019s scuffed exterior wall.]",
+                  "shifts": {
+                    "trivia": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marnie Hale": 0.0,
+            "Clay Torres": 0.0,
+            "Zoe Marquez": 0.8
+          },
+          "citations": {
+            "Clay Torres": {
+              "Zoe Marquez": 1
+            }
+          },
+          "dm_opening": "DM opening: the Marnie Hale takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marnie Hale still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      ]
+    },
+    {
+      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
+      "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "scenario": {
+        "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+        "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+        "characters": [
+          {
+            "name": "Steward",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Tends the canon of the place.",
+            "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Counter",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Counts what exists. Names by lineage.",
+            "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Apprentice",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Trusts the drift.",
+            "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": [
+        {
+          "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+          "scenario": {
+            "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+            "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+            "characters": [
+              {
+                "name": "Steward",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Tends the canon of the place.",
+                "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Counter",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Counts what exists. Names by lineage.",
+                "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Apprentice",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Trusts the drift.",
+                "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-16T17:01:18.186914Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Steward",
+                  "text": "Ah, howdy there\u2014these freshwater nymph hooks right here are the ones I\u2019ve stocked for nearly 40 years, ever since my own father handed me my first fly-tying kit. Every single one is sourced from a family blacksmith up in the hills west of town, no flimsy mass-produced gear here.\n[I reach across the scuffed wooden counter, grabbing a small, frayed leather sample pack of the hooks and holding it out to them while nodding at the row of jarred, brightly colored hackle vials lined up beside the cash register.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Counter",
+                  "text": "Let me tally up the front stock first: 32 spools of iridescent fly bodies, 41 packs of peacock herl, all sourced from the same river delta my grandfather first explored for tying supplies back in 1969. This tiny fishing tackle shop has operated under three generations of my family, every nook holding a piece of our shared fishing lineage.\n[Runs a calloused finger along the carved wooden fly mounted above the register, the delicate detail work done by my great-uncle decades ago.]",
+                  "shifts": {
+                    "lineage": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Apprentice",
+                  "text": "\"Welcome to Hale\u2019s Tackle\u2014we just unpacked a fresh shipment of premium peacock herl this morning, perfect for those classic streamer patterns you might be tying. I still keep the locked case of vintage casting reels behind the counter too, from when my grandpa first opened this shop back in 1952.\"\n[Wiping a fine layer of feather dust from his frayed flannel apron and gesturing toward a stack of illustrated fly-tying pamphlets propped by the cash register.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Steward",
+                  "text": "Easy there, young apprentice\u2014no need to cut me off mid-talk to our regular. That fresh peacock herl is exactly the high-quality stock I\u2019ve been chasing for our dry fly anglers. These freshwater nymph hooks right here, though? They\u2019ve landed more trout in these local rivers than any other tackle I\u2019ve ever carried.\n[Leans on the scuffed pine tackle display case, tapping a row of nickel-plated nymph hooks with a weathered, ink-stained finger before nodding toward the stack of crinkly-labeled herl spools behind the front counter]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Counter",
+                  "text": "Let me tally up the front stock first: 32 spools of iridescent fly bodies, 41 packs of peacock herl, all sourced from the same river delta my grandfather first taught our family to forage these materials from, back when this shop was just a rickety wooden stall by the pier. I also just logged 17 new tins of tungsten bead heads waiting to be stocked on the top display shelf.\n[I tap a neatly stacked pack of peacock herl with a small fishing hook to straighten its edge before scribbling the counts into my water-stained leather stock ledger.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Apprentice",
+                  "text": "\"Welcome to Hale\u2019s Tackle\u2014we just unpacked a fresh shipment of premium peacock herl this morning, perfect for those classic streamer patterns you might\u2019ve been planning to tie, and it\u2019s sourced from the same river delta my boss\u2019s family has used for ages. I can show you right where we\u2019ve got the tried-and-true freshwater nymph hooks Steward\u2019s stocked for nearly 40 years now.\"\n[I lean around the register counter, tucking a stray piece of packing material into a trash can under the front desk before gesturing toward the stacked fly-tying supply bins.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Steward": 0.0,
+            "Counter": 0.5,
+            "Apprentice": 0.0
+          },
+          "citations": {
+            "Steward": {
+              "Counter": 2,
+              "Apprentice": 1
+            },
+            "Apprentice": {
+              "Counter": 2,
+              "Steward": 1
+            }
+          },
+          "dm_opening": "DM opening: the Steward takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Steward still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
         }
       ]
     },
@@ -1868,5 +2151,5 @@
       ]
     }
   ],
-  "n_scenarios": 4
+  "n_scenarios": 6
 }
