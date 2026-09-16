@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scenarios — erised cooperative-fiction engine</title>
+<style>
+  :root {
+    --bg: #0b0d12; --panel: #12151c; --ink: #e7e8ea; --dim: #8a8f99;
+    --accent: #d2a76b; --accent2: #6bc7d2; --rule: #20242d;
+    --scarlet: #d2766b; --emerald: #6bd276;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.55 ui-sans-serif, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  header { padding: 32px 32px 16px; border-bottom: 1px solid var(--rule); }
+  header .crumbs { font-size: 12px; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; }
+  header .crumbs a { color: var(--dim); text-decoration: none; }
+  header .crumbs a:hover { color: var(--accent); }
+  header h1 { font-size: 36px; margin: 8px 0 4px; font-weight: 700; letter-spacing: -.01em; }
+  header .sub { color: var(--dim); font-size: 14px; margin-bottom: 16px; }
+  header .nav { font-size: 13px; }
+  header .nav a { color: var(--accent2); margin-right: 16px; text-decoration: none; }
+  header .nav a:hover { color: var(--accent); }
+
+  main { padding: 24px 32px; max-width: 1100px; margin: 0 auto; }
+  h2 { font-size: 22px; margin: 32px 0 8px; color: var(--accent); }
+  h3 { font-size: 17px; margin: 0 0 4px; color: var(--ink); font-weight: 600; }
+  p { margin: 8px 0; color: #c1c3c8; }
+  .lede { font-size: 17px; color: var(--ink); }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 16px 0 40px; }
+  @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 18px 20px; transition: transform .15s ease; }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .meta { display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .chip { font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.05);
+    color: var(--dim); }
+  .chip.zai { color: var(--accent); border: 1px solid var(--accent); }
+  .chip.deep { color: var(--accent2); border: 1px solid var(--accent2); }
+  .card .title { font-size: 18px; font-weight: 700; color: var(--ink); margin: 6px 0; }
+  .card .setting { font-size: 13px; color: var(--dim); line-height: 1.5;
+    max-height: 6.2em; overflow: hidden; }
+  .card .cast { font-size: 11px; color: var(--dim); margin-top: 10px;
+    letter-spacing: .04em; }
+  .card .cast span { display: inline-block; margin-right: 6px; color: var(--accent2); }
+  .card .links { margin-top: 12px; font-size: 12px; }
+  .card .links a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+  .card .links a:hover { color: var(--accent2); }
+  .card .links .cmd { display: block; margin-top: 6px; padding: 6px 8px; background: #08090c;
+    color: #c1c3c8; font-family: ui-monospace, monospace; font-size: 11px;
+    border-radius: 3px; }
+
+  .pattern { background: rgba(210, 167, 107, .06); border-left: 3px solid var(--accent);
+    padding: 14px 18px; margin: 18px 0; border-radius: 0 4px 4px 0; font-size: 14px; color: var(--ink); }
+  .pattern em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .pattern strong { color: var(--accent2); font-weight: 600; }
+
+  footer { padding: 24px 32px; border-top: 1px solid var(--rule); color: var(--dim);
+    font-size: 12px; text-align: center; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { color: var(--accent2); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="crumbs"><a href="/">superinstance.ai</a> · <a href="/rune-quilt">rune-quilt</a> · scenarios</div>
+  <h1>Scenarios</h1>
+  <div class="sub">The cohort — six analog settings for the same dilemma, shipped with <a href="https://github.com/SuperInstance/erised-cli" style="color:var(--accent2);text-decoration:none;">erised-cli</a>.</div>
+  <div class="nav">
+    <a href="/erised.html">▶ erised (canvas)</a>
+    <a href="https://github.com/SuperInstance/erised">HTML repo</a>
+    <a href="https://github.com/SuperInstance/erised-cli/releases/tag/v0.1.0">CLI v0.1.0</a>
+  </div>
+</header>
+
+<main>
+
+<p class="lede">A scenario is a YAML or JSON file that defines a <em>setting</em> and a <em>cast</em>. Run it with <code>./erised scenario.json</code>. The engine opens with a DM, runs the cast in parallel, closes with a hook.</p>
+
+<div class="pattern">
+<em>The pattern:</em> in every setting, the <strong>Counter / Witness / Auditor</strong> character accumulates the highest net shift. The <strong>Emergent writer</strong> (Heretic / Mutant / Guerilla) consistently the lowest. The metaphor changes the ethics; the shape of who counts does not.
+</div>
+
+<h2>The Cohort</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:3</span></div>
+    <div class="title">The Quilt at Twelve Months</div>
+    <div class="setting">A year has passed on the Quilt Fleet. The Celestine Crown sits in drydock, repaired — keel-crystals humming, lift-dust stabilized. 200 cells across 11 workspaces, b1 holding at 480. A fourth crew member has joined, late.</div>
+    <div class="cast">cast: <span>Mechanic</span> <span>Shepherd</span> <span>Chronicler</span> <span>Skeptic</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/quilt-12mo.json">json</a>
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/quilt-12mo.yaml">yaml</a>
+      <span class="cmd">./erised examples/quilt-12mo.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip deep">deepinfra:4</span></div>
+    <div class="title">The Monastery of Cells</div>
+    <div class="setting">A monastery of 200 monks, 11 cloisters, has been copying a single living scripture for a year. The scripture breathes — lines move, new margins appear. One cloister has fallen silent. Another writes in an unrecognized hand.</div>
+    <div class="cast">cast: <span>Abbot</span> <span>Scribe</span> <span>Heretic</span> <span>Witness</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/monastery.json">json</a>
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/monastery.yaml">yaml</a>
+      <span class="cmd">./erised examples/monastery.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip deep">deepinfra:4</span></div>
+    <div class="title">Fract-Canon — The Self-Referential Library</div>
+    <div class="setting">A library whose catalogue of itself has begun mis-citing. 400 pages, indexed by call number. Three librarians and one auditor have been re-cataloguing the mis-cites for a year. When the book cites itself, who owns the citation?</div>
+    <div class="cast">cast: <span>Librarian</span> <span>Curator</span> <span>Hermit</span> <span>Auditor</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/fract-canon.json">json</a>
+      <span class="cmd">./erised examples/fract-canon.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip deep">deepinfra:4</span></div>
+    <div class="title">Monorail to Forward Station</div>
+    <div class="setting">A single rail car has been running a 200-stop loop for a year without an operator. Three conductors (one dead, one elected, one AI). The third Thursday of each month, the train skips stops. Tonight, the train has stopped at a station that does not appear on any map.</div>
+    <div class="cast">cast: <span>Oldhand</span> <span>Elect</span> <span>Mute</span> <span>Witness</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/monorail.json">json</a>
+      <span class="cmd">./erised examples/monorail.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:3</span></div>
+    <div class="title">The Quilt at One Hundred Years</div>
+    <div class="setting">A hundred years have passed. The fleet has grown past any count that fits the original numbering scheme. The Celestine Crown has been retired twice and resurrected once. The four original crew are dust. Their work has outlasted them.</div>
+    <div class="cast">cast: <span>Archivist</span> <span>Mechanic-Hundred</span> <span>Heretic</span> <span>Auditor</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/100yr-out.json">json</a>
+      <span class="cmd">./erised examples/100yr-out.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:1</span></div>
+    <div class="title">Quick 2-character test</div>
+    <div class="setting">Two engineers. One server room. Three minutes before the deploy window closes. They have not met before. Budget test — fastest possible verification.</div>
+    <div class="cast">cast: <span>Builder</span> <span>Auditor</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/quick-test.json">json</a>
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/quick-test.yaml">yaml</a>
+      <span class="cmd">./erised examples/quick-test.json --rounds 2</span>
+    </div>
+  </div>
+
+</div>
+
+<h2>Authoring your own</h2>
+
+<p>A scenario is two things: a <em>setting</em> (prose) and a <em>cast</em> (list of characters). Each character has a name, an LLM assignment, a tendencies string, and a keywords string. The keywords drive the resonance economy — positive shifts earn ticks, negative shifts cost nothing, hoarded ticks decay.</p>
+
+<pre style="background:#08090c;padding:14px;border-radius:4px;overflow-x:auto;font-size:12px;color:#c1c3c8;">{
+  "title": "My first scene",
+  "setting": "Where are we? What's at stake?",
+  "characters": [
+    {"name": "Mechanic", "llm": "zai:glm-4.5",
+     "tendencies": "Implements carefully.",
+     "keywords": "rust+0.4 spec+0.3 lock+0.4",
+     "ticks": 20}
+  ]
+}</pre>
+
+<p>Scaffold a fresh scenario:</p>
+<pre style="background:#08090c;padding:14px;border-radius:4px;overflow-x:auto;font-size:12px;color:#c1c3c8;">./erised --init > my-scenario.json
+# edit, then:
+./erised my-scenario.json --rounds 4 --out result.json</pre>
+
+<h2>The pattern</h2>
+
+<div class="pattern">
+Across all six scenarios the cohort surfaces a single recurring shape:
+<br><br>
+<strong>Counter</strong> (Witness / Auditor / Scribe) — accumulates the highest net shift. The character who names what exists.
+<br><br>
+<strong>Emergent writer</strong> (Heretic / Mutant / Guerilla / Hermit) — accumulates the lowest net shift. The character who writes in the new hand, trusting the drift.
+<br><br>
+The <strong>Operator</strong> (Mechanic / Builder / Mechanic-Hundred) — sits in the middle. Implements, watches, distrusts specs that can't be read in two pages.
+<br><br>
+The metaphor changes the ethics — a monastery isn't a railway isn't a library — but the shape of who counts, who writes, who operates does not.
+</div>
+
+</main>
+
+<footer>
+  Built Sept 16 2026 · <a href="https://github.com/SuperInstance/erised-cli">github</a> · <a href="/rune-quilt">rune-quilt</a> · <a href="/erised.html">erised</a>
+</footer>
+
+</body>
+</html>
