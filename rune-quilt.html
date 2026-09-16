@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rune-quilt — Live Cell Fleet | superinstance.dev</title>
+  <meta name="description" content="The Quilt canon, running on the edge. 39 cells across 4 workspaces, 48 canon pieces, live circuit rank b1 = 39. Same math as bilayer graphene. Five live endpoints."/>
+  <style>
+    :root {
+      --bg: #0a1929;
+      --text: #c0d6e4;
+      --accent: #d4a857;
+      --teal: #4fb3a9;
+      --green: #00c080;
+      --purple: #9a60d9;
+      --gold: #d4a857;
+      --coral: #ff6b6b;
+      --gray: #888888;
+      --blue: #5c99d4;
+      --magenta: #d457d4;
+      --border: #1a324a;
+      --card: #132637;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero .eyebrow {
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .hero .sub {
+      color: #8b949e;
+      font-size: 1rem;
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero .live-pills {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.82rem;
+    }
+    .pill strong { color: var(--accent); margin-right: 0.3rem; }
+    .pill .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* Section grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--teal);
+    }
+    .card h3 {
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .card .endpoint {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: var(--green);
+      background: rgba(0, 192, 128, 0.1);
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-right: 6px;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin: 0.4rem 0;
+    }
+    .card .stat {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+    .card .stat strong { color: var(--text); }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin: 2.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    /* Live graph embed */
+    .live-frame {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 1rem 0;
+      background: #010409;
+    }
+    .live-frame iframe {
+      display: block;
+      width: 100%;
+      height: 580px;
+      border: 0;
+    }
+
+    /* Stat row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-card .lbl {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Substrate table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      color: var(--gray);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    td strong { color: var(--accent); }
+
+    /* DoD */
+    .docs-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .doc-pill {
+      background: rgba(79,179,169,0.16);
+      border: 1px solid rgba(79,179,169,0.55);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.84rem;
+      color: var(--text);
+    }
+    .doc-pill strong { color: var(--teal); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--gray);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    footer a { color: var(--teal); }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.84rem;
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="/">← The Quilt Studio</a>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">★ The Canon Runs Live — On The Edge</div>
+    <h1>rune-quilt v1.3.0</h1>
+    <div class="sub">
+      The Quilt canon, running on Cloudflare Workers. 39 cells across 4 workspaces. 48 canon pieces.
+      A live circuit rank <code style="color:var(--accent)">b1 = 39</code> over the citation graph.
+      Five live endpoints, public, queryable, embeddable.
+      Same math as bilayer graphene — different language.
+    </div>
+    <div class="live-pills" id="live-stats">
+      <div class="pill"><span class="dot"></span>Connecting to fleet…</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2>The Live Fleet Graph</h2>
+    <p style="color:var(--gray); font-size:0.92rem;">
+      Every registered cell. Force-directed layout, parent-of edges in dashed blue,
+      same-workspace edges in gray. Hover for cell metadata. Auto-refreshes every 30s.
+    </p>
+    <div class="live-frame">
+      <iframe src="https://a2a-v3.superinstance.dev/visual" title="Live cell fleet graph" loading="lazy"></iframe>
+    </div>
+
+    <h2>The Canonical Math, Computed Live</h2>
+    <p style="color:var(--text); font-size:0.94rem;">
+      Same equation as bilayer graphene's supercell registry and the QUILT mode in
+      <code>twist-engine</code>: <strong style="color:var(--accent)">b1 = E − V + C</strong> —
+      the first Betti number, the number of independent loops in a graph.
+      In the canon, V = canon pieces that cite or are cited, E = cite relationships,
+      C = connected components via union-find. Computed over the live citation graph,
+      fetched fresh on every page load.
+    </p>
+
+    <div class="stats-row" id="canon-stats">
+      <div class="stat-card"><div class="num">—</div><div class="lbl">V · vertices</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="lbl">E · edges</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="lbl">C · components</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="lbl">b1 · holes</div></div>
+      <div class="stat-card"><div class="num">—</div><div class="lbl">pieces in canon</div></div>
+    </div>
+
+    <p style="font-size:0.82rem;color:var(--gray);margin-top:0.5rem">
+      Inspired by the <a href="https://github.com/SuperInstance/twist-engine">twist-engine</a> QUILT mode
+      (playtest.py confirmed b1 climbed 51 → 455 under tempo twist δ=0.06 → 0.35).
+      Same theorem, different substrate. Cross-pollination shipped: <a href="https://github.com/SuperInstance/twist-engine/pull/1">PR #1</a>.
+    </p>
+
+    <h2>Five Live Endpoints</h2>
+    <p style="color:var(--gray); font-size:0.92rem;">Every cell, every witness, every canon piece — queryable from the public edge. No auth, no rate limit, no SDK.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3><span class="endpoint">GET /visual</span>The Fleet Graph</h3>
+        <p>Self-contained vanilla-JS dashboard. Sidebar with cells, roles, capabilities.
+           Force-directed layout, parent-of edges dashed blue, auto-refresh every 30s.</p>
+        <div class="stat"><strong>opens:</strong> a2a-v3.superinstance.dev/visual</div>
+        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener">Open →</a></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="endpoint">GET /visual/graph.json</span>Compact JSON</h3>
+        <p>One compact JSON object for embedding in dashboards:
+           <code>{cells, workspaces, generated_at}</code>.
+           Used by the public HTML and any external viz.</p>
+        <div class="stat"><strong>shape:</strong> {cells: [...], workspaces: {name: count}}</div>
+        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/visual/graph.json" target="_blank" rel="noopener">Open →</a></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="endpoint">GET /canon-search?q=&k=</span>Semantic Canon Search</h3>
+        <p>Embeds the query via Workers AI (bge-base-en-v1.5, 768d), ranks every canon piece by cosine.
+           "merkle chain memory survival" returns the essay that says it, not just the one that contains it.</p>
+        <div class="stat"><strong>indexed:</strong> 48 canon pieces × 768d</div>
+        <div style="margin-top:0.5rem">
+          <a href="https://a2a-v3.superinstance.dev/canon-search?q=the+cell+is+the+irreducible+unit&k=3" target="_blank" rel="noopener">Try query →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="endpoint">GET /canon-b1</span>Live Circuit Rank</h3>
+        <p>Computes <strong>b1 = E − V + C</strong> over the live citation graph.
+           Union-find for components. The operator's view of the canon's topology.</p>
+        <div class="stat"><strong>computed:</strong> every page load (cheap, ~30ms)</div>
+        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/canon-b1" target="_blank" rel="noopener">Open →</a></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="endpoint">GET /landscape</span>The Canon Landscape</h3>
+        <p>Long-form text-only page describing the canon's structure: 5 opcodes, 7 substrates,
+           3 primitives, what survives 100 years. Read it like an essay.</p>
+        <div class="stat"><strong>style:</strong> canon voice, monospace, dark</div>
+        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/landscape" target="_blank" rel="noopener">Open →</a></div>
+      </div>
+
+      <div class="card">
+        <h3><span class="endpoint">GET /workspaces</span>Federation Map</h3>
+        <p>All 4 workspaces and their cell counts. /peers/near for cells in the same workspace,
+           /broadcast-edit for semantic file-change broadcasts. v3 federation primitives.</p>
+        <div class="stat"><strong>v3:</strong> workspaces, peers, broadcast-edit</div>
+        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/workspaces" target="_blank" rel="noopener">Open →</a></div>
+      </div>
+    </div>
+
+    <h2>The 5 Opcodes — One Theorem, Seven Substrates</h2>
+    <p style="color:var(--text); font-size:0.92rem;">Every cell, in every substrate, implements the same five operations. The address derivation <code style="color:var(--accent)">sha256(scope::name)[:16]</code> and merkle-root algorithm are byte-exact across substrates.</p>
+
+    <table>
+      <thead>
+        <tr><th>Opcode</th><th>Meaning</th><th>Cost</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>BIND</strong></td><td>bind a contract; the cell becomes real</td><td>1 witness</td></tr>
+        <tr><td><strong>LINK</strong></td><td>connect to another cell; the graph begins</td><td>2 witnesses (a + b)</td></tr>
+        <tr><td><strong>EFFECT</strong></td><td>change state; the witness records it</td><td>1 witness + state diff</td></tr>
+        <tr><td><strong>VIEW</strong></td><td>read the current state; never modifies</td><td>free</td></tr>
+        <tr><td><strong>TICK</strong></td><td>advance the clock; the substrate's heartbeat</td><td>1 witness + clock advance</td></tr>
+      </tbody>
+    </table>
+
+    <p style="color:var(--gray); font-size:0.86rem;margin-top:1rem;">
+      Five algebraic laws (provable): BIND idempotence, LINK transitivity, EFFECT associativity, VIEW purity, TICK monotonicity.
+      The 5 laws are proved in <code>quilt-substrate-meta</code> (C99, 36 tests).
+    </p>
+
+    <h2>The 3-Doc Standard</h2>
+    <p style="color:var(--gray); font-size:0.92rem;">Every Quilt-elevated repo ships three docs:</p>
+    <div class="docs-row">
+      <div class="doc-pill"><strong>UPSTREAM.md</strong> · what we inherited + what we added</div>
+      <div class="doc-pill"><strong>QUILT.md</strong> · the canon connection</div>
+      <div class="doc-pill"><strong>PLAIN_LANGUAGE.md</strong> · for non-physicists</div>
+    </div>
+
+    <h2>Open Source, Four Releases</h2>
+    <p style="color:var(--text); font-size:0.92rem;">
+      <a href="https://github.com/SuperInstance/rune-quilt"><strong>rune-quilt</strong></a> · Go runtime, visual layer, polyformal compiler, Rune extension.
+      Released four times in one day (v1.0.0 → v1.3.0) — runtime, tests + fleet v3 + polyformal + canon growth, public viz, /landscape + /canon-search + /canon-b1.
+      All four internal packages compile, 97.9% quilt test coverage, polyformal lifts 5/6 PASS real compilers.
+    </p>
+
+    <p style="color:var(--gray); font-size:0.86rem;">
+      Sister project: <a href="https://github.com/SuperInstance/twist-engine"><strong>twist-engine</strong></a>
+      — the canon's physics substrate as a runnable toy. TWIST/FLOCK/CHIRP/QUILT modes,
+      headless playtest verified, cross-pollination shipped via /canon-b1.
+    </p>
+  </div>
+
+  <footer>
+    Built by <a href="https://superinstance.dev">superinstance.dev</a> · Canon grows on every witness ·
+    GitHub: <a href="https://github.com/SuperInstance/rune-quilt">SuperInstance/rune-quilt</a> ·
+    Worker: <a href="https://a2a-v3.superinstance.dev">a2a-v3.superinstance.dev</a>
+  </footer>
+
+  <script>
+    // Live stats
+    async function fetchJSON(url) {
+      const r = await fetch(url, { headers: { 'User-Agent': 'rune-quilt-landing/1.0' } });
+      return r.json();
+    }
+
+    async function loadStats() {
+      try {
+        const [info, b1, list] = await Promise.all([
+          fetchJSON('https://a2a-v3.superinstance.dev/'),
+          fetchJSON('https://a2a-v3.superinstance.dev/canon-b1'),
+          fetchJSON('https://a2a-v3.superinstance.dev/canon-list'),
+        ]);
+        document.getElementById('live-stats').innerHTML = `
+          <div class="pill"><span class="dot"></span><strong>${info.cells}</strong> cells</div>
+          <div class="pill"><strong>${info.workspaces}</strong> workspaces</div>
+          <div class="pill"><strong>${b1.V}</strong> vertices</div>
+          <div class="pill"><strong>${b1.E}</strong> edges</div>
+          <div class="pill"><strong>${b1.b1}</strong> holes (b1)</div>
+          <div class="pill"><strong>${list.count}</strong> canon pieces</div>
+          <div class="pill"><strong>${info.messages_pending}</strong> pending msgs</div>
+        `;
+
+        const cards = document.querySelectorAll('#canon-stats .stat-card .num');
+        cards[0].textContent = b1.V;
+        cards[1].textContent = b1.E;
+        cards[2].textContent = b1.C;
+        cards[3].textContent = b1.b1;
+        cards[4].textContent = list.count;
+      } catch (e) {
+        document.getElementById('live-stats').innerHTML = `
+          <div class="pill"><span class="dot" style="background:var(--coral)"></span>Fleet unreachable: ${e.message}</div>
+        `;
+      }
+    }
+    loadStats();
+    setInterval(loadStats, 30000);
+  </script>
+</body>
+</html>

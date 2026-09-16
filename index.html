@@ -158,6 +158,27 @@ footer .license{font-family:var(--mono);font-size:0.75rem;color:var(--text-dimme
     </div>
   </section>
 
+  <!-- ==================== NEW FEATURE ==================== -->
+  <section class="new-feature" id="rune-quilt" style="margin:2.5rem 0 0;padding:1.5rem 1.6rem;background:linear-gradient(135deg,rgba(0,255,136,0.10),rgba(0,204,255,0.06));border:1px solid rgba(0,255,136,0.5);border-radius:10px;box-shadow:0 0 32px rgba(0,255,136,0.10)">
+    <p style="letter-spacing:0.24em;text-transform:uppercase;font-size:0.7rem;color:var(--accent);margin:0 0 0.5rem">★ NEW — The Canon Runs Live</p>
+    <h2 style="margin:0 0 0.6rem;font-size:1.35rem;border-bottom:none;padding:0;color:var(--text)">rune-quilt v1.3.0: the Quilt canon, running on the edge</h2>
+    <p style="line-height:1.65;font-size:0.95rem;margin:0 0 0.8rem">The canon is no longer a document — it's a fleet. 39 cells across 4 workspaces. 48 canon pieces. Live circuit rank <strong style="color:var(--accent)">b1 = E − V + C</strong> over the citation graph. Same math as bilayer graphene and the QUILT mode in <code>twist-engine</code>. Five live endpoints, public, queryable, embeddable — including the fleet graph (vanilla-JS, force-directed, parent-of edges dashed blue), semantic canon search (bge-base-en-v1.5, 768d cosine), and the live circuit rank.</p>
+    <div id="rq-stats" style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.4rem 0 0.8rem;font-size:0.85rem">
+      <span style="background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.4);border-radius:14px;padding:0.3rem 0.75rem"><strong style="color:var(--accent)" id="rq-cells">…</strong> cells</span>
+      <span style="background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.4);border-radius:14px;padding:0.3rem 0.75rem"><strong style="color:var(--accent)" id="rq-ws">…</strong> workspaces</span>
+      <span style="background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.4);border-radius:14px;padding:0.3rem 0.75rem"><strong style="color:var(--accent)" id="rq-pieces">…</strong> canon pieces</span>
+      <span style="background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.4);border-radius:14px;padding:0.3rem 0.75rem"><strong style="color:var(--accent)" id="rq-edges">…</strong> edges</span>
+      <span style="background:rgba(0,255,136,0.12);border:1px solid rgba(0,255,136,0.4);border-radius:14px;padding:0.3rem 0.75rem">b1 = <strong style="color:var(--accent)" id="rq-b1">…</strong></span>
+    </div>
+    <p style="margin:0;font-size:0.92rem">
+      <a href="rune-quilt.html"><strong style="color:var(--accent)">▶ rune-quilt — live fleet page</strong></a> &nbsp;·&nbsp;
+      <a href="https://a2a-v3.superinstance.dev/visual">📊 Live fleet graph</a> &nbsp;·&nbsp;
+      <a href="https://a2a-v3.superinstance.dev/canon-b1">🔢 /canon-b1 — circuit rank</a> &nbsp;·&nbsp;
+      <a href="https://a2a-v3.superinstance.dev/canon-search?q=irreducible+unit&k=3">🔍 /canon-search</a> &nbsp;·&nbsp;
+      <a href="https://github.com/SuperInstance/rune-quilt">📜 The repo — 4 releases</a>
+    </p>
+  </section>
+
   <!-- ==================== CONCEPTS ==================== -->
   <section id="concepts">
     <h2>Concepts</h2>
@@ -297,6 +318,29 @@ document.querySelectorAll('nav a[href^="#"]').forEach(a => {
     document.getElementById('navLinks').classList.remove('open');
   });
 });
+
+// Live stats for the new rune-quilt feature block
+async function _rqFetch(url) {
+  const r = await fetch(url, { headers: { 'User-Agent': 'superinstance-ai/1.0' } });
+  return r.json();
+}
+async function loadRuneQuilt() {
+  try {
+    const [info, b1, list] = await Promise.all([
+      _rqFetch('https://a2a-v3.superinstance.dev/'),
+      _rqFetch('https://a2a-v3.superinstance.dev/canon-b1'),
+      _rqFetch('https://a2a-v3.superinstance.dev/canon-list'),
+    ]);
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    set('rq-cells', info.cells);
+    set('rq-ws', info.workspaces);
+    set('rq-pieces', list.count);
+    set('rq-edges', b1.E);
+    set('rq-b1', b1.b1);
+  } catch (e) { /* leave placeholders on error */ }
+}
+loadRuneQuilt();
+setInterval(loadRuneQuilt, 30000);
 </script>
 </body>
 </html>
