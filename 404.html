@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 — That page doesn't exist | superinstance.ai</title>
+  <style>
+    :root {
+      --bg: #0a1929;
+      --text: #c0d6e4;
+      --accent: #d4a857;
+      --teal: #4fb3a9;
+      --gray: #888888;
+      --border: #1a324a;
+      --card: #132637;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .box {
+      max-width: 540px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.4rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    h1 {
+      color: var(--accent);
+      font-size: 3.2rem;
+      margin: 0 0 0.6rem 0;
+      letter-spacing: -0.02em;
+    }
+    .code {
+      font-size: 0.96rem;
+      color: var(--gray);
+      margin-bottom: 1.4rem;
+    }
+    .msg {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+    .links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .links a {
+      color: var(--teal);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--teal);
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      font-size: 0.94rem;
+    }
+    .links a:hover { background: var(--teal); color: var(--card); }
+    .quote {
+      margin-top: 1.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>404</h1>
+    <div class="code">superinstance.ai/<span id="path"></span></div>
+    <div class="msg">
+      That path doesn't exist on this server. superinstance.ai is
+      a thin static site — only the documented routes resolve.
+    </div>
+    <div class="links">
+      <a href="/">/ home (rune-quilt landing)</a>
+      <a href="/rune-quilt">/rune-quilt</a>
+      <a href="https://a2a-v3.superinstance.dev/visual">fleet graph →</a>
+      <a href="https://github.com/SuperInstance">github →</a>
+    </div>
+    <div class="quote">
+      The cathedral is not the stone. It is the space the stone makes room for.
+    </div>
+  </div>
+  <script>
+    document.getElementById('path').textContent = window.location.pathname.slice(1);
+  </script>
+</body>
+</html>
