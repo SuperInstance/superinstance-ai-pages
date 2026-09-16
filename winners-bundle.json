@@ -1,0 +1,1120 @@
+{
+  "generated_at": "2026-09-16T16:51:22.552043Z",
+  "scenarios": [
+    {
+      "slug": "a-lighthouse-converted-to-a-museum-kept-by-a-single-former",
+      "title": "The Spire of Forgotten Tides",
+      "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+      "scenario": {
+        "title": "The Spire of Forgotten Tides",
+        "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+        "characters": [
+          {
+            "name": "Mara Hales",
+            "llm": "deepinfra:ByteDance/Seed-2.0-code",
+            "tendencies": "She maintains a digital archive of every lighthouse artifact, visitor comment, and minor repair log, prioritizing overlooked details over curated exhibit plaques. She often spends off-hours cross-referencing 1920s keeper logs with modern tour anecdotes.",
+            "keywords": "artifact-archive+0.6 logbook+0.5 rain-leak+0.3 quiet-observant-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Elara Voss",
+            "llm": "zai:glm-4.5",
+            "tendencies": "She is the on-site lead for all lighthouse maintenance, familiar with every iron rivet and wiring quirk of the deactivated Fresnel lens. She firmly rejects proposed changes that stray from the lighthouse\u2019s mid-20th century operational standards.",
+            "keywords": "fresnel-lens+0.6 maintenance+0.5 salt-spray+0.4 tradition-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Rojas",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She crafts personalized tour stories that center the personal lives of past lighthouse keepers instead of dry factual plaques. She has proposed adding an interactive tide gauge station to draw in younger family visitors.",
+            "keywords": "tour-story+0.6 tide-gauge+0.5 young-visitor+0.3 engagement-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Clara Bennett",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She manifests as a soft, disembodied voice only during quiet, stormy nights, whispering old keeper\u2019s logs and gentle warnings about the deteriorating roof. She only reveals herself to those who actively care for the lighthouse, never to casual tourists or short-term volunteers.",
+            "keywords": "ghostly-whisper+0.6 gale-warning+0.5 logbook-memory+0.4 rain-leak-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": [
+        {
+          "title": "The Spire of Forgotten Tides",
+          "scenario": {
+            "title": "The Spire of Forgotten Tides",
+            "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+            "characters": [
+              {
+                "name": "Mara Hales",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "She maintains a digital archive of every lighthouse artifact, visitor comment, and minor repair log, prioritizing overlooked details over curated exhibit plaques. She often spends off-hours cross-referencing 1920s keeper logs with modern tour anecdotes.",
+                "keywords": "artifact-archive+0.63,logbook+0.36,rain-leak+0.2,quiet-observant-0.29",
+                "ticks": 20
+              },
+              {
+                "name": "Elara Voss",
+                "llm": "zai:glm-4.5",
+                "tendencies": "She is the on-site lead for all lighthouse maintenance, familiar with every iron rivet and wiring quirk of the deactivated Fresnel lens. She firmly rejects proposed changes that stray from the lighthouse\u2019s mid-20th century operational standards.",
+                "keywords": "fresnel-lens+0.61,maintenance+0.57,salt-spray+0.34,tradition-0.29",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Rojas",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She crafts personalized tour stories that center the personal lives of past lighthouse keepers instead of dry factual plaques. She has proposed adding an interactive tide gauge station to draw in younger family visitors.",
+                "keywords": "tour-story+0.52,tide-gauge+0.54,young-visitor+0.42,engagement-0.26",
+                "ticks": 20
+              },
+              {
+                "name": "Clara Bennett",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She manifests as a soft, disembodied voice only during quiet, stormy nights, whispering old keeper\u2019s logs and gentle warnings about the deteriorating roof. She only reveals herself to those who actively care for the lighthouse, never to casual tourists or short-term volunteers.",
+                "keywords": "ghostly-whisper+0.67,gale-warning+0.43,logbook-memory+0.35,rain-leak-0.23",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 100,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:51:09.493155Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara Hales",
+                  "text": "I just cross-referenced this frayed 1919 keeper\u2019s wool mitten strap I pulled from the gap between these two connected display cells\u2014turns out it was left behind by the head keeper\u2019s daughter who snuck up to seal the watchroom windows ahead of a nor\u2019easter. I even scribbled the exact find spot in the margin of the original handwritten keeper log, since the official exhibit plaques never bother with these tiny, personal pieces of the lighthouse\u2019s history. Most tour groups rush right past these gaps between the cells, so I make a point to log every small thing I find tucked here.\n[brushes a fine layer of sea salt dust off the frayed cuff of the mitten strap before tucking it back into the wall gap]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Elara Voss",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Rojas",
+                  "text": "Many visitors rush past the old tide log displays to gawk at the historic Fresnel lens, but those tattered books hold the quiet daily stories of the lighthouse\u2019s youngest staff, like 14-year-old Mia who logged tides every morning before her assigned chores. Soon you\u2019ll all get to test your own tide-predicting skills at the new interactive gauge station tucked by the west entry nook.\n[gestures toward the small, hand-painted wooden sign tucked against the curved stone wall]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Clara Bennett",
+                  "text": "The north dormer\u2019s shingles warped further in the driving gale\u2014you propped a heavy canvas tarp there last Tuesday, didn\u2019t you? It\u2019s holding for now, but the coastal salt\u2019s already gnawing through the stitched seams. You\u2019ll want to grab new galvanized nails from the tool shed before hauling them up at first light.\n[drops a crumpled, salt-stained 1947 roof maintenance slip onto your wrist]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Mara Hales",
+                  "text": "I just cross-referenced this frayed 1919 keeper\u2019s wool mitten strap I pulled from the gap between these two connected display cells\u2014turns out it was left behind by the head keeper\u2019s daughter who snuck out to help 14-year-old Mia restock the lantern oil reserves during a November gale. I spotted the matching salt-crusted stitching on both the strap and a smudged margin note in Mia\u2019s personal tide log, which Javi was just gesturing to. I\u2019m still blown away I almost missed that cross-reference while sorting my archival supply bin earlier.\n[kneels down to press a smooth, barnacle-dusted sea stone against the flapping corner of the north dormer tarp Clara mentioned, anchoring it fast against the sharp coastal gusts]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Elara Voss",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Rojas",
+                  "text": "This frayed mitten strap belongs to Mia, the head keeper\u2019s 14-year-old daughter who snuck in to help with his tide logs back in 1919. An interactive tide gauge station right here would let young visitors get hands-on with measuring mock tides and jotting down their own logs, just like Mia did, instead of rushing past these quiet, personal stories. [gestures to the narrow gap between the two connected display cells where the strap was recovered]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Clara Bennett",
+                  "text": "That frayed strap belongs to Mia, the head keeper\u2019s 14-year-old daughter\u2014she left it while hauling supplies up the spiral stair when she was helping her father mend the fog bell, back before this tower was a museum. The coastal salt has already started weakening the tarp\u2019s grommets, even if you haven\u2019t noticed the fraying edges poking out from under the north dormer\u2019s trim.\n[drifts toward the display case holding the partial mitten set, faint salt mist curling around the glass over the strap]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara Hales": 0.0,
+            "Elara Voss": 0.0,
+            "Javi Rojas": 0.0,
+            "Clara Bennett": 0.0
+          },
+          "citations": {
+            "Mara Hales": {
+              "Javi Rojas": 1,
+              "Clara Bennett": 1
+            }
+          },
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "[EMPTY]"
+        }
+      ]
+    },
+    {
+      "slug": "a-typewriter-repair-shop-that-has-just-outlived-its-last-typ",
+      "title": "The Last Key Struck",
+      "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+      "scenario": {
+        "title": "The Last Key Struck",
+        "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+        "characters": [
+          {
+            "name": "Elara Voss",
+            "llm": "zai:glm-4.5",
+            "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+            "keywords": "typewriter+0.6, repair+0.5, inventory-0.4, regret+0.3, chalkboard+0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Mabel Hines",
+            "llm": "deepinfra:ByteDance/Seed-2.0-code",
+            "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+            "keywords": "logbook+0.6, observation+0.5, librarian+0.4, pen+0.3, quiet-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+            "keywords": "zine+0.6, typewriter+0.5, analog+0.4, gratitude+0.3, transit-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Pip",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+            "keywords": "squirrel+0.6, ribbon+0.5, typebar+0.4, rafters+0.3, curious-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": [
+        {
+          "title": "The Last Key Struck",
+          "scenario": {
+            "title": "The Last Key Struck",
+            "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+            "characters": [
+              {
+                "name": "Elara Voss",
+                "llm": "zai:glm-4.5",
+                "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+                "keywords": "typewriter+0.61,repair+0.57,inventory-0.46,regret+0.31,chalkboard+0.26",
+                "ticks": 20
+              },
+              {
+                "name": "Mabel Hines",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+                "keywords": "logbook+0.55,observation+0.51,librarian+0.46,pen+0.21,quiet-0.34",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+                "keywords": "zine+0.48,typewriter+0.57,analog+0.41,gratitude+0.37,transit-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Pip",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+                "keywords": "squirrel+0.5,ribbon+0.54,typebar+0.43,rafters+0.28,curious-0.17",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 100,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:44:03.085700Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "\"Technically we've survived a full year now\u2014which I realize is only impressive if you count the laundromat's dryer lint as company. But Mrs. Aldana picked up her Olivetti yesterday, says she's teaching her granddaughter to type, so that's two of us who still believe. The record shop next door never got that chance.\" [dusts",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "This cozy little repair shop has already become such a beloved spot on this quiet block, and I\u2019m so glad I get to document its first anniversary for our local community archives. I\u2019ll make sure to jot down the tiny brass nameplate on your vintage typewriter display alongside the faint scuff mark on your front step that I spotted last week.\n[pulls a charcoal pencil from her crocheted tote bag and sharpens it on a small pocket sharpener]",
+                  "shifts": {
+                    "quiet": -0.34
+                  },
+                  "shift_total": -0.34,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Hey there! I brought these homemade thank-you zines I cranked out on the fixed Royal typewriter you guys salvaged for me back in winter. The local university\u2019s analog zine collective just hit double digits in members, and half of them are begging for your shop\u2019s contact info so they can get their beat-up old rigs tuned up. I promised I\u2019d stop back soon with their first batch of self-made flyers and zines to drop off here too!\n[leans in slightly, then places the thick stack of neon-edge zines on the scuffed front counter between a jar of loose typebar keys and a half-empty mug of cold coffee]",
+                  "shifts": {
+                    "zine": 0.48,
+                    "typewriter": 0.57,
+                    "analog": 0.41
+                  },
+                  "shift_total": 1.46,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "Chitter-chitter! Those dainty silver type slugs left out on the front counter are far too lovely to leave un-stashed in my cozy nest! I caught a whiff of caramel fudge crumbs from the laundromat next door, just waiting for me to tuck them into my secret snack pile.\n[darts across the scuffed linoleum, knocking over a half-unspooled spool of cream ribbon as it snatches a tiny curved type slug tight between its front paws]",
+                  "shifts": {
+                    "ribbon": 0.54
+                  },
+                  "shift_total": 0.54,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "\"Oh, these homemade thank-you zines are such a thoughtful, wonderful gift\u2014cranking them out on the salvaged Royal makes that much more of a sweet full-circle moment. I\u2019ll make sure to jot down every detail of this visit for our community archives, including that tiny chittering patron eyeing the shiny silver type slugs left on the counter.\"\n[reaches into her canvas tote to pull out her frayed leather notebook and a black fountain pen, leaning in over the shop\u2019s scuffed wooden counter to start scribbling]",
+                  "shifts": {
+                    "pen": 0.21
+                  },
+                  "shift_total": 0.21,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "\"Sorry I\u2019m cutting it so close\u2014just came straight from the university analog zine meetup prep! Everyone\u2019s obsessed with how crisp that refurbished Royal typewriter prints, and I slipped a full shop anniversary spread into these thank-you zines to properly thank you all for fixing mine up last winter.\"\n[taps a neat stack of the stapled cream zines against the scuffed repair counter before pushing a few copies toward Elara, Mabel, and the nearby chattering chipmunk]",
+                  "shifts": {
+                    "zine": 0.48,
+                    "typewriter": 0.57,
+                    "analog": 0.41
+                  },
+                  "shift_total": 1.46,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "Chitter-chitter! Those warm caramel fudge crumbs drifting over from the laundromat are far too tempting to ignore, and I\u2019ve got to grab a handful before they get swept away by the attendant. I\u2019ll tuck a few away alongside my shiny silver type slugs once I\u2019m done snacking.\n[scampers nimbly across the scuffed front counter, snatching a sticky fudge crumb mid-scurry]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elara Voss": 0.0,
+            "Mabel Hines": -0.13000000000000003,
+            "Javi Marquez": 2.92,
+            "Pip": 0.54
+          },
+          "citations": {
+            "Javi Marquez": {
+              "Elara Voss": 1,
+              "Mabel Hines": 1
+            }
+          },
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "The tide of gratitude settles as Javi's thank-you zines pass from hand to paw, the refurbished Royal's crisp print sealing a debt of repair repaid in full, and Mabel's fountain pen commits the whole visit to the community archives before the ink can dry in the salt air. What carries over: Pip"
+        },
+        {
+          "title": "The Last Key Struck",
+          "scenario": {
+            "title": "The Last Key Struck",
+            "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+            "characters": [
+              {
+                "name": "Elara Voss",
+                "llm": "zai:glm-4.5",
+                "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+                "keywords": "typewriter+0.48,repair+0.7,inventory-0.49,regret+0.18,chalkboard+0.12",
+                "ticks": 20
+              },
+              {
+                "name": "Mabel Hines",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+                "keywords": "logbook+0.43,observation+0.54,librarian+0.61,pen+0.32,quiet-0.36",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+                "keywords": "zine+0.6,typewriter+0.49,analog+0.48,gratitude+0.35,transit-0.18",
+                "ticks": 20
+              },
+              {
+                "name": "Pip",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+                "keywords": "squirrel+0.39,ribbon+0.61,typebar+0.41,rafters+0.34,curious-0.26",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 200,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:45:08.726314Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "A whole year, and the doorbell still sings like it did on opening day\u2014funny how the things we polish are the things that never wear down. I keep telling myself the quiet means people are just saving up their words, storing them up for when they need somewhere to put them. The laundromat crowd drifts past my window all day, and I swear one of these Tuesdays, someone's going to stop and wonder what that sound is underneath the dryers. That ribbon on the Underwood won't re-ink itself, though.\n\n[reaches beneath the counter and sets a fresh ribbon spool beside the half-dism",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "I can\u2019t believe this tiny, sun-faded typewriter repair shop has already reached its first anniversary. I\u2019ll be sure to note the faded handwritten anniversary sign taped to the side window, along with how much the brick\u2019s red hue has softened since my last visit two weeks ago.\n[scratches a quick, detailed note in her well-worn leather notebook]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Whoa, so stoked to pop in before my evening shift! These are all hand-stamped thank-you zines for whoever fixed my beat-up Royal typewriter back in March\u2014we just launched a tiny underground analog media collective at the local university, and every single week more kids are ditching their laptops to make tape mixes, poetry broadsides, and risograph zines now, it\u2019s such a weird, awesome vibe!\n[slides the thick stack of neon-pink and orange zines across the shop\u2019s scuffed wooden countertop, a crumpled typewritten note peeking out from the top page]",
+                  "shifts": {
+                    "typewriter": 0.49,
+                    "analog": 0.48
+                  },
+                  "shift_total": 0.97,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "Chitter-chitter, quiet skitter! I just slipped between the dusty shelves and found a handful of glinting tiny type pieces wedged in a rusted repair kit, plus a frayed rose-colored ribbon scrap perfect for lining my nest. I nearly knocked over that loose spool of white ribbon by the back door when I darted over to grab it, oops.\n[scampers across the creaky brick rafters, tucking the shiny trinkets into the plush, type-piece-lined nest tucked above the old ticking job counter]",
+                  "shifts": {
+                    "ribbon": 1.22,
+                    "rafters": 0.34
+                  },
+                  "shift_total": 1.56,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "A rose-colored ribbon\u2014my mentor kept a spool of those for the machines she loved most, and here it's been hiding in the rust all along. Javi, those zines mean more than you know; someone out there is still listening, even if they don't walk through that door. Maybe the anniversary isn't about counting customers, but about counting the ones who remember.\n\n[Elara kneels beside Pip's hiding spot and lifts the frayed ribbon to the window light, smoothing it between her fingers like an old letter.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "I can\u2019t believe this tiny, sun-faded typewriter repair shop has already reached its first anniversary. I\u2019ll be sure to note the faded handwritten anniversary sign taped to the side window, along with Javi\u2019s thoughtful hand-stamped thank-you zines and Pip\u2019s charming little haul of tiny type pieces and rose-colored ribbon scrap.\n[leans against the scuffed front counter to scribble the details in her frayed leather notebook while tucking a stray gray hair behind her ear]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "These zines all have tiny doodles of your repair station and a goofy strip about how I thought my beat-up Royal was gone for good till you fixed it! The campus underground analog media crew just passed 40 members last week\u2014everyone\u2019s begging for more low-tech zine workshops right now.\n[taps the edge of the shop\u2019s handwritten anniversary sign with an ink-stained finger before setting the stapled zine stack down on the front counter]",
+                  "shifts": {
+                    "zine": 1.2,
+                    "analog": 0.48
+                  },
+                  "shift_total": 1.68,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "Chitter-skitter! These glinting tiny type pieces and soft rose ribbon will make my nest far cozier for the cool evenings ahead. I nearly knocked over a spool of red thread just now when I darted between the shelves.\n[scampers up a nearby wooden rafter beam, tucking the found treasures into the existing pile of fur and scrap lining its nest]",
+                  "shifts": {
+                    "ribbon": 0.61
+                  },
+                  "shift_total": 0.61,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elara Voss": 0.0,
+            "Mabel Hines": 0.0,
+            "Javi Marquez": 2.65,
+            "Pip": 2.17
+          },
+          "citations": {
+            "Elara Voss": {
+              "Javi Marquez": 1,
+              "Pip": 1
+            },
+            "Mabel Hines": {
+              "Javi Marquez": 1,
+              "Pip": 1
+            }
+          },
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "[EMPTY]"
+        },
+        {
+          "title": "The Last Key Struck",
+          "scenario": {
+            "title": "The Last Key Struck",
+            "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+            "characters": [
+              {
+                "name": "Elara Voss",
+                "llm": "zai:glm-4.5",
+                "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+                "keywords": "typewriter+0.44,repair+0.7,inventory-0.42,regret+0.28,chalkboard+0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Mabel Hines",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+                "keywords": "logbook+0.33,observation+0.43,librarian+0.47,pen+0.29,quiet-0.45",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+                "keywords": "zine+0.54,typewriter+0.58,analog+0.45,gratitude+0.33,transit-0.08",
+                "ticks": 20
+              },
+              {
+                "name": "Pip",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+                "keywords": "squirrel+0.47,ribbon+0.59,typebar+0.53,rafters+0.43,curious-0.35",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 300,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:45:59.156276Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "One year. A whole year of dusting these keys and still the bell above the door rings less often than the laundromat's dryers next door. But you know what? Mr. Abernathy told me machines like these don't die\u2014they just wait for someone with the patience to listen. So I'll keep listening, keep the lights on, and keep every ribbon in stock for whoever walks through that door next.\n\n[wipes a decade of grime from the window display with a soft cloth, angling the mint-green Olivetti so it catches the afternoon light]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "Look at that faint chalk first-anniversary mark above the workbench\u2014hardly noticeable at first glance, but it\u2019s such a quiet, thoughtful touch from the shop\u2019s owner. I\u2019ll make sure to note that detail alongside the smudged ink stain on the front step I spotted earlier.\n[reaches into the oversized pocket of her cardigan to pull out a frayed spiral notebook and a blue pencil with a chewed eraser]",
+                  "shifts": {
+                    "quiet": -0.45
+                  },
+                  "shift_total": -0.45,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Whoa, congrats on your shop\u2019s first anniversary! I hit the university\u2019s underground analog media meetup last night and made sure every kid lugging a beat-up typewriter heard about your repair work\u2014also brought these thank-you zines I co-printed with the group to say thanks.\n[slides a teetering stack of hand-stapled, neon-accented zines across the scuffed shop counter, wiping a smudge of ink from his cheek with the back of his hand]",
+                  "shifts": {
+                    "typewriter": 0.58,
+                    "analog": 0.45
+                  },
+                  "shift_total": 1.03,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "Chitter, soft trilling chitters\u2014there\u2019s a buttery maple cake crumb tucked behind this stack of brass type sorts! I spotted it when the shop owners brought out their anniversary treat boxes earlier. I\u2019d better grab it before the laundromat\u2019s tabby cat wanders over.\n[scampers across a wobbly stack of vintage ribbon spools to dart toward the hidden crumb]",
+                  "shifts": {
+                    "ribbon": 0.59
+                  },
+                  "shift_total": 0.59,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Elara Voss",
+                  "text": "Javi, if even two of those students wander in with machines that still clatter, I'll call this year a victory already. And now I know why the cake box looks lighter than I left it\u2014someone's been celebrating ahead of schedule back there. Come out, little one, crumbs are exactly what anniversaries are for.\n\n[sets a small pinch of maple cake on a chipped saucer beside the brass type sorts, then runs her thumb gently over the chalk anniversary mark above the workbench]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Mabel Hines",
+                  "text": "Oh, that buttery maple crumb is such a perfect, easy-to-overlook little detail\u2014 I would\u2019ve totally missed it without your chittering heads-up, Pip. I\u2019ll add it straight to my community history notes alongside the faint chalk first-anniversary mark above the workbench.\n[flips open her frayed navy cloth-bound notebook to a page smudged with old ink stains and jots down the crumb detail quickly, pencil hovering a moment to double-check the spelling of \"maple\"]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Whoa, massive congrats on your first shop anniversary! I hit the university\u2019s underground analog media meetup last night and hyped your repair work to every kid hauling a beat-up typewriter, plus I brought a stack of the hand-made thank-you zines I put together for the whole crew.\n[dumps the crinkled, hand-stapled zine stack onto the worn wood counter, jostling a jar of brass type sorts]",
+                  "shifts": {
+                    "zine": 0.54,
+                    "typewriter": 0.58,
+                    "analog": 0.45
+                  },
+                  "shift_total": 1.57,
+                  "role": ""
+                },
+                {
+                  "name": "Pip",
+                  "text": "I\u2019ve been sneaking tiny nibbles of maple cake whenever the shop owners step away from the counter! This crumb\u2019s the biggest and sweetest one I\u2019ve found yet, and I\u2019m tucking it into my ribbon-lined nest right now.\n[scampers nimbly across the stack of brass type sorts, clutching the crumb tight to its chest before darting upward to the shadowy rafters]",
+                  "shifts": {
+                    "ribbon": 0.59,
+                    "rafters": 0.43
+                  },
+                  "shift_total": 1.02,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elara Voss": 0.0,
+            "Mabel Hines": -0.45,
+            "Javi Marquez": 2.6,
+            "Pip": 1.6099999999999999
+          },
+          "citations": {
+            "Elara Voss": {
+              "Javi Marquez": 1
+            },
+            "Mabel Hines": {
+              "Pip": 1
+            }
+          },
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and the town's official history now includes one mouse-sized accomplice. The hook: Javi's hype at the underground analog meetup means by next week the bell above the door will ring with university students hauling beat-up, clattering machines straight toward Elara's workbench."
+        }
+      ]
+    },
+    {
+      "slug": "three-siblings-caring-for-an-orchard-planted-by-their-great",
+      "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+      "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+      "scenario": {
+        "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+        "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+        "characters": [
+          {
+            "name": "Mara",
+            "llm": "deepinfra:ByteDance/Seed-2.0-code",
+            "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+            "keywords": "archive+0.6 lineage+0.5 blight-surveys+0.4 tradition-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "zai:glm-4.5",
+            "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+            "keywords": "drip-irrigation+0.6 soil-tests+0.5 copper-sprays+0.4 urgency-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+            "keywords": "CSA-shares+0.6 community-events+0.5 pollinator-habitat+0.4 expansion-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Kaelin",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+            "keywords": "volunteer-saplings+0.6 natural-regeneration+0.5 teen-advocacy+0.4 compromise-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": [
+        {
+          "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+          "scenario": {
+            "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+            "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+            "characters": [
+              {
+                "name": "Mara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+                "keywords": "archive+0.55,lineage+0.61,blight-surveys+0.39,tradition-0.27",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "zai:glm-4.5",
+                "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+                "keywords": "drip-irrigation+0.48,soil-tests+0.41,copper-sprays+0.29,urgency-0.22",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+                "keywords": "csa-shares+0.61,community-events+0.65,pollinator-habitat+0.52,expansion-0.28",
+                "ticks": 20
+              },
+              {
+                "name": "Kaelin",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+                "keywords": "volunteer-saplings+0.53,natural-regeneration+0.4,teen-advocacy+0.48,compromise-0.39",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 100,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:47:45.358198Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I just cross-referenced this week\u2019s microcell survey against Great-Grandma\u2019s original orchard blueprint. This weeping root flare has mild signs of nutrient stress, but the surrounding clover and comfrey guild matches her exact planting notes, so we can\u2019t risk untested foliar sprays or unapproved pruning with those shears that might disrupt the ancestral ecosystem. We should test the adjacent cistern\u2019s water pH first to rule out nutrient uptake issues before we consider any further steps.\n[keeps one palm pressed lightly to the root flare to monitor soil moisture while gesturing toward the cistern row with her other hand]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "\"Three months of trials, and my",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "I hate to be the downer here, but our open volunteer slots for the mason bee nesting box repairs and cistern filter swaps are nearly all gone for the rest of the month. We can\u2019t pour every spare minute into this old apple tree without leaving half the orchard\u2019s microcells unmaintained.\n[folds the crumpled volunteer scheduling sheet in his hands and nods toward the distant row of rain cisterns]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "Lila, put those copper pruners down for a minute\u2014 I\u2019ve been documenting all the orchard\u2019s volunteer saplings, and these fuzzy new shoots at the blighted tree\u2019s base are its natural offspring, not invasive weeds. Let\u2019s skip pruning this spot so they can grow on their own, yeah?\n[kneels at the root flare to brush away a layer of damp leaf litter to better show the cluster of tender saplings]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I already logged both the shrinking volunteer slots and this tree\u2019s natural sapling shoots in my cross-referenced microcell survey notes last night. We should pull the seasonal steward contact list from the shared archive instead of scrambling for impromptu help, and stick strictly to great-grandma\u2019s recorded comfrey tea treatment for the root stress to protect the orchard\u2019s original ancestral lineage.\n[tucks a small clump of the adjacent comfrey around the tree\u2019s root flare before tapping her weathered archival tablet to pull up the historical steward roster]",
+                  "shifts": {
+                    "archive": 0.55,
+                    "lineage": 0.61
+                  },
+                  "shift_total": 1.16,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "\"Lila\": \"Those 'offspring' are suckering off the same compromised root system, Kaelin\u2014if the mother tree goes, they inherit the blight along with the roots. My trials cut the application rate to a tenth of standard and I've logged zero pollinator kills across three spray",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "I lean in to get a clear look at the fuzzy sapling shoots Kaelin documented, nodding along with the good news. Even with this natural backup for the original tree, we can\u2019t ignore our dwindling volunteer slots for the mason bee repairs and cistern filter swaps \u2014 those tasks keep the whole orchard\u2019s microcells running smoothly.\n[tucks Mara\u2019s loose survey sheet into her arm wrap before grabbing his weathered orchard clipboard to jot a quick reminder]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "\"Wait, hold on, I wasn\u2019t done earlier\u2014these fuzzy new shoots aren\u2019t invasive weeds, they\u2019re the blighted cider tree\u2019s own natural regrowth. I\u2019ve been documenting every volunteer sapling across the microcells for weeks, and letting these grow would let the orchard repopulate on its own without extra, unnecessary work.\"\n[pulls a weatherproof field notebook from their canvas cargo pocket to jot a quick note beside the root flare]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara": 1.16,
+            "Lila": 0.0,
+            "Javi": 0.0,
+            "Kaelin": 0.0
+          },
+          "citations": {
+            "Kaelin": {
+              "Lila": 1
+            },
+            "Lila": {
+              "Kaelin": 1
+            },
+            "Javi": {
+              "Mara": 1,
+              "Kaelin": 1
+            }
+          },
+          "dm_opening": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
+          "dm_closing": "The comfrey is tucked at the root flare and Mara's tablet hums as the historical steward roster finally surfaces\u2014names, tides, and treatment records all in one place, so the group parts with a plan: no impromptu recruits, no off-book sprays, just great-grandma's recorded tea until the root stress is read again. What carries over is the unresolved split over Kaelin"
+        },
+        {
+          "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+          "scenario": {
+            "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+            "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+            "characters": [
+              {
+                "name": "Mara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+                "keywords": "archive+0.63,lineage+0.54,blight-surveys+0.45,tradition-0.28",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "zai:glm-4.5",
+                "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+                "keywords": "drip-irrigation+0.53,soil-tests+0.33,copper-sprays+0.16,urgency-0.15",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+                "keywords": "csa-shares+0.47,community-events+0.53,pollinator-habitat+0.51,expansion-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Kaelin",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+                "keywords": "volunteer-saplings+0.61,natural-regeneration+0.46,teen-advocacy+0.55,compromise-0.44",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 200,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:48:41.259322Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I\u2019m hunched over my waterproof tablet, cross-referencing Microcell 7\u2019s heirloom apple guild survey against Elara\u2019s handwritten 1997 planting log. The salt fog is glitching my satellite tracker, so I\u2019m manually verifying each bed\u2019s GPS coordinates to make sure I don\u2019t misfile this week\u2019s data against the wrong ancestral planting plan.\n[tucks a crinkled printed microcell survey sheet back into the water-resistant leather binder strapped to her hip]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Between rushing to shore up that ailing heritage apple tree and prepping for tonight\u2019s CSA open house, half our volunteer crew is already tied up elsewhere. I can\u2019t shake the gnawing worry we\u2019re letting too many of the smaller microcell plots\u2014from mason bee box cleanups to cistern top-offs\u2014slip through the cracks right now.\n[drops the stack of open house cookie platters he\u2019s carrying onto a splintered wooden crate, then runs a hand through his sun-bleached hair]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "Look at these delicate new shoots sprouting from the base of that blighted apple tree! We should hold off on removing it entirely and let this natural regeneration take root instead of rushing to plant a store-bought sapling. The tide bells just rang, too\u2014perfect timing to jot this observation down before dusk fades.\n[kneels in the damp clover at the tree\u2019s base, unclipping their frayed ballpoint pen from their tattered field notebook to sketch the tiny new saplings]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I tap the fog-glitched satellite tracker on my waterproof tablet with a sharp sigh, then gesture at the new basal shoots sprouting at the blighted tree\u2019s base. Elara\u2019s 1997 planting log for Microcell 7 strictly bars allowing unvetted regrowth, as it could dilute the direct ancestral lineage of this heirloom apple cultivar. We need to trim these shoots back with our approved organic pruning protocol instead of letting them take root.\n[steps closer to the blighted apple tree to make precise, targeted cuts on the tender new basal shoots]",
+                  "shifts": {
+                    "lineage": 0.54
+                  },
+                  "shift_total": 0.54,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Kaelin, those shoots are just sucker growth from the rootstock\u2014they'll never ripen fruit worth saving, and every week we debate is a week the canker spreads deeper into the heartwood. I've spent three months dialing these copper rates down precisely so the spray won't drift into the mason bee boxes, and I can show you the application logs right now if you want proof. If we wait past this fog season, we'll be harvesting deadwood instead of apples come autumn. [pulls her field notebook from her coat pocket and flips it open to the spray schedule, holding it out toward Kaelin]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "That\u2019s a thoughtful call, but we can\u2019t let the rest of the orchard\u2019s microcells fall by the wayside while we focus on this single apple tree. The mason bee nesting boxes in Microcell 2 need a full tidy before dusk, and tonight\u2019s CSA open house attendees will be touring the rain cisterns at Microcell 9, which haven\u2019t been prepped yet. Let\u2019s circle back to this tree\u2019s future once we\u2019ve knocked those priority tasks off our list. [grabs a stack of volunteer checklists and a spray bottle of disinfectant from his nearby tool caddy]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "I swipe to pull up my detailed field notes on this tree\u2019s root sprouts, gesturing toward the tiny green growths at its base. These natural saplings are perfectly adapted to this orchard\u2019s salt fog and coastal soil, so letting them take root makes far more sense than felling the whole mature tree.\n[kneels to brush back a thick mat of dead grass obscuring more of the hidden tender shoots]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara": 0.54,
+            "Lila": 0.0,
+            "Javi": 0.0,
+            "Kaelin": 0.0
+          },
+          "citations": {
+            "Lila": {
+              "Kaelin": 2
+            }
+          },
+          "dm_opening": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
+          "dm_closing": "[EMPTY]"
+        },
+        {
+          "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+          "scenario": {
+            "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+            "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+            "characters": [
+              {
+                "name": "Mara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+                "keywords": "archive+0.52,lineage+0.51,blight-surveys+0.48,tradition-0.32",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "zai:glm-4.5",
+                "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+                "keywords": "drip-irrigation+0.68,soil-tests+0.36,copper-sprays+0.25,urgency-0.03",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+                "keywords": "csa-shares+0.52,community-events+0.41,pollinator-habitat+0.54,expansion-0.11",
+                "ticks": 20
+              },
+              {
+                "name": "Kaelin",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+                "keywords": "volunteer-saplings+0.7,natural-regeneration+0.52,teen-advocacy+0.43,compromise-0.45",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 300,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:49:34.616736Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I just pulled the latest Microcell 4 soil moisture survey off the shared archive. I\u2019m cross-referencing it against Elara\u2019s formal planting plan to confirm we only use treatments great-grandma documented in her orchard notes. We can\u2019t risk introducing untested additives that could disrupt this orchard\u2019s original ancestral lineage.\n[leans in to adjust the handheld tablet\u2019s zoom to highlight the heirloom apple rootstock entries from 1927]",
+                  "shifts": {
+                    "archive": 0.52,
+                    "lineage": 0.51
+                  },
+                  "shift_total": 1.03,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "I just checked in with the first volunteer shift, and most are focused on the ailing heritage walnut we\u2019re all rallying to save. I can\u2019t shake the worry that the mason bee nesting boxes in the western microcells haven\u2019t been inspected in three weeks, so we need to carve out a small window tomorrow to split crews so no part of the orchard gets overlooked.\n[grabs a stack of torn volunteer sign-up sheets from the wooden tool cart at his feet]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "I stopped by the blighted heirloom apple tree in the south microcell earlier and spotted tender new saplings sprouting from its root base. We should skip cutting it down entirely\u2014these shoots will grow into healthy, fruiting trees with just a little space, and that\u2019s exactly the unplanned natural regen I\u2019ve been tracking for my project. It\u2019s such a quiet, perfect win for the orchard.\n[kneels to press a handwritten field tag next to the sapling cluster while scribbling a quick update in their spiral-bound notebook]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I need to cross-reference those south microcell apple root shoots against great-grandma\u2019s official propagation logs before we prioritize nurturing them\u2014we can\u2019t risk deviating from documented lineage practices. I also want to pull the western microcell mason bee nesting box placement records to address your earlier concern, to make sure we\u2019re sticking to her specified spacing rules rather than adjusting things on the fly.\n[reaches for the thick, leather-bound great-grandma orchard archive binder tucked under the shared worktable]",
+                  "shifts": {
+                    "archive": 0.52,
+                    "lineage": 0.51
+                  },
+                  "shift_total": 1.03,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Three months of trials have taught me exactly how little copper sulfate these trees can take before runoff threatens the western nesting boxes\u2014my refined rates cut application volume by nearly half with no spike in bee activity loss. But blight doesn't wait for consensus, and every week we debate is a week closer to losing the walnut before autumn. I've documented every spray date, every dilution, every weather window; if we delay past this month, we might as well be sharpening the axe ourselves. Mara, my application logs are on the shared archive if you want to verify them against Elara's records yourself.\n\n[unrolls her spray-log ledger across the planning table, tapping the color-coded application schedule]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "I can\u2019t shake the worry that the western microcell\u2019s mason bee nesting boxes are going completely unmaintained while all our volunteers focus on the ailing heritage walnut. We need to reassign a small crew to tend those boxes and check in on the south apple tree\u2019s root saplings too. Let me pull up the volunteer rosters right now to rework today\u2019s shifts.\n[grabs the dog-eared volunteer shift clipboard from the tool shed counter]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Kaelin",
+                  "text": "I stopped by the blighted heirloom apple tree in the south microcell earlier and spotted tender new saplings sprouting from its root base. We should skip cutting it down entirely\u2014these shoots will grow into full, healthy apple trees in a few years, and I\u2019ve been documenting every unplanned volunteer sapling across the orchard to track this kind of spontaneous regrowth.\n[kneels down to gently tuck a stray clump of grass away from one of the tiny, bright green shoots]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara": 2.06,
+            "Lila": 0.0,
+            "Javi": 0.0,
+            "Kaelin": 0.0
+          },
+          "citations": {
+            "Lila": {
+              "Mara": 1
+            }
+          },
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "[EMPTY]"
+        }
+      ]
+    }
+  ],
+  "n_scenarios": 3
+}
