@@ -312,6 +312,19 @@
       Same theorem, different substrate. Cross-pollination shipped: <a href="https://github.com/SuperInstance/twist-engine/pull/1">PR #1</a>.
     </p>
 
+    <div id="canon-analytics" style="margin-top:1.5rem;display:none">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem">
+          <h3 style="color:var(--green);font-size:0.96rem;margin-bottom:0.5rem">★ Most Cited</h3>
+          <div id="top-cited-list" style="font-size:0.84rem"></div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1rem">
+          <h3 style="color:var(--accent);font-size:0.96rem;margin-bottom:0.5rem">✦ Most Citing</h3>
+          <div id="top-citing-list" style="font-size:0.84rem"></div>
+        </div>
+      </div>
+    </div>
+
     <h2>Five Live Endpoints</h2>
     <p style="color:var(--gray); font-size:0.92rem;">Every cell, every witness, every canon piece — queryable from the public edge. No auth, no rate limit, no SDK.</p>
 
@@ -490,6 +503,29 @@
           cards[2].textContent = b1.C;
           cards[3].textContent = b1.b1;
           cards[4].textContent = list.count;
+
+          // Citation analytics cards
+          if (b1.top_cited || b1.top_citing) {
+            const citedEl = document.getElementById('top-cited-list');
+            const citingEl = document.getElementById('top-citing-list');
+            if (citedEl && b1.top_cited) {
+              citedEl.innerHTML = b1.top_cited.map(c =>
+                `<div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid rgba(255,255,255,.05)">
+                  <span style="color:var(--text)">${esc(c.tag.replace(/-/g,' ').slice(0, 38))}</span>
+                  <span style="color:var(--green);font-weight:600">×${c.cited_by}</span>
+                </div>`
+              ).join('');
+            }
+            if (citingEl && b1.top_citing) {
+              citingEl.innerHTML = b1.top_citing.map(c =>
+                `<div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid rgba(255,255,255,.05)">
+                  <span style="color:var(--text)">${esc(c.tag.replace(/-/g,' ').slice(0, 38))}</span>
+                  <span style="color:var(--accent);font-weight:600">×${c.cites}</span>
+                </div>`
+              ).join('');
+            }
+            document.getElementById('canon-analytics').style.display = 'block';
+          }
 
           const dt = new Date();
           document.getElementById('last-updated').textContent =
