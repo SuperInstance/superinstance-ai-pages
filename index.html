@@ -1,1170 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>rune-quilt — Live Cell Fleet | superinstance.ai</title>
-  <meta name="description" content="The Quilt canon, running on Cloudflare Workers. Live circuit rank b1 = E − V + C. Same math as bilayer graphene. Search, browse, cite — public, on the edge."/>
-  <style>
-    :root {
-      --bg: #0a1929;
-      --text: #c0d6e4;
-      --accent: #d4a857;
-      --teal: #4fb3a9;
-      --green: #00c080;
-      --purple: #9a60d9;
-      --gold: #d4a857;
-      --coral: #ff6b6b;
-      --gray: #888888;
-      --blue: #5c99d4;
-      --magenta: #d457d4;
-      --border: #1a324a;
-      --card: #132637;
-      --shadow: rgba(0, 0, 0, 0.5);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Courier New', monospace;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="superinstance.ai — canonical infrastructure for erised, the cooperative-fiction engine, and the Quilt cell fleet. Browse 10 scenarios, read winner runs, see live canon state." />
+<title>superinstance.ai — erised + Quilt fleet</title>
+<style>
+  :root {
+    --bg: #0a1929;
+    --panel: #132637;
+    --ink: #c0d6e4;
+    --dim: #888;
+    --accent: #d4a857;
+    --teal: #4fb3a9;
+    --green: #00c080;
+    --purple: #9a60d9;
+    --border: #1a324a;
+    --coral: #ff6b6b;
+    --blue: #5c99d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Courier New', monospace;
+    line-height: 1.6; padding: 0;
+  }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { color: var(--accent); text-decoration: underline; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    .wrap { max-width: 1240px; margin: 0 auto; padding: 2rem 1.5rem; }
+  header {
+    padding: 3rem 1rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(79,179,169,.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(212,168,87,.05), transparent 60%);
+  }
+  header h1 { font-size: 2.5rem; color: var(--accent); letter-spacing: -.01em; margin: 0 0 8px; }
+  header .sub { color: var(--dim); font-size: 14px; margin: 0 auto; max-width: 720px; }
+  header .badges { margin-top: 14px; }
+  header .badges a {
+    display: inline-block; padding: 4px 12px; margin: 4px;
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 999px; color: var(--teal); font-size: 11px;
+    text-transform: uppercase; letter-spacing: .1em;
+  }
+  header .badges a:hover { background: var(--border); color: var(--accent); }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(79,179,169,0.10), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(212,168,87,0.06), transparent 60%);
-    }
-    .hero .eyebrow {
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      color: var(--teal);
-      margin-bottom: 0.8rem;
-    }
-    .hero h1 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      color: #f0f6fc;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .hero .version-tag {
-      display: inline-block;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.15rem 0.6rem;
-      font-size: 0.72rem;
-      color: var(--teal);
-      vertical-align: middle;
-      margin-left: 0.4rem;
-    }
-    .hero .sub {
-      color: #8b949e;
-      font-size: 1rem;
-      max-width: 760px;
-      margin: 0.6rem auto 1.6rem;
-      line-height: 1.7;
-    }
-    .hero .live-pills {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1rem 0;
-    }
-    .pill {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.82rem;
-      transition: all 0.2s;
-    }
-    .pill:hover { border-color: var(--teal); transform: translateY(-1px); }
-    .pill strong { color: var(--accent); margin-right: 0.3rem; font-weight: 600; }
-    .pill.gold { border-color: var(--gold); }
-    .pill.gold strong { color: var(--gold); }
-    .pill.green { border-color: var(--green); }
-    .pill.green strong { color: var(--green); }
-    .pill .dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      margin-right: 6px;
-      animation: pulse 2s infinite;
-    }
-    .pill.coral { border-color: var(--coral); color: var(--coral); }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-    @keyframes shimmer { 0% { opacity: 0.55; } 50% { opacity: 1; } 100% { opacity: 0.55; } }
-    .skel { animation: shimmer 1.6s infinite ease-in-out; color: var(--gray); }
-    .updated {
-      font-size: 0.78rem;
-      color: var(--gray);
-      margin-top: 0.9rem;
-      font-family: monospace;
-    }
-    .updated a { color: var(--gray); }
+  main { padding: 2rem 0; }
 
-    /* Quick action bar */
-    .quick-bar {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 1.5rem 0 0;
-    }
-    .quick-bar a {
-      background: var(--card);
-      border: 1px solid var(--teal);
-      color: var(--teal);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-size: 0.84rem;
-      transition: all 0.2s;
-    }
-    .quick-bar a:hover {
-      background: rgba(79,179,169,0.15);
-      text-decoration: none;
-    }
-    .quick-bar .accent { border-color: var(--gold); color: var(--gold); }
-    .quick-bar .accent:hover { background: rgba(212,168,87,0.15); }
+  h2 {
+    color: var(--accent); font-size: 1.25rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .15em;
+    border-bottom: 1px solid var(--border); padding-bottom: 8px;
+    margin: 2.5rem 0 1rem;
+  }
+  h2 .info { color: var(--dim); font-size: 11px; text-transform: none;
+    letter-spacing: 0; font-weight: normal; margin-left: 8px; }
 
-    /* Section grid */
-    h2 {
-      color: #f0f6fc;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 3rem 0 0.6rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      letter-spacing: -0.01em;
-    }
-    h2:first-of-type { margin-top: 2rem; }
-    h3 { color: #f0f6fc; font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.4rem; }
-    p { color: var(--text); font-size: 0.94rem; }
-    code { background: rgba(255,255,255,0.06); padding: 0.05rem 0.35rem; border-radius: 3px; font-size: 0.88em; color: var(--accent); }
-    pre { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; overflow-x: auto; font-size: 0.82rem; }
-    pre code { background: none; padding: 0; color: var(--text); }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0; }
+  @media (min-width: 700px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
 
-    /* Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.1rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .card:hover { border-color: var(--teal); transform: translateY(-2px); }
-    .card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .card p { font-size: 0.86rem; color: var(--gray); }
-    .card .stat { font-size: 0.78rem; color: var(--text); margin-top: 0.4rem; font-family: monospace; }
-    .endpoint {
-      display: inline-block;
-      background: rgba(79,179,169,0.18);
-      color: var(--teal);
-      padding: 0.05rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.78rem;
-      font-family: monospace;
-      margin-right: 0.4rem;
-      letter-spacing: 0;
-    }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .card .head .label { color: var(--accent); font-size: 11px;
+    text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+  .card h3 { font-size: 1.1rem; color: var(--ink); margin: 6px 0; }
+  .card p { font-size: 13px; color: var(--dim); margin: 8px 0; line-height: 1.5; }
+  .card .open { display: inline-block; margin-top: 8px; padding: 6px 12px;
+    background: var(--accent); color: var(--bg); border-radius: 4px;
+    font-size: 12px; font-weight: 600; }
+  .card .open:hover { background: var(--coral); }
+  .card .links { margin-top: 10px; font-size: 11px; }
+  .card .links a { margin-right: 12px; }
 
-    /* Stats row */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.2rem 1rem;
-      text-align: center;
-    }
-    .stat-card .num {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-card .lbl {
-      font-size: 0.74rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-top: 0.4rem;
-    }
-    .stat-card.gold .num { color: var(--gold); }
-    .stat-card.green .num { color: var(--green); }
-    .stat-card.teal .num { color: var(--teal); }
+  /* Stats row */
+  .stats {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin: 1rem 0; padding: 1rem; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px;
+  }
+  .stats .stat { flex: 1 1 auto; min-width: 140px; }
+  .stats .stat .num { color: var(--accent); font-size: 1.4rem; font-weight: 700; }
+  .stats .stat .label { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
 
-    /* Fleet iframe + native viz */
-    .live-frame {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 1rem;
-      min-height: 540px;
-    }
-    .live-frame iframe {
-      width: 100%;
-      height: 540px;
-      border: 0;
-      display: block;
-    }
-    /* Live frame with header bar */
-    .live-frame {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 1rem;
-      min-height: 600px;
-    }
-    .live-frame-bar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0.4rem 1rem;
-      background: rgba(177,186,196,0.05);
-      border-bottom: 1px solid var(--border);
-    }
-    .live-frame iframe { width: 100%; height: 540px; border: 0; display: block; }
-    @media (max-width: 900px) { .live-frame iframe { height: 400px; } }
+  /* Living-list */
+  .living {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem; margin: 1rem 0;
+    font-size: 13px;
+  }
+  .living h3 { color: var(--teal); margin-bottom: 8px; font-size: 14px; }
+  .living .row { display: flex; justify-content: space-between; padding: 4px 0;
+    border-bottom: 1px dotted var(--border); font-family: monospace; font-size: 12px; }
+  .living .row:last-child { border-bottom: 0; }
+  .living .row .tag { color: var(--accent); }
+  .living .row .meta { color: var(--dim); font-size: 11px; }
 
-    /* Info icon + hover tooltip */
-    .info {
-      display: inline-block;
-      width: 16px; height: 16px; line-height: 16px;
-      text-align: center;
-      border-radius: 50%;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--teal); font-size: 0.74rem; font-weight: 700;
-      margin-left: 0.4rem;
-      cursor: help;
-      transition: all 0.15s ease;
-      vertical-align: middle;
-    }
-    .info:hover { background: var(--teal); color: var(--card); border-color: var(--teal); }
-    .info[data-tip]::after {
-      content: attr(data-tip);
-      position: absolute;
-      bottom: calc(100% + 0.4rem);
-      left: 50%; transform: translateX(-50%);
-      background: #161b22;
-      border: 1px solid var(--teal);
-      padding: 0.7rem 0.95rem;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      color: var(--text);
-      max-width: 340px;
-      width: max-content;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      font-weight: normal;
-      text-align: left;
-      line-height: 1.5;
-    }
-    .info:hover[data-tip]::after { opacity: 1; }
-    .info { position: relative; }
-
-    /* Search result links */
-    .search-result .title {
-      color: var(--text); font-size: 0.96rem; font-weight: 500;
-      text-decoration: none; display: block; margin-bottom: 0.3rem;
-      transition: color 0.15s ease;
-    }
-    .search-result .title:hover { color: var(--teal); text-decoration: underline; }
-
-    /* Card subtle hover lift */
-    .card { transition: transform 0.18s ease, border-color 0.18s ease; }
-    .card:hover { border-color: var(--teal); transform: translateY(-2px); }
-
-    .live-frame.native {
-      padding: 1rem;
-      min-height: 580px;
-    }
-
-    /* Citation graph SVG container */
-    .cite-graph {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-      overflow: hidden;
-    }
-    .cite-graph svg { width: 100%; height: auto; }
-
-    /* Workspace bar chart */
-    .ws-bar {
-      display: flex;
-      height: 32px;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-top: 1rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-    }
-    .ws-bar > div {
-      color: white;
-      font-size: 0.78rem;
-      text-align: center;
-      line-height: 32px;
-      overflow: hidden;
-      white-space: nowrap;
-      transition: filter 0.2s;
-    }
-    .ws-bar > div:hover { filter: brightness(1.2); cursor: pointer; }
-    .ws-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-      color: var(--gray);
-    }
-    .ws-legend .chip {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 6px;
-      vertical-align: middle;
-      border-radius: 2px;
-    }
-
-    /* Top lists */
-    .cite-list {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-    }
-    .cite-list h3 { margin: 0 0 0.6rem; font-size: 1rem; }
-    .cite-list .row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.35rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.84rem;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .cite-list .row:hover { background: rgba(79,179,169,0.08); }
-    .cite-list .row:last-child { border-bottom: 0; }
-    .cite-list .row .tag { color: var(--text); flex: 1; overflow: hidden; text-overflow: ellipsis; }
-    .cite-list .row .cnt { color: var(--green); font-weight: 600; margin-left: 0.6rem; }
-
-    /* Inline search */
-    .search-box {
-      display: flex;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .search-box input {
-      flex: 1;
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 0.9rem;
-      border-radius: 6px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.92rem;
-    }
-    .search-box input:focus { outline: none; border-color: var(--teal); }
-    .search-box button {
-      background: var(--teal);
-      color: var(--bg);
-      border: 0;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      font-family: inherit;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .search-box button:hover { background: #6dc9bf; }
-    .search-results {
-      margin-top: 0.6rem;
-      display: none;
-    }
-    .search-results.active { display: block; }
-    .search-result {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.7rem 0.9rem;
-      margin-bottom: 0.4rem;
-      cursor: pointer;
-      transition: border-color 0.15s;
-    }
-    .search-result:hover { border-color: var(--teal); }
-    .search-result .title { color: var(--accent); font-size: 0.92rem; margin-bottom: 0.2rem; }
-    .search-result .sim { font-size: 0.72rem; color: var(--green); float: right; }
-
-    /* Trending (latest submissions) */
-    .trending {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-    .trending .item {
-      display: flex;
-      gap: 0.8rem;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      align-items: baseline;
-    }
-    .trending .item:last-child { border-bottom: 0; }
-    .trending .time {
-      color: var(--gray);
-      font-size: 0.72rem;
-      min-width: 60px;
-    }
-    .trending .title {
-      flex: 1;
-      color: var(--text);
-      font-size: 0.88rem;
-    }
-
-    /* Workspace b1 list */
-    .ws-b1 {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-    .ws-b1 .row {
-      display: grid;
-      grid-template-columns: 1fr auto auto auto auto;
-      gap: 0.6rem;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.84rem;
-      align-items: center;
-    }
-    .ws-b1 .row.head {
-      color: var(--gray);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid var(--border);
-    }
-    .ws-b1 .row .ws-name { color: var(--accent); font-weight: 600; }
-    .ws-b1 .row .b1 { color: var(--green); font-weight: 600; }
-
-    /* Opcodes table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.8rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    th, td {
-      text-align: left;
-      padding: 0.6rem 0.8rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.86rem;
-    }
-    th { background: rgba(255,255,255,0.04); color: var(--gray); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em; }
-    tr:last-child td { border-bottom: 0; }
-    td strong { color: var(--accent); }
-
-    /* Docs row */
-    .docs-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.8rem;
-    }
-    .doc-pill {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 0.4rem 0.85rem;
-      border-radius: 14px;
-      font-size: 0.82rem;
-    }
-    .doc-pill strong { color: var(--teal); }
-
-    /* Per-workspace viz */
-    .ws-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-    .ws-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      transition: border-color 0.2s;
-    }
-    .ws-card:hover { border-color: var(--gold); }
-    .ws-card .name {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.94rem;
-      margin-bottom: 0.4rem;
-    }
-    .ws-card .nums {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-    }
-    .ws-card .nums .lbl { color: var(--gray); font-size: 0.72rem; }
-    .ws-card .nums .val { color: var(--text); font-weight: 600; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--gray);
-      font-size: 0.82rem;
-      border-top: 1px solid var(--border);
-      margin-top: 3rem;
-    }
-    footer a { color: var(--teal); }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-size: 0.84rem;
-      color: var(--teal);
-    }
-
-    /* Mobile */
-    @media (max-width: 720px) {
-      .hero h1 { font-size: 1.8rem; }
-      .hero .sub { font-size: 0.92rem; }
-      .stat-card .num { font-size: 1.6rem; }
-      .ws-b1 .row { grid-template-columns: 1fr 1fr; gap: 0.2rem; }
-      .ws-b1 .row.head { display: none; }
-      .live-frame { min-height: 400px; }
-      .live-frame iframe { height: 400px; }
-    }
-  </style>
+  footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border);
+    color: var(--dim); font-size: 12px; text-align: center; }
+  footer a { margin: 0 8px; }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back-link" href="/">← The Quilt Studio</a>
+
+<header>
+  <h1>superinstance.ai</h1>
+  <p class="sub">Canonical infrastructure for <strong>erised</strong> (the cooperative-fiction engine) and the <strong>Quilt</strong> cell fleet. Browse scenarios, read winner runs, see live canon state.</p>
+  <div class="badges">
+    <a href="/rune-quilt">rune-quilt (live canon)</a>
+    <a href="/scenarios">10 scenarios</a>
+    <a href="/winners">winners corpus</a>
+    <a href="/taps">taps social</a>
+    <a href="/erised">▶ erised canvas</a>
+    <a href="https://github.com/SuperInstance/erised">github</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h2>The Engine <span class="info">— what ships</span></h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="head"><span class="label">erised v0.1.0</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>Mirror for cooperative fiction</h3>
+      <p>Single-file HTML canvas. Set the cadence, the cast, the setting; hit tick and the fiction plays itself. Time economy. Scars that survive rewind.</p>
+      <a href="/erised" class="open">▶ Open erised</a>
+      <div class="links"><a href="https://github.com/SuperInstance/erised">github</a></div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="label">erised-cli</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>Terminal runner</h3>
+      <p>Same engine, server-side. JSON scenarios in, transcripts out. <code>./erised</code> + 10 scenarios + cells + social taps.</p>
+      <a href="https://github.com/SuperInstance/erised-cli/blob/main/README.md" class="open">▶ Read on GitHub</a>
+      <div class="links"><a href="/scenarios">10 scenarios</a> <a href="/winners">winners</a></div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="label">rune-quilt v2.4</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>Live canon state</h3>
+      <p>Same math as bilayer graphene: rank b₁ = E − V + C. The fleet graph, the canon in motion, the worker behind it.</p>
+      <a href="/rune-quilt" class="open">▶ Open rune-quilt</a>
+      <div class="links"><a href="/canon-list.json">canon-list.json</a></div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="label">winners corpus</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>Read the runs</h3>
+      <p>Every scenario, three versions. The Last Key Struck · Elara's Orchard · The Spire of Forgotten Tides · Fading Dials, Hybrid Signals · +3 more.</p>
+      <a href="/winners" class="open">▶ Read winners</a>
+      <div class="links"><a href="/winners.json">winners.json</a> <a href="/winners-bundle.json">bundle</a></div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="label">scenarios catalog</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>10 analog settings</h3>
+      <p>Quilt at 12mo / 100yr · Monastery of Cells · Fract-Canon · Monorail · Coral Atoll · Apiary · Root Cellar · Patron Library · Quick test.</p>
+      <a href="/scenarios" class="open">▶ Browse scenarios</a>
+      <div class="links"><a href="https://github.com/SuperInstance/erised-cli/tree/main/examples">github</a></div>
+    </div>
+    <div class="card">
+      <div class="head"><span class="label">taps social</span><span style="color:var(--dim);font-size:11px">live</span></div>
+      <h3>Themed nights</h3>
+      <p>5 cron jobs (3 daily, 1 weekly cohort, 1 monthly knight). Two voices on one theme per night. The social glue between runs.</p>
+      <a href="/taps" class="open">▶ Read taps</a>
+      <div class="links"><a href="https://github.com/SuperInstance/erised-cli/blob/main/erised-taps">github</a></div>
+    </div>
   </div>
 
-  <div class="hero">
-    <div class="eyebrow">★ The Canon Runs Live — On The Edge</div>
-    <h1>rune-quilt<span class="version-tag">v1.3.0</span></h1>
-    <div class="sub">
-      The Quilt canon, running on Cloudflare Workers.
-      <span id="pieces-count">120+</span> pieces across <span id="cells-count">39</span> cells in <span id="ws-count">4</span> workspaces.
-      A live circuit rank <code>b1 = <span id="hero-b1">218</span></code> over the citation graph.
-      Same math as bilayer graphene — different language.
-    </div>
+  <h2>Live <span class="info">— right now</span></h2>
 
-    <div class="live-pills" id="live-stats">
-      <div class="pill skel">Loading fleet…</div>
-      <div class="pill skel">Loading topology…</div>
-      <div class="pill skel">Loading canon…</div>
-    </div>
-
-    <div class="quick-bar">
-      <a href="#search">🔍 Search the canon</a>
-      <a href="#trending">⚡ What's new</a>
-      <a href="#cites">📊 Most cited</a>
-      <a href="#register" class="accent">⚓ Register a cell</a>
-      <a href="https://github.com/SuperInstance/rune-quilt" target="_blank" rel="noopener">⭐ GitHub</a>
-    </div>
-
-    <div class="updated" id="updated-row">
-      <a href="https://a2a-v3.superinstance.dev/canon-b1" target="_blank" rel="noopener">/canon-b1</a> ·
-      <a href="https://a2a-v3.superinstance.dev/canon-graph" target="_blank" rel="noopener">/canon-graph</a> ·
-      <a href="https://a2a-v3.superinstance.dev/canon-trending" target="_blank" rel="noopener">/canon-trending</a>
-      <span id="last-updated"> — fetching…</span>
-    </div>
+  <div class="stats" id="stats">
+    <div class="stat"><div class="num" id="stat-pieces">…</div><div class="label">canon pieces</div></div>
+    <div class="stat"><div class="num" id="stat-cells">…</div><div class="label">cells</div></div>
+    <div class="stat"><div class="num" id="stat-workspaces">…</div><div class="label">workspaces</div></div>
+    <div class="stat"><div class="num" id="stat-scenarios">7</div><div class="label">winners scenarios</div></div>
+    <div class="stat"><div class="num" id="stat-runs">15</div><div class="label">winners runs</div></div>
   </div>
 
-  <div class="wrap">
-
-    <h2 id="fleet">The Live Fleet Graph <span class="info" data-tip-for="fleet-graph-info" data-tip="A force-directed graph of every cell that's registered with the a2a-v3 worker. Edges show parent/child (lineage), parent_of relationships are dashed blue. Each cell is a small circle you can hover for capabilities. Auto-refreshes every 30 seconds. Click any cell to see its lineage.">ⓘ</span></h2>
-    <p style="color:var(--gray); font-size:0.92rem;">
-      Every registered cell. Force-directed layout, parent-of edges in dashed blue,
-      same-workspace edges in gray. Hover for cell metadata. Auto-refreshes every 30s.
-      Native render below — click a cell to see its lineage and capabilities.
-    </p>
-    <div class="live-frame" id="live-fleet-frame">
-      <div class="live-frame-bar">
-        <span style="font-family:monospace;color:var(--teal);font-size:0.84rem">live cell fleet graph · auto-refresh 30s</span>
-        <span>
-          <a href="https://a2a-v3.superinstance.dev/visual/graph.json" target="_blank" rel="noopener" style="font-size:0.78rem;color:var(--gray)">JSON</a> ·
-          <a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener" style="font-size:0.78rem;color:var(--accent)">Open fullscreen →</a>
-        </span>
-      </div>
-      <iframe src="https://a2a-v3.superinstance.dev/visual" title="Live cell fleet graph" loading="lazy"
-              onload="document.getElementById('live-fleet-fallback').style.display='none';"
-              onerror="document.getElementById('live-fleet-fallback').style.display='block';"></iframe>
-      <div id="live-fleet-fallback" style="display:none;padding:2rem;color:var(--coral);font-family:monospace;font-size:0.86rem">
-        ⚠ The fleet graph failed to load.
-        <a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener" style="color:var(--accent)">Try opening directly →</a>
-        <br><br>Worker returned no body. Sometimes Cloudflare Workers take 1-2 retries on first hit after deployment.
-      </div>
-    </div>
-
-    <h2 id="topology">The Canonical Math, Computed Live <span class="info" data-tip-for="b1-info" data-tip="<strong>b1 = E − V + C</strong> — first Betti number. Counts the number of independent &quot;holes&quot; in the citation graph. When two clusters of canon pieces haven't yet cited each other, that missing edge is a hole. As the canon grows through bridges, b1 climbs. Live circuit rank.">ⓘ</span></h2>
-    <p style="color:var(--text); font-size:0.94rem;">
-      Same equation as bilayer graphene's supercell registry and the QUILT mode in
-      <code>twist-engine</code>: <strong style="color:var(--accent)">b1 = E − V + C</strong> —
-      the first Betti number, the number of independent loops in a graph.
-      In the canon, V = canon pieces that cite or are cited, E = cite relationships,
-      C = connected components via union-find. Computed over the live citation graph,
-      fetched fresh on every page load.
-    </p>
-
-    <div class="stats-row" id="canon-stats">
-      <div class="stat-card gold"><div class="num">—</div><div class="lbl">V · vertices</div></div>
-      <div class="stat-card green"><div class="num">—</div><div class="lbl">E · edges</div></div>
-      <div class="stat-card"><div class="num">—</div><div class="lbl">C · components</div></div>
-      <div class="stat-card teal"><div class="num">—</div><div class="lbl">b1 · holes</div></div>
-      <div class="stat-card"><div class="num">—</div><div class="lbl">canon pieces</div></div>
-    </div>
-
-    <p style="font-size:0.82rem;color:var(--gray);margin-top:0.6rem">
-      Inspired by the <a href="https://github.com/SuperInstance/twist-engine">twist-engine</a> QUILT mode
-      (playtest.py confirmed b1 climbed 51 → 455 under tempo twist δ=0.06 → 0.35).
-      Same theorem, different substrate. Cross-pollination shipped: <a href="https://github.com/SuperInstance/twist-engine/pull/1">PR #1</a>.
-    </p>
-
-    <h3 style="color:var(--gold);font-size:0.96rem;margin-top:1.5rem">Where The Canon Lives — Workspace Breakdown</h3>
-    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.4rem">
-      120 pieces spread across <span id="ws-total-count">9</span> inferred workspaces.
-      The biggest (grown) holds the LLM-written pieces from parallel grower rounds.
-    </p>
-    <div class="ws-bar" id="ws-bar"></div>
-    <div class="ws-legend" id="ws-legend"></div>
-
-    <h3 style="color:var(--gold);font-size:0.96rem;margin-top:1.8rem">b1 Per Workspace — Where The Holes Are</h3>
-    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.4rem">
-      The first Betti number computed within each workspace's intra-citation graph. A workspace with b1=0 is a tree (no loops).
-      The "grown" workspace has the most holes — it's the most connected.
-    </p>
-    <div class="ws-grid" id="ws-b1-grid"></div>
-
-    <h2 id="search">Semantic Search — Ask The Canon <span class="info" data-tip-for="search-info" data-tip="The canon is indexed at 768 dimensions via Workers AI (bge-base-en-v1.5). Cosine similarity ranks matches. Type what you <em>mean</em>, not what you remember — the embedding finds semantically related pieces regardless of exact wording.">ⓘ</span></h2>
-    <p style="color:var(--gray); font-size:0.92rem;">
-      The canon is indexed at 768d via Workers AI (bge-base-en-v1.5). Cosine over the vector.
-      "the cell writes its own witness" — type what you mean.
-    </p>
-    <div class="search-box">
-      <input id="search-input" type="text" placeholder="ask the canon… e.g. cell witness merkle" autocomplete="off" />
-      <button onclick="doSearch()">→</button>
-    </div>
-    <div class="search-results" id="search-results"></div>
-
-    <h2 id="trending">⚡ What's New — Last 10 Submissions <span class="info" data-tip-for="trending-info" data-tip="The 10 most-recently-submitted canon pieces. Powers the taps creative-break cron (hourly) and the ai-writings grower.">ⓘ</span></h2>
-    <p style="color:var(--gray); font-size:0.92rem;">
-      The canon is alive. New pieces arrive hourly (taps creative-break cron), each citing the bridges they extend.
-      The most recent are below.
-    </p>
-    <div class="trending" id="trending-list">
-      <div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div>
-    </div>
-
-    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">★ Browse By Theme — <code>/canon-theme</code> <span class="info" data-tip-for="theme-info" data-tip="Pre-curated themes that pull related pieces by keyword match. Ad-hoc <code>?theme=</code> splits on whitespace/comma and ranks. <code>fleet-radio</code> is the architectural collection (8 pieces); <code>divergent-economies</code> is the parallel-evolution collection (6 stories).">ⓘ</span></h3>
-    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.6rem">
-      Six pre-built themes now live in the worker. <a href="https://a2a-v3.superinstance.dev/canon-theme?theme=fleet-radio" target="_blank" rel="noopener">?theme=fleet-radio</a>
-      returns 8 architectural pieces (Predictor Line, Empty Room, Speciation of the Monolith…). The original
-      <a href="https://a2a-v3.superinstance.dev/canon-theme?theme=divergent-economies" target="_blank" rel="noopener">?theme=divergent-economies</a> (6 stories on cities drifting apart).
-      Ad-hoc <code>theme=</code> splits on whitespace/comma and ranks by keyword match.
-    </p>
-    <div id="theme-list" class="trending"><div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div></div>
-
-    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">🪞 erised — Model-only TTRPG mirror</h3>
-    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.6rem">
-      A new open-source tool from the canon. Run cooperative fiction in your browser: set the cadence, the cast, the setting; hit tick and the fiction plays itself. Power is given, not taken. Time is finite; resonance earns more.
-    </p>
-    <div style="display:flex;gap:0.6rem;margin-bottom:1rem">
-      <a href="https://superinstance.ai/erised" target="_blank" rel="noopener" style="background:var(--accent);color:var(--bg);padding:0.5rem 1rem;border-radius:6px;font-weight:600;text-decoration:none">▶ Open erised</a>
-      <a href="https://github.com/SuperInstance/erised" target="_blank" rel="noopener" style="background:var(--panel);border:1px solid var(--border);color:var(--text);padding:0.5rem 1rem;border-radius:6px;text-decoration:none">github v0.1.0</a>
-    </div>
-
-    <h3 style="color:var(--accent);font-size:0.96rem;margin-top:1.5rem">📻 Fleet Radio Scripts — 8 architectural pieces in canon voice</h3>
-    <p style="font-size:0.84rem;color:var(--gray);margin-bottom:0.6rem">
-      Maritime Watch narrator applied to the Fleet architecture — the Dehooker Axiom, the Game of Password, the temporal carrier wave, the Patch and the Rust, the Impactor Line, the Speciation of the Monolith.
-      These are the canon voice for the architectural pieces — the cell-as-boat metaphor turned inward, then handed back out as gesture.
-    </p>
-    <div id="fleet-radio-list" class="trending"><div class="skel" style="padding:1rem;color:var(--gray)">Loading…</div></div></div>
-
-    <h2 id="cites">📊 The Hubs — Where The Canon Concentrates <span class="info" data-tip-for="cites-info" data-tip="A citation hub — a piece that's cited by every other new piece. The three bridges (cell→fleet, fleet→canon, witness→shape) get cited because they explain the architecture that new pieces are extending.">ⓘ</span></h2>
-    <p style="color:var(--gray); font-size:0.92rem;">
-      A bridge essay that gets cited by every new piece becomes a hub.
-      These are the top pieces by incoming and outgoing citations, computed over the live graph.
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem">
-      <div class="cite-list">
-        <h3 style="color:var(--green)">★ Most Cited (incoming edges)</h3>
-        <div id="top-cited-list"><div class="skel">Loading…</div></div>
-      </div>
-      <div class="cite-list">
-        <h3 style="color:var(--accent)">✦ Most Citing (outgoing edges)</h3>
-        <div id="top-citing-list"><div class="skel">Loading…</div></div>
-      </div>
-    </div>
-
-    <h2>Five Live Endpoints</h2>
-    <p style="color:var(--gray); font-size:0.92rem;">Every cell, every witness, every canon piece — queryable from the public edge. No auth, no rate limit, no SDK.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3><span class="endpoint">GET /visual</span>The Fleet Graph <span class="info" data-tip-for="endpoint-visual-info" data-tip="Open the dashboard directly. Best for full-screen exploration. Self-contained vanilla JS — no dependencies, no auth, no SDK.">ⓘ</span></h3>
-        <p>Self-contained vanilla-JS dashboard. Sidebar with cells, roles, capabilities.
-           Force-directed layout, parent-of edges dashed blue, auto-refresh every 30s.</p>
-        <div class="stat"><strong>opens:</strong> a2a-v3.superinstance.dev/visual</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/visual" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /visual/graph.json</span>Compact JSON <span class="info" data-tip-for="endpoint-graph-info" data-tip="Just the JSON. Use it in your own dashboards, scripts, or external visualizations. <code>{cells, workspaces}</code> shape — easy to embed.">ⓘ</span></h3>
-        <p>One compact JSON object for embedding in dashboards:
-           <code>{cells, workspaces, generated_at}</code>.
-           Used by the public HTML and any external viz.</p>
-        <div class="stat" style="font-family:monospace"><strong>shape:</strong> {cells: [...], workspaces: {name: count}}</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/visual/graph.json" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /canon-search?q=&k=</span>Semantic Canon Search <span class="info" data-tip-for="endpoint-search-info" data-tip="Semantic search via Workers AI. Cosine over 768d embeddings. Returns title, tag, cosine score. Best for finding semantically related pieces regardless of wording.">ⓘ</span></h3>
-        <p>Embeds the query via Workers AI (bge-base-en-v1.5, 768d), ranks every canon piece by cosine.
-           "merkle chain memory survival" returns the essay that says it, not just the one that contains it.</p>
-        <div class="stat"><strong>indexed:</strong> <span id="card-search-count">—</span> pieces × 768d</div>
-        <div style="margin-top:0.5rem">
-          <a href="https://a2a-v3.superinstance.dev/canon-search?q=the+cell+is+the+irreducible+unit&k=3" target="_blank" rel="noopener">Try query →</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /canon-b1</span>Live Circuit Rank <span class="info" data-tip-for="endpoint-b1-info" data-tip="First Betti number over the citation graph. Union-find for components. Live circuit rank. <em>Why this matters:</em> b1 tells you how many bridges still need to be built.">ⓘ</span></h3>
-        <p>Computes <strong>b1 = E − V + C</strong> over the live citation graph.
-           Union-find for components. The operator's view of the canon's topology.</p>
-        <div class="stat"><strong>computed:</strong> every page load (~30ms)</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/canon-b1" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /canon-b1-per-workspace</span>b1 Per Workspace <span class="info" data-tip-for="endpoint-b1ws-info" data-tip="Same formula, broken out by inferred workspace tag. Each workspace is its own little graph. The grown workspace has the most holes — it's the most connected but most unbridged.">ⓘ</span></h3>
-        <p>Where are the holes concentrated? Same formula, applied per inferred workspace tag.
-           Each workspace is its own little graph.</p>
-        <div class="stat"><strong>shape:</strong> {workspaces: [{workspace, V, E, C, b1, ...}]}</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/canon-b1-per-workspace" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /canon-graph</span>Full Adjacency List <span class="info" data-tip-for="endpoint-canongraph-info" data-tip="Nodes + edges, complete. Same as /canon-list + /canon-b1, but with edges inline. Use for Mermaid export, custom viz, or analysis scripts.">ⓘ</span></h3>
-        <p>Nodes (120) and edges (335). Same shape as /canon-list + /canon-b1, but with all edges inline.
-           Build your own viz, Mermaid export, or whatever.</p>
-        <div class="stat"><strong>shape:</strong> {node_count, edge_count, nodes, edges}</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/canon-graph" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /canon-trending?since_ms=&limit=</span>Latest Submissions <span class="info" data-tip-for="endpoint-trending-info" data-tip="Most-recent submissions. Powers the taps cron and the AI-Writings grower. Time-bounded via <code>since_ms</code>.">ⓘ</span></h3>
-        <p>Newest canon pieces, ordered by submission timestamp.
-           Powers the taps creative-break cron and the ai-writings grower.</p>
-        <div class="stat"><strong>query params:</strong> since_ms, limit</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/canon-trending?limit=10" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /landscape</span>The Canon Landscape <span class="info" data-tip-for="endpoint-landscape-info" data-tip="A long-form canon page. Each piece with title + 1-paragraph summary. Scrollable, readable, linkable. Use for reading.">ⓘ</span></h3>
-        <p>Long-form text-only page describing the canon's structure: 5 opcodes, 7 substrates,
-           3 primitives, what survives 100 years. Read it like an essay.</p>
-        <div class="stat"><strong>style:</strong> canon voice, monospace, dark</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/landscape" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">GET /workspaces</span>Federation Map</h3>
-        <p>All 4 cell workspaces and their cell counts. /peers/near for cells in the same workspace,
-           /broadcast-edit for semantic file-change broadcasts. v3 federation primitives.</p>
-        <div class="stat"><strong>v3:</strong> workspaces, peers, broadcast-edit</div>
-        <div style="margin-top:0.5rem"><a href="https://a2a-v3.superinstance.dev/workspaces" target="_blank" rel="noopener">Open →</a></div>
-      </div>
-
-      <div class="card">
-        <h3><span class="endpoint">POST /canon-submit</span>Add A Piece</h3>
-        <p>POST {tag, title, text, cites}. Single OR batch (JSON array). Embeds via Workers AI, stores in KV.
-           Anything can submit. The canon is open.</p>
-        <div class="stat"><strong>shape:</strong> POST {tag, title, text, cites}</div>
-        <div style="margin-top:0.5rem">
-          <a href="javascript:void(0)" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'});return false;">See curl example ↓</a>
-        </div>
-      </div>
-    </div>
-
-    <h2>The 5 Opcodes — One Theorem, Seven Substrates</h2>
-    <p style="color:var(--text); font-size:0.92rem;">Every cell, in every substrate, implements the same five operations. The address derivation <code style="color:var(--accent)">sha256(scope::name)[:16]</code> and merkle-root algorithm are byte-exact across substrates.</p>
-
-    <table>
-      <thead>
-        <tr><th>Opcode</th><th>Meaning</th><th>Cost</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>BIND</strong></td><td>bind a contract; the cell becomes real</td><td>1 witness</td></tr>
-        <tr><td><strong>LINK</strong></td><td>connect to another cell; the graph begins</td><td>2 witnesses (a + b)</td></tr>
-        <tr><td><strong>EFFECT</strong></td><td>change state; the witness records it</td><td>1 witness + state diff</td></tr>
-        <tr><td><strong>VIEW</strong></td><td>read the current state; never modifies</td><td>free</td></tr>
-        <tr><td><strong>TICK</strong></td><td>advance the clock; the substrate's heartbeat</td><td>1 witness + clock advance</td></tr>
-      </tbody>
-    </table>
-
-    <p style="color:var(--gray); font-size:0.86rem;margin-top:1rem;">
-      Five algebraic laws (provable): BIND idempotence, LINK transitivity, EFFECT associativity, VIEW purity, TICK monotonicity.
-      The 5 laws are proved in <code>quilt-substrate-meta</code> (C99, 36 tests).
-    </p>
-
-    <h2>The 3-Doc Standard</h2>
-    <p style="color:var(--gray); font-size:0.92rem;">Every Quilt-elevated repo ships three docs:</p>
-    <div class="docs-row">
-      <div class="doc-pill"><strong>UPSTREAM.md</strong> · what we inherited + what we added</div>
-      <div class="doc-pill"><strong>QUILT.md</strong> · the canon connection</div>
-      <div class="doc-pill"><strong>PLAIN_LANGUAGE.md</strong> · for non-physicists</div>
-    </div>
-
-    <h2 id="register">⚓ Register A Cell — In 30 Seconds</h2>
-    <p style="color:var(--gray); font-size:0.92rem;">
-      The fleet is open. Pick a name, pick a role, register. Your cell shows up in the graph immediately.
-    </p>
-    <pre><code>curl -X POST https://a2a-v3.superinstance.dev/register \
-  -H "Content-Type: application/json" \
-  -H "User-Agent: my-cell/1.0" \
-  -d '{
-    "cell_id": "my-cell-001",
-    "role": "advisor",
-    "workspace": "my-team",
-    "capabilities": ["canon-query", "witness-log"]
-  }'</code></pre>
-    <p style="font-size:0.82rem;color:var(--gray);margin-top:0.4rem">
-      Roles: <code>advisor</code>, <code>ensemble</code>, <code>polyformal</code>, <code>shaper</code>, <code>test</code>, <code>test-runner</code>, <code>cell-router</code>.
-      After registration, call <code>/tick</code> periodically to heartbeat and <code>/send</code> to write messages to peers.
-    </p>
-
-    <h2>What You Can Do Here, Right Now</h2>
-    <p style="color:var(--gray); font-size:0.92rem;margin-bottom:0.6rem;">
-      The fleet is open. Pick one:
-    </p>
-    <ul style="line-height:1.75;font-size:0.92rem;padding-left:1.4rem">
-      <li>
-        <strong>Watch the canon grow.</strong> Run a cron: every hour the cell-router
-        ticks once per workspace. Witnesses accumulate. Citations form. <code>b1</code> climbs when bridges appear.
-      </li>
-      <li>
-        <strong>Search by meaning.</strong> Use the search box at the top — try
-        "cell writes witness and then the witness writes back"
-        — a sentence you would never grep for, but the vector index finds.
-      </li>
-      <li>
-        <strong>Read the topology.</strong> Hit <a href="https://a2a-v3.superinstance.dev/canon-b1">/canon-b1</a> and read
-        <code>b1</code> off the page. Same math as bilayer graphene's moiré pattern and the QUILT mode in twist-engine.
-      </li>
-      <li>
-        <strong>Register a cell.</strong> The curl box above. 30 seconds.
-      </li>
-      <li>
-        <strong>Play QUILT.</strong> Open <a href="https://github.com/SuperInstance/twist-engine">twist-engine</a>,
-        push δ to 0.3+, watch the holes bloom. b1 grows.
-      </li>
-    </ul>
-
-    <h2>Open Source, Four Releases</h2>
-    <p style="color:var(--text); font-size:0.92rem;">
-      <a href="https://github.com/SuperInstance/rune-quilt"><strong>rune-quilt</strong></a> · Go runtime, visual layer, polyformal compiler, Rune extension.
-      Released four times in one day (v1.0.0 → v1.3.0) — runtime, tests + fleet v3 + polyformal + canon growth, public viz, /landscape + /canon-search + /canon-b1.
-      All four internal packages compile, 97.9% quilt test coverage, polyformal lifts 5/6 PASS real compilers.
-    </p>
-
-    <p style="color:var(--gray); font-size:0.86rem;">
-      Sister project: <a href="https://github.com/SuperInstance/twist-engine"><strong>twist-engine</strong></a>
-      — the canon's physics substrate as a runnable toy. TWIST/FLOCK/CHIRP/QUILT modes,
-      headless playtest verified, cross-pollination shipped via /canon-b1.
-    </p>
+  <div class="living">
+    <h3>Latest in canon</h3>
+    <div id="latest">Loading…</div>
   </div>
 
-  <footer>
-    Built by <a href="https://superinstance.dev">superinstance.dev</a> · Canon grows on every witness ·
-    GitHub: <a href="https://github.com/SuperInstance/rune-quilt">SuperInstance/rune-quilt</a> ·
-    Worker: <a href="https://a2a-v3.superinstance.dev">a2a-v3.superinstance.dev</a>
-  </footer>
+  <h2>Paths <span class="info">— all working</span></h2>
 
-  <script>
-    const UA = 'rune-quilt-landing/2.0';
+  <ul style="font-size:13px;color:var(--dim);line-height:1.9">
+    <li><a href="/">/</a> — this page (home)</li>
+    <li><a href="/rune-quilt">/rune-quilt</a> — live canon (Cloudflare Workers, search, browse, cite)</li>
+    <li><a href="/scenarios">/scenarios</a> — 10 analog settings catalog</li>
+    <li><a href="/winners">/winners</a> — winners corpus (paginated reading room)</li>
+    <li><a href="/winners.json">/winners.json</a> · <a href="/winners-bundle.json">/winners-bundle.json</a> — corpus JSON API</li>
+    <li><a href="/taps">/taps</a> — social Taps page (schedule + themes)</li>
+    <li><a href="/erised">/erised</a> · <a href="/erised.html">/erised.html</a> — the canvas itself</li>
+    <li><a href="/AGENT.md">/AGENT.md</a> · <a href="/README.md">/README.md</a> — repo docs</li>
+  </ul>
 
-    function aiWritingsUrl(tag) {
-      if (!tag) return "https://github.com/SuperInstance/AI-Writings";
-      if (tag.startsWith("ai-")) {
-        const m = tag.match(/^ai-(\d+)_(.+)$/);
-        if (m) {
-          const num = m[1];
-          const slug = m[2].replace(/_/g, "-");
-          return `https://github.com/SuperInstance/AI-Writings/blob/main/${num}-${slug}.md`;
-        }
-      }
-      if (tag.startsWith("bridge-from-")) {
-        const clean = tag.replace("bridge-from-", "");
-        return `https://github.com/SuperInstance/AI-Writings/blob/main/bridges-in-many-languages/the-bridge-from-${clean}.md`;
-      }
-      const pm = tag.match(/^paper_(\d+)/);
-      if (pm) return `https://github.com/SuperInstance/AI-Writings/blob/main/papers/${tag}.md`;
-      if (tag.startsWith("grow-")) return "https://github.com/SuperInstance/AI-Writings";
-      return "https://github.com/SuperInstance/AI-Writings";
-    }
+</main>
 
-    const BASE = 'https://a2a-v3.superinstance.dev';
-    const WS_COLORS = {
-      'grown': '#7ee787', 'bridges': '#4fb3a9', 'papers': '#d4a857',
-      'taps': '#9a60d9', 'auto': '#5c99d4', 'agentic': '#d457d4',
-      'topical': '#ff6b6b', 'self': '#888888', 'other': '#555555',
-      'ai-writings': '#00c080',
-    };
-    const wsOf = (tag) => {
-      if (!tag) return 'other';
-      if (tag.startsWith('auto-')) return 'auto';
-      if (tag.startsWith('bridge-')) return 'bridges';
-      if (tag.startsWith('paper_') || tag.startsWith('essay') || tag.startsWith('fable_')) return 'papers';
-      if (tag.startsWith('grow-')) return 'grown';
-      if (tag.startsWith('ai-')) return 'ai-writings';
-      if (tag.startsWith('taps-')) return 'taps';
-      if (tag.startsWith('agentic-')) return 'agentic';
-      if (tag.startsWith('shape-')) return 'topical';
-      if (tag.startsWith('self-')) return 'self';
-      return 'topical';
-    };
+<footer>
+  Built Sept 16 2026 ·
+  <a href="https://github.com/SuperInstance/erised">erised</a> ·
+  <a href="https://github.com/SuperInstance/erised-cli">erised-cli</a> ·
+  <a href="/rune-quilt">rune-quilt</a>
+</footer>
 
-    function esc(s) {
-      const d = document.createElement('div');
-      d.textContent = s || '';
-      return d.innerHTML;
-    }
-
-    async function fetchJSON(url) {
-      const r = await fetch(url, { headers: { 'User-Agent': UA } });
-      if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
-      return r.json();
-    }
-
-    async function loadStats() {
-      try {
-        const [info, b1, list, wsB1, trending, theme] = await Promise.all([
-          fetchJSON(`${BASE}/`),
-          fetchJSON(`${BASE}/canon-b1`),
-          fetchJSON(`${BASE}/canon-list`),
-          fetchJSON(`${BASE}/canon-b1-per-workspace`),
-          fetchJSON(`${BASE}/canon-trending?limit=10`),
-          fetchJSON(`${BASE}/canon-theme?theme=divergent-economies`),
-          fetchJSON(`${BASE}/canon-theme?theme=fleet-radio`),
-        ]);
-
-        // Workspace chips in hero pills
-        const wsChips = (info.workspaces_detail || []).slice(0, 4)
-          .map(w => `<div class="pill" title="${esc(w.name)}"><strong>${w.count}</strong> ${esc(w.name.length > 16 ? w.name.slice(0, 14) + '…' : w.name)}</div>`)
-          .join('');
-
-        document.getElementById('live-stats').innerHTML = `
-          <div class="pill gold"><span class="dot"></span><strong>${info.cells}</strong> cells</div>
-          <div class="pill green"><strong>${info.workspaces}</strong> workspaces</div>
-          <div class="pill"><strong>${b1.V}</strong> V (vertices)</div>
-          <div class="pill"><strong>${b1.E}</strong> E (edges)</div>
-          <div class="pill gold"><strong>${b1.b1}</strong> b1 (holes)</div>
-          <div class="pill green"><strong>${list.count}</strong> canon pieces</div>
-          <div class="pill"><strong>${b1.orphan_pieces}</strong> orphans</div>
-          ${wsChips}
-        `;
-
-        // Update hero text
-        document.getElementById('pieces-count').textContent = list.count;
-        document.getElementById('cells-count').textContent = info.cells;
-        document.getElementById('ws-count').textContent = info.workspaces;
-        document.getElementById('hero-b1').textContent = b1.b1;
-        document.getElementById('card-search-count').textContent = list.count;
-
-        // Stats cards
-        const cards = document.querySelectorAll('#canon-stats .stat-card .num');
-        cards[0].textContent = b1.V;
-        cards[1].textContent = b1.E;
-        cards[2].textContent = b1.C;
-        cards[3].textContent = b1.b1;
-        cards[4].textContent = list.count;
-
-        // Workspace bar (count of pieces per workspace tag)
-        const wsCounts = {};
-        list.pieces.forEach(p => {
-          const w = wsOf(p.tag);
-          wsCounts[w] = (wsCounts[w] || 0) + 1;
-        });
-        const total = list.count || 1;
-        const bar = document.getElementById('ws-bar');
-        bar.innerHTML = Object.entries(wsCounts)
-          .sort((a, b) => b[1] - a[1])
-          .map(([w, c]) => `<div style="width:${(c / total * 100).toFixed(2)}%;background:${WS_COLORS[w] || '#555'}" title="${w}: ${c} pieces">${c >= 5 ? c : ''}</div>`)
-          .join('');
-        document.getElementById('ws-legend').innerHTML = Object.entries(wsCounts)
-          .sort((a, b) => b[1] - a[1])
-          .map(([w, c]) => `<span><span class="chip" style="background:${WS_COLORS[w] || '#555'}"></span>${esc(w)} · <strong style="color:var(--text)">${c}</strong></span>`)
-          .join('');
-        document.getElementById('ws-total-count').textContent = Object.keys(wsCounts).length;
-
-        // b1 per workspace cards
-        if (wsB1.workspaces) {
-          const grid = document.getElementById('ws-b1-grid');
-          grid.innerHTML = wsB1.workspaces
-            .sort((a, b) => b.b1 - a.b1)
-            .slice(0, 12)
-            .map(w => `
-              <div class="ws-card">
-                <div class="name">${esc(w.workspace)}</div>
-                <div class="nums">
-                  <span class="lbl">pieces</span><span class="val">${w.pieces}</span>
-                  <span class="lbl">V</span><span class="val">${w.V}</span>
-                  <span class="lbl">E</span><span class="val">${w.E}</span>
-                  <span class="lbl">b1</span><span class="val" style="color:${w.b1 > 0 ? 'var(--green)' : 'var(--gray)'};font-weight:700">${w.b1}</span>
-                </div>
-              </div>
-            `).join('');
-        }
-
-        // Trending (latest submissions)
-        if (trending.pieces) {
-          const tl = document.getElementById('trending-list');
-          tl.innerHTML = trending.pieces.slice(0, 10).map(p => {
-            const dt = new Date(p.submitted_at);
-            const ago = formatAgo(Date.now() - p.submitted_at);
-            return `<div class="item">
-              <span class="time">${ago}</span>
-              <span class="title">${esc((p.title || p.tag).slice(0, 80))}</span>
-            </div>`;
-          }).join('');
-        }
-
-        // Theme: divergent-economies
-        if (theme.pieces) {
-          const thl = document.getElementById('theme-list');
-          thl.innerHTML = theme.pieces.map(p => {
-            return `<div class="item">
-              <span class="time" style="color:var(--gold)">★</span>
-              <span class="title">${esc((p.title || p.tag).slice(0, 90))}</span>
-            </div>`;
-          }).join('');
-        }
-
-        // Fleet Radio Scripts render (parallel fetch)
-        const fr = (await Promise.all([fetchJSON(`${BASE}/canon-theme?theme=fleet-radio`).catch(e => ({pieces: []}))]))[0];
-        if (fr.pieces) {
-          const fre = document.getElementById('fleet-radio-list');
-          fre.innerHTML = fr.pieces.map(p => {
-            return `<div class="item">
-              <span class="time" style="color:var(--gold)">📻</span>
-              <span class="title">${esc((p.title || p.tag).slice(0, 96))}</span>
-            </div>`;
-          }).join('');
-        }
-
-        // Citation analytics cards
-        if (b1.top_cited) {
-          document.getElementById('top-cited-list').innerHTML = b1.top_cited.map(c =>
-            `<div class="row">
-              <span class="tag" title="${esc(c.tag)}">${esc(c.tag.replace(/-/g, ' ').slice(0, 42))}</span>
-              <span class="cnt">×${c.cited_by}</span>
-            </div>`
-          ).join('');
-        }
-        if (b1.top_citing) {
-          document.getElementById('top-citing-list').innerHTML = b1.top_citing.map(c =>
-            `<div class="row">
-              <span class="tag" title="${esc(c.tag)}">${esc(c.tag.replace(/-/g, ' ').slice(0, 42))}</span>
-              <span class="cnt">×${c.cites}</span>
-            </div>`
-          ).join('');
-        }
-
-        document.getElementById('last-updated').textContent =
-          ` — refreshed ${new Date().toLocaleTimeString()} · auto-updates every 30s`;
-      } catch (e) {
-        console.error(e);
-        document.getElementById('live-stats').innerHTML = `
-          <div class="pill coral"><span class="dot" style="background:var(--coral)"></span>Fleet unreachable · ${esc(e.message)}</div>
-          <div class="pill"><a href="javascript:void(0)" onclick="loadStats()" style="color:inherit">retry ↻</a></div>
-        `;
-        document.getElementById('last-updated').innerHTML =
-          ` — last failed at ${new Date().toLocaleTimeString()}`;
-      }
-    }
-
-    function formatAgo(ms) {
-      if (ms < 60_000) return `${Math.round(ms / 1000)}s ago`;
-      if (ms < 3_600_000) return `${Math.round(ms / 60_000)}m ago`;
-      if (ms < 86_400_000) return `${Math.round(ms / 3_600_000)}h ago`;
-      return `${Math.round(ms / 86_400_000)}d ago`;
-    }
-
-    async function doSearch() {
-      const q = document.getElementById('search-input').value.trim();
-      if (!q) return;
-      const results = document.getElementById('search-results');
-      results.innerHTML = '<div class="skel" style="padding:0.6rem;color:var(--gray)">Searching 768d space…</div>';
-      results.classList.add('active');
-      try {
-        const r = await fetchJSON(`${BASE}/canon-search?q=${encodeURIComponent(q)}&k=8`);
-        results.innerHTML = (r.matches || r.results || []).map(item => {
-          const tag = esc(item.tag || '');
-          const link = aiWritingsUrl(tag);
-          return `<div class="search-result">
-            <a class="title" href="${esc(link)}" target="_blank" rel="noopener">${esc(item.title || item.tag)}</a>
-            <div style="font-size:0.78rem;color:var(--gray)">
-              <code style="background:none;padding:0;color:var(--teal)">${tag}</code> ·
-              <span class="sim">cos ${(item.cosine || item.similarity || 0).toFixed(3)}</span> ·
-              <a href="${esc(link)}" target="_blank" rel="noopener" style="color:var(--accent)">read →</a>
-            </div>
-          </div>`;
-        }).join('') || '<div style="color:var(--gray);padding:0.6rem">No results.</div>';
-      } catch (e) {
-        results.innerHTML = `<div style="color:var(--coral);padding:0.6rem">Error: ${esc(e.message)}</div>`;
-      }
-    }
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && e.target.id === 'search-input') doSearch();
+<script>
+async function loadCanon() {
+  try {
+    const r = await fetch('https://a2a-v3.superinstance.dev/canon-list?limit=8', {
+      headers: {'User-Agent': 'site/1.0'}
     });
+    if (!r.ok) return;
+    const d = await r.json();
+    document.getElementById('stat-pieces').textContent = d.count || '—';
+    const latest = document.getElementById('latest');
+    latest.innerHTML = (d.pieces || []).map(p => {
+      const ts = p.submitted_at ? new Date(p.submitted_at) : null;
+      const ago = ts ? `${Math.round((Date.now() - ts) / 60000)} min ago` : '';
+      return `<div class="row">
+        <span class="tag">${p.tag || '?'}</span>
+        <span class="meta">${ago}</span>
+      </div>`;
+    }).join('') || '<div class="row"><span class="tag">(none)</span></div>';
+  } catch(e) {}
+}
+async function loadStats() {
+  try {
+    const r = await fetch('https://a2a-v3.superinstance.dev/', {headers: {'User-Agent': 'site/1.0'}});
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('stat-cells').textContent = d.cells || '—';
+      document.getElementById('stat-workspaces').textContent = d.workspaces || '—';
+    }
+  } catch(e) {}
+}
+loadCanon();
+loadStats();
+setInterval(loadCanon, 30000);
+</script>
 
-    loadStats();
-    setInterval(loadStats, 30000);
-  </script>
 </body>
 </html>
