@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-09-16T16:46:27.012082Z",
+  "n_scenarios": 1,
+  "scenarios": [
+    {
+      "slug": "a-typewriter-repair-shop-that-has-just-outlived-its-last-typ",
+      "title": "The Last Key Struck",
+      "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 3.33,
+          "dm_closing": "The tide of gratitude settles as Javi's thank-you zines pass from hand to paw, the refurbished Royal's crisp print sealing a debt of repair repaid in full, and Mabel's fountain pen commits the whole visit to the community archives before the ink can dry in the salt air. What carries over: Pip",
+          "dm_opening": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v2",
+          "total_resonance": 4.82,
+          "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v3",
+          "total_resonance": 3.76,
+          "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and the town's official history now includes one mouse-sized accomplice. The hook: Javi's hype at the underground analog meetup means by next week the bell above the door will ring with university students hauling beat-up, clattering machines straight toward Elara's workbench.",
+          "dm_opening": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        }
+      ]
+    }
+  ]
+}
