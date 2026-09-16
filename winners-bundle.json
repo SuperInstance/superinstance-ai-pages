@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T16:57:03.078891Z",
+  "generated_at": "2026-09-16T16:58:42.328895Z",
   "scenarios": [
     {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
@@ -325,6 +325,153 @@
             "Eddie \"Tink\" Marlow": 0.98
           },
           "citations": {},
+          "dm_opening": "[EMPTY]",
+          "dm_closing": "[EMPTY]"
+        },
+        {
+          "title": "Fading Dials, Hybrid Signals",
+          "scenario": {
+            "title": "Fading Dials, Hybrid Signals",
+            "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fundraising outreach, and community booking. Sustained by a small core crew of 8 active volunteers, the station has operated past its first full decade of service. Over the past decade, its terrestrial listenership has dropped by exactly half, as locals now prioritize online streaming and social media instead of tuning into terrestrial dials.",
+            "characters": [
+              {
+                "name": "Marisol Cruz",
+                "llm": "zai:glm-4.5",
+                "tendencies": "She is the station's lead manager, overseeing all volunteer cells and coordinating grant applications and emergency broadcast schedules. She has spent the past three years leading grant-writing and organizing pledge drives to reverse the station's declining listenership.",
+                "keywords": "grant+0.63,listener+0.39,outreach+0.64,terrestrial+0.23,budget-0.33",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Mae Jenkins",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She hosts the weekly Local Folk Hour, inviting local farmers, poets, and retirees to share their work and stories. She has noticed her core regular listeners are mostly over 65, and struggles to recruit younger volunteers or listeners for her show or the station overall.",
+                "keywords": "folk+0.7,local-guests+0.53,community-stories+0.42,aging-audiences+0.14,youth-0.24",
+                "ticks": 20
+              },
+              {
+                "name": "Jai Reddy",
+                "llm": "deepinfra:ByteDance/Seed-2.0-code",
+                "tendencies": "He is the station's volunteer data auditor, compiling monthly listenership metrics and quarterly reports for the crew. He tracks both terrestrial radio and online stream numbers, identifying gaps in the station's outreach and audience engagement.",
+                "keywords": "metrics+0.7,listenership+0.41,reports+0.42,stream+0.29,outreach-0.33",
+                "ticks": 20
+              },
+              {
+                "name": "Eddie \"Tink\" Marlow",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He is a retired ham radio operator and volunteer engineering cell member, tinkering with the station's aging broadcast tower and transmitter hardware. He has recently developed a hybrid terrestrial-online broadcast setup that has started drawing a small new cohort of young listeners.",
+                "keywords": "transmitter+0.7,ham-radio+0.51,hybrid+0.68,young-audiences+0.29,signal-0.16",
+                "ticks": 20
+              }
+            ]
+          },
+          "version_seed": 300,
+          "rounds": 3,
+          "ran_at": "2026-09-16T16:58:29.735766Z",
+          "ran_by": "volume_loop/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "DM",
+                  "text": "[EMPTY]",
+                  "role": "DM"
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marisol Cruz",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Mae Jenkins",
+                  "text": "Good evening, KWTL-92.3 Local Folk Hour crew. I\u2019m putting out an extra call this week to folks under 30\u2014whether you pen poems about the creek behind your dorm, grow tomatoes on your apartment fire escape, or sell homemade pickles at the downtown farmers market, we want your voice on our airwaves. No fancy experience needed, just a story or small local tune you\u2019re excited to share.\n[leans in to tweak the studio mic\u2019s volume dial, then plucks a crumpled handwritten note slipped under the studio door earlier and tucks it into the wooden contributor sign-up binder atop the soundboard]",
+                  "shifts": {
+                    "folk": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                },
+                {
+                  "name": "Jai Reddy",
+                  "text": "I just finished tallying this month\u2019s terrestrial and online listenership metrics, and we\u2019ve seen an 8% jump in local trucker listeners tuning in during overnight shifts. I also flagged a gap in our weekend youth programming that several middle school callers mentioned during last week\u2019s open request line.\n[jots a quick reminder to loop in the programming volunteer coordinator before tucking his spiral-bound report under his arm]",
+                  "shifts": {
+                    "metrics": 0.7,
+                    "listenership": 0.41
+                  },
+                  "shift_total": 1.11,
+                  "role": ""
+                },
+                {
+                  "name": "Eddie \"Tink\" Marlow",
+                  "text": "That aging 1972 transmitter tube\u2019s definitely on its last legs\u2014figured I\u2019d swap it out before those new young listeners tune in for the post-hike folk block later. Don\u2019t want their first taste of community radio to be nothing but fizzing static and creaky tower hum.\n[leans up to twist a loose grounding screw tight on the tower\u2019s lower boom assembly]",
+                  "shifts": {
+                    "transmitter": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 3,
+              "turns": [
+                {
+                  "name": "Marisol Cruz",
+                  "text": "[EMPTY]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Mae Jenkins",
+                  "text": "Chuckling at Tink\u2019s quick fix forecast, I lean forward on the scuffed control booth desk. We\u2019ve got to meet those young listeners halfway\u2014why not let them host a 15-minute pre-block spot while you pop that new tube in, Eddie? I\u2019ve got a pile of student poetry zines from the local community college right here, all full of mountain-adjacent stories just like we love.\n[reaches for a neon-pink stapled zine tucked under a stack of worn broadcast logs]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jai Reddy",
+                  "text": "That 8% jump among local truckers lines up perfectly with the overnight tire shop roundup updates we launched last month, and the outreach gap I flagged earlier is exactly the under-30 demographic you\u2019re highlighting tonight. [taps the edge of his dog-eared listenership spreadsheet before nodding toward Eddie\u2019s work by the transmitter bay]",
+                  "shifts": {
+                    "listenership": 0.41,
+                    "outreach": -0.33
+                  },
+                  "shift_total": 0.08,
+                  "role": ""
+                },
+                {
+                  "name": "Eddie \"Tink\" Marlow",
+                  "text": "Don\u2019t want their first taste of community radio to be crackling static instead of Darryl\u2019s fiddle cuts. I pulled the spare 1972-spec transmitter tube from the ham shack storage bin last week, just waiting for this exact fizzle-out. [kneels beside the buzzing transmitter rack, using a flathead screwdriver to pry loose the corroded old tube housing]",
+                  "shifts": {
+                    "transmitter": 1.4
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marisol Cruz": 0.0,
+            "Lila Mae Jenkins": 0.7,
+            "Jai Reddy": 1.1900000000000002,
+            "Eddie \"Tink\" Marlow": 2.0999999999999996
+          },
+          "citations": {
+            "Lila Mae Jenkins": {
+              "Eddie \"Tink\" Marlow": 1
+            },
+            "Jai Reddy": {
+              "Eddie \"Tink\" Marlow": 1
+            }
+          },
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         }
