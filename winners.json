@@ -1,7 +1,29 @@
 {
-  "generated_at": "2026-09-16T16:54:20.220316Z",
-  "n_scenarios": 3,
+  "generated_at": "2026-09-16T16:57:03.078891Z",
+  "n_scenarios": 4,
   "scenarios": [
+    {
+      "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
+      "title": "Fading Dials, Hybrid Signals",
+      "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fun",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 6.11,
+          "dm_closing": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        },
+        {
+          "label": "v2",
+          "total_resonance": 4.08,
+          "dm_closing": "[EMPTY]",
+          "n_turns": 9,
+          "n_rounds": 3
+        }
+      ]
+    },
     {
       "slug": "a-lighthouse-converted-to-a-museum-kept-by-a-single-former",
       "title": "The Spire of Forgotten Tides",
