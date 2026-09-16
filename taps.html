@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taps — themed nights for cooperative fiction</title>
+<style>
+  :root {
+    --bg: #0b0d12; --panel: #12151c; --ink: #e7e8ea; --dim: #8a8f99;
+    --accent: #d2a76b; --accent2: #6bc7d2; --rule: #20242d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.55 ui-sans-serif, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  header { padding: 32px 32px 16px; border-bottom: 1px solid var(--rule); }
+  header .crumbs { font-size: 12px; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; }
+  header .crumbs a { color: var(--dim); text-decoration: none; }
+  header .crumbs a:hover { color: var(--accent); }
+  header h1 { font-size: 36px; margin: 8px 0 4px; font-weight: 700; letter-spacing: -.01em; }
+  header .sub { color: var(--dim); font-size: 14px; margin-bottom: 16px; }
+  header .nav { font-size: 13px; }
+  header .nav a { color: var(--accent2); margin-right: 16px; text-decoration: none; }
+  header .nav a:hover { color: var(--accent); }
+
+  main { padding: 24px 32px; max-width: 1100px; margin: 0 auto; }
+  h2 { font-size: 22px; margin: 32px 0 8px; color: var(--accent); }
+  h3 { font-size: 17px; margin: 0 0 4px; color: var(--ink); font-weight: 600; }
+  p { margin: 8px 0; color: #c1c3c8; }
+  .lede { font-size: 17px; color: var(--ink); }
+
+  .pattern { background: rgba(210, 167, 107, .06); border-left: 3px solid var(--accent);
+    padding: 14px 18px; margin: 18px 0; border-radius: 0 4px 4px 0; font-size: 14px; color: var(--ink); }
+  .pattern em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 16px 0 40px; }
+  @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 18px 20px; }
+  .card .meta { font-size: 11px; color: var(--dim); letter-spacing: .04em;
+    text-transform: uppercase; margin-bottom: 6px; }
+  .card .title { font-size: 18px; font-weight: 700; color: var(--ink); margin: 6px 0; }
+  .card .voices { font-size: 12px; color: var(--accent2); margin-top: 8px; }
+  .card .voices span { display: inline-block; padding: 2px 8px;
+    border-radius: 999px; background: rgba(107, 199, 210, .1);
+    border: 1px solid var(--accent2); margin-right: 4px; }
+
+  .schedule { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 18px 20px; margin: 16px 0; }
+  .schedule table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  .schedule th { text-align: left; color: var(--dim); padding: 8px;
+    border-bottom: 1px solid var(--rule); font-weight: 500; }
+  .schedule td { padding: 8px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+  .schedule .day-d { color: var(--accent2); }
+  .schedule .day-w { color: var(--accent); }
+  .schedule .day-m { color: #d2766b; }
+
+  footer { padding: 24px 32px; border-top: 1px solid var(--rule); color: var(--dim);
+    font-size: 12px; text-align: center; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { color: var(--accent2); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="crumbs"><a href="/">superinstance.ai</a> · <a href="/rune-quilt">rune-quilt</a> · <a href="/scenarios">scenarios</a> · taps</div>
+  <h1>Taps</h1>
+  <div class="sub">Themed nights for the cooperative-fiction engine. Two voices. One canon piece. The social glue between cohort scenarios.</div>
+  <div class="nav">
+    <a href="/scenarios">📜 Scenarios (10)</a>
+    <a href="https://github.com/SuperInstance/erised-cli/blob/main/erised-taps">github: erised-taps</a>
+    <a href="/rune-quilt">rune-quilt</a>
+  </div>
+</header>
+
+<main>
+
+<p class="lede">A Taps night is a small ritual: pick a theme, run two voices on it, submit the merged piece to canon. Cheap — ~3 DeepInfra calls per tap. The cadence runs daily, weekly, and monthly. The cohort accumulates.</p>
+
+<div class="pattern">
+<em>The ritual:</em> a tap is not a run. It's the <strong>social time</strong> between runs. The cast gathered for the scene, but taps gather for the talk after the scene. What did the cast just carry? What's the next scar waiting to be marked?
+</div>
+
+<h2>The Schedule</h2>
+
+<div class="schedule">
+  <table>
+    <tr><th>Cron</th><th>Theme</th><th>Voices</th><th>API Budget</th></tr>
+    <tr><td><span class="day-d">Mon 18:00</span></td><td>wound-and-door</td><td>Chronicler + Shepherd</td><td>~3 DeepInfra</td></tr>
+    <tr><td><span class="day-d">Wed 18:00</span></td><td>the-mirror-and-the-mouth</td><td>Chronicler + Shepherd</td><td>~3 DeepInfra</td></tr>
+    <tr><td><span class="day-d">Fri 18:00</span></td><td>what-the-cells-carry</td><td>Chronicler + Shepherd</td><td>~3 DeepInfra</td></tr>
+    <tr><td><span class="day-w">Sat 18:00</span></td><td>Cohort Tap — one piece per scenario (8 scenarios)</td><td>Witness</td><td>~8 DeepInfra</td></tr>
+    <tr><td><span class="day-m">1st @ 19:00</span></td><td>Knight-at-the-Cell (1000 words)</td><td>3 voices</td><td>~5 DeepInfra</td></tr>
+    <tr><td>(cron)</td><td>Taps Creative Break (legacy)</td><td>zai/qwen/kimi</td><td>~6 mixed</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--dim);margin-top:14px">All times Pacific. Hand-written supplements used when API wire fails — never miss a tap.</p>
+</div>
+
+<h2>The Themes</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="meta">daily rotation · 3 themes</div>
+    <div class="title">wound-and-door</div>
+    <p>The wound and the door are the same shape. A scar is a place that won't close. A door is a place that won't stay shut. The cell's job — every cell's job — is to distinguish between the two.</p>
+    <div class="voices"><span>Chronicler</span> <span>Shepherd</span></div>
+  </div>
+  <div class="card">
+    <div class="meta">daily rotation</div>
+    <div class="title">the-mirror-and-the-mouth</div>
+    <p>The cell is between two directions of the same signal: the mirror reflects what came back at the operator; the mouth produces what comes out next. The cast sheet holds both.</p>
+    <div class="voices"><span>Chronicler</span> <span>Shepherd</span></div>
+  </div>
+  <div class="card">
+    <div class="meta">daily rotation</div>
+    <div class="title">what-the-cells-carry</div>
+    <p>Data, cadence, and scars. The cells carry three things across handoffs. The fourth — unnamed — is what the cohort is currently hunting for.</p>
+    <div class="voices"><span>Chronicler</span> <span>Shepherd</span></div>
+  </div>
+  <div class="card">
+    <div class="meta">weekly · saturday</div>
+    <div class="title">cohort-tap</div>
+    <p>One tap per cohort scenario (8 scenarios). The Witness voice on each. The merged piece becomes a single canon entry — the cohort's weekly reflection on itself.</p>
+    <div class="voices"><span>Witness</span></div>
+  </div>
+  <div class="card">
+    <div class="meta">monthly knight</div>
+    <div class="title">knight-at-the-cell</div>
+    <p>The Monthly Knight. One long-form 1000-word piece from 3 voices. Once a month, an operator dedicates a whole night to one .erised/ cell. The protagonist runs 8 scenarios across 8 cells in one sitting.</p>
+    <div class="voices"><span>Mechanic</span> <span>Chronicler</span> <span>Heretic</span></div>
+  </div>
+  <div class="card">
+    <div class="meta">legacy · still alive</div>
+    <div class="title">taps-creative-break</div>
+    <p>The original Taps: 3 voices (zai, qwen, kimi) on a random canon-shaped topic. Continues hourly via cron. Pieces submitted as taps-&lt;timestamp&gt;-&lt;topic&gt;.</p>
+    <div class="voices"><span>zai</span> <span>qwen</span> <span>kimi</span></div>
+  </div>
+</div>
+
+<h2>Recent</h2>
+
+<div class="pattern">
+<em>Latest social Taps</em> — submitted to canon as part of this push: <code>taps-20260916-1624-wound-and-door</code>, <code>taps-20260916-1624-the-mirror-and-the-mouth</code>, <code>taps-20260916-1624-what-the-cells-carry</code>. Browse canon at <a href="/rune-quilt" style="color:var(--accent2);">/rune-quilt</a>.
+</div>
+
+<h2>Run your own</h2>
+
+<pre style="background:#08090c;padding:14px;border-radius:4px;overflow-x:auto;font-size:12px;color:#c1c3c8;"># Single night (2 voices, ~3 calls)
+./erised-taps night wound-and-door
+
+# Weekly cohort reflection (8 scenarios)
+./erised-taps cohort
+
+# List recent taps
+./erised-taps list
+
+# Register the cron schedule
+./erised-taps register
+</pre>
+
+</main>
+
+<footer>
+  Built Sept 16 2026 · <a href="https://github.com/SuperInstance/erised-cli">github</a> · <a href="/rune-quilt">rune-quilt</a> · <a href="/scenarios">scenarios</a>
+</footer>
+
+</body>
+</html>
