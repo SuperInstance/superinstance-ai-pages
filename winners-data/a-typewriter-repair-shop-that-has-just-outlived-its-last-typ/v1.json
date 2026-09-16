@@ -1,0 +1,147 @@
+{
+  "title": "The Last Key Struck",
+  "scenario": {
+    "title": "The Last Key Struck",
+    "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+    "characters": [
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+        "keywords": "typewriter+0.61,repair+0.57,inventory-0.46,regret+0.31,chalkboard+0.26",
+        "ticks": 20
+      },
+      {
+        "name": "Mabel Hines",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+        "keywords": "logbook+0.55,observation+0.51,librarian+0.46,pen+0.21,quiet-0.34",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+        "keywords": "zine+0.48,typewriter+0.57,analog+0.41,gratitude+0.37,transit-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Pip",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+        "keywords": "squirrel+0.5,ribbon+0.54,typebar+0.43,rafters+0.28,curious-0.17",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 100,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:44:03.085700Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "\"Technically we've survived a full year now\u2014which I realize is only impressive if you count the laundromat's dryer lint as company. But Mrs. Aldana picked up her Olivetti yesterday, says she's teaching her granddaughter to type, so that's two of us who still believe. The record shop next door never got that chance.\" [dusts",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "This cozy little repair shop has already become such a beloved spot on this quiet block, and I\u2019m so glad I get to document its first anniversary for our local community archives. I\u2019ll make sure to jot down the tiny brass nameplate on your vintage typewriter display alongside the faint scuff mark on your front step that I spotted last week.\n[pulls a charcoal pencil from her crocheted tote bag and sharpens it on a small pocket sharpener]",
+          "shifts": {
+            "quiet": -0.34
+          },
+          "shift_total": -0.34,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Hey there! I brought these homemade thank-you zines I cranked out on the fixed Royal typewriter you guys salvaged for me back in winter. The local university\u2019s analog zine collective just hit double digits in members, and half of them are begging for your shop\u2019s contact info so they can get their beat-up old rigs tuned up. I promised I\u2019d stop back soon with their first batch of self-made flyers and zines to drop off here too!\n[leans in slightly, then places the thick stack of neon-edge zines on the scuffed front counter between a jar of loose typebar keys and a half-empty mug of cold coffee]",
+          "shifts": {
+            "zine": 0.48,
+            "typewriter": 0.57,
+            "analog": 0.41
+          },
+          "shift_total": 1.46,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "Chitter-chitter! Those dainty silver type slugs left out on the front counter are far too lovely to leave un-stashed in my cozy nest! I caught a whiff of caramel fudge crumbs from the laundromat next door, just waiting for me to tuck them into my secret snack pile.\n[darts across the scuffed linoleum, knocking over a half-unspooled spool of cream ribbon as it snatches a tiny curved type slug tight between its front paws]",
+          "shifts": {
+            "ribbon": 0.54
+          },
+          "shift_total": 0.54,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Mabel Hines",
+          "text": "\"Oh, these homemade thank-you zines are such a thoughtful, wonderful gift\u2014cranking them out on the salvaged Royal makes that much more of a sweet full-circle moment. I\u2019ll make sure to jot down every detail of this visit for our community archives, including that tiny chittering patron eyeing the shiny silver type slugs left on the counter.\"\n[reaches into her canvas tote to pull out her frayed leather notebook and a black fountain pen, leaning in over the shop\u2019s scuffed wooden counter to start scribbling]",
+          "shifts": {
+            "pen": 0.21
+          },
+          "shift_total": 0.21,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "\"Sorry I\u2019m cutting it so close\u2014just came straight from the university analog zine meetup prep! Everyone\u2019s obsessed with how crisp that refurbished Royal typewriter prints, and I slipped a full shop anniversary spread into these thank-you zines to properly thank you all for fixing mine up last winter.\"\n[taps a neat stack of the stapled cream zines against the scuffed repair counter before pushing a few copies toward Elara, Mabel, and the nearby chattering chipmunk]",
+          "shifts": {
+            "zine": 0.48,
+            "typewriter": 0.57,
+            "analog": 0.41
+          },
+          "shift_total": 1.46,
+          "role": ""
+        },
+        {
+          "name": "Pip",
+          "text": "Chitter-chitter! Those warm caramel fudge crumbs drifting over from the laundromat are far too tempting to ignore, and I\u2019ve got to grab a handful before they get swept away by the attendant. I\u2019ll tuck a few away alongside my shiny silver type slugs once I\u2019m done snacking.\n[scampers nimbly across the scuffed front counter, snatching a sticky fudge crumb mid-scurry]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elara Voss": 0.0,
+    "Mabel Hines": -0.13000000000000003,
+    "Javi Marquez": 2.92,
+    "Pip": 0.54
+  },
+  "citations": {
+    "Javi Marquez": {
+      "Elara Voss": 1,
+      "Mabel Hines": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "The tide of gratitude settles as Javi's thank-you zines pass from hand to paw, the refurbished Royal's crisp print sealing a debt of repair repaid in full, and Mabel's fountain pen commits the whole visit to the community archives before the ink can dry in the salt air. What carries over: Pip"
+}
