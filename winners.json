@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T16:58:42.328895Z",
-  "n_scenarios": 4,
+  "generated_at": "2026-09-16T17:01:45.667352Z",
+  "n_scenarios": 6,
   "scenarios": [
     {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
@@ -57,6 +57,36 @@
           "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery",
           "n_turns": 9,
           "n_rounds": 3
+        }
+      ]
+    },
+    {
+      "slug": "a-neighborhood-fraternal-lodge-with-declining-membershi",
+      "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+      "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub ",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.8,
+          "dm_closing": "DM closing: the Marnie Hale still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
+      "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.5,
+          "dm_closing": "DM closing: the Steward still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "n_turns": 6,
+          "n_rounds": 2
         }
       ]
     },
