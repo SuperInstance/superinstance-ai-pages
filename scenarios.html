@@ -70,7 +70,7 @@
 <header>
   <div class="crumbs"><a href="/">superinstance.ai</a> · <a href="/rune-quilt">rune-quilt</a> · scenarios</div>
   <h1>Scenarios</h1>
-  <div class="sub">The cohort — six analog settings for the same dilemma, shipped with <a href="https://github.com/SuperInstance/erised-cli" style="color:var(--accent2);text-decoration:none;">erised-cli</a>.</div>
+  <div class="sub">The cohort — ten analog settings for the same dilemma. Run with <a href="https://github.com/SuperInstance/erised-cli" style="color:var(--accent2);text-decoration:none;">erised-cli</a>, or convert into <a href="https://github.com/SuperInstance/erised-cli/blob/main/CELL.md" style="color:var(--accent2);text-decoration:none;">.erised/ cells</a> with version-tracked cast + run history.</div>
   <div class="nav">
     <a href="/erised.html">▶ erised (canvas)</a>
     <a href="https://github.com/SuperInstance/erised">HTML repo</a>
@@ -159,6 +159,39 @@
   </div>
 
   <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:3</span></div>
+    <div class="title">Coral Atoll Outpost</div>
+    <div class="setting">A floating research station anchored above a year-old coral transplant. The original polyps died back; a new generation builds on the skeleton. Grant runs out in 90 days. The reef doesn't know that. <em>(First biological analog.)</em></div>
+    <div class="cast">cast: <span>Surveyor</span> <span>Engineer</span> <span>Translator</span> <span>Grouper</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/coral-atoll.json">json</a>
+      <span class="cmd">./erised examples/coral-atoll.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:3</span></div>
+    <div class="title">Apiary Steward</div>
+    <div class="setting">A single apiary started by a beekeeper who has died. Now tended by a neighbor, an apprentice, and the beekeeper's adult child two towns over. The bees have started building comb in the lid.</div>
+    <div class="cast">cast: <span>Inspector</span> <span>Steward</span> <span>Voice</span> <span>Apprentice</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/apiary.json">json</a>
+      <span class="cmd">./erised examples/apiary.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:3</span></div>
+    <div class="title">Communal Root Cellar</div>
+    <div class="setting">An earth-bermed root cellar dug by a founding homestead. Now storing the harvests of twelve households. The first winter after the founder's death, a blight has taken the seed potato line the cellar was designed around.</div>
+    <div class="cast">cast: <span>Warden</span> <span>Tenant</span> <span>Grandchild</span> <span>Volunteer</span></div>
+    <div class="links">
+      <a href="https://raw.githubusercontent.com/SuperInstance/erised-cli/main/examples/root-cellar.json">json</a>
+      <span class="cmd">./erised examples/root-cellar.json --rounds 4</span>
+    </div>
+  </div>
+
+  <div class="card">
     <div class="meta"><span class="chip zai">zai:1</span><span class="chip deep">deepinfra:1</span></div>
     <div class="title">Quick 2-character test</div>
     <div class="setting">Two engineers. One server room. Three minutes before the deploy window closes. They have not met before. Budget test — fastest possible verification.</div>
@@ -209,6 +242,18 @@ The <strong>Operator</strong> (Mechanic / Builder / Mechanic-Hundred) — sits i
 <br><br>
 The metaphor changes the ethics — a monastery isn't a railway isn't a library — but the shape of who counts, who writes, who operates does not.
 </div>
+
+<h2>Cells — when a scenario has a lineage</h2>
+
+<p>Running a scenario once is a recipe. Running it <em>with a lineage</em> is a tradition. The <code>erised-cell</code> tool turns any scenario into a <code>.erised/</code> directory with version-tracked cast and run history:</p>
+
+<pre style="background:#08090c;padding:14px;border-radius:4px;overflow-x:auto;font-size:12px;color:#c1c3c8;">./erised-cell init examples/apiary.json
+./erised-cell run                     # creates runs/&lt;timestamp&gt;.json
+./erised-cell ls                      # list runs
+./erised-cell diff &lt;run1&gt; &lt;run2&gt;     # compare resonance + citations
+./erised-cell index                   # regenerate INDEX.md</pre>
+
+<p>Each <code>cast/&lt;name&gt;.json</code> records the character's history per run — resonance delta, citations in, citations out. Each <code>runs/&lt;timestamp&gt;.json</code> is a complete, replayable transcript. The cell IS the seam — it carries the structure across runs.</p>
 
 </main>
 
