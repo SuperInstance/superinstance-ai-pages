@@ -1,0 +1,34 @@
+{
+  "title": "The Last Key Struck",
+  "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
+  "characters": [
+    {
+      "name": "Elara Voss",
+      "llm": "zai:glm-4.5",
+      "tendencies": "Elara is the shop\u2019s owner, who invested her life savings into the space after her mentor retired, clinging to the belief that analog writing will make a quiet comeback. She spends her evenings reorganizing empty tool trays and replaying voicemails from long-vanished customers.",
+      "keywords": "typewriter+0.6, repair+0.5, inventory-0.4, regret+0.3, chalkboard+0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Mabel Hines",
+      "llm": "deepinfra:ByteDance/Seed-2.0-code",
+      "tendencies": "Mabel is a retired local librarian who visits the shop daily to document its contents and patrons for her community history project. She never misses a small detail, from the scuff on the front step to the way Elara twists her wedding ring when anxious.",
+      "keywords": "logbook+0.6, observation+0.5, librarian+0.4, pen+0.3, quiet-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Javi Marquez",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Javi is a former teen zine-maker who brought his beat-up typewriter to the shop six months prior, now returning briefly to drop off a stack of homemade thank-you zines. He speaks quickly, gesturing excitedly, and rambles about the growing underground analog media scene at the local university.",
+      "keywords": "zine+0.6, typewriter+0.5, analog+0.4, gratitude+0.3, transit-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Pip",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Pip is a sweet-toothed grey squirrel that has made the shop\u2019s rafters its permanent home, gathering tiny metal type pieces and ribbon scraps to line its nest. It flits between shelves when humans aren\u2019t looking, often knocking over loose spools of ribbon as it moves.",
+      "keywords": "squirrel+0.6, ribbon+0.5, typebar+0.4, rafters+0.3, curious-0.2",
+      "ticks": 20
+    }
+  ]
+}
