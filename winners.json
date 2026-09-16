@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T17:01:45.667352Z",
-  "n_scenarios": 6,
+  "generated_at": "2026-09-16T17:03:30.181311Z",
+  "n_scenarios": 7,
   "scenarios": [
     {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
@@ -116,6 +116,21 @@
           "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and ",
           "n_turns": 9,
           "n_rounds": 3
+        }
+      ]
+    },
+    {
+      "slug": "a-volunteer-fire-department-that-has-just-had-its",
+      "title": "A volunteer fire department that has just had its first responder shortage",
+      "setting": "A volunteer fire department that has just had its first responder shortage",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.0,
+          "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door.",
+          "n_turns": 6,
+          "n_rounds": 2
         }
       ]
     },
