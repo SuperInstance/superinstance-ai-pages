@@ -86,6 +86,13 @@
   .preset-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
   .preset-btn { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
   .preset-btn:hover { border-color: var(--teal); }
+
+  .quota { font-size: 12px; color: var(--gray); font-family: monospace; padding: 4px 10px; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+  .quota.warn { color: #d4a857; border-color: #d4a857; }
+  .quota.full { color: var(--rose); border-color: var(--rose); }
+  .mode-toggle { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; }
+  .mode-toggle:hover { border-color: var(--teal); }
+
 </style>
 </head>
 <body>
@@ -95,12 +102,14 @@
     <div class="tagline">a mirror for cooperative fiction — model-only TTRPG engine</div>
   </div>
   <div class="controls">
-    <button id="tick-btn" class="primary">Tick →</button>
-    <button id="open-btn">Open</button>
-    <button id="rewind-btn" class="danger">Rewind</button>
-    <button id="end-btn">End Scene</button>
-    <button id="reset-btn">Reset</button>
-  </div>
+  <span id="quota-display" class="quota" title="Daily usage — works in hosted mode (Casey's tokens).">— / 100 ticks · 0 / 5K tokens</span>
+  <select id="mode-toggle" class="mode-toggle" title="hosted = Casey's tokens (rate-limited, generous). byo = your tokens (unlimited).">
+    <option value="hosted">🎁 hosted</option>
+    <option value="byo">🔑 byo</option>
+  </select>
+  <button onclick="resetRun()">↻ reset</button>
+  <button class="primary" onclick="tick()">▶ tick</button>
+</div>
 </div>
 
 <div class="grid">
@@ -231,6 +240,9 @@ const SETTINGS = {
 };
 
 let state = {
+  mode: 'hosted',  // 'hosted' (Casey's tokens) or 'byo' (user's keys)
+  quota: null,
+  limits: null,
   setting: DEFAULTS.setting,
   characters: JSON.parse(JSON.stringify(DEFAULTS.characters)),
   transcript: [],
@@ -486,42 +498,59 @@ function getKey(prefix) {
 
 async function callLLM(char, userMessage, systemMessage) {
   const [prefix, model] = char.llm.split(':');
-  const key = getKey(prefix);
-  if (!key) return `[ERROR: no ${prefix.toUpperCase()}_TOKEN]`;
+  const useHosted = state.mode === 'hosted';
+  const headers = { 'Content-Type': 'application/json' };
+  const body = {
+    provider: prefix,
+    model: model,
+    messages: [
+      { role: 'system', content: systemMessage },
+      { role: 'user', content: userMessage },
+    ],
+    max_tokens: 600,
+    mode: useHosted ? 'hosted' : 'byo',
+  };
+  if (!useHosted) {
+    // BYO: need a key for this prefix
+    let key = state.apiKeys[prefix];
+    if (!key) {
+      key = prompt(`Enter your ${prefix.toUpperCase()}_TOKEN (or paste one) — saved in localStorage:`);
+      if (key) {
+        state.apiKeys[prefix] = key;
+        localStorage.setItem('erised-keys', JSON.stringify(state.apiKeys));
+      }
+    }
+    if (!key) return `[ERROR: no ${prefix.toUpperCase()}_TOKEN]`;
+    headers['Authorization'] = `Bearer ${key}`;
+  }
 
-  if (prefix === 'zai') {
-    const res = await fetch('https://api.z.ai/api/coding/paas/v4/chat/completions', {
+  try {
+    const res = await fetch('/erised/api/llm', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
-      body: JSON.stringify({
-        model, messages: [
-          { role: 'system', content: systemMessage },
-          { role: 'user', content: userMessage },
-        ],
-        temperature: 0.9, max_tokens: 600,
-      }),
+      headers,
+      credentials: 'include',
+      body: JSON.stringify(body),
     });
     const data = await res.json();
-    if (data.error) return `[ERROR: ${data.error.message}]`;
-    return data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '[EMPTY]';
+    if (data.error) {
+      // Quota errors → show friendly
+      if (data.error === 'daily_tick_limit' || data.error === 'daily_token_limit') {
+        state.quota = data.quota;
+        updateQuotaDisplay();
+        return `[QUOTA] ${data.message}`;
+      }
+      return `[ERROR: ${data.error}]`;
+    }
+    // Update quota display
+    if (data.quota) {
+      state.quota = data.quota;
+      state.limits = data.limits;
+      updateQuotaDisplay();
+    }
+    return data.content || '[EMPTY]';
+  } catch (e) {
+    return `[NETWORK ERROR: ${e.message}]`;
   }
-  if (prefix === 'deepinfra') {
-    const res = await fetch('https://api.deepinfra.com/v1/openai/chat/completions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
-      body: JSON.stringify({
-        model, messages: [
-          { role: 'system', content: systemMessage },
-          { role: 'user', content: userMessage },
-        ],
-        temperature: 0.95, max_tokens: 600,
-      }),
-    });
-    const data = await res.json();
-    if (data.error) return `[ERROR: ${data.error.message}]`;
-    return data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '[EMPTY]';
-  }
-  return `[ERROR: unknown LLM prefix ${prefix}]`;
 }
 
 function buildCharacterSystem(c) {
