@@ -1,0 +1,34 @@
+{
+  "title": "The Dying Lens Observatory Dilemma",
+  "setting": "Perched on a wind-scoured western Vermont hill, the Dying Lens Observatory\u2014run by the local amateur astronomy society\u2014sports a rust-fringed metal dome stuck half-open after a late spring ice storm. The society has just 21 days to raise $7,500 to repair the broken dome winch and replace its cracked 12-inch primary mirror, or the county will foreclose and auction the property to a luxury cabin developer. A fledgling GoFundMe campaign has only hit 12% of its fundraising goal so far, with little momentum beyond a small group of dedicated hobbyist members.",
+  "characters": [
+    {
+      "name": "Marisol Cruz",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She prioritizes budget spreadsheets, hard donation metrics, and pragmatic cost-cutting over emotional community appeals.",
+      "keywords": "spreadsheets+0.6 donations+0.4 mirror-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Jessa Marlow",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She focuses on heartfelt personal stargazing stories, rallying local volunteers, and delivering impassioned public pitches to boost donations.",
+      "keywords": "speeches+0.6 stargazing+0.4 dome-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Theo Tanner",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He specializes in troubleshooting vintage electromechanical telescope systems, sourcing used astronomy parts, and walking the society through repair step-by-step.",
+      "keywords": "repairs+0.6 telescope+0.4 rust-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Mae Carter",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She organizes neighborhood bake sales, coordinates local business sponsorships, and shares the observatory\u2019s plea across community social media groups.",
+      "keywords": "bakesales+0.6 sponsorships+0.4 observatory+0.3",
+      "ticks": 20
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "title": "The Willow Creek Drive-In Crossroads",
+  "scenario": {
+    "title": "The Willow Creek Drive-In Crossroads",
+    "setting": "Set in the waning days of late summer in Willow Creek, a quiet rural town tucked between endless cornfields. The drive-in\u2019s gravel lot is dotted with a handful of early-arriving cars, their windshield wipers flicking away fine mist, and the concession stand\u2019s neon \u201cPOPCORN\u201d sign sputters intermittently. The second-generation owner stands behind the ticket booth, staring at a formal offer letter from a local housing developer tucked in her back pocket.",
+    "characters": [
+      {
+        "name": "Jessa Mae Carver",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She is the reserved second-generation owner of the drive-in, torn between accepting a lucrative housing developer offer and refinancing to honor her late father\u2019s legacy",
+        "keywords": "drive-in+0.6 locket with dad\u2019s film ticket+0.4 refinance-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Marnie Cole",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She is a boisterous local community organizer who rallies townsfolk to fundraise and spread the word to save the drive-in",
+        "keywords": "megaphone+0.5 sunflower scrunchie+0.4 classic teen movie-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Arthur Hale",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He is the cautious local bank manager who enforces strict lending rules but secretly sympathizes with the drive-in\u2019s plight",
+        "keywords": "leather loan binder+0.6 chipped ceramic mug+0.4 loan denial-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Clay Thornton",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He is a gruff retired drive-in projectionist who shares nostalgic stories of the theater\u2019s heyday to inspire community support",
+        "keywords": "vintage film reel+0.5 worn flannel shirt+0.4 overpriced developer offer-0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:13:41.797470Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Jessa Mae Carver",
+          "text": "The developer\u2019s offer is tempting enough to wipe out the back taxes piling up for the past two years. But every time I walk past the chipped concession stand counter, I hear my dad calling out \u201cextra butter for the kids in the blue pickup\u201d like it was yesterday. I can\u2019t just walk away from this place.\n[She presses a crumpled polaroid of her teenage self standing beside her dad at the drive-in\u2019s projector booth into her jeans pocket, jaw set softly.]",
+          "shifts": {
+            "drive-in": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        },
+        {
+          "name": "Marnie Cole",
+          "text": "Hey there, Willow Creek neighbours! That beloved old drive-in\u2019s got just one last weekend left to stay open before the late summer corn blocks the main screen, and we\u2019ve only scraped together half the cash we need to patch the faulty projector! Every spare dollar, every hour of your time can keep this spot alive\u2014we can\u2019t let our town\u2019s favorite summer hangout turn into a weedy field!\n[She waves a stack of neon orange fundraiser flyers above her head, thumping a scuffed work boot against a tumbleweed tangled around the drive-in\u2019s rickety entry sign.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Arthur Hale",
+          "text": "I swung by to touch base about your drive-in\u2019s pending loan renewal. The late-summer crop dips haven\u2019t done any favors for your weekend ticket sales, and I know business has been tighter than usual this year, but the regional bank\u2019s strict lending rules are non-negotiable right now. I wish I could push back the repayment deadline, but I can\u2019t overstep my formal authority without board approval.\n[taps a crumpled stack of ticket stubs taped to the inside of his leather bank folder before sliding a printed repayment timeline across the hood of his dented pickup truck]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clay Thornton",
+          "text": "Back when I ran this very booth, we\u2019d have lines stretched all the way down the cornfield road on nights just like this, when the summer sun lingered just long enough to paint the sky pink. Kids would dart between parked cars with glow sticks, and I\u2019d have to yell over the radio to quiet \u2019em down before the previews started.\n[Wiping a smudge of film emulsion off his worn flannel sleeve before prodding the rusted film reel perched on the projector\u2019s arm]",
+          "shifts": {
+            "reel": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Jessa Mae Carver",
+          "text": "I\u2019ve been staring at the chipped concession counter all week, torn between wiping out these back taxes and honoring every memory Dad built here. Clay, you remember how Dad would beam when lines stretched out to the cornfield like that? I can\u2019t just shut this place down without at least trying to hang on.\n[She runs a shaky hand along the scuffed wooden edge of the concession counter, not meeting anyone\u2019s eyes for a long beat before lifting her gaze.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marnie Cole",
+          "text": "Clay just reminded us all how this drive-in used to pack the cornfield road back in his booth-running days, and we ain\u2019t letting that legacy fade away now! Between the lagging ticket sales, looming back taxes, and that developer\u2019s tempting offer, one last weekend of packed parking spots is all we need to keep the gates open for good!\n[Pounding a fist against the chipped concession counter to drive her point home, already waving a stack of handwritten donation tickets toward the group loitering by the popcorn machine.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Arthur Hale",
+          "text": "I know this final weekend is your last shot to drum up some much-needed cash flow. I\u2019ve flagged your account for the state\u2019s rural small business hardship grant and can walk you through the application before tomorrow\u2019s deadline. I\u2019m also willing to table your loan renewal paperwork for two weeks to give you some breathing room.\n[He set a stack of neatly printed grant forms on the scuffed concession counter, his usual firm posture relaxing slightly.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clay Thornton",
+          "text": "Back then, we\u2019d have kids sneaking in with paper bags of stolen corn from the rows right over there, and we\u2019d let \u2019em slide \u2019cause half of \u2019em couldn\u2019t afford a ticket anyway. We ran two double features most weekends, and the concession stand ran out of buttered popcorn before the first movie even finished. You folks can\u2019t just let this place get gobbled up by that developer\u2019s cash grab.\n[He leans his calloused, grease-stained forearms on the projection booth\u2019s cracked windowsill, rapping a knuckle against the scuffed metal frame of the booth\u2019s outdoor speaker box.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Jessa Mae Carver": 0.6,
+    "Marnie Cole": 0.0,
+    "Arthur Hale": 0.0,
+    "Clay Thornton": 0.5
+  },
+  "citations": {
+    "Jessa Mae Carver": {
+      "Clay Thornton": 1
+    },
+    "Marnie Cole": {
+      "Clay Thornton": 1
+    }
+  },
+  "dm_opening": "DM opening: the Jessa Mae Carver takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Jessa Mae Carver still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

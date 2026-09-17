@@ -1,0 +1,133 @@
+{
+  "title": "The Spire of Forgotten Tides",
+  "scenario": {
+    "title": "The Spire of Forgotten Tides",
+    "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+    "characters": [
+      {
+        "name": "Mara Hales",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She maintains a digital archive of every lighthouse artifact, visitor comment, and minor repair log, prioritizing overlooked details over curated exhibit plaques. She often spends off-hours cross-referencing 1920s keeper logs with modern tour anecdotes.",
+        "keywords": "artifact-archive+0.63,logbook+0.36,rain-leak+0.2,quiet-observant-0.29",
+        "ticks": 20
+      },
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She is the on-site lead for all lighthouse maintenance, familiar with every iron rivet and wiring quirk of the deactivated Fresnel lens. She firmly rejects proposed changes that stray from the lighthouse\u2019s mid-20th century operational standards.",
+        "keywords": "fresnel-lens+0.61,maintenance+0.57,salt-spray+0.34,tradition-0.29",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Rojas",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She crafts personalized tour stories that center the personal lives of past lighthouse keepers instead of dry factual plaques. She has proposed adding an interactive tide gauge station to draw in younger family visitors.",
+        "keywords": "tour-story+0.52,tide-gauge+0.54,young-visitor+0.42,engagement-0.26",
+        "ticks": 20
+      },
+      {
+        "name": "Clara Bennett",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She manifests as a soft, disembodied voice only during quiet, stormy nights, whispering old keeper\u2019s logs and gentle warnings about the deteriorating roof. She only reveals herself to those who actively care for the lighthouse, never to casual tourists or short-term volunteers.",
+        "keywords": "ghostly-whisper+0.67,gale-warning+0.43,logbook-memory+0.35,rain-leak-0.23",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 100,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:51:09.493155Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "I just cross-referenced this frayed 1919 keeper\u2019s wool mitten strap I pulled from the gap between these two connected display cells\u2014turns out it was left behind by the head keeper\u2019s daughter who snuck up to seal the watchroom windows ahead of a nor\u2019easter. I even scribbled the exact find spot in the margin of the original handwritten keeper log, since the official exhibit plaques never bother with these tiny, personal pieces of the lighthouse\u2019s history. Most tour groups rush right past these gaps between the cells, so I make a point to log every small thing I find tucked here.\n[brushes a fine layer of sea salt dust off the frayed cuff of the mitten strap before tucking it back into the wall gap]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "Many visitors rush past the old tide log displays to gawk at the historic Fresnel lens, but those tattered books hold the quiet daily stories of the lighthouse\u2019s youngest staff, like 14-year-old Mia who logged tides every morning before her assigned chores. Soon you\u2019ll all get to test your own tide-predicting skills at the new interactive gauge station tucked by the west entry nook.\n[gestures toward the small, hand-painted wooden sign tucked against the curved stone wall]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "The north dormer\u2019s shingles warped further in the driving gale\u2014you propped a heavy canvas tarp there last Tuesday, didn\u2019t you? It\u2019s holding for now, but the coastal salt\u2019s already gnawing through the stitched seams. You\u2019ll want to grab new galvanized nails from the tool shed before hauling them up at first light.\n[drops a crumpled, salt-stained 1947 roof maintenance slip onto your wrist]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "I just cross-referenced this frayed 1919 keeper\u2019s wool mitten strap I pulled from the gap between these two connected display cells\u2014turns out it was left behind by the head keeper\u2019s daughter who snuck out to help 14-year-old Mia restock the lantern oil reserves during a November gale. I spotted the matching salt-crusted stitching on both the strap and a smudged margin note in Mia\u2019s personal tide log, which Javi was just gesturing to. I\u2019m still blown away I almost missed that cross-reference while sorting my archival supply bin earlier.\n[kneels down to press a smooth, barnacle-dusted sea stone against the flapping corner of the north dormer tarp Clara mentioned, anchoring it fast against the sharp coastal gusts]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "This frayed mitten strap belongs to Mia, the head keeper\u2019s 14-year-old daughter who snuck in to help with his tide logs back in 1919. An interactive tide gauge station right here would let young visitors get hands-on with measuring mock tides and jotting down their own logs, just like Mia did, instead of rushing past these quiet, personal stories. [gestures to the narrow gap between the two connected display cells where the strap was recovered]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "That frayed strap belongs to Mia, the head keeper\u2019s 14-year-old daughter\u2014she left it while hauling supplies up the spiral stair when she was helping her father mend the fog bell, back before this tower was a museum. The coastal salt has already started weakening the tarp\u2019s grommets, even if you haven\u2019t noticed the fraying edges poking out from under the north dormer\u2019s trim.\n[drifts toward the display case holding the partial mitten set, faint salt mist curling around the glass over the strap]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara Hales": 0.0,
+    "Elara Voss": 0.0,
+    "Javi Rojas": 0.0,
+    "Clara Bennett": 0.0
+  },
+  "citations": {
+    "Mara Hales": {
+      "Javi Rojas": 1,
+      "Clara Bennett": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "[EMPTY]"
+}

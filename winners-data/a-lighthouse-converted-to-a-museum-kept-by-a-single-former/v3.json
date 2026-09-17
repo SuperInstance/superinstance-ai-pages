@@ -1,0 +1,144 @@
+{
+  "title": "The Spire of Forgotten Tides",
+  "scenario": {
+    "title": "The Spire of Forgotten Tides",
+    "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+    "characters": [
+      {
+        "name": "Mara Hales",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She maintains a digital archive of every lighthouse artifact, visitor comment, and minor repair log, prioritizing overlooked details over curated exhibit plaques. She often spends off-hours cross-referencing 1920s keeper logs with modern tour anecdotes.",
+        "keywords": "artifact-archive+0.41,logbook+0.44,rain-leak+0.15,quiet-observant-0.23",
+        "ticks": 20
+      },
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She is the on-site lead for all lighthouse maintenance, familiar with every iron rivet and wiring quirk of the deactivated Fresnel lens. She firmly rejects proposed changes that stray from the lighthouse\u2019s mid-20th century operational standards.",
+        "keywords": "fresnel-lens+0.44,maintenance+0.7,salt-spray+0.38,tradition-0.32",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Rojas",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She crafts personalized tour stories that center the personal lives of past lighthouse keepers instead of dry factual plaques. She has proposed adding an interactive tide gauge station to draw in younger family visitors.",
+        "keywords": "tour-story+0.57,tide-gauge+0.53,young-visitor+0.48,engagement-0.34",
+        "ticks": 20
+      },
+      {
+        "name": "Clara Bennett",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She manifests as a soft, disembodied voice only during quiet, stormy nights, whispering old keeper\u2019s logs and gentle warnings about the deteriorating roof. She only reveals herself to those who actively care for the lighthouse, never to casual tourists or short-term volunteers.",
+        "keywords": "ghostly-whisper+0.62,gale-warning+0.45,logbook-memory+0.33,rain-leak-0.18",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 300,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:53:27.961170Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "The gale has shutters rattling across Cape Halcyon as Mara Hales fights the ticket kiosk's dead radio, Elara Voss stakes tarps on the sea-watch parapet, and Javi Rojas splashes down into the lower storage cell where the cracked roof has let brine creep into the archive boxes of",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "This dead radio\u2019s fuse matches the exact part number scribbled in the 1941 keeper maintenance logs\u2014wild that a decommissioned part from nearly 100 years ago is causing this same breakdown. I\u2019ll grab the archival spare stashed in the lower station crate once I clear this rusted front panel away.\n[yanks loose the corroded ticket kiosk front panel to expose the frayed, salt-water-stained wiring underneath]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "\u201cHey you two! Ugh, salt spray\u2019s already seeping into my coat cuffs! I just dug up a frayed 1971 tide log from old head keeper Clara Mae Carter, tucked behind a pile of broken lens prisms\u2014exactly the personal touch we can pair with the interactive tide gauge station for the kid visitors!\u201d\n[kneels to prop the water-stained journal on a dry wooden crate and grabs a permanent marker from his tool belt to flag key high-tide dates for the gauge\u2019s interactive prompts]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "A soft, wind-threaded whisper curls through the gale\u2019s clatter of shutters, laced with the faint creak of decades-old lighthouse joists. \u201cTighten that tarp\u2019s corner a touch firmer, Elara, and keep an eye on the radio gear, Mara\u2014this gust will tear loose the west parapet\u2019s slate and shatter the lower sto\u2019s glass Javi just splashed into dry.\u201d\n[drifts a sharp, salt-kissed puff of wind to pin the flapping tarp corner against the parapet stake]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "I freeze mid-twist of the radio\u2019s spare fuse, ears prickling at the quiet, familiar lilt that matches the scrawled asides in the 1971 tide log Javi dug up. That\u2019s exactly the gentle guidance Clara Mae Carter herself would\u2019ve given during these brutal Cape Halcyon gales.\n[grabs a loop of thick baling twine from her canvas tool roll and hurries over to help Elara secure the loose tarp corner]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "\u201cHey Mara, Elara\u2014this frayed 1971 tide log from head keeper Clara Mae Carter lines up perfectly with today\u2019s storm tides! That interactive tide gauge station we brainstormed would let the little kids crank dials to match the readings, tying their play to the keepers\u2019 daily coastal work.\u201d\n[tucks a loose, wind-tousled corner of the waterlogged log beneath a rusted iron display bracket to keep it from blowing into the gale]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "A soft, wind-threaded whisper cuts through the lashing shutters, faint but distinct enough for the three working caretakers to hear over the gale\u2019s roar. \u201cTighten that tarp\u2019s corner a touch firmer, Elara\u2014those gusts will tear it loose before mid-shift. The west parapet\u2019s joists have rotted further than I noted in my 1947 keeper logs, so keep a hand ready to shore them if rain starts.\u201d\n[drifts over to the pile of broken lens prisms where Javi hunts, brushing a salt-crusted page of his tide log flat to keep it from blowing away]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara Hales": 0.0,
+    "Elara Voss": 0.0,
+    "Javi Rojas": 0.0,
+    "Clara Bennett": 0.0
+  },
+  "citations": {
+    "Javi Rojas": {
+      "Clara Bennett": 2,
+      "Mara Hales": 1,
+      "Elara Voss": 1
+    },
+    "Clara Bennett": {
+      "Mara Hales": 1,
+      "Elara Voss": 2,
+      "Javi Rojas": 2
+    },
+    "Mara Hales": {
+      "Elara Voss": 1,
+      "Javi Rojas": 1,
+      "Clara Bennett": 1
+    }
+  },
+  "dm_opening": "The gale has shutters rattling across Cape Halcyon as Mara Hales fights the ticket kiosk's dead radio, Elara Voss stakes tarps on the sea-watch parapet, and Javi Rojas splashes down into the lower storage cell where the cracked roof has let brine creep into the archive boxes of",
+  "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery. Next session: as you climb to"
+}

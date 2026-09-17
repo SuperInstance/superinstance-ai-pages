@@ -1,0 +1,126 @@
+{
+  "title": "The Fading Lantern Lodge Membership Crisis",
+  "scenario": {
+    "title": "The Fading Lantern Lodge Membership Crisis",
+    "setting": "Tucked between a laundromat and a shuttered hardware store in Maplewood\u2019s blue-collar downtown, the Fading Lantern Lodge once drew dozens of locals for weekly bingo nights and pancake breakfasts. Now its front porch only holds a single dented folding chair most days, its windows smudged with grime, and the latest membership drive netted just two new signees in three months. The only regular visitors are a handful of octogenarian members and the occasional teenager stealing shade from the summer sun.",
+    "characters": [
+      {
+        "name": "Marnie \"Mac\" MacKenzie",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She rigidly prioritizes formal lodge bylaws and membership metrics, dismissing casual outreach ideas as 'unsanctioned and a waste of limited funds'",
+        "keywords": "ledger+0.6 lodge-by-laws+0.5 chipped-mug+0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Jazmine \"Jax\" Marlow",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She leans into warm, nostalgic storytelling to rally locals, often sharing childhood memories of pancake breakfasts with her grandfather to convince people to join the lodge",
+        "keywords": "taco-truck+0.7 handwritten-flyers+0.4 nostalgia+0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Burt Haggerty",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He stops by the lodge occasionally for cheap coffee but hasn\u2019t renewed his membership in three months, frustrated by the lack of new, relevant activities",
+        "keywords": "wrench+0.5 frayed-flannel+0.4 quiet-sigh+0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Gloria Hale",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She focuses on reviving beloved old lodge events like bingo nights and holiday craft fairs, hoping to draw back former members and attract new ones through familiar, comforting activities",
+        "keywords": "bingo-cards+0.6 knit-scarf+0.4 cookie-sheet+0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:10:04.979149Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marnie \"Mac\" MacKenzie",
+          "text": "I will not approve any unvoted community outreach initiatives. Our lodge\u2019s operating budget is strictly allocated to hall repairs and annual charter renewal fees, not these frivolous, unsanctioned casual gatherings. Our current membership retention rate sits at just 41%, so every dollar must be accounted for per formal bylaws.\n[Tapping a printed membership roster against her clipboard with sharp, deliberate taps as she brushes past a crumpled neighborhood potluck flyer stuck to the lodge\u2019s dented screen door.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Jazmine \"Jax\" Marlow",
+          "text": "Heard my grandpa\u2019s secret blueberry pancake recipe\u2019s headlining this Saturday\u2019s breakfast spread at the lodge\u2014you remember the buttery, syrupy batches we\u2019d sneak extra blueberries for behind his old diner counter back in \u201898? C\u2019mon on down, even if you just need a warm spot out of the crisp downtown wind and a chance to swap old stories.\n[Waves a slightly coffee-stained, dog-eared flyer for the pancake breakfast over her head, grinning so wide her dimples poke through her rounded cheeks.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Burt Haggerty",
+          "text": "Look, I just swung by for the cheap coffee\u2014didn\u2019t mean to start a fuss, but it\u2019s been three months since I asked about adding a weekly carpentry workshop for folks who don\u2019t want to knit or play bingo. Not a single thing\u2019s changed around here, and I\u2019m not renewing my membership until you guys quit sticking to the same old tired events.\n[He shoves a crumpled one-dollar bill across the scuffed Formica counter, grabs his dented stainless steel travel mug full of lukewarm coffee, and trundles toward the exit without a backward glance.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Gloria Hale",
+          "text": "Hey neighbor, we\u2019re finally getting our old bingo night back up and running this Saturday afternoon! It\u2019s free to join, we\u2019ve got homemade apple cider and peanut brittle for everyone, and the grand prize is a jar of my mom\u2019s preserved blackberry jam. We\u2019re also collecting gently used winter hats and gloves for the local elementary school\u2019s cozy closet while you\u2019re here.\n[Straightening a stack of neon bingo cards on the lodge\u2019s scuffed wooden front counter and tapping a hand-drawn \u201cBingo This Saturday!\u201d sign into place beside the warped screen door.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marnie \"Mac\" MacKenzie",
+          "text": "I won\u2019t entertain these unsanctioned, last-minute community offerings\u2014they siphon away our limited operating funds that are meant strictly for hall repairs and charter compliance. Burt, your carpentry works request requires a full membership vote per our official bylaws, not a casual drop-in pitch, and Jax and Gloria\u2019s event plans need to go through the proper approval channels first. I\u2019m not diverting any budget dollars to subsidize pancake spreads or bingo nights right now.\n[Taps a dog-eared copy of the lodge\u2019s official bylaws against her clipboard, jaw set tightly]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Jazmine \"Jax\" Marlow",
+          "text": "C\u2019mon, Mac\u2014Burt\u2019s been bugging me nonstop about his carpentry spot for three months, and my grandpa\u2019s blueberry pancakes are the perfect way to drag every last neighbor through the lodge doors. We can slot a quick test run of his drop-in hour right after the breakfast line wraps, and Gloria\u2019s already lined up homemade apple cider for bingo anyway, so folks will stick around for hours after that.\n[leans in with a soft, playful grin and flutters a crumpled stack of handwritten pancake breakfast sign-up sheets from her worn flannel hip pocket]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Burt Haggerty",
+          "text": "I saw the bingo notice taped to the laundromat\u2019s bulletin board, and that\u2019s nice for the regulars, but I didn\u2019t trek over here just for a free apple cider. That carpentry workshop I asked about three months back hasn\u2019t gotten so much as a quick reply from the lodge board. I just wanted to offer a low-key space for folks who like fixing things, whether that\u2019s their own porch railings or neighborhood park birdhouses.\n[He sets his half-empty, chipped ceramic coffee mug down with a soft clink on the scuffed front counter, crossing his arms over his worn flannel shirt.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Gloria Hale",
+          "text": "I also put together a donated prize basket stuffed with local wildflower honey and hand-knit scarves for the bingo night\u2019s top winner, and we\u2019ve got free neon bingo daubers for anyone who forgets their own. It\u2019ll feel just like the cozy, familiar bingo nights we all loved back when the lodge was humming with weekly gatherings.\n[I tap a stack of brightly colored bingo cards against the scuffed front wooden counter and nod toward the steaming crockpot of spiced apple cider sitting on a folding table by the door.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marnie \"Mac\" MacKenzie": 0.0,
+    "Jazmine \"Jax\" Marlow": 0.0,
+    "Burt Haggerty": 0.0,
+    "Gloria Hale": 0.0
+  },
+  "citations": {
+    "Marnie \"Mac\" MacKenzie": {
+      "Burt Haggerty": 1,
+      "Gloria Hale": 1
+    },
+    "Jazmine \"Jax\" Marlow": {
+      "Burt Haggerty": 1,
+      "Gloria Hale": 1
+    }
+  },
+  "dm_opening": "DM opening: the Marnie \"Mac\" MacKenzie takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marnie \"Mac\" MacKenzie still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

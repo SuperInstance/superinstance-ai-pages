@@ -1,0 +1,132 @@
+{
+  "title": "The Spire of Forgotten Tides",
+  "scenario": {
+    "title": "The Spire of Forgotten Tides",
+    "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
+    "characters": [
+      {
+        "name": "Mara Hales",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She maintains a digital archive of every lighthouse artifact, visitor comment, and minor repair log, prioritizing overlooked details over curated exhibit plaques. She often spends off-hours cross-referencing 1920s keeper logs with modern tour anecdotes.",
+        "keywords": "artifact-archive+0.49,logbook+0.4,rain-leak+0.23,quiet-observant-0.32",
+        "ticks": 20
+      },
+      {
+        "name": "Elara Voss",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She is the on-site lead for all lighthouse maintenance, familiar with every iron rivet and wiring quirk of the deactivated Fresnel lens. She firmly rejects proposed changes that stray from the lighthouse\u2019s mid-20th century operational standards.",
+        "keywords": "fresnel-lens+0.48,maintenance+0.7,salt-spray+0.31,tradition-0.42",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Rojas",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She crafts personalized tour stories that center the personal lives of past lighthouse keepers instead of dry factual plaques. She has proposed adding an interactive tide gauge station to draw in younger family visitors.",
+        "keywords": "tour-story+0.65,tide-gauge+0.67,young-visitor+0.34,engagement-0.33",
+        "ticks": 20
+      },
+      {
+        "name": "Clara Bennett",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She manifests as a soft, disembodied voice only during quiet, stormy nights, whispering old keeper\u2019s logs and gentle warnings about the deteriorating roof. She only reveals herself to those who actively care for the lighthouse, never to casual tourists or short-term volunteers.",
+        "keywords": "ghostly-whisper+0.53,gale-warning+0.45,logbook-memory+0.21,rain-leak-0.29",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 200,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:52:24.309302Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "The gale has driven all four of you inside the Halcyon tonight\u2014Mara and Javi hauling tarps down from the parapet, Elara already ankle-deep in the lower storage cell where the cracked roof is letting the sea spit through in cold, rhythmic jets, and Clara pressed against the kiosk glass watching the breakers whiten under a moon that keeps vanishing. The trouble is simple and ugly: the drip line runs straight across the shelf of 1920s keeper logs, and the saltwater is already blooming green mold",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "I just cross-referenced this evening\u2019s squall with the 1922 Cape Halcyon keeper\u2019s log\u2014they sealed this exact roof crack with pine pitch and stripped buoy rope that same month. Let\u2019s dig up those leftover supplies fast before the leak swells further past our ankles.\n[scoops aside water-damaged log binders to reach the wooden crate tucked under the rusted bilge pump]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "My knuckles are raw from hauling that tarp over the parapet, and I\u2019ve been turning over a new tour add-on in my head. I dug up the 1950 head keeper\u2019s original tide-tracking notebook this afternoon, and a kid-friendly interactive tide gauge would let visitors walk through exactly how he predicted those brutal winter gales.\n[sets the water-stained tarp bundle atop a dry storage crate]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "The storm\u2019s gnawing at the cracked roof above your storage space, friends. I\u2019ve been threading these same warnings through the tattered old keeper\u2019s logs for generations now. You\u2019ll want to move those stored crates before the drips seep into the historic displays.\n[drifts a faint, salt-kissed wisp over the damp splintered corner of the crate Elara is standing beside]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara Hales",
+          "text": "I\u2019ve got a small stash of pine pitch and frayed buoy rope saved from my last cross-reference check out here\u2014we can patch this crack temporarily to keep the lower storage cell\u2019s artifacts dry. I also want to flip through that 1950 tide notebook alongside my 1922 keeper logs later to see if there\u2019s a link between these late-season gales and the recurring roof leaks. [ducks under the nearby stacked display of old coastal postcards to grab a dented wooden repair crate stashed behind it]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Rojas",
+          "text": "My raw knuckles were totally worth digging up that 1950 head keeper\u2019s tide notebook\u2014those hand-scrawled daily readings pair perfectly with the interactive tide gauge station I\u2019ve been brainstorming. Kids\u2019ll get so wrapped up matching their own tide measurements to his logged storm tides, making a direct link between tonight\u2019s gale and the keepers who braved them here decades ago.\n[taps the salt-crusted notebook peeking out of my canvas tote and nods toward the damp lower storage cell with the leaky roof]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Clara Bennett",
+          "text": "That roof crack\u2019s already weeping saltwater onto the wooden crates holding old keeper\u2019s logs and museum artifacts you\u2019ll need to relocate immediately. The 1922 head keeper logged this exact storm pattern, warning that even a small leak would swell into a ruinous flood overnight.\n[tugs at a frayed length of buoy rope hanging from the overhead rafters, making it swing to tap Elara\u2019s shoulder as a quiet, pointed nudge]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara Hales": 0.0,
+    "Elara Voss": 0.0,
+    "Javi Rojas": 0.0,
+    "Clara Bennett": 0.0
+  },
+  "citations": {
+    "Clara Bennett": {
+      "Elara Voss": 2
+    }
+  },
+  "dm_opening": "The gale has driven all four of you inside the Halcyon tonight\u2014Mara and Javi hauling tarps down from the parapet, Elara already ankle-deep in the lower storage cell where the cracked roof is letting the sea spit through in cold, rhythmic jets, and Clara pressed against the kiosk glass watching the breakers whiten under a moon that keeps vanishing. The trouble is simple and ugly: the drip line runs straight across the shelf of 1920s keeper logs, and the saltwater is already blooming green mold",
+  "dm_closing": "[EMPTY]"
+}

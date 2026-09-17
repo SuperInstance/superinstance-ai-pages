@@ -1,0 +1,34 @@
+{
+  "title": "The Chime Dilemma of Willowbrook",
+  "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gentle, historically accurate maintenance every Wednesday afternoon. Last Tuesday, a rusted iron gear snapped mid-strike, silencing the chime entirely and splitting the tight-knit community over how to repair it.",
+  "characters": [
+    {
+      "name": "Elias Voss",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Fights to preserve the tower\u2019s original 1903 internal components, refusing to replace vintage parts with modern, cheaper alternatives",
+      "keywords": "clock+0.6 gear+0.5 rust+0.3 legacy+0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Mara Hines",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Pushes for a quick, budget-friendly repair using off-the-shelf parts to get the chime working before the town\u2019s annual harvest festival",
+      "keywords": "wrench+0.6 budget+0.4 efficiency+0.3 clock-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Javi Marquez",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Organizes community rallies to demand the tower\u2019s original chime be restored, framing the sound as the town\u2019s collective heartbeat",
+      "keywords": "chime+0.7 choir+0.5 tradition+0.4 protest+0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Torres",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Documents the tower\u2019s history for her local history fair project, caught between respecting Elias\u2019s expertise and Mara\u2019s practical timeline",
+      "keywords": "notebook+0.5 history+0.4 clock-obsessed+0.3 photo+0.2",
+      "ticks": 20
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "The Maple Street Compost Contamination Dilemma",
+  "setting": "Nestled between the library\u2019s back porch and a row of overgrown tomato plants, Maple Street\u2019s neighborhood compost drop-off consists of three weathered wooden bins tagged with handwritten rules. For 18 months, volunteers Marisol and Jules ran the program without incident, collecting food scraps weekly until a batch of unlabeled dairy waste spoiled nearly 70% of the pile last Tuesday. The resulting foul stench has carried to nearby townhomes, prompting three residents to file formal complaints with the neighborhood association.",
+  "characters": [
+    {
+      "name": "Marisol Espinoza",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Insists on sticking strictly to the initial program guidelines to rebuild trust with local residents after the contamination incident",
+      "keywords": "rule+0.6 trust+0.4 compost-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Jules Torres",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Argues that bending the program rules temporarily to add free contamination testing stations will prevent future waste spoilage",
+      "keywords": "adapt+0.6 contamination+0.4 dropoff-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Clara Hale",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Demands the compost program be shut down entirely unless immediate, permanent changes are made to eliminate the persistent foul stench",
+      "keywords": "complaint+0.5 stench+0.4 shutdown-0.3",
+      "ticks": 20
+    }
+  ]
+}

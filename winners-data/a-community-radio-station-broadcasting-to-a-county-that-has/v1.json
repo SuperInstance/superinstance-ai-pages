@@ -1,0 +1,148 @@
+{
+  "title": "Fading Dials, Hybrid Signals",
+  "scenario": {
+    "title": "Fading Dials, Hybrid Signals",
+    "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fundraising outreach, and community booking. Sustained by a small core crew of 8 active volunteers, the station has operated past its first full decade of service. Over the past decade, its terrestrial listenership has dropped by exactly half, as locals now prioritize online streaming and social media instead of tuning into terrestrial dials.",
+    "characters": [
+      {
+        "name": "Marisol Cruz",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She is the station's lead manager, overseeing all volunteer cells and coordinating grant applications and emergency broadcast schedules. She has spent the past three years leading grant-writing and organizing pledge drives to reverse the station's declining listenership.",
+        "keywords": "grant+0.66,listener+0.54,outreach+0.41,terrestrial+0.3,budget-0.33",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Mae Jenkins",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She hosts the weekly Local Folk Hour, inviting local farmers, poets, and retirees to share their work and stories. She has noticed her core regular listeners are mostly over 65, and struggles to recruit younger volunteers or listeners for her show or the station overall.",
+        "keywords": "folk+0.61,local-guests+0.48,community-stories+0.37,aging-audiences+0.16,youth-0.23",
+        "ticks": 20
+      },
+      {
+        "name": "Jai Reddy",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "He is the station's volunteer data auditor, compiling monthly listenership metrics and quarterly reports for the crew. He tracks both terrestrial radio and online stream numbers, identifying gaps in the station's outreach and audience engagement.",
+        "keywords": "metrics+0.69,listenership+0.58,reports+0.4,stream+0.39,outreach-0.22",
+        "ticks": 20
+      },
+      {
+        "name": "Eddie \"Tink\" Marlow",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He is a retired ham radio operator and volunteer engineering cell member, tinkering with the station's aging broadcast tower and transmitter hardware. He has recently developed a hybrid terrestrial-online broadcast setup that has started drawing a small new cohort of young listeners.",
+        "keywords": "transmitter+0.49,ham-radio+0.53,hybrid+0.49,young-audiences+0.15,signal-0.12",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 100,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:55:35.733020Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marisol Cruz",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Mae Jenkins",
+          "text": "Good evening, KWTL 92.3 listeners. Tonight\u2019s Local Folk Hour wraps up with a rollicking set from that 20-year-old fiddle student everyone\u2019s been talking about from the local folk circuit, but I\u2019ve got a quick ask on air tonight: our station\u2019s got a ton of longtime volunteers, but almost no younger folks stepping up to handle social media or record new local stories, and we need fresh voices to stick around.\n[tucks a stack of hand-printed volunteer flyers into the crook of the studio\u2019s open window screen, where the mountain breeze can carry them down to the sidewalk below]",
+          "shifts": {
+            "folk": 1.22
+          },
+          "shift_total": 1.22,
+          "role": ""
+        },
+        {
+          "name": "Jai Reddy",
+          "text": "I set down the crinkled stack of terrestrial radio signal logs I\u2019d grabbed from the station\u2019s back transmitter shed, then grabbed a sharpened pencil from the cracked ceramic supply mug on the front desk. I need to reconcile the reported 12% dip in morning drive-time listenership with the volunteer host\u2019s notes about last week\u2019s minor equipment glitch.\n[sticks a neon pink sticky note to the top of a mislabeled stream data sheet to flag it for cross-referencing later]",
+          "shifts": {
+            "listenership": 0.58,
+            "stream": 0.39
+          },
+          "shift_total": 0.97,
+          "role": ""
+        },
+        {
+          "name": "Eddie \"Tink\" Marlow",
+          "text": "This hybrid broadcast\u2019s terrestrial signal\u2019s acting wonky again\u2014must be the late-afternoon Appalachian thermal pockets warping the tower feed. I was just tinkering with a noise filter to smooth the static when I heard the station door creak. If you\u2019ve got a spare second, grab me the soldering iron from the dented metal toolbox under the workbench, would ya?\n[leans over the transmitter rack to tug a loose coaxial cable taut before reaching for a torque wrench from his belt loop]",
+          "shifts": {
+            "transmitter": 0.49,
+            "hybrid": 0.49,
+            "signal": -0.12
+          },
+          "shift_total": 0.86,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Marisol Cruz",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Mae Jenkins",
+          "text": "Great eye for that wonky signal, Tink\u2014don\u2019t let it dropout before we play young Lila\u2019s fiddle set, I\u2019ve got a handful of local teen folk club followers tuning in specifically for this. Jai, if you could drop those signal logs by the volunteer sign-up sheet later, I\u2019ve been scrambling to get younger folks to step up for station upkeep shifts.\n[leans over to plug the loose cable for the on-air monitor back into its outlet, then smooths the crumpled handwritten request slips stacked on her console]",
+          "shifts": {
+            "folk": 0.61
+          },
+          "shift_total": 0.61,
+          "role": ""
+        },
+        {
+          "name": "Jai Reddy",
+          "text": "\"The online stream didn\u2019t dip a single point during that thermal-induced signal warble, which is a great note to include in our monthly metrics roundup. I was already sorting through today\u2019s terrestrial signal logs when you mentioned the filter troubles, so I can flag this hybrid stream resilience right away.\" [leans over the scuffed front desk to scribble a quick margin note in his spiral-bound audit binder with the pencil from the cracked ceramic mug]",
+          "shifts": {
+            "metrics": 0.69,
+            "stream": 0.78
+          },
+          "shift_total": 1.47,
+          "role": ""
+        },
+        {
+          "name": "Eddie \"Tink\" Marlow",
+          "text": "Wait, hold on just a tick\u2014this static spike\u2019s exactly from that loose north guy wire clamp I flagged earlier this morning. I\u2019m gonna pop open the transmitter shed side panel and tighten it down quick so we don\u2019t cut off the end of the folk set.\n[grabs a flathead screwdriver and torque wrench from the wall-mounted tool caddy beneath the transmitter rack]",
+          "shifts": {
+            "transmitter": 0.98
+          },
+          "shift_total": 0.98,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marisol Cruz": 0.0,
+    "Lila Mae Jenkins": 1.83,
+    "Jai Reddy": 2.44,
+    "Eddie \"Tink\" Marlow": 1.8399999999999999
+  },
+  "citations": {
+    "Lila Mae Jenkins": {
+      "Jai Reddy": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "[EMPTY]"
+}

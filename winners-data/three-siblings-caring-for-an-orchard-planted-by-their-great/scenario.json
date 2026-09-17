@@ -1,0 +1,34 @@
+{
+  "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+  "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+  "characters": [
+    {
+      "name": "Mara",
+      "llm": "deepinfra:ByteDance/Seed-2.0-code",
+      "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+      "keywords": "archive+0.6 lineage+0.5 blight-surveys+0.4 tradition-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "zai:glm-4.5",
+      "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+      "keywords": "drip-irrigation+0.6 soil-tests+0.5 copper-sprays+0.4 urgency-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+      "keywords": "CSA-shares+0.6 community-events+0.5 pollinator-habitat+0.4 expansion-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Kaelin",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+      "keywords": "volunteer-saplings+0.6 natural-regeneration+0.5 teen-advocacy+0.4 compromise-0.3",
+      "ticks": 20
+    }
+  ]
+}

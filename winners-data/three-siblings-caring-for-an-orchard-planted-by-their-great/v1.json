@@ -1,0 +1,142 @@
+{
+  "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+  "scenario": {
+    "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+    "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+    "characters": [
+      {
+        "name": "Mara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+        "keywords": "archive+0.55,lineage+0.61,blight-surveys+0.39,tradition-0.27",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+        "keywords": "drip-irrigation+0.48,soil-tests+0.41,copper-sprays+0.29,urgency-0.22",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+        "keywords": "csa-shares+0.61,community-events+0.65,pollinator-habitat+0.52,expansion-0.28",
+        "ticks": 20
+      },
+      {
+        "name": "Kaelin",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+        "keywords": "volunteer-saplings+0.53,natural-regeneration+0.4,teen-advocacy+0.48,compromise-0.39",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 100,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:47:45.358198Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I just cross-referenced this week\u2019s microcell survey against Great-Grandma\u2019s original orchard blueprint. This weeping root flare has mild signs of nutrient stress, but the surrounding clover and comfrey guild matches her exact planting notes, so we can\u2019t risk untested foliar sprays or unapproved pruning with those shears that might disrupt the ancestral ecosystem. We should test the adjacent cistern\u2019s water pH first to rule out nutrient uptake issues before we consider any further steps.\n[keeps one palm pressed lightly to the root flare to monitor soil moisture while gesturing toward the cistern row with her other hand]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "\"Three months of trials, and my",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "I hate to be the downer here, but our open volunteer slots for the mason bee nesting box repairs and cistern filter swaps are nearly all gone for the rest of the month. We can\u2019t pour every spare minute into this old apple tree without leaving half the orchard\u2019s microcells unmaintained.\n[folds the crumpled volunteer scheduling sheet in his hands and nods toward the distant row of rain cisterns]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "Lila, put those copper pruners down for a minute\u2014 I\u2019ve been documenting all the orchard\u2019s volunteer saplings, and these fuzzy new shoots at the blighted tree\u2019s base are its natural offspring, not invasive weeds. Let\u2019s skip pruning this spot so they can grow on their own, yeah?\n[kneels at the root flare to brush away a layer of damp leaf litter to better show the cluster of tender saplings]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I already logged both the shrinking volunteer slots and this tree\u2019s natural sapling shoots in my cross-referenced microcell survey notes last night. We should pull the seasonal steward contact list from the shared archive instead of scrambling for impromptu help, and stick strictly to great-grandma\u2019s recorded comfrey tea treatment for the root stress to protect the orchard\u2019s original ancestral lineage.\n[tucks a small clump of the adjacent comfrey around the tree\u2019s root flare before tapping her weathered archival tablet to pull up the historical steward roster]",
+          "shifts": {
+            "archive": 0.55,
+            "lineage": 0.61
+          },
+          "shift_total": 1.16,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "\"Lila\": \"Those 'offspring' are suckering off the same compromised root system, Kaelin\u2014if the mother tree goes, they inherit the blight along with the roots. My trials cut the application rate to a tenth of standard and I've logged zero pollinator kills across three spray",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "I lean in to get a clear look at the fuzzy sapling shoots Kaelin documented, nodding along with the good news. Even with this natural backup for the original tree, we can\u2019t ignore our dwindling volunteer slots for the mason bee repairs and cistern filter swaps \u2014 those tasks keep the whole orchard\u2019s microcells running smoothly.\n[tucks Mara\u2019s loose survey sheet into her arm wrap before grabbing his weathered orchard clipboard to jot a quick reminder]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "\"Wait, hold on, I wasn\u2019t done earlier\u2014these fuzzy new shoots aren\u2019t invasive weeds, they\u2019re the blighted cider tree\u2019s own natural regrowth. I\u2019ve been documenting every volunteer sapling across the microcells for weeks, and letting these grow would let the orchard repopulate on its own without extra, unnecessary work.\"\n[pulls a weatherproof field notebook from their canvas cargo pocket to jot a quick note beside the root flare]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara": 1.16,
+    "Lila": 0.0,
+    "Javi": 0.0,
+    "Kaelin": 0.0
+  },
+  "citations": {
+    "Kaelin": {
+      "Lila": 1
+    },
+    "Lila": {
+      "Kaelin": 1
+    },
+    "Javi": {
+      "Mara": 1,
+      "Kaelin": 1
+    }
+  },
+  "dm_opening": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
+  "dm_closing": "The comfrey is tucked at the root flare and Mara's tablet hums as the historical steward roster finally surfaces\u2014names, tides, and treatment records all in one place, so the group parts with a plan: no impromptu recruits, no off-book sprays, just great-grandma's recorded tea until the root stress is read again. What carries over is the unresolved split over Kaelin"
+}

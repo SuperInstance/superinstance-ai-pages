@@ -1,0 +1,133 @@
+{
+  "title": "Reiger Fly & Tackle\u2019s Crossroads",
+  "scenario": {
+    "title": "Reiger Fly & Tackle\u2019s Crossroads",
+    "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and the front window balances hand-tied steelhead flies beside dented saltwater tackle passed down from the shop\u2019s original owner. The current owner, Marnie Reiger, received an unexpected 40% rent hike last week, forcing her to choose between leaning into the sustainable fly-tying supplies that draw younger eco-conscious anglers or doubling down on the classic saltwater gear that has kept loyal regulars coming for decades.",
+    "characters": [
+      {
+        "name": "Marnie Reiger",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "A third-generation shop owner torn between honoring her family\u2019s 75-year legacy and updating the shop\u2019s inventory to survive a sudden, steep rent hike",
+        "keywords": "tackle+0.6 legacy+0.5 sustainable-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Ernie Reiger",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "A diehard traditionalist who refuses to stock 'fad' fly-tying supplies and insists the shop only sell classic saltwater fishing gear",
+        "keywords": "salt-reel+0.7 legacy+0.6 modern-0.5",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "A local environmental educator and fly fisher who pushes Marnie to stock sustainable fly-tying materials to attract younger, eco-conscious customers and boost the shop\u2019s revenue",
+        "keywords": "fly-tying+0.8 sustainable+0.6 rent-0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Jake Torres",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "A middle-aged commercial fisherman and weekly regular who buys both classic saltwater reels and occasional fly-tying supplies for his teen son, uncertain how the shop\u2019s changes will affect his favorite local spot",
+        "keywords": "reel+0.5 family+0.4 trend-0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:11:02.592885Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marnie Reiger",
+          "text": "This shop\u2019s been perched on this La Push boardwalk for 75 years, longer than the neighboring salt-crusted clam shack even started serving their famous buttery chowder. I can\u2019t just swap out my great-grandpa\u2019s hand-tied salmon flies and vintage cedar tackle chests for mass-produced, cheap imported gear just to cover this sudden steep rent hike.\n[She brushes salt spray off a shelf of hand-carved driftwood lures she\u2019d been testing as a new inventory item before hunching slightly, crumpling the taped-to-the-door rent notice a little more in her calloused fingers.]",
+          "shifts": {
+            "tackle": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        },
+        {
+          "name": "Ernie Reiger",
+          "text": "I don\u2019t stock any of that trendy fad stuff\u2014this shop\u2019s for serious saltwater anglers, not weekend hobbyists chasing viral fishing hacks. A properly tied bucktail jig or spun deer hair dry fly is all you need to hook a chinook or red rockfish, no flimsy plastic nonsense required.\n[Slams a dented metal tin of hand-tied classic salmon flies onto the scuffed Formica counter, glowering at the customer who\u2019d laid out a pack of neon micro-synthetic flies on the register.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Marquez",
+          "text": "I\u2019ve had three twenty-something and teen anglers ask about sustainable fly-tying materials already this shift. Swapping our stock of cheap synthetic furs for foraged local feathers and naturally shed deer mane would draw in that eco-conscious crowd and boost our bottom line without alienating our regulars.\n[I lean across the scuffed, salt-stained wooden counter and tap a glass jar brimming with iridescent, locally harvested abalone shell scraps, which make brilliant, zero-waste bead eyes for hand-tied flies.]",
+          "shifts": {
+            "fly-tying": 0.8,
+            "sustainable": 0.6
+          },
+          "shift_total": 1.4,
+          "role": ""
+        },
+        {
+          "name": "Jake Torres",
+          "text": "Hey, how\u2019s it goin\u2019? I heard you guys revamped your inventory recently, and I was worried I\u2019d lose access to the Shimano big-game reels I\u2019ve used for my commercial cod runs for years. Also, my teen boy\u2019s been begging for premium wool bug bodies for his fly-tying projects, so I wanted to pick those up too.\n[He sets a salt-crusted commercial fishing glove on the scuffed wooden counter, shoving a crumpled, fish-stained note scrawled with his requested items out toward the clerk.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marnie Reiger",
+          "text": "Jake, thank goodness you stopped by\u2014we\u2019re not getting rid of your go-to Shimano big-game reels, not on your or Dad\u2019s watch. We\u2019re just adding a small curated section of sustainable fly-tying supplies to keep up with steady customer demand and cover the sudden rent hike that landed in our mailbox last week.\n[Reaches under the scuffed pine counter and pulls out a dented cardboard box stenciled \"eco supplies\" in fading white paint, its edges crusted with coastal salt from the boardwalk\u2019s sea spray]",
+          "shifts": {
+            "sustainable": -0.3
+          },
+          "shift_total": -0.3,
+          "role": ""
+        },
+        {
+          "name": "Ernie Reiger",
+          "text": "Sustainable fly materials? That\u2019s a marketing gimmick, not serious tackle. I\u2019ve relied on deer hair and bucktail for 40 years, and this shop won\u2019t stock anything that undercuts the classic gear that\u2019s kept saltwater anglers landing trophy fish for generations. You won\u2019t lose your go-to Shimano big-game reels here\u2014we\u2019re not ditching the reliable stuff for flash-in-the-pan trends.\n[He nods toward the wall lined with polished vintage big-game reels, then taps a jar of hand-tied natural bucktail flies bolted to the countertop.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Marquez",
+          "text": "\"Three of those younger, eco-conscious anglers already asked about sustainable fly-tying supplies this shift, folks who care about protecting the coastal waters we love to fish. Shifting just a portion of our stock to ethically sourced, eco-friendly materials would bring in this loyal, growing customer base without alienating our regular serious saltwater crew.\"\n[I gesture to the clear tackle tray I set on the shop\u2019s counter, filled with hand-tied flies made from recycled sinew and naturally shed local deer hair.]",
+          "shifts": {
+            "fly-tying": 0.8,
+            "sustainable": 0.6
+          },
+          "shift_total": 1.4,
+          "role": ""
+        },
+        {
+          "name": "Jake Torres",
+          "text": "Hey, how\u2019s it goin\u2019? I heard you guys revamped your inventory recently, and I was worried I\u2019d lose access to the Shimano big-game reels I\u2019ve used for salmon charters out of Neah Bay for the last decade. Figured I\u2019d swing by to confirm you still carry the heavy-duty models I rely on, though my teen son\u2019s been pestering me to pick up some sustainable fly-tying supplies for his own small freshwater projects lately.\n[reaches into the frayed canvas tackle bag slung over one shoulder to pull out a crumpled list scrawled on a fish cleaning slip, one side scribbled with reel model numbers and the other with fly-tying material notes]",
+          "shifts": {
+            "reel": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marnie Reiger": 0.3,
+    "Ernie Reiger": 0.0,
+    "Lila Marquez": 2.8,
+    "Jake Torres": 0.5
+  },
+  "citations": {
+    "Marnie Reiger": {
+      "Jake Torres": 1
+    }
+  },
+  "dm_opening": "DM opening: the Marnie Reiger takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marnie Reiger still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

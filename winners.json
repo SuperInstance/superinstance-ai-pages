@@ -1,17 +1,66 @@
 {
-  "generated_at": "2026-09-16T17:03:30.181311Z",
-  "n_scenarios": 7,
+  "generated_at": "2026-09-17T02:18:42.921627Z",
+  "n_scenarios": 15,
   "scenarios": [
+    {
+      "slug": "a-30-year-old-community-acupuncture-clinic",
+      "title": "The 30-Year Acupuncture Clinic's Crossroads",
+      "setting": "Tucked between a laundromat and a vintage record shop in a sun-faded Portland industrial neighborhood, the 30-year-old community acupuncture clinic hums with soft guzheng music and the faint scent of mugwort. The waiting room\u2019s frayed knit blankets, chipped ceramic herbal tea mugs, and corkboard cra",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.0,
+          "dm_closing": "DM closing: the Clara Maeve still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Clara Maeve takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-community-clock-tower-maintained-by-a-retired-horolog",
+      "title": "The Chime Dilemma of Willowbrook",
+      "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gen",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.0,
+          "dm_closing": "DM closing: the Elias Voss still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Elias Voss takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-community-observatory-run-by-an-amateur-astronomer-so",
+      "title": "The Dying Lens Observatory Dilemma",
+      "setting": "Perched on a wind-scoured western Vermont hill, the Dying Lens Observatory\u2014run by the local amateur astronomy society\u2014sports a rust-fringed metal dome stuck half-open after a late spring ice storm. The society has just 21 days to raise $7,500 to repair the broken dome winch and replace its cracked 1",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 1.9,
+          "dm_closing": "DM closing: the Marisol Cruz still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Marisol Cruz takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
     {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
       "title": "Fading Dials, Hybrid Signals",
-      "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fun",
+      "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fundraising outreach, and community booking. Sustained by a small core crew of 8 active volunteers, the",
       "n_characters": 4,
       "versions": [
         {
           "label": "v1",
           "total_resonance": 6.11,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -19,6 +68,7 @@
           "label": "v2",
           "total_resonance": 4.08,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -26,6 +76,7 @@
           "label": "v3",
           "total_resonance": 3.99,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         }
@@ -34,13 +85,14 @@
     {
       "slug": "a-lighthouse-converted-to-a-museum-kept-by-a-single-former",
       "title": "The Spire of Forgotten Tides",
-      "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored",
+      "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18",
       "n_characters": 4,
       "versions": [
         {
           "label": "v1",
           "total_resonance": 0.0,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -48,44 +100,96 @@
           "label": "v2",
           "total_resonance": 0.0,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "The gale has driven all four of you inside the Halcyon tonight\u2014Mara and Javi hauling tarps down from the parapet, Elara already ankle-deep in the lower storage cell where the cracked roof is letting the sea spit through in cold, rhythmic jets, and Clara pressed against the kiosk glass watching the breakers whiten under a moon that keeps vanishing. The trouble is simple and ugly: the drip line runs straight across the shelf of 1920s keeper logs, and the saltwater is already blooming green mold",
           "n_turns": 9,
           "n_rounds": 3
         },
         {
           "label": "v3",
           "total_resonance": 0.0,
-          "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery",
+          "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery. Next session: as you climb to",
+          "dm_opening": "The gale has shutters rattling across Cape Halcyon as Mara Hales fights the ticket kiosk's dead radio, Elara Voss stakes tarps on the sea-watch parapet, and Javi Rojas splashes down into the lower storage cell where the cracked roof has let brine creep into the archive boxes of",
           "n_turns": 9,
           "n_rounds": 3
         }
       ]
     },
     {
-      "slug": "a-neighborhood-fraternal-lodge-with-declining-membershi",
-      "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
-      "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub ",
+      "slug": "a-neighborhood-composting-program-run-by-two-volunteers",
+      "title": "The Maple Street Compost Contamination Dilemma",
+      "setting": "Nestled between the library\u2019s back porch and a row of overgrown tomato plants, Maple Street\u2019s neighborhood compost drop-off consists of three weathered wooden bins tagged with handwritten rules. For 18 months, volunteers Marisol and Jules ran the program without incident, collecting food scraps week",
       "n_characters": 3,
       "versions": [
         {
           "label": "v1",
-          "total_resonance": 0.8,
-          "dm_closing": "DM closing: the Marnie Hale still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "total_resonance": 1.0,
+          "dm_closing": "DM closing: the Marisol Espinoza still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Marisol Espinoza takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 6,
           "n_rounds": 2
         }
       ]
     },
     {
-      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
-      "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
-      "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
-      "n_characters": 3,
+      "slug": "a-neighborhood-fraternal-lodge-with-declining-membershi",
+      "title": "The Fading Lantern Lodge Membership Crisis",
+      "setting": "Tucked between a laundromat and a shuttered hardware store in Maplewood\u2019s blue-collar downtown, the Fading Lantern Lodge once drew dozens of locals for weekly bingo nights and pancake breakfasts. Now its front porch only holds a single dented folding chair most days, its windows smudged with grime, ",
+      "n_characters": 4,
       "versions": [
         {
           "label": "v1",
-          "total_resonance": 0.5,
-          "dm_closing": "DM closing: the Steward still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
-          "n_turns": 6,
+          "total_resonance": 0.0,
+          "dm_closing": "DM closing: the Marnie \"Mac\" MacKenzie still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Marnie \"Mac\" MacKenzie takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-small-town-drive-in-theater-run-by-a-second-generatio",
+      "title": "The Willow Creek Drive-In Crossroads",
+      "setting": "Set in the waning days of late summer in Willow Creek, a quiet rural town tucked between endless cornfields. The drive-in\u2019s gravel lot is dotted with a handful of early-arriving cars, their windshield wipers flicking away fine mist, and the concession stand\u2019s neon \u201cPOPCORN\u201d sign sputters intermitten",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 1.1,
+          "dm_closing": "DM closing: the Jessa Mae Carver still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Jessa Mae Carver takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-three-generation-bookbindery-attached-to-a-small-libr",
+      "title": "Hawthorne Bindery's Last Chapter",
+      "setting": "A sun-faded cobblestone alley in coastal Massachusetts, where the red brick Portside Small Library juts into a cramped, oak-lined bookbindery run by the Hawthorne family for 73 years. The bindery\u2019s back shelves are stacked with leather-bound classics and half-finished custom journals, and the air sm",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.1,
+          "dm_closing": "DM closing: the Elias Hawthorne still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Elias Hawthorne takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
+      "title": "Reiger Fly & Tackle\u2019s Crossroads",
+      "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and t",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 3.6,
+          "dm_closing": "DM closing: the Marnie Reiger still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Marnie Reiger takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
           "n_rounds": 2
         }
       ]
@@ -93,13 +197,14 @@
     {
       "slug": "a-typewriter-repair-shop-that-has-just-outlived-its-last-typ",
       "title": "The Last Key Struck",
-      "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold ",
+      "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of",
       "n_characters": 4,
       "versions": [
         {
           "label": "v1",
           "total_resonance": 3.33,
           "dm_closing": "The tide of gratitude settles as Javi's thank-you zines pass from hand to paw, the refurbished Royal's crisp print sealing a debt of repair repaid in full, and Mabel's fountain pen commits the whole visit to the community archives before the ink can dry in the salt air. What carries over: Pip",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -107,13 +212,15 @@
           "label": "v2",
           "total_resonance": 4.82,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         },
         {
           "label": "v3",
           "total_resonance": 3.76,
-          "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and ",
+          "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and the town's official history now includes one mouse-sized accomplice. The hook: Javi's hype at the underground analog meetup means by next week the bell above the door will ring with university students hauling beat-up, clattering machines straight toward Elara's workbench.",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         }
@@ -129,7 +236,40 @@
           "label": "v1",
           "total_resonance": 0.0,
           "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-volunteer-run-mountain-rescue-team-that-just-got-its",
+      "title": "The Red Cliff Drone Dilemma",
+      "setting": "Nestled in southern Utah\u2019s Cedar Mesa backcountry, the all-volunteer Red Cliff Mountain Rescue team just took possession of their first donated drone\u2014a gently used DJI Air 2S\u2014after months of small community fundraisers. For years, the team has relied on foot patrols and satellite messengers to searc",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 7.3,
+          "dm_closing": "DM closing: the Mara Hines still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Mara Hines takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "an-old-movie-theater-converted-to-a-live-performance-ve",
+      "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+      "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popc",
+      "n_characters": 4,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.2,
+          "dm_closing": "DM closing: the Marv Pritchard still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
+          "dm_opening": "DM opening: the Marv Pritchard takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 8,
           "n_rounds": 2
         }
       ]
@@ -137,13 +277,14 @@
     {
       "slug": "three-siblings-caring-for-an-orchard-planted-by-their-great",
       "title": "Elara\u2019s Orchard: Blight and Branching Choices",
-      "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmothe",
+      "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local voluntee",
       "n_characters": 4,
       "versions": [
         {
           "label": "v1",
           "total_resonance": 1.16,
-          "dm_closing": "The comfrey is tucked at the root flare and Mara's tablet hums as the historical steward roster finally surfaces\u2014names, tides, and treatment records all in one place, so the group parts with a plan: no impromptu recruits, no off-book sprays, just great-grandma's recorded tea until the root stress is",
+          "dm_closing": "The comfrey is tucked at the root flare and Mara's tablet hums as the historical steward roster finally surfaces\u2014names, tides, and treatment records all in one place, so the group parts with a plan: no impromptu recruits, no off-book sprays, just great-grandma's recorded tea until the root stress is read again. What carries over is the unresolved split over Kaelin",
+          "dm_opening": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -151,6 +292,7 @@
           "label": "v2",
           "total_resonance": 0.54,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
           "n_turns": 9,
           "n_rounds": 3
         },
@@ -158,6 +300,7 @@
           "label": "v3",
           "total_resonance": 2.06,
           "dm_closing": "[EMPTY]",
+          "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
         }

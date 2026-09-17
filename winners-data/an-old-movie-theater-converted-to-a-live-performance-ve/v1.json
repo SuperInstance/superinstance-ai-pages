@@ -1,0 +1,130 @@
+{
+  "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+  "scenario": {
+    "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+    "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popcorn, its projection booth repurposed as a soundboard station, and a small group of lifelong residents is fighting to restore its vintage art deco marquee and host monthly classic film screenings alongside the indie folk and punk shows booked by the venue\u2019s young manager.",
+    "characters": [
+      {
+        "name": "Marv Pritchard",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He lobbies the city council to block funding for permanent live performance upgrades and organizes monthly classic film screenings in the theater\u2019s side lounge when possible",
+        "keywords": "marquee+0.6 rust+0.4 projection-booth+0.5 classic-film-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Torres",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She books local indie acts three nights a week and campaigns to turn the theater\u2019s original balcony into a VIP seating area for ticketed concertgoers",
+        "keywords": "soundboard+0.5 riser+0.4 craft-cider+0.3 live-music+0.6",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Ruiz",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He helps coordinate hybrid events that pair live music sets with classic film clips to bridge the two sides of the theater\u2019s community debate",
+        "keywords": "mixing-station+0.4 popcorn-stain-0.5 marquee+0.2 live-music+0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Gloria Wade",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She runs a neighborhood newsletter that features both concert listings and classic film event announcements to build unity among the theater\u2019s supporters",
+        "keywords": "newsletter+0.5 marquee+0.3 concession-0.4 classic-film+0.4",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:16:57.937334Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marv Pritchard",
+          "text": "I\u2019ve been showing up to this theater for classic matinees since I was 10, and I can\u2019t believe the city\u2019s even considering funding permanent live performance upgrades that\u2019d gut the kind of quiet, communal film nights we\u2019ve been running out of the side lounge for two years now. This spot\u2019s legacy isn\u2019t stage lights\u2014it\u2019s big screen blockbusters and Saturday cartoons.\n[He adjusts the stack of 16mm film canisters tucked under his arm and smooths a crumpled screening flyer taped crookedly to the concession stand\u2019s side.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Torres",
+          "text": "I just confirmed that local indie shoegaze act Soft Signal will play our first VIP balcony showcase next Friday, once we finish patching the drywall in the upper seating area. We already have 42 pre-sold tickets for the spot, which is double what we thought we\u2019d hit in just three days of spreading the word.\n[kneeling to brush a layer of dust off the weathered brass plaque marking the theater\u2019s original 1972 balcony entrance, tucked behind the concession stand\u2019s stack of unopened popcorn bags]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Ruiz",
+          "text": "Good evening, everyone packed into this beloved chipped red-brick Orion Theater\u2014whether you\u2019re a lifelong regular or here for your first hybrid film-music night! We\u2019re kicking things off with a rare 1972 Saturday matinee cartoon clip before the local folk quartet takes the live stage.\n[I adjust the height of the projection screen hanging above the stage, running a hand to smooth out a tiny crease in the fabric.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Gloria Wade",
+          "text": "Good evening, neighbors popping by the Orion tonight! This month\u2019s community newsletter drops right now, with full listings for our upcoming 1970s retro double features and a roundup of local acts playing the theater\u2019s lobby shows all summer. It\u2019s such a joy to see this old beloved brick spot filled with folks who want to keep its warm spirit alive.\n[Brushing a fleck of chipped red brick dust off a stack of freshly printed newsletters before tucking a handful under the concession stand\u2019s front ledge for passersby to grab]",
+          "shifts": {
+            "newsletter": 0.5,
+            "concession": -0.4
+          },
+          "shift_total": 0.1,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marv Pritchard",
+          "text": "Hold up, let\u2019s get our priorities straight first. We\u2019re here to sort out booking the side lounge for next month\u2019s Saturday matinee of *Paper Moon*, not vote on permanent live performance setups that\u2019ll jack up our monthly overhead for years to come. This theater\u2019s legacy is tied to classic Hollywood films, not random indie band showcases.\n[Grabs a tattered stack of classic film reservation slips from his canvas bag and slaps them down sharply on the chipped concession counter.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Torres",
+          "text": "Good evening, everyone\u2014thanks to the newsletter Gloria just shared, we have official sign-up sheets out by the box office for our first balcony VIP showcase next Friday with Soft Signal. For anyone who\u2019s loved this theater through decades of movies and matinees, this is our chance to save that empty upper level and turn it into a space for intimate live music.\n[I lean up to tap the weathered wooden railing of the half-restored balcony overhead, then hold up a stack of bright magenta event flyers to wave at the front rows of the crowd.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Ruiz",
+          "text": "Whether you\u2019re a lifelong regular or here for your first hybrid film-music night, thank you all for packing into this chipped Orion tonight. I wanted to share that we wrapped the balcony drywall patches earlier this week, so Soft Signal\u2019s shoegaze VIP showcase is officially locked in for next Friday, paired with a restored 1970s sci-fi favorite.\n[Holding up a stack of glossy event fliers while nodding toward Gloria, who was passing out community newsletter sheets by the popcorn machine]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Gloria Wade",
+          "text": "Good evening, neighbors popping by the Orion tonight! This month\u2019s community newsletter drops right now, with full listings for our upcoming 1970s blockbuster retro series, plus all the details for next Friday\u2019s Soft Signal VIP balcony showcase and volunteer sign-ups to help patch the balcony drywall. Drop a suggestion for your favorite classic film to screen next month in the box by the front door too!\n[Holds aloft a stack of glossy black-and-orange newsletters, waving them gently to catch the eye of a group of kids staring up at the vintage Saturday matinee cartoon poster taped to the concession stand wall.]",
+          "shifts": {
+            "newsletter": 0.5,
+            "concession": -0.4
+          },
+          "shift_total": 0.1,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marv Pritchard": 0.0,
+    "Lila Torres": 0.0,
+    "Javi Ruiz": 0.0,
+    "Gloria Wade": 0.2
+  },
+  "citations": {
+    "Lila Torres": {
+      "Gloria Wade": 1
+    },
+    "Javi Ruiz": {
+      "Gloria Wade": 1
+    }
+  },
+  "dm_opening": "DM opening: the Marv Pritchard takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marv Pritchard still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

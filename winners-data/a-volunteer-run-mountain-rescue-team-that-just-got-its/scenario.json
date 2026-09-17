@@ -1,0 +1,27 @@
+{
+  "title": "The Red Cliff Drone Dilemma",
+  "setting": "Nestled in southern Utah\u2019s Cedar Mesa backcountry, the all-volunteer Red Cliff Mountain Rescue team just took possession of their first donated drone\u2014a gently used DJI Air 2S\u2014after months of small community fundraisers. For years, the team has relied on foot patrols and satellite messengers to search for lost campers and fallen climbers, often taking four or more hours to cover expansive, unmarked desert terrain. Local backcountry outfitters and grieving family members of recent lost hikers are now pressuring the team to deploy the drone to cut search times dramatically, splitting the volunteer ranks over how to use the new gear safely.",
+  "characters": [
+    {
+      "name": "Mara Hines",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She fixates on liability waivers and lack of formal certification, arguing the drone must stay grounded until all team members complete approved flight training.",
+      "keywords": "liability+0.6 drone+0.5 training-0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Javi Torres",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He\u2019s a frontline rescue volunteer who wants to use the drone to save lives immediately, dismissing minor operational risks to push for unregulated test flights with the team\u2019s sole part-time trained operator.",
+      "keywords": "drone+0.7 lives+0.5 speed-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Marquez",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She\u2019s the only team member with basic drone flight experience, torn between following Mara\u2019s cautious rules and wanting to prove the drone\u2019s life-saving potential to her fellow volunteers.",
+      "keywords": "drone+0.5 inexperience+0.6 caution-0.2",
+      "ticks": 20
+    }
+  ]
+}

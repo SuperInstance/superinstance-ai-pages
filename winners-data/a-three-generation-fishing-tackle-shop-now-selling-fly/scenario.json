@@ -1,0 +1,34 @@
+{
+  "title": "Reiger Fly & Tackle\u2019s Crossroads",
+  "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and the front window balances hand-tied steelhead flies beside dented saltwater tackle passed down from the shop\u2019s original owner. The current owner, Marnie Reiger, received an unexpected 40% rent hike last week, forcing her to choose between leaning into the sustainable fly-tying supplies that draw younger eco-conscious anglers or doubling down on the classic saltwater gear that has kept loyal regulars coming for decades.",
+  "characters": [
+    {
+      "name": "Marnie Reiger",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "A third-generation shop owner torn between honoring her family\u2019s 75-year legacy and updating the shop\u2019s inventory to survive a sudden, steep rent hike",
+      "keywords": "tackle+0.6 legacy+0.5 sustainable-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Ernie Reiger",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "A diehard traditionalist who refuses to stock 'fad' fly-tying supplies and insists the shop only sell classic saltwater fishing gear",
+      "keywords": "salt-reel+0.7 legacy+0.6 modern-0.5",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Marquez",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "A local environmental educator and fly fisher who pushes Marnie to stock sustainable fly-tying materials to attract younger, eco-conscious customers and boost the shop\u2019s revenue",
+      "keywords": "fly-tying+0.8 sustainable+0.6 rent-0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Jake Torres",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "A middle-aged commercial fisherman and weekly regular who buys both classic saltwater reels and occasional fly-tying supplies for his teen son, uncertain how the shop\u2019s changes will affect his favorite local spot",
+      "keywords": "reel+0.5 family+0.4 trend-0.3",
+      "ticks": 20
+    }
+  ]
+}

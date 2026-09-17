@@ -1,0 +1,129 @@
+{
+  "title": "The Dying Lens Observatory Dilemma",
+  "scenario": {
+    "title": "The Dying Lens Observatory Dilemma",
+    "setting": "Perched on a wind-scoured western Vermont hill, the Dying Lens Observatory\u2014run by the local amateur astronomy society\u2014sports a rust-fringed metal dome stuck half-open after a late spring ice storm. The society has just 21 days to raise $7,500 to repair the broken dome winch and replace its cracked 12-inch primary mirror, or the county will foreclose and auction the property to a luxury cabin developer. A fledgling GoFundMe campaign has only hit 12% of its fundraising goal so far, with little momentum beyond a small group of dedicated hobbyist members.",
+    "characters": [
+      {
+        "name": "Marisol Cruz",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She prioritizes budget spreadsheets, hard donation metrics, and pragmatic cost-cutting over emotional community appeals.",
+        "keywords": "spreadsheets+0.6 donations+0.4 mirror-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Jessa Marlow",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She focuses on heartfelt personal stargazing stories, rallying local volunteers, and delivering impassioned public pitches to boost donations.",
+        "keywords": "speeches+0.6 stargazing+0.4 dome-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Theo Tanner",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He specializes in troubleshooting vintage electromechanical telescope systems, sourcing used astronomy parts, and walking the society through repair step-by-step.",
+        "keywords": "repairs+0.6 telescope+0.4 rust-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Mae Carter",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She organizes neighborhood bake sales, coordinates local business sponsorships, and shares the observatory\u2019s plea across community social media groups.",
+        "keywords": "bakesales+0.6 sponsorships+0.4 observatory+0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:17:55.530487Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marisol Cruz",
+          "text": "I ran the latest donation and expense metrics last night, and our current unrestricted funds only cover about a third of the required repairs to seal the observatory\u2019s wind-damaged siding. We need to pivot from the cutesy community bake sale fundraisers and push for targeted local business grants instead of chasing small, one-off $5 gift donations.\n[She flips shut her water-stained budget binder and taps a crumpled repair quote against the frost-fogged pane of the observatory\u2019s entry window.]",
+          "shifts": {
+            "donations": 0.4
+          },
+          "shift_total": 0.4,
+          "role": ""
+        },
+        {
+          "name": "Jessa Marlow",
+          "text": "This wind-scoured Vermont hill has been our amateur astronomy club\u2019s home for 32 years, but our main telescope\u2019s dying lens can barely cut through the hazy twilight to show anyone the crisp rings of Saturn or the glow of the Orion Nebula. We\u2019re calling on local volunteers to help sand and reseal the casing, and small donations to buy a polishing kit to bring the glass back to life for every local kid and stargazer.\n[tucking a crumpled handwritten star party flyer behind the handle of a dented telescope tripod propped against the observatory\u2019s weathered wooden wall]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Theo Tanner",
+          "text": "Easy there, folks\u2014don\u2019t yank that scope\u2019s fine adjustment knob yet, that west wind\u2019s gunning hard for our observatory pier. I grabbed a stack of weatherstripping and a set of aged nylon pulley belts from a closed western Massachusetts observatory last week, just the thing to shore up this old drive train.\n[I step over a stack of weathered star charts and twist a rusted lock nut on the mount\u2019s altitude adjustment to test its looseness]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Mae Carter",
+          "text": "Neighbors hiking this wind-scoured western Vermont hill, stop by our upcoming bake sale at the Dying Lens Observatory parking lot this Saturday. All proceeds will go to fixing our fogged telescope lenses and patching the peeling dome roof, and I\u2019ve lined up a downtown caf\u00e9 to sponsor free coffee for everyone who stops by, plus I\u2019ll be sharing every update across our town\u2019s community Facebook groups to spread the word far and wide.\n[Kneeling to arrange handwritten price signs for homemade brownies and sugar cookies beside a stack of clear donation jars, while propping a smartphone upright to record a quick Reel for the local community page.]",
+          "shifts": {
+            "observatory": 0.3
+          },
+          "shift_total": 0.3,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marisol Cruz",
+          "text": "I ran the latest donation and expense metrics last night, and our current unrestricted funds only cover about a third of the required repairs to seal the observatory\u2019s exterior cracks and service the telescope lens. That bake sale will chip away at the gap, but we\u2019ll need to follow up with local small business grant applications rather than relying solely on community bake proceeds to hit our full repair target this quarter.\n[She taps a ballpoint pen sharply against the \u201cRepair Fund\u201d line of her dog-eared budget spreadsheet spread across the splintered picnic table beside her.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Jessa Marlow",
+          "text": "I still remember the first time a group of local 4-H kids gasped at Jupiter\u2019s moons through that old scope, and that\u2019s exactly the magic we can\u2019t let this wind and broken lens steal. Every dollar from Saturday\u2019s bake sale will go straight to bracing our pier and sealing that lens housing so we can keep sharing this sky for another 32 years. Come by the lot anytime Saturday to grab a treat, learn more about our repairs, or peek through the scope if the clouds clear.\n[Adjusting the tattered Dying Lens Observatory banner flapping wildly above her, one frayed edge snagged on a nearby pine branch]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Theo Tanner",
+          "text": "That\u2019s exactly why I hauled up a stack of weatherstripping and heavy-duty stakes this morning\u2014we can\u2019t touch that dying lens till we shore up the pier and dome against this brutal Vermont wind first. Every penny from Lila\u2019s bake sale will go straight to those emergency repairs, too. No more yanking any fine adjustment knobs till we\u2019ve got this place secured.\n[I set a coil of galvanized staples and my rubber head mallet down right next to the observatory\u2019s swaying dome slit.]",
+          "shifts": {
+            "repairs": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        },
+        {
+          "name": "Lila Mae Carter",
+          "text": "Neighbors hiking this wind-scoured western Vermont hill, stop by our upcoming bake sale at the Dying Lens Observatory parking lot this Saturday. All proceeds from every scone, spiced cider, and fudge brownie will go straight to repairing our failing telescope lens and securing our wobbly observatory pier against these brutal gusts. Local shop owners who want to sponsor the event can reach out to me through the county community Facebook group to donate goods or funds.\n[Waves a crinkled stack of bake sale flyers to grab the attention of the small group huddled near the telescope\u2019s base before setting a volunteer sign-up sheet on a nearby splintered picnic table.]",
+          "shifts": {
+            "observatory": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marisol Cruz": 0.4,
+    "Jessa Marlow": 0.0,
+    "Theo Tanner": 0.6,
+    "Lila Mae Carter": 0.8999999999999999
+  },
+  "citations": {
+    "Theo Tanner": {
+      "Lila Mae Carter": 1
+    }
+  },
+  "dm_opening": "DM opening: the Marisol Cruz takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marisol Cruz still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

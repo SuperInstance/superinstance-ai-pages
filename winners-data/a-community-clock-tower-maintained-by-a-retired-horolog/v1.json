@@ -1,0 +1,140 @@
+{
+  "title": "The Chime Dilemma of Willowbrook",
+  "scenario": {
+    "title": "The Chime Dilemma of Willowbrook",
+    "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gentle, historically accurate maintenance every Wednesday afternoon. Last Tuesday, a rusted iron gear snapped mid-strike, silencing the chime entirely and splitting the tight-knit community over how to repair it.",
+    "characters": [
+      {
+        "name": "Elias Voss",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Fights to preserve the tower\u2019s original 1903 internal components, refusing to replace vintage parts with modern, cheaper alternatives",
+        "keywords": "clock+0.6 gear+0.5 rust+0.3 legacy+0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Mara Hines",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Pushes for a quick, budget-friendly repair using off-the-shelf parts to get the chime working before the town\u2019s annual harvest festival",
+        "keywords": "wrench+0.6 budget+0.4 efficiency+0.3 clock-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Organizes community rallies to demand the tower\u2019s original chime be restored, framing the sound as the town\u2019s collective heartbeat",
+        "keywords": "chime+0.7 choir+0.5 tradition+0.4 protest+0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Torres",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Documents the tower\u2019s history for her local history fair project, caught between respecting Elias\u2019s expertise and Mara\u2019s practical timeline",
+        "keywords": "notebook+0.5 history+0.4 clock-obsessed+0.3 photo+0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:11:47.218693Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Elias Voss",
+          "text": "I won\u2019t let you replace this tower\u2019s 1903 cast-iron internals with cheap, modern substitutes. These parts have held this clock steady for more than a century, and they don\u2019t need to be swapped out to keep it running reliably.\n[brushing a fine layer of tree pollen and rust from the clock\u2019s lower metal face, his calloused fingers lingering a moment on the cool, weathered iron]",
+          "shifts": {
+            "clock": 1.2,
+            "rust": 0.3
+          },
+          "shift_total": 1.5,
+          "role": ""
+        },
+        {
+          "name": "Mara Hines",
+          "text": "Hurry, grab that universal door chime transformer from the corner hardware store\u2014its voltage matches the old clock\u2019s leftover wiring perfectly. We can rig it up in ten minutes to get the chime blaring before the harvest festival crowds arrive, no fancy custom cast-iron parts required.\n[Slips a flathead screwdriver into the rusted access panel of the clock tower\u2019s base and pries it open with a sharp twist]",
+          "shifts": {
+            "clock": -0.4
+          },
+          "shift_total": -0.4,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Friends, this 118-year-old clock tower wasn\u2019t just built to tell time\u2014it was designed to ring with the heartbeat of our whole Willowbrook. We can\u2019t let the town council swap that rich, familiar, hand-tuned chime for that tinny, generic electronic tone they\u2019ve been testing this past week. Let\u2019s stand together and demand they give back the sound that ties every one of us here.\n[Steps up onto a weathered wooden crate in the square\u2019s center, hoisting a crumpled stack of handwritten petitions above his head to rally the growing crowd]",
+          "shifts": {
+            "chime": 0.7
+          },
+          "shift_total": 0.7,
+          "role": ""
+        },
+        {
+          "name": "Lila Torres",
+          "text": "I\u2019ve been cross-referencing Elias\u2019s handwritten construction logs with the town\u2019s 1905 council minutes for the clock tower exhibit, but Mara says we have to break down the square display in 45 minutes. Can I streamline the context to just the tower\u2019s 1905 unveiling and original funding to stick to the timeline without skipping the key details Elias highlighted?\n[adjusts a crumpled black-and-white photo of the 118-year-old tower taped to a display board, fidgeting with a loose poster tack]",
+          "shifts": {
+            "photo": 0.2
+          },
+          "shift_total": 0.2,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elias Voss",
+          "text": "That matching universal transformer is still a cheap, modern substitute\u2014nothing can replace the hand-forged 1903 internals that\u2019ve kept this tower running for 118 years. You\u2019re not just rewiring a clock; you\u2019re stripping away the very history that binds this town together.\n[He holds up a dented, original cast-iron gear bolt from his tool pouch, turning it in the sunlight to show its worn, hand-polished edges.]",
+          "shifts": {
+            "clock": 0.6,
+            "gear": 0.5
+          },
+          "shift_total": 1.1,
+          "role": ""
+        },
+        {
+          "name": "Mara Hines",
+          "text": "\"Hurry, grab that universal door chime transformer from the corner hardware store\u2014its voltage matches the old clock\u2019s leftover wiring perfectly. We can rig the rest with spare speaker wire from my truck\u2019s toolkit, no fancy pricey parts needed. This will get the tower\u2019s chime blaring in time for the harvest festival parade opening.\"\n[Snags her scuffed canvas tool roll off the nearby oak bench and dashes toward the downtown hardware shop]",
+          "shifts": {
+            "clock": -0.2
+          },
+          "shift_total": -0.2,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "We can\u2019t let that heartbeat fade away for good. This tower\u2019s 1903 chime hasn\u2019t just marked time\u2014it\u2019s been the quiet backdrop to our wedding exits, our kids\u2019 first soccer game wins, every lazy Sunday evening we\u2019ve spent lounging in this square. Let\u2019s stand together right now and collect signatures for our petition to save the original sound of Willowbrook.\n[Kneels to grab a stack of bright pink petition sheets from the base of the nearby oak tree, holding one aloft to catch the afternoon sunlight.]",
+          "shifts": {
+            "chime": 0.7
+          },
+          "shift_total": 0.7,
+          "role": ""
+        },
+        {
+          "name": "Lila Torres",
+          "text": "I get that preserving the tower\u2019s original 1903 internals matters so much, Elias, but we only have 90 minutes until the local history fair setup begins. We can photograph the existing cast-iron parts for the exhibit display instead of rushing to swap out the transformers last minute.\n[tapping her crumpled council minute printout against her hip before gesturing toward the tower\u2019s fenced-off lower viewing platform to encourage both of you to collaborate on documenting the original hardware]",
+          "shifts": {
+            "history": 0.4
+          },
+          "shift_total": 0.4,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elias Voss": 2.6,
+    "Mara Hines": -0.6000000000000001,
+    "Javi Marquez": 1.4,
+    "Lila Torres": 0.6000000000000001
+  },
+  "citations": {
+    "Lila Torres": {
+      "Elias Voss": 3,
+      "Mara Hines": 1
+    }
+  },
+  "dm_opening": "DM opening: the Elias Voss takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Elias Voss still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

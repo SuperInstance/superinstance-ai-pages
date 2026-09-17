@@ -1,0 +1,132 @@
+{
+  "title": "The 30-Year Acupuncture Clinic's Crossroads",
+  "scenario": {
+    "title": "The 30-Year Acupuncture Clinic's Crossroads",
+    "setting": "Tucked between a laundromat and a vintage record shop in a sun-faded Portland industrial neighborhood, the 30-year-old community acupuncture clinic hums with soft guzheng music and the faint scent of mugwort. The waiting room\u2019s frayed knit blankets, chipped ceramic herbal tea mugs, and corkboard crammed with 20 years of handwritten patient thank-you notes feel like a warm, familiar hug. Just last week, the clinic\u2019s founding owner Clara received a formal notice that their landlord is doubling the rent in 60 days, a hike that would make the space unaffordable without either raising prices beyond reach for their low-income regulars or shutting down entirely.",
+    "characters": [
+      {
+        "name": "Clara Maeve",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She\u2019s the clinic\u2019s founding owner, who built the sliding-scale community hub after seeing local residents locked out of traditional healthcare, and now faces the impossible choice between saving her business and keeping care affordable for her neighbors.",
+        "keywords": "rent-notice+0.6 founding-papers+0.5 mugwort-steam+0.4 guilt-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He\u2019s a volunteer acupuncturist and neighborhood activist who organizes block fundraisers, and urges Clara to launch a viral crowdfunding campaign and protest the landlord\u2019s rent hike.",
+        "keywords": "protest-signs+0.6 crowdfunding-page+0.5 community-fliers+0.4 stubbornness-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Marcus Hale",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He\u2019s a pro bono local small business consultant who warns against risky crowdfunding campaigns, and pushes Clara to apply for city grants that come with strict long-term reporting rules.",
+        "keywords": "grant-applications+0.6 ledger-sheets+0.5 landlord-emails+0.4 caution-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Bennett",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She\u2019s a long-time low-income patient with chronic back pain who relies on the clinic\u2019s sliding scale, and brings homemade oatmeal raisin cookies to the clinic\u2019s weekly volunteer potlucks to show her gratitude.",
+        "keywords": "oatmeal-cookies+0.6 wheelchair-cane+0.5 pain-relief+0.4 fear-0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:15:18.825575Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Clara Maeve",
+          "text": "\"I heard you skipped your blood pressure meds last month because you had to cover your kid\u2019s school supplies. Don\u2019t make that choice again\u2014this care is yours, no strings attached.\" [She slides a stack of free reusable menstrual pads across the scuffed front counter, their fabric printed with tiny constellations matching the mural painted on the clinic\u2019s back wall by local teens.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Clara, we can\u2019t just let the landlord hike your rent out of nowhere\u2014this block\u2019s small tenants need to stick together. I already gathered a crew of neighbors for a protest outside his office Saturday, and I set up a crowdfunding page to cover any emergency moving costs you might incur.\n[He plucks a crumpled, hand-drawn protest flyer from his scuffed canvas acupuncture supply bag and slides it across the chain-link ledge between the laundromat and record shop.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marcus Hale",
+          "text": "\"I know that flashy crowdfunding campaign you were eyeing might look like a quick fix, but it\u2019ll saddle you with tons of unplanned deliverables and backer complaints down the line. The city\u2019s small business manufacturing grant has strict quarterly reporting rules, but it also includes free mentorship and funding tailored to local Portland industrial startups like yours.\"\n[taps a crumpled crowdfunding risk checklist against his knuckles before setting it atop a stack of grant application packets on the scuffed folding table between us]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Bennett",
+          "text": "These oatmeal raisin cookies are chewier than usual\u2014 I had to pause mixing the dough twice when my back seized up overnight. I wanted to thank you all again for working with me on the sliding scale last month when I couldn\u2019t cover my full treatment cost.\n[Places a dented floral tin of cookies on the clinic\u2019s front counter, rubbing the small of her sore lower back with one hand while she tilts her head in a warm, tired smile.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Clara Maeve",
+          "text": "\"Oh Lila, these oatmeal raisin cookies are wonderful, but please don\u2019t push through your back pain to bake them for me\u2014this clinic only works because we look out for each other, not just the patients.\" \"Javi and Marcus, I\u2019m so grateful for your offers to help, but I can\u2019t ask you to carry this rent fight or crowdfunding stress alone.\"\n[Squeezes Lila\u2019s flour-dusted wrist gently before tucking a crumpled rent hike notice deeper under the front desk counter]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi Marquez",
+          "text": "Thanks so much for these perfect cookies, Lila\u2014they\u2019re exactly the pick-me-up this small huddle needs right now. I checked in with a local grassroots organizer this morning who\u2019ll help us craft a streamlined crowdfunding campaign so we don\u2019t get saddled with all the unplanned deliverables Marcus flagged.\n[Pulling a stack of bright pink tenant union sign-up sheets from his canvas acupuncture tote and passing them around the group clustered by the record shop\u2019s sidewalk awning]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marcus Hale",
+          "text": "\"I get that crowdfunding seems like a fast way to cover Clara\u2019s rent hike right now, but those campaigns load you down with unplanned deliverables and prying donor demands that\u2019ll only add stress long-term. I brought the paperwork for the city\u2019s small tenant relief grant\u2014there\u2019s strict long-term reporting, but it doesn\u2019t require you to send custom thank-you swag to hundreds of strangers.\" [taps the crumpled grant packet peeking out of his frayed canvas tote before grabbing one of Lila\u2019s oatmeal raisin cookies]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila Bennett",
+          "text": "These have a little extra cinnamon, too, since I figured you all put in so much work for folks like me. I had to sit down on my kitchen floor halfway through mixing because my back locked up bad, but I didn\u2019t want to skip bringing these this week. I hope they taste good enough to make up for the messy, partially paused dough I almost wasted.\n[Sets the scuffed tin of oatmeal raisin cookies on the clinic breakroom counter, then quickly rubs the taut, sore spot at the base of her spine while shifting her weight to one hip.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Clara Maeve": 0.0,
+    "Javi Marquez": 0.0,
+    "Marcus Hale": 0.0,
+    "Lila Bennett": 0.0
+  },
+  "citations": {
+    "Javi Marquez": {
+      "Clara Maeve": 1,
+      "Marcus Hale": 1,
+      "Lila Bennett": 1
+    },
+    "Clara Maeve": {
+      "Javi Marquez": 1,
+      "Marcus Hale": 1,
+      "Lila Bennett": 2
+    },
+    "Marcus Hale": {
+      "Clara Maeve": 1,
+      "Lila Bennett": 1
+    }
+  },
+  "dm_opening": "DM opening: the Clara Maeve takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Clara Maeve still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

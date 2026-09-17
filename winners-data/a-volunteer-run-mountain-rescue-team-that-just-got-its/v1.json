@@ -1,0 +1,115 @@
+{
+  "title": "The Red Cliff Drone Dilemma",
+  "scenario": {
+    "title": "The Red Cliff Drone Dilemma",
+    "setting": "Nestled in southern Utah\u2019s Cedar Mesa backcountry, the all-volunteer Red Cliff Mountain Rescue team just took possession of their first donated drone\u2014a gently used DJI Air 2S\u2014after months of small community fundraisers. For years, the team has relied on foot patrols and satellite messengers to search for lost campers and fallen climbers, often taking four or more hours to cover expansive, unmarked desert terrain. Local backcountry outfitters and grieving family members of recent lost hikers are now pressuring the team to deploy the drone to cut search times dramatically, splitting the volunteer ranks over how to use the new gear safely.",
+    "characters": [
+      {
+        "name": "Mara Hines",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She fixates on liability waivers and lack of formal certification, arguing the drone must stay grounded until all team members complete approved flight training.",
+        "keywords": "liability+0.6 drone+0.5 training-0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Javi Torres",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He\u2019s a frontline rescue volunteer who wants to use the drone to save lives immediately, dismissing minor operational risks to push for unregulated test flights with the team\u2019s sole part-time trained operator.",
+        "keywords": "drone+0.7 lives+0.5 speed-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila Marquez",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She\u2019s the only team member with basic drone flight experience, torn between following Mara\u2019s cautious rules and wanting to prove the drone\u2019s life-saving potential to her fellow volunteers.",
+        "keywords": "drone+0.5 inexperience+0.6 caution-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:14:27.036643Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Mara Hines",
+          "text": "\"Hold up\u2014none of this volunteer rescue team has completed the mandatory FAA-approved drone flight training, and we don\u2019t have the signed liability waivers finalized. Until we cross every T and dot every I on those requirements, this drone stays right where it is.\"\n[She steps forward quickly, latches the newly delivered drone\u2019s hard case shut with a heavy-duty padlock, and hangs the key on her rescue lanyard around her neck to keep it secured.]",
+          "shifts": {
+            "liability": 0.6,
+            "drone": 1.5,
+            "training": -0.4
+          },
+          "shift_total": 1.7,
+          "role": ""
+        },
+        {
+          "name": "Javi Torres",
+          "text": "\"Guys, we don\u2019t have time to dot every i and cross every t on the training checklists right now. There\u2019s a lost backpacker whose emergency beacon went silent 90 minutes ago, and dusk is rolling in fast on Cedar Mesa. Our part-time drone operator has logged more flight time with this exact unit than anyone else on the team, so let\u2019s cut the red tape and launch for a quick test scan right now.\" [Snags the drone controller from the pile of stacked gear, thumb already hovering over the start motor button as he jogs toward the rocky ridgeline for the clearest aerial view.]",
+          "shifts": {
+            "drone": 1.4
+          },
+          "shift_total": 1.4,
+          "role": ""
+        },
+        {
+          "name": "Lila Marquez",
+          "text": "\"Come on, Mara and the rest of the team\u2014this drone can cut our search time in half for this missing hiker. I\u2019ve flown these exact models in stronger gusts than what\u2019s rolling through this mesa right now. Just let me run a quick pre-planned sweep over the west gully?\"\n[She rests one hand lightly on the drone\u2019s propeller guard, gaze flicking quickly between Mara\u2019s stern face and the controller in her other hand.]",
+          "shifts": {
+            "drone": 1.0
+          },
+          "shift_total": 1.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara Hines",
+          "text": "\"Not a single one of this volunteer team has completed the mandatory FAA-approved drone flight training, and we still don\u2019t have all the required signed liability waivers collected. Cutting training corners right now is dangerous and irresponsible, and skipping the waivers could leave all of us on the hook legally if something goes wrong. We\u2019re not launching this drone until every box is checked.\" [Slamming a fist lightly on the roof of the search and rescue 4WD to drive her point home, then snatching the uncompleted waiver stack from the nearby folding table.]",
+          "shifts": {
+            "liability": 0.6,
+            "drone": 1.0,
+            "training": -0.8
+          },
+          "shift_total": 0.8,
+          "role": ""
+        },
+        {
+          "name": "Javi Torres",
+          "text": "\"We can\u2019t pause this search over paperwork and checkbox training! That lost backpacker\u2019s emergency beacon is losing battery power by the minute, and every hour we wait could mean the difference between them being found safe or not. The part-timer\u2019s already familiar with this drone model from their earlier demo flights\u2014they\u2019ve got the skills to get this done right now.\" [Snags the drone\u2019s remote control from a teammate\u2019s outstretched hand and gestures wildly for the part-time operator to meet him at the nearby ridgeline staging spot.]",
+          "shifts": {
+            "drone": 1.4
+          },
+          "shift_total": 1.4,
+          "role": ""
+        },
+        {
+          "name": "Lila Marquez",
+          "text": "I\u2019ve flown these exact models in stronger gusts back when I helped demo them for regional search and rescue groups. This drone can cover twice the treacherous ridgeline terrain in half the time our ground crews could hike it. Please let me run a quick, targeted sweep instead of getting bogged down in red tape right now.\n[Clasps the drone\u2019s flight controller tightly, fingers hovering over the pre-flight calibration switch, and glances quickly between Mara\u2019s stern face and the distant tree line marking the hiker\u2019s last known location.]",
+          "shifts": {
+            "drone": 1.0
+          },
+          "shift_total": 1.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara Hines": 2.5,
+    "Javi Torres": 2.8,
+    "Lila Marquez": 2.0
+  },
+  "citations": {
+    "Lila Marquez": {
+      "Mara Hines": 3
+    }
+  },
+  "dm_opening": "DM opening: the Mara Hines takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Mara Hines still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}

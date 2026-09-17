@@ -1,0 +1,27 @@
+{
+  "title": "A volunteer fire department that has just had its first responder shortage",
+  "setting": "A volunteer fire department that has just had its first responder shortage",
+  "characters": [
+    {
+      "name": "Steward",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Tends the canon of the place.",
+      "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Counter",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Counts what exists. Names by lineage.",
+      "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Apprentice",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Trusts the drift.",
+      "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+      "ticks": 20
+    }
+  ]
+}

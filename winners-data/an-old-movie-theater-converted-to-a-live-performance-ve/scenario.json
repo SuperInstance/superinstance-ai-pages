@@ -1,0 +1,34 @@
+{
+  "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+  "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popcorn, its projection booth repurposed as a soundboard station, and a small group of lifelong residents is fighting to restore its vintage art deco marquee and host monthly classic film screenings alongside the indie folk and punk shows booked by the venue\u2019s young manager.",
+  "characters": [
+    {
+      "name": "Marv Pritchard",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He lobbies the city council to block funding for permanent live performance upgrades and organizes monthly classic film screenings in the theater\u2019s side lounge when possible",
+      "keywords": "marquee+0.6 rust+0.4 projection-booth+0.5 classic-film-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Torres",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She books local indie acts three nights a week and campaigns to turn the theater\u2019s original balcony into a VIP seating area for ticketed concertgoers",
+      "keywords": "soundboard+0.5 riser+0.4 craft-cider+0.3 live-music+0.6",
+      "ticks": 20
+    },
+    {
+      "name": "Javi Ruiz",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He helps coordinate hybrid events that pair live music sets with classic film clips to bridge the two sides of the theater\u2019s community debate",
+      "keywords": "mixing-station+0.4 popcorn-stain-0.5 marquee+0.2 live-music+0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Gloria Wade",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She runs a neighborhood newsletter that features both concert listings and classic film event announcements to build unity among the theater\u2019s supporters",
+      "keywords": "newsletter+0.5 marquee+0.3 concession-0.4 classic-film+0.4",
+      "ticks": 20
+    }
+  ]
+}

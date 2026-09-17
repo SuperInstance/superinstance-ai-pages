@@ -1,0 +1,103 @@
+{
+  "title": "A volunteer fire department that has just had its first responder shortage",
+  "scenario": {
+    "title": "A volunteer fire department that has just had its first responder shortage",
+    "setting": "A volunteer fire department that has just had its first responder shortage",
+    "characters": [
+      {
+        "name": "Steward",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Tends the canon of the place.",
+        "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Counter",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Counts what exists. Names by lineage.",
+        "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Apprentice",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Trusts the drift.",
+        "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-16T17:03:20.691939Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Steward",
+          "text": "I just double-checked the current responder rosters and found we\u2019re short eight trained firefighters and two paramedics for the overnight shift. We can\u2019t ask the small crew that\u2019s left to cover both day and night assignments without risking serious burnout.\n[grabs a stack of neon yellow volunteer sign-up sheets from the front counter and tapes them to the fire engine\u2019s side panel and the station\u2019s front glass door]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Counter",
+          "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I\u2019m asking anyone who can spare a shift or training hour to sign up before we field the next emergency call. I know most of us have been working double shifts for days straight, but we can\u2019t leave our town unprotected for the next structure fire or medical incident.\"\n[Pins a stack of volunteer sign-up sheets to the station\u2019s cork noticeboard, adjusting the frayed fire department flag taped to its edge first.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Apprentice",
+          "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all upcoming shifts. I\u2019ve got stacks of volunteer sign-up sheets set up by the kitchen coffee pot, and we\u2019ll train anyone willing to help with everything from hose work to rehab support on-site absolutely free.\n[Grabs a chipped fire department coffee mug to gesture toward the crumpled sign-up sheets stacked on the nearby counter, a furrowed, urgent brow as he scans the quiet station bay for anyone willing to step up.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Steward",
+          "text": "I already crunched the updated staffing numbers after the apprentice\u2019s update\u2014we\u2019re now short 11 trained firefighters and four paramedics for the overnight shift. I\u2019ve pulled our standby cross-trained volunteer roster, and we have enough on-call responders to fill the gap, but I need to lock in their confirmations right now before the 10 PM handoff deadline.\n[Grabs the wall-mounted CB radio, flips to the volunteer emergency channel, and leans in to press the talk button to broadcast the urgent shift request.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Counter",
+          "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I was just about to ask anyone who can spare a shift or training hour to step forward\u2014until now learning three more of our regular crew bailed right after that last fire? That\u2019s catastrophic. I\u2019m sticking through the entire overnight shift myself, and anyone with even basic fire response training needs to grab a sign-up sheet right now.\n[Slamming a fist against the metal edge of the dispatch desk then snatching a crumpled stack of printed volunteer sign-up forms off the counter and holding the stack out to the small group of remaining firefighters clustered near the station\u2019s fire engine bays.",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Apprentice",
+          "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all overnight and morning patrol shifts. I know most of our regular volunteers have already picked up double shifts this week, but we can\u2019t leave this community uncovered for a single moment. If you have even a few free hours to fill a shift or help orient our new certified cadets, please come forward to sign up now.\n[Grabs a stack of blank shift sign-up sheets from the dispatch counter and pins a few to the station\u2019s main bulletin board for anyone passing by to grab.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Steward": 0.0,
+    "Counter": 0.0,
+    "Apprentice": 0.0
+  },
+  "citations": {
+    "Steward": {
+      "Counter": 1,
+      "Apprentice": 1
+    },
+    "Apprentice": {
+      "Counter": 2
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door."
+}

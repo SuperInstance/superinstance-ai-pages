@@ -1,0 +1,134 @@
+{
+  "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+  "scenario": {
+    "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+    "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+    "characters": [
+      {
+        "name": "Mara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+        "keywords": "archive+0.63,lineage+0.54,blight-surveys+0.45,tradition-0.28",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+        "keywords": "drip-irrigation+0.53,soil-tests+0.33,copper-sprays+0.16,urgency-0.15",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+        "keywords": "csa-shares+0.47,community-events+0.53,pollinator-habitat+0.51,expansion-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Kaelin",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+        "keywords": "volunteer-saplings+0.61,natural-regeneration+0.46,teen-advocacy+0.55,compromise-0.44",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 200,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:48:41.259322Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I\u2019m hunched over my waterproof tablet, cross-referencing Microcell 7\u2019s heirloom apple guild survey against Elara\u2019s handwritten 1997 planting log. The salt fog is glitching my satellite tracker, so I\u2019m manually verifying each bed\u2019s GPS coordinates to make sure I don\u2019t misfile this week\u2019s data against the wrong ancestral planting plan.\n[tucks a crinkled printed microcell survey sheet back into the water-resistant leather binder strapped to her hip]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Between rushing to shore up that ailing heritage apple tree and prepping for tonight\u2019s CSA open house, half our volunteer crew is already tied up elsewhere. I can\u2019t shake the gnawing worry we\u2019re letting too many of the smaller microcell plots\u2014from mason bee box cleanups to cistern top-offs\u2014slip through the cracks right now.\n[drops the stack of open house cookie platters he\u2019s carrying onto a splintered wooden crate, then runs a hand through his sun-bleached hair]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "Look at these delicate new shoots sprouting from the base of that blighted apple tree! We should hold off on removing it entirely and let this natural regeneration take root instead of rushing to plant a store-bought sapling. The tide bells just rang, too\u2014perfect timing to jot this observation down before dusk fades.\n[kneels in the damp clover at the tree\u2019s base, unclipping their frayed ballpoint pen from their tattered field notebook to sketch the tiny new saplings]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I tap the fog-glitched satellite tracker on my waterproof tablet with a sharp sigh, then gesture at the new basal shoots sprouting at the blighted tree\u2019s base. Elara\u2019s 1997 planting log for Microcell 7 strictly bars allowing unvetted regrowth, as it could dilute the direct ancestral lineage of this heirloom apple cultivar. We need to trim these shoots back with our approved organic pruning protocol instead of letting them take root.\n[steps closer to the blighted apple tree to make precise, targeted cuts on the tender new basal shoots]",
+          "shifts": {
+            "lineage": 0.54
+          },
+          "shift_total": 0.54,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Kaelin, those shoots are just sucker growth from the rootstock\u2014they'll never ripen fruit worth saving, and every week we debate is a week the canker spreads deeper into the heartwood. I've spent three months dialing these copper rates down precisely so the spray won't drift into the mason bee boxes, and I can show you the application logs right now if you want proof. If we wait past this fog season, we'll be harvesting deadwood instead of apples come autumn. [pulls her field notebook from her coat pocket and flips it open to the spray schedule, holding it out toward Kaelin]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "That\u2019s a thoughtful call, but we can\u2019t let the rest of the orchard\u2019s microcells fall by the wayside while we focus on this single apple tree. The mason bee nesting boxes in Microcell 2 need a full tidy before dusk, and tonight\u2019s CSA open house attendees will be touring the rain cisterns at Microcell 9, which haven\u2019t been prepped yet. Let\u2019s circle back to this tree\u2019s future once we\u2019ve knocked those priority tasks off our list. [grabs a stack of volunteer checklists and a spray bottle of disinfectant from his nearby tool caddy]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "I swipe to pull up my detailed field notes on this tree\u2019s root sprouts, gesturing toward the tiny green growths at its base. These natural saplings are perfectly adapted to this orchard\u2019s salt fog and coastal soil, so letting them take root makes far more sense than felling the whole mature tree.\n[kneels to brush back a thick mat of dead grass obscuring more of the hidden tender shoots]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara": 0.54,
+    "Lila": 0.0,
+    "Javi": 0.0,
+    "Kaelin": 0.0
+  },
+  "citations": {
+    "Lila": {
+      "Kaelin": 2
+    }
+  },
+  "dm_opening": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
+  "dm_closing": "[EMPTY]"
+}

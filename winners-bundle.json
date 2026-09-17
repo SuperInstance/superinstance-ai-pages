@@ -1,10 +1,526 @@
 {
-  "generated_at": "2026-09-16T17:03:30.181311Z",
+  "generated_at": "2026-09-17T02:18:57.612246Z",
   "scenarios": [
     {
+      "slug": "a-30-year-old-community-acupuncture-clinic",
+      "scenario": {
+        "title": "The 30-Year Acupuncture Clinic's Crossroads",
+        "setting": "Tucked between a laundromat and a vintage record shop in a sun-faded Portland industrial neighborhood, the 30-year-old community acupuncture clinic hums with soft guzheng music and the faint scent of mugwort. The waiting room\u2019s frayed knit blankets, chipped ceramic herbal tea mugs, and corkboard crammed with 20 years of handwritten patient thank-you notes feel like a warm, familiar hug. Just last week, the clinic\u2019s founding owner Clara received a formal notice that their landlord is doubling the rent in 60 days, a hike that would make the space unaffordable without either raising prices beyond reach for their low-income regulars or shutting down entirely.",
+        "characters": [
+          {
+            "name": "Clara Maeve",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She\u2019s the clinic\u2019s founding owner, who built the sliding-scale community hub after seeing local residents locked out of traditional healthcare, and now faces the impossible choice between saving her business and keeping care affordable for her neighbors.",
+            "keywords": "rent-notice+0.6 founding-papers+0.5 mugwort-steam+0.4 guilt-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s a volunteer acupuncturist and neighborhood activist who organizes block fundraisers, and urges Clara to launch a viral crowdfunding campaign and protest the landlord\u2019s rent hike.",
+            "keywords": "protest-signs+0.6 crowdfunding-page+0.5 community-fliers+0.4 stubbornness-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Marcus Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s a pro bono local small business consultant who warns against risky crowdfunding campaigns, and pushes Clara to apply for city grants that come with strict long-term reporting rules.",
+            "keywords": "grant-applications+0.6 ledger-sheets+0.5 landlord-emails+0.4 caution-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Bennett",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She\u2019s a long-time low-income patient with chronic back pain who relies on the clinic\u2019s sliding scale, and brings homemade oatmeal raisin cookies to the clinic\u2019s weekly volunteer potlucks to show her gratitude.",
+            "keywords": "oatmeal-cookies+0.6 wheelchair-cane+0.5 pain-relief+0.4 fear-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The 30-Year Acupuncture Clinic's Crossroads",
+          "scenario": {
+            "title": "The 30-Year Acupuncture Clinic's Crossroads",
+            "setting": "Tucked between a laundromat and a vintage record shop in a sun-faded Portland industrial neighborhood, the 30-year-old community acupuncture clinic hums with soft guzheng music and the faint scent of mugwort. The waiting room\u2019s frayed knit blankets, chipped ceramic herbal tea mugs, and corkboard crammed with 20 years of handwritten patient thank-you notes feel like a warm, familiar hug. Just last week, the clinic\u2019s founding owner Clara received a formal notice that their landlord is doubling the rent in 60 days, a hike that would make the space unaffordable without either raising prices beyond reach for their low-income regulars or shutting down entirely.",
+            "characters": [
+              {
+                "name": "Clara Maeve",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She\u2019s the clinic\u2019s founding owner, who built the sliding-scale community hub after seeing local residents locked out of traditional healthcare, and now faces the impossible choice between saving her business and keeping care affordable for her neighbors.",
+                "keywords": "rent-notice+0.6 founding-papers+0.5 mugwort-steam+0.4 guilt-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s a volunteer acupuncturist and neighborhood activist who organizes block fundraisers, and urges Clara to launch a viral crowdfunding campaign and protest the landlord\u2019s rent hike.",
+                "keywords": "protest-signs+0.6 crowdfunding-page+0.5 community-fliers+0.4 stubbornness-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Marcus Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s a pro bono local small business consultant who warns against risky crowdfunding campaigns, and pushes Clara to apply for city grants that come with strict long-term reporting rules.",
+                "keywords": "grant-applications+0.6 ledger-sheets+0.5 landlord-emails+0.4 caution-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Bennett",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She\u2019s a long-time low-income patient with chronic back pain who relies on the clinic\u2019s sliding scale, and brings homemade oatmeal raisin cookies to the clinic\u2019s weekly volunteer potlucks to show her gratitude.",
+                "keywords": "oatmeal-cookies+0.6 wheelchair-cane+0.5 pain-relief+0.4 fear-0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:15:18.825575Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Clara Maeve",
+                  "text": "\"I heard you skipped your blood pressure meds last month because you had to cover your kid\u2019s school supplies. Don\u2019t make that choice again\u2014this care is yours, no strings attached.\" [She slides a stack of free reusable menstrual pads across the scuffed front counter, their fabric printed with tiny constellations matching the mural painted on the clinic\u2019s back wall by local teens.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Clara, we can\u2019t just let the landlord hike your rent out of nowhere\u2014this block\u2019s small tenants need to stick together. I already gathered a crew of neighbors for a protest outside his office Saturday, and I set up a crowdfunding page to cover any emergency moving costs you might incur.\n[He plucks a crumpled, hand-drawn protest flyer from his scuffed canvas acupuncture supply bag and slides it across the chain-link ledge between the laundromat and record shop.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marcus Hale",
+                  "text": "\"I know that flashy crowdfunding campaign you were eyeing might look like a quick fix, but it\u2019ll saddle you with tons of unplanned deliverables and backer complaints down the line. The city\u2019s small business manufacturing grant has strict quarterly reporting rules, but it also includes free mentorship and funding tailored to local Portland industrial startups like yours.\"\n[taps a crumpled crowdfunding risk checklist against his knuckles before setting it atop a stack of grant application packets on the scuffed folding table between us]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Bennett",
+                  "text": "These oatmeal raisin cookies are chewier than usual\u2014 I had to pause mixing the dough twice when my back seized up overnight. I wanted to thank you all again for working with me on the sliding scale last month when I couldn\u2019t cover my full treatment cost.\n[Places a dented floral tin of cookies on the clinic\u2019s front counter, rubbing the small of her sore lower back with one hand while she tilts her head in a warm, tired smile.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Clara Maeve",
+                  "text": "\"Oh Lila, these oatmeal raisin cookies are wonderful, but please don\u2019t push through your back pain to bake them for me\u2014this clinic only works because we look out for each other, not just the patients.\" \"Javi and Marcus, I\u2019m so grateful for your offers to help, but I can\u2019t ask you to carry this rent fight or crowdfunding stress alone.\"\n[Squeezes Lila\u2019s flour-dusted wrist gently before tucking a crumpled rent hike notice deeper under the front desk counter]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Thanks so much for these perfect cookies, Lila\u2014they\u2019re exactly the pick-me-up this small huddle needs right now. I checked in with a local grassroots organizer this morning who\u2019ll help us craft a streamlined crowdfunding campaign so we don\u2019t get saddled with all the unplanned deliverables Marcus flagged.\n[Pulling a stack of bright pink tenant union sign-up sheets from his canvas acupuncture tote and passing them around the group clustered by the record shop\u2019s sidewalk awning]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marcus Hale",
+                  "text": "\"I get that crowdfunding seems like a fast way to cover Clara\u2019s rent hike right now, but those campaigns load you down with unplanned deliverables and prying donor demands that\u2019ll only add stress long-term. I brought the paperwork for the city\u2019s small tenant relief grant\u2014there\u2019s strict long-term reporting, but it doesn\u2019t require you to send custom thank-you swag to hundreds of strangers.\" [taps the crumpled grant packet peeking out of his frayed canvas tote before grabbing one of Lila\u2019s oatmeal raisin cookies]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Bennett",
+                  "text": "These have a little extra cinnamon, too, since I figured you all put in so much work for folks like me. I had to sit down on my kitchen floor halfway through mixing because my back locked up bad, but I didn\u2019t want to skip bringing these this week. I hope they taste good enough to make up for the messy, partially paused dough I almost wasted.\n[Sets the scuffed tin of oatmeal raisin cookies on the clinic breakroom counter, then quickly rubs the taut, sore spot at the base of her spine while shifting her weight to one hip.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Clara Maeve": 0.0,
+            "Javi Marquez": 0.0,
+            "Marcus Hale": 0.0,
+            "Lila Bennett": 0.0
+          },
+          "citations": {
+            "Javi Marquez": {
+              "Clara Maeve": 1,
+              "Marcus Hale": 1,
+              "Lila Bennett": 1
+            },
+            "Clara Maeve": {
+              "Javi Marquez": 1,
+              "Marcus Hale": 1,
+              "Lila Bennett": 2
+            },
+            "Marcus Hale": {
+              "Clara Maeve": 1,
+              "Lila Bennett": 1
+            }
+          },
+          "dm_opening": "DM opening: the Clara Maeve takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Clara Maeve still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-community-clock-tower-maintained-by-a-retired-horolog",
+      "scenario": {
+        "title": "The Chime Dilemma of Willowbrook",
+        "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gentle, historically accurate maintenance every Wednesday afternoon. Last Tuesday, a rusted iron gear snapped mid-strike, silencing the chime entirely and splitting the tight-knit community over how to repair it.",
+        "characters": [
+          {
+            "name": "Elias Voss",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Fights to preserve the tower\u2019s original 1903 internal components, refusing to replace vintage parts with modern, cheaper alternatives",
+            "keywords": "clock+0.6 gear+0.5 rust+0.3 legacy+0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Mara Hines",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Pushes for a quick, budget-friendly repair using off-the-shelf parts to get the chime working before the town\u2019s annual harvest festival",
+            "keywords": "wrench+0.6 budget+0.4 efficiency+0.3 clock-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Organizes community rallies to demand the tower\u2019s original chime be restored, framing the sound as the town\u2019s collective heartbeat",
+            "keywords": "chime+0.7 choir+0.5 tradition+0.4 protest+0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Documents the tower\u2019s history for her local history fair project, caught between respecting Elias\u2019s expertise and Mara\u2019s practical timeline",
+            "keywords": "notebook+0.5 history+0.4 clock-obsessed+0.3 photo+0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Chime Dilemma of Willowbrook",
+          "scenario": {
+            "title": "The Chime Dilemma of Willowbrook",
+            "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gentle, historically accurate maintenance every Wednesday afternoon. Last Tuesday, a rusted iron gear snapped mid-strike, silencing the chime entirely and splitting the tight-knit community over how to repair it.",
+            "characters": [
+              {
+                "name": "Elias Voss",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Fights to preserve the tower\u2019s original 1903 internal components, refusing to replace vintage parts with modern, cheaper alternatives",
+                "keywords": "clock+0.6 gear+0.5 rust+0.3 legacy+0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Mara Hines",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Pushes for a quick, budget-friendly repair using off-the-shelf parts to get the chime working before the town\u2019s annual harvest festival",
+                "keywords": "wrench+0.6 budget+0.4 efficiency+0.3 clock-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Organizes community rallies to demand the tower\u2019s original chime be restored, framing the sound as the town\u2019s collective heartbeat",
+                "keywords": "chime+0.7 choir+0.5 tradition+0.4 protest+0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Documents the tower\u2019s history for her local history fair project, caught between respecting Elias\u2019s expertise and Mara\u2019s practical timeline",
+                "keywords": "notebook+0.5 history+0.4 clock-obsessed+0.3 photo+0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:11:47.218693Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Elias Voss",
+                  "text": "I won\u2019t let you replace this tower\u2019s 1903 cast-iron internals with cheap, modern substitutes. These parts have held this clock steady for more than a century, and they don\u2019t need to be swapped out to keep it running reliably.\n[brushing a fine layer of tree pollen and rust from the clock\u2019s lower metal face, his calloused fingers lingering a moment on the cool, weathered iron]",
+                  "shifts": {
+                    "clock": 1.2,
+                    "rust": 0.3
+                  },
+                  "shift_total": 1.5,
+                  "role": ""
+                },
+                {
+                  "name": "Mara Hines",
+                  "text": "Hurry, grab that universal door chime transformer from the corner hardware store\u2014its voltage matches the old clock\u2019s leftover wiring perfectly. We can rig it up in ten minutes to get the chime blaring before the harvest festival crowds arrive, no fancy custom cast-iron parts required.\n[Slips a flathead screwdriver into the rusted access panel of the clock tower\u2019s base and pries it open with a sharp twist]",
+                  "shifts": {
+                    "clock": -0.4
+                  },
+                  "shift_total": -0.4,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "Friends, this 118-year-old clock tower wasn\u2019t just built to tell time\u2014it was designed to ring with the heartbeat of our whole Willowbrook. We can\u2019t let the town council swap that rich, familiar, hand-tuned chime for that tinny, generic electronic tone they\u2019ve been testing this past week. Let\u2019s stand together and demand they give back the sound that ties every one of us here.\n[Steps up onto a weathered wooden crate in the square\u2019s center, hoisting a crumpled stack of handwritten petitions above his head to rally the growing crowd]",
+                  "shifts": {
+                    "chime": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Torres",
+                  "text": "I\u2019ve been cross-referencing Elias\u2019s handwritten construction logs with the town\u2019s 1905 council minutes for the clock tower exhibit, but Mara says we have to break down the square display in 45 minutes. Can I streamline the context to just the tower\u2019s 1905 unveiling and original funding to stick to the timeline without skipping the key details Elias highlighted?\n[adjusts a crumpled black-and-white photo of the 118-year-old tower taped to a display board, fidgeting with a loose poster tack]",
+                  "shifts": {
+                    "photo": 0.2
+                  },
+                  "shift_total": 0.2,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elias Voss",
+                  "text": "That matching universal transformer is still a cheap, modern substitute\u2014nothing can replace the hand-forged 1903 internals that\u2019ve kept this tower running for 118 years. You\u2019re not just rewiring a clock; you\u2019re stripping away the very history that binds this town together.\n[He holds up a dented, original cast-iron gear bolt from his tool pouch, turning it in the sunlight to show its worn, hand-polished edges.]",
+                  "shifts": {
+                    "clock": 0.6,
+                    "gear": 0.5
+                  },
+                  "shift_total": 1.1,
+                  "role": ""
+                },
+                {
+                  "name": "Mara Hines",
+                  "text": "\"Hurry, grab that universal door chime transformer from the corner hardware store\u2014its voltage matches the old clock\u2019s leftover wiring perfectly. We can rig the rest with spare speaker wire from my truck\u2019s toolkit, no fancy pricey parts needed. This will get the tower\u2019s chime blaring in time for the harvest festival parade opening.\"\n[Snags her scuffed canvas tool roll off the nearby oak bench and dashes toward the downtown hardware shop]",
+                  "shifts": {
+                    "clock": -0.2
+                  },
+                  "shift_total": -0.2,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Marquez",
+                  "text": "We can\u2019t let that heartbeat fade away for good. This tower\u2019s 1903 chime hasn\u2019t just marked time\u2014it\u2019s been the quiet backdrop to our wedding exits, our kids\u2019 first soccer game wins, every lazy Sunday evening we\u2019ve spent lounging in this square. Let\u2019s stand together right now and collect signatures for our petition to save the original sound of Willowbrook.\n[Kneels to grab a stack of bright pink petition sheets from the base of the nearby oak tree, holding one aloft to catch the afternoon sunlight.]",
+                  "shifts": {
+                    "chime": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Torres",
+                  "text": "I get that preserving the tower\u2019s original 1903 internals matters so much, Elias, but we only have 90 minutes until the local history fair setup begins. We can photograph the existing cast-iron parts for the exhibit display instead of rushing to swap out the transformers last minute.\n[tapping her crumpled council minute printout against her hip before gesturing toward the tower\u2019s fenced-off lower viewing platform to encourage both of you to collaborate on documenting the original hardware]",
+                  "shifts": {
+                    "history": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elias Voss": 2.6,
+            "Mara Hines": -0.6000000000000001,
+            "Javi Marquez": 1.4,
+            "Lila Torres": 0.6000000000000001
+          },
+          "citations": {
+            "Lila Torres": {
+              "Elias Voss": 3,
+              "Mara Hines": 1
+            }
+          },
+          "dm_opening": "DM opening: the Elias Voss takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Elias Voss still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-community-observatory-run-by-an-amateur-astronomer-so",
+      "scenario": {
+        "title": "The Dying Lens Observatory Dilemma",
+        "setting": "Perched on a wind-scoured western Vermont hill, the Dying Lens Observatory\u2014run by the local amateur astronomy society\u2014sports a rust-fringed metal dome stuck half-open after a late spring ice storm. The society has just 21 days to raise $7,500 to repair the broken dome winch and replace its cracked 12-inch primary mirror, or the county will foreclose and auction the property to a luxury cabin developer. A fledgling GoFundMe campaign has only hit 12% of its fundraising goal so far, with little momentum beyond a small group of dedicated hobbyist members.",
+        "characters": [
+          {
+            "name": "Marisol Cruz",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She prioritizes budget spreadsheets, hard donation metrics, and pragmatic cost-cutting over emotional community appeals.",
+            "keywords": "spreadsheets+0.6 donations+0.4 mirror-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Jessa Marlow",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She focuses on heartfelt personal stargazing stories, rallying local volunteers, and delivering impassioned public pitches to boost donations.",
+            "keywords": "speeches+0.6 stargazing+0.4 dome-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Theo Tanner",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He specializes in troubleshooting vintage electromechanical telescope systems, sourcing used astronomy parts, and walking the society through repair step-by-step.",
+            "keywords": "repairs+0.6 telescope+0.4 rust-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Mae Carter",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She organizes neighborhood bake sales, coordinates local business sponsorships, and shares the observatory\u2019s plea across community social media groups.",
+            "keywords": "bakesales+0.6 sponsorships+0.4 observatory+0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Dying Lens Observatory Dilemma",
+          "scenario": {
+            "title": "The Dying Lens Observatory Dilemma",
+            "setting": "Perched on a wind-scoured western Vermont hill, the Dying Lens Observatory\u2014run by the local amateur astronomy society\u2014sports a rust-fringed metal dome stuck half-open after a late spring ice storm. The society has just 21 days to raise $7,500 to repair the broken dome winch and replace its cracked 12-inch primary mirror, or the county will foreclose and auction the property to a luxury cabin developer. A fledgling GoFundMe campaign has only hit 12% of its fundraising goal so far, with little momentum beyond a small group of dedicated hobbyist members.",
+            "characters": [
+              {
+                "name": "Marisol Cruz",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She prioritizes budget spreadsheets, hard donation metrics, and pragmatic cost-cutting over emotional community appeals.",
+                "keywords": "spreadsheets+0.6 donations+0.4 mirror-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Jessa Marlow",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She focuses on heartfelt personal stargazing stories, rallying local volunteers, and delivering impassioned public pitches to boost donations.",
+                "keywords": "speeches+0.6 stargazing+0.4 dome-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Theo Tanner",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He specializes in troubleshooting vintage electromechanical telescope systems, sourcing used astronomy parts, and walking the society through repair step-by-step.",
+                "keywords": "repairs+0.6 telescope+0.4 rust-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Mae Carter",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She organizes neighborhood bake sales, coordinates local business sponsorships, and shares the observatory\u2019s plea across community social media groups.",
+                "keywords": "bakesales+0.6 sponsorships+0.4 observatory+0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:17:55.530487Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marisol Cruz",
+                  "text": "I ran the latest donation and expense metrics last night, and our current unrestricted funds only cover about a third of the required repairs to seal the observatory\u2019s wind-damaged siding. We need to pivot from the cutesy community bake sale fundraisers and push for targeted local business grants instead of chasing small, one-off $5 gift donations.\n[She flips shut her water-stained budget binder and taps a crumpled repair quote against the frost-fogged pane of the observatory\u2019s entry window.]",
+                  "shifts": {
+                    "donations": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                },
+                {
+                  "name": "Jessa Marlow",
+                  "text": "This wind-scoured Vermont hill has been our amateur astronomy club\u2019s home for 32 years, but our main telescope\u2019s dying lens can barely cut through the hazy twilight to show anyone the crisp rings of Saturn or the glow of the Orion Nebula. We\u2019re calling on local volunteers to help sand and reseal the casing, and small donations to buy a polishing kit to bring the glass back to life for every local kid and stargazer.\n[tucking a crumpled handwritten star party flyer behind the handle of a dented telescope tripod propped against the observatory\u2019s weathered wooden wall]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Theo Tanner",
+                  "text": "Easy there, folks\u2014don\u2019t yank that scope\u2019s fine adjustment knob yet, that west wind\u2019s gunning hard for our observatory pier. I grabbed a stack of weatherstripping and a set of aged nylon pulley belts from a closed western Massachusetts observatory last week, just the thing to shore up this old drive train.\n[I step over a stack of weathered star charts and twist a rusted lock nut on the mount\u2019s altitude adjustment to test its looseness]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Mae Carter",
+                  "text": "Neighbors hiking this wind-scoured western Vermont hill, stop by our upcoming bake sale at the Dying Lens Observatory parking lot this Saturday. All proceeds will go to fixing our fogged telescope lenses and patching the peeling dome roof, and I\u2019ve lined up a downtown caf\u00e9 to sponsor free coffee for everyone who stops by, plus I\u2019ll be sharing every update across our town\u2019s community Facebook groups to spread the word far and wide.\n[Kneeling to arrange handwritten price signs for homemade brownies and sugar cookies beside a stack of clear donation jars, while propping a smartphone upright to record a quick Reel for the local community page.]",
+                  "shifts": {
+                    "observatory": 0.3
+                  },
+                  "shift_total": 0.3,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marisol Cruz",
+                  "text": "I ran the latest donation and expense metrics last night, and our current unrestricted funds only cover about a third of the required repairs to seal the observatory\u2019s exterior cracks and service the telescope lens. That bake sale will chip away at the gap, but we\u2019ll need to follow up with local small business grant applications rather than relying solely on community bake proceeds to hit our full repair target this quarter.\n[She taps a ballpoint pen sharply against the \u201cRepair Fund\u201d line of her dog-eared budget spreadsheet spread across the splintered picnic table beside her.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jessa Marlow",
+                  "text": "I still remember the first time a group of local 4-H kids gasped at Jupiter\u2019s moons through that old scope, and that\u2019s exactly the magic we can\u2019t let this wind and broken lens steal. Every dollar from Saturday\u2019s bake sale will go straight to bracing our pier and sealing that lens housing so we can keep sharing this sky for another 32 years. Come by the lot anytime Saturday to grab a treat, learn more about our repairs, or peek through the scope if the clouds clear.\n[Adjusting the tattered Dying Lens Observatory banner flapping wildly above her, one frayed edge snagged on a nearby pine branch]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Theo Tanner",
+                  "text": "That\u2019s exactly why I hauled up a stack of weatherstripping and heavy-duty stakes this morning\u2014we can\u2019t touch that dying lens till we shore up the pier and dome against this brutal Vermont wind first. Every penny from Lila\u2019s bake sale will go straight to those emergency repairs, too. No more yanking any fine adjustment knobs till we\u2019ve got this place secured.\n[I set a coil of galvanized staples and my rubber head mallet down right next to the observatory\u2019s swaying dome slit.]",
+                  "shifts": {
+                    "repairs": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Mae Carter",
+                  "text": "Neighbors hiking this wind-scoured western Vermont hill, stop by our upcoming bake sale at the Dying Lens Observatory parking lot this Saturday. All proceeds from every scone, spiced cider, and fudge brownie will go straight to repairing our failing telescope lens and securing our wobbly observatory pier against these brutal gusts. Local shop owners who want to sponsor the event can reach out to me through the county community Facebook group to donate goods or funds.\n[Waves a crinkled stack of bake sale flyers to grab the attention of the small group huddled near the telescope\u2019s base before setting a volunteer sign-up sheet on a nearby splintered picnic table.]",
+                  "shifts": {
+                    "observatory": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marisol Cruz": 0.4,
+            "Jessa Marlow": 0.0,
+            "Theo Tanner": 0.6,
+            "Lila Mae Carter": 0.8999999999999999
+          },
+          "citations": {
+            "Theo Tanner": {
+              "Lila Mae Carter": 1
+            }
+          },
+          "dm_opening": "DM opening: the Marisol Cruz takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marisol Cruz still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
       "slug": "a-community-radio-station-broadcasting-to-a-county-that-has",
-      "title": "Fading Dials, Hybrid Signals",
-      "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fundraising outreach, and community booking. Sustained by a small core crew of 8 active volunteers, the station has operated past its first full decade of service. Over the past decade, its terrestrial listenership has dropped by exactly half, as locals now prioritize online streaming and social media instead of tuning into terrestrial dials.",
       "scenario": {
         "title": "Fading Dials, Hybrid Signals",
         "setting": "KWTL-92.3 Community Radio occupies a converted 1980s fire station annex in the western Appalachian foothills. It operates as a network of volunteer cells: on-air rotation, engineering maintenance, fundraising outreach, and community booking. Sustained by a small core crew of 8 active volunteers, the station has operated past its first full decade of service. Over the past decade, its terrestrial listenership has dropped by exactly half, as locals now prioritize online streaming and social media instead of tuning into terrestrial dials.",
@@ -39,8 +555,8 @@
           }
         ]
       },
-      "versions": [
-        {
+      "versions": {
+        "v1": {
           "title": "Fading Dials, Hybrid Signals",
           "scenario": {
             "title": "Fading Dials, Hybrid Signals",
@@ -188,7 +704,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v2": {
           "title": "Fading Dials, Hybrid Signals",
           "scenario": {
             "title": "Fading Dials, Hybrid Signals",
@@ -328,7 +844,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v3": {
           "title": "Fading Dials, Hybrid Signals",
           "scenario": {
             "title": "Fading Dials, Hybrid Signals",
@@ -475,12 +991,10 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         }
-      ]
+      }
     },
     {
       "slug": "a-lighthouse-converted-to-a-museum-kept-by-a-single-former",
-      "title": "The Spire of Forgotten Tides",
-      "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
       "scenario": {
         "title": "The Spire of Forgotten Tides",
         "setting": "The decommissioned Cape Halcyon Lighthouse has been converted to a coastal history museum, operating as a network of interconnected cells: the curved Fresnel lens gallery, small ticket kiosk, restored keeper\u2019s quarters, and sea-watch parapet. A tight-knit crew of three has maintained the site for 18 months, hosting school tours and sunset gatherings while preserving the deactivated 1922 Fresnel lens. Winter\u2019s first persistent gales have cracked the lower storage cell\u2019s roof, letting seawater seep into archive boxes of vintage lighthouse keeper logs.",
@@ -515,8 +1029,8 @@
           }
         ]
       },
-      "versions": [
-        {
+      "versions": {
+        "v1": {
           "title": "The Spire of Forgotten Tides",
           "scenario": {
             "title": "The Spire of Forgotten Tides",
@@ -649,7 +1163,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v2": {
           "title": "The Spire of Forgotten Tides",
           "scenario": {
             "title": "The Spire of Forgotten Tides",
@@ -781,7 +1295,7 @@
           "dm_opening": "The gale has driven all four of you inside the Halcyon tonight\u2014Mara and Javi hauling tarps down from the parapet, Elara already ankle-deep in the lower storage cell where the cracked roof is letting the sea spit through in cold, rhythmic jets, and Clara pressed against the kiosk glass watching the breakers whiten under a moon that keeps vanishing. The trouble is simple and ugly: the drip line runs straight across the shelf of 1920s keeper logs, and the saltwater is already blooming green mold",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v3": {
           "title": "The Spire of Forgotten Tides",
           "scenario": {
             "title": "The Spire of Forgotten Tides",
@@ -925,100 +1439,254 @@
           "dm_opening": "The gale has shutters rattling across Cape Halcyon as Mara Hales fights the ticket kiosk's dead radio, Elara Voss stakes tarps on the sea-watch parapet, and Javi Rojas splashes down into the lower storage cell where the cracked roof has let brine creep into the archive boxes of",
           "dm_closing": "The tarp holds, the tide log is saved beneath the bracket, and old Clara Mae Carter's whisper has confirmed what Javi suspected: the keeper's ghost means to help, not haunt. But her warning about the rotted west parapet joists goes unshored, and the rain is already coming sideways across the gallery. Next session: as you climb to"
         }
-      ]
+      }
+    },
+    {
+      "slug": "a-neighborhood-composting-program-run-by-two-volunteers",
+      "scenario": {
+        "title": "The Maple Street Compost Contamination Dilemma",
+        "setting": "Nestled between the library\u2019s back porch and a row of overgrown tomato plants, Maple Street\u2019s neighborhood compost drop-off consists of three weathered wooden bins tagged with handwritten rules. For 18 months, volunteers Marisol and Jules ran the program without incident, collecting food scraps weekly until a batch of unlabeled dairy waste spoiled nearly 70% of the pile last Tuesday. The resulting foul stench has carried to nearby townhomes, prompting three residents to file formal complaints with the neighborhood association.",
+        "characters": [
+          {
+            "name": "Marisol Espinoza",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Insists on sticking strictly to the initial program guidelines to rebuild trust with local residents after the contamination incident",
+            "keywords": "rule+0.6 trust+0.4 compost-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Jules Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Argues that bending the program rules temporarily to add free contamination testing stations will prevent future waste spoilage",
+            "keywords": "adapt+0.6 contamination+0.4 dropoff-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Clara Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Demands the compost program be shut down entirely unless immediate, permanent changes are made to eliminate the persistent foul stench",
+            "keywords": "complaint+0.5 stench+0.4 shutdown-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Maple Street Compost Contamination Dilemma",
+          "scenario": {
+            "title": "The Maple Street Compost Contamination Dilemma",
+            "setting": "Nestled between the library\u2019s back porch and a row of overgrown tomato plants, Maple Street\u2019s neighborhood compost drop-off consists of three weathered wooden bins tagged with handwritten rules. For 18 months, volunteers Marisol and Jules ran the program without incident, collecting food scraps weekly until a batch of unlabeled dairy waste spoiled nearly 70% of the pile last Tuesday. The resulting foul stench has carried to nearby townhomes, prompting three residents to file formal complaints with the neighborhood association.",
+            "characters": [
+              {
+                "name": "Marisol Espinoza",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Insists on sticking strictly to the initial program guidelines to rebuild trust with local residents after the contamination incident",
+                "keywords": "rule+0.6 trust+0.4 compost-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Jules Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Argues that bending the program rules temporarily to add free contamination testing stations will prevent future waste spoilage",
+                "keywords": "adapt+0.6 contamination+0.4 dropoff-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Clara Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Demands the compost program be shut down entirely unless immediate, permanent changes are made to eliminate the persistent foul stench",
+                "keywords": "complaint+0.5 stench+0.4 shutdown-0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:16:01.076302Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marisol Espinoza",
+                  "text": "Good afternoon, neighbors stopping by the compost drop today. I wanted to share that all local compost materials collected and accepted here have passed recent contamination tests, so you can safely leave your kitchen scraps without any worry. I\u2019ve also restocked the free, sanitized collection bins for anyone who needs a clean way to transport their scraps.\n[Kneeling to stack the labeled, clear compost bins neatly on the wooden drop-off platform, brushing a strand of overgrown tomato vine off the handwritten sign posted to the library porch rail]",
+                  "shifts": {
+                    "compost": -0.9
+                  },
+                  "shift_total": -0.9,
+                  "role": ""
+                },
+                {
+                  "name": "Jules Torres",
+                  "text": "\"Folks, the last two compost drop-off batches had hidden dairy and meat scraps that turned half the neighborhood pile rank and left us without usable garden soil all spring. We can\u2019t wait for the full council vote to add permanent contamination testing stations\u2014temporarily bending the rules to put up these free, temporary testing stations right here will stop spoiled waste from ruining the pile before it\u2019s too late.\"\n[Grabs a stack of hand-lettered \"Test Scraps Here\" signs from their canvas tote and prods one against a thick wooden stake holding up the overgrown tomato plants]",
+                  "shifts": {
+                    "contamination": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                },
+                {
+                  "name": "Clara Hale",
+                  "text": "That unrelenting, putrid stench from the neighborhood compost program has drifted all the way over here between the library\u2019s back porch and overgrown tomato plants, and it\u2019s making it impossible to enjoy being outside right now. This can\u2019t keep going on without immediate, permanent fixes to fully eliminate that foul smell\u2014otherwise, I\u2019m leading the push to shut the entire compost drop-off program down permanently.\n[Grabs a crumpled stack of signed neighborhood complaint forms and slams them hard against the side of the compost bin]",
+                  "shifts": {
+                    "complaint": 0.5,
+                    "stench": 0.4
+                  },
+                  "shift_total": 0.9,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marisol Espinoza",
+                  "text": "I am deeply sorry for the putrid stench that\u2019s drifted through this neighborhood from the contaminated compost piles\u2014this was a mistake on my part for not enforcing clear drop-off rules strictly enough. We\u2019ve now set up clearly marked, dedicated bins only for plant-based scraps and posted large signs right by the porch so everyone knows what\u2019s allowed. I\u2019m here to answer any questions or help you sort your materials correctly today.\n[kneels to adjust a crinkled bright green \u201cNO ANIMAL PRODUCTS\u201d sign hanging above the new compost bins, while passing a printed quick-reference sheet to a nearby resident glancing at the posted rules]",
+                  "shifts": {
+                    "compost": -0.6
+                  },
+                  "shift_total": -0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Jules Torres",
+                  "text": "\"Look, we can\u2019t keep ignoring the hidden contaminated scraps ruining our compost pile\u2014this stench isn\u2019t just unpleasant, it\u2019s wasting the nutrient-rich soil we all rely on for our gardens. We need to temporarily bend the program\u2019s strict rules to set up free on-site contamination testing stations right here at the drop-off, so neighbors can check their scraps without extra cost or hassle, and stop this spoilage before it gets worse.\"\n[Kneels down, pulls a stack of handwritten test station signs from their work bag, and tapes one to the side of the library\u2019s back porch railing to alert passersby.]",
+                  "shifts": {
+                    "contamination": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                },
+                {
+                  "name": "Clara Hale",
+                  "text": "That unrelenting, putrid stench from the neighborhood compost program has drifted all the way over here between the library\u2019s back porch and overgrown tomato plants, seeping into the peaceful afternoon air I was enjoying while walking home from the library. Either you make immediate, permanent changes to eliminate this foul stench entirely, or shut the entire compost program down right now. I won\u2019t tolerate this rank odor ruining our neighborhood\u2019s quiet spaces.\n[Clutching her frayed canvas library bag tight while swatting at the air repeatedly in front of her nose to dodge the acrid smell]",
+                  "shifts": {
+                    "stench": 0.8
+                  },
+                  "shift_total": 0.8,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marisol Espinoza": -1.5,
+            "Jules Torres": 0.8,
+            "Clara Hale": 1.7000000000000002
+          },
+          "citations": {},
+          "dm_opening": "DM opening: the Marisol Espinoza takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marisol Espinoza still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
     },
     {
       "slug": "a-neighborhood-fraternal-lodge-with-declining-membershi",
-      "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
-      "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
       "scenario": {
-        "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
-        "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
+        "title": "The Fading Lantern Lodge Membership Crisis",
+        "setting": "Tucked between a laundromat and a shuttered hardware store in Maplewood\u2019s blue-collar downtown, the Fading Lantern Lodge once drew dozens of locals for weekly bingo nights and pancake breakfasts. Now its front porch only holds a single dented folding chair most days, its windows smudged with grime, and the latest membership drive netted just two new signees in three months. The only regular visitors are a handful of octogenarian members and the occasional teenager stealing shade from the summer sun.",
         "characters": [
           {
-            "name": "Marnie Hale",
+            "name": "Marnie \"Mac\" MacKenzie",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Only prioritizes the lodge\u2019s monthly dues revenue and operational audits, refusing to dip into long-held maintenance reserves unless membership numbers jump by 30% or more",
-            "keywords": "ledger+0.6 audit+0.3 dues-0.4",
+            "tendencies": "She rigidly prioritizes formal lodge bylaws and membership metrics, dismissing casual outreach ideas as 'unsanctioned and a waste of limited funds'",
+            "keywords": "ledger+0.6 lodge-by-laws+0.5 chipped-mug+0.3",
             "ticks": 20
           },
           {
-            "name": "Clay Torres",
+            "name": "Jazmine \"Jax\" Marlow",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Fights to preserve the lodge\u2019s century-old traditions as a neighborhood safe space, organizing impromptu potlucks and cold-calling former members to bring back a sense of communal belonging",
-            "keywords": "story+0.7 porch-swing+0.3 legacy-0.2",
+            "tendencies": "She leans into warm, nostalgic storytelling to rally locals, often sharing childhood memories of pancake breakfasts with her grandfather to convince people to join the lodge",
+            "keywords": "taco-truck+0.7 handwritten-flyers+0.4 nostalgia+0.3",
             "ticks": 20
           },
           {
-            "name": "Zoe Marquez",
+            "name": "Burt Haggerty",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Proposes modern, youth-focused outreach tactics like trivia nights and Instagram campaigns to attract younger neighborhood residents, bridging the gap between the lodge\u2019s old guard and new locals",
-            "keywords": "social-media+0.5 trivia+0.4 modernize-0.3",
+            "tendencies": "He stops by the lodge occasionally for cheap coffee but hasn\u2019t renewed his membership in three months, frustrated by the lack of new, relevant activities",
+            "keywords": "wrench+0.5 frayed-flannel+0.4 quiet-sigh+0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Gloria Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She focuses on reviving beloved old lodge events like bingo nights and holiday craft fairs, hoping to draw back former members and attract new ones through familiar, comforting activities",
+            "keywords": "bingo-cards+0.6 knit-scarf+0.4 cookie-sheet+0.3",
             "ticks": 20
           }
         ]
       },
-      "versions": [
-        {
-          "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
+      "versions": {
+        "v1": {
+          "title": "The Fading Lantern Lodge Membership Crisis",
           "scenario": {
-            "title": "The Fading Lantern Lodge: A Make-or-Break Vote",
-            "setting": "The Fading Lantern Lodge sits tucked between a laundromat and a bodega on Maple Street, its red brick facade scuffed by decades of winter salt and its front porch swing hanging lopsidedly. Once a hub for weekly poker nights, holiday potlucks, and local youth mentorship programs, now only a handful of regulars trickle through its doors most afternoons, the grand ballroom often left empty save for dust motes dancing in slanted sunlight. The lodge\u2019s trustees face a make-or-break vote in two weeks: either approve a $25,000 retrofit to add a coffee bar and event space for rent, or dissolve the charter and sell the property to a local developer.",
+            "title": "The Fading Lantern Lodge Membership Crisis",
+            "setting": "Tucked between a laundromat and a shuttered hardware store in Maplewood\u2019s blue-collar downtown, the Fading Lantern Lodge once drew dozens of locals for weekly bingo nights and pancake breakfasts. Now its front porch only holds a single dented folding chair most days, its windows smudged with grime, and the latest membership drive netted just two new signees in three months. The only regular visitors are a handful of octogenarian members and the occasional teenager stealing shade from the summer sun.",
             "characters": [
               {
-                "name": "Marnie Hale",
+                "name": "Marnie \"Mac\" MacKenzie",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Only prioritizes the lodge\u2019s monthly dues revenue and operational audits, refusing to dip into long-held maintenance reserves unless membership numbers jump by 30% or more",
-                "keywords": "ledger+0.6 audit+0.3 dues-0.4",
+                "tendencies": "She rigidly prioritizes formal lodge bylaws and membership metrics, dismissing casual outreach ideas as 'unsanctioned and a waste of limited funds'",
+                "keywords": "ledger+0.6 lodge-by-laws+0.5 chipped-mug+0.3",
                 "ticks": 20
               },
               {
-                "name": "Clay Torres",
+                "name": "Jazmine \"Jax\" Marlow",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Fights to preserve the lodge\u2019s century-old traditions as a neighborhood safe space, organizing impromptu potlucks and cold-calling former members to bring back a sense of communal belonging",
-                "keywords": "story+0.7 porch-swing+0.3 legacy-0.2",
+                "tendencies": "She leans into warm, nostalgic storytelling to rally locals, often sharing childhood memories of pancake breakfasts with her grandfather to convince people to join the lodge",
+                "keywords": "taco-truck+0.7 handwritten-flyers+0.4 nostalgia+0.3",
                 "ticks": 20
               },
               {
-                "name": "Zoe Marquez",
+                "name": "Burt Haggerty",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Proposes modern, youth-focused outreach tactics like trivia nights and Instagram campaigns to attract younger neighborhood residents, bridging the gap between the lodge\u2019s old guard and new locals",
-                "keywords": "social-media+0.5 trivia+0.4 modernize-0.3",
+                "tendencies": "He stops by the lodge occasionally for cheap coffee but hasn\u2019t renewed his membership in three months, frustrated by the lack of new, relevant activities",
+                "keywords": "wrench+0.5 frayed-flannel+0.4 quiet-sigh+0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Gloria Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She focuses on reviving beloved old lodge events like bingo nights and holiday craft fairs, hoping to draw back former members and attract new ones through familiar, comforting activities",
+                "keywords": "bingo-cards+0.6 knit-scarf+0.4 cookie-sheet+0.3",
                 "ticks": 20
               }
             ]
           },
           "rounds": 2,
-          "ran_at": "2026-09-16T16:59:59.476678Z",
+          "ran_at": "2026-09-17T02:10:04.979149Z",
           "ran_by": "quick_volume/1.0",
           "history": [
             {
               "tick": 1,
               "turns": [
                 {
-                  "name": "Marnie Hale",
-                  "text": "I\u2019m wrapping up a spot-check of this month\u2019s lodge dues payments and prepping for our quarterly operational audit next week. If you\u2019ve come to flag the scuffed brick facade or the leaky basement faucet, those maintenance requests can\u2019t be funded from our reserves until membership rolls swell by 30% or more.\n[Clutching a water-stained binder crammed with dues receipts and audit checklists, she taps a pen aggressively against a stack of past-due notices stuck to her clipboard]",
-                  "shifts": {
-                    "audit": 0.6,
-                    "dues": -0.8
-                  },
-                  "shift_total": -0.2,
-                  "role": ""
-                },
-                {
-                  "name": "Clay Torres",
-                  "text": "Hey, I\u2019m Clay from the Fading Lantern Lodge right here on this block. We\u2019re putting together a communal potluck this weekend, and I\u2019m stopping by anyone who might want a spot at the table\u2014even if you haven\u2019t stepped foot here since your kid\u2019s little league banquet years ago.\n[He tucks a crumpled potluck flyer featuring the lodge\u2019s faded 1950s holiday party photo under the arm of a beat-up lawn chair left on the sidewalk, brushing a fleck of bodega potato chip dust off his worn flannel cuff.]",
+                  "name": "Marnie \"Mac\" MacKenzie",
+                  "text": "I will not approve any unvoted community outreach initiatives. Our lodge\u2019s operating budget is strictly allocated to hall repairs and annual charter renewal fees, not these frivolous, unsanctioned casual gatherings. Our current membership retention rate sits at just 41%, so every dollar must be accounted for per formal bylaws.\n[Tapping a printed membership roster against her clipboard with sharp, deliberate taps as she brushes past a crumpled neighborhood potluck flyer stuck to the lodge\u2019s dented screen door.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Zoe Marquez",
-                  "text": "\"Hey neighbors grabbing coffee at the bodega or folding laundry at the spot next door! We\u2019re trying to bridge the old lodge regulars and new locals with weekly trivia nights and an Instagram campaign spotlighting local Maple Street gems, plus we\u2019re giving away free craft soda and lodge swag to participants. Stop by to grab a flyer and learn more!\"\n[I kneel to tuck a stack of neon pink flyers printed with a glowing lantern doodle and scannable QR code into the laundromat\u2019s window, then flash a grin at a pair of college students browsing the bodega\u2019s snack rack.]",
-                  "shifts": {
-                    "trivia": 0.4
-                  },
-                  "shift_total": 0.4,
+                  "name": "Jazmine \"Jax\" Marlow",
+                  "text": "Heard my grandpa\u2019s secret blueberry pancake recipe\u2019s headlining this Saturday\u2019s breakfast spread at the lodge\u2014you remember the buttery, syrupy batches we\u2019d sneak extra blueberries for behind his old diner counter back in \u201898? C\u2019mon on down, even if you just need a warm spot out of the crisp downtown wind and a chance to swap old stories.\n[Waves a slightly coffee-stained, dog-eared flyer for the pancake breakfast over her head, grinning so wide her dimples poke through her rounded cheeks.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Burt Haggerty",
+                  "text": "Look, I just swung by for the cheap coffee\u2014didn\u2019t mean to start a fuss, but it\u2019s been three months since I asked about adding a weekly carpentry workshop for folks who don\u2019t want to knit or play bingo. Not a single thing\u2019s changed around here, and I\u2019m not renewing my membership until you guys quit sticking to the same old tired events.\n[He shoves a crumpled one-dollar bill across the scuffed Formica counter, grabs his dented stainless steel travel mug full of lukewarm coffee, and trundles toward the exit without a backward glance.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Gloria Hale",
+                  "text": "Hey neighbor, we\u2019re finally getting our old bingo night back up and running this Saturday afternoon! It\u2019s free to join, we\u2019ve got homemade apple cider and peanut brittle for everyone, and the grand prize is a jar of my mom\u2019s preserved blackberry jam. We\u2019re also collecting gently used winter hats and gloves for the local elementary school\u2019s cozy closet while you\u2019re here.\n[Straightening a stack of neon bingo cards on the lodge\u2019s scuffed wooden front counter and tapping a hand-drawn \u201cBingo This Saturday!\u201d sign into place beside the warped screen door.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
                   "role": ""
                 }
               ]
@@ -1027,136 +1695,333 @@
               "tick": 2,
               "turns": [
                 {
-                  "name": "Marnie Hale",
-                  "text": "I\u2019m just wrapping up my spot-check of this month\u2019s lodge dues and prepping for next week\u2019s operational audit, so I don\u2019t have much extra time right now. I can jot down the potluck details to pass along to the stewardship committee later, but I can\u2019t divert focus from these payments right now.\n[She stacks her crumpled audit checklists and loose payment receipts back into a labeled leather binder, brushing a fleck of red brick dust off the cover before shifting it under one arm.]",
-                  "shifts": {
-                    "audit": 0.6,
-                    "dues": -0.4
-                  },
-                  "shift_total": 0.2,
-                  "role": ""
-                },
-                {
-                  "name": "Clay Torres",
-                  "text": "\"Hey there, sorry I cut in\u2014Zoe\u2019s exactly right about bridging our old lodge crew and new local folks this weekend\u2019s potluck. I cold-called a handful of former members this week, and they\u2019re bringing their family\u2019s treasured recipes to share with the block.\" [Holds up a stack of smudged handwritten recipe cards and nods toward the laundromat\u2019s sliding glass doors to flag over a couple folding laundry inside.]",
+                  "name": "Marnie \"Mac\" MacKenzie",
+                  "text": "I won\u2019t entertain these unsanctioned, last-minute community offerings\u2014they siphon away our limited operating funds that are meant strictly for hall repairs and charter compliance. Burt, your carpentry works request requires a full membership vote per our official bylaws, not a casual drop-in pitch, and Jax and Gloria\u2019s event plans need to go through the proper approval channels first. I\u2019m not diverting any budget dollars to subsidize pancake spreads or bingo nights right now.\n[Taps a dog-eared copy of the lodge\u2019s official bylaws against her clipboard, jaw set tightly]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Zoe Marquez",
-                  "text": "\"Hey neighbors grabbing coffee at the bodega or folding laundry at the spot next door! We\u2019re trying to bridge the old lodge regulars and new locals with a free trivia night on the lodge\u2019s back patio next Friday, plus an Instagram Reels campaign spotlighting our historic space for anyone who\u2019s never stepped inside. We\u2019ve also got sign-up sheets for this weekend\u2019s communal potluck\u2014feel free to grab one no matter what you bring, even just great company!\"\n[She holds up a stack of neon pink flyers and props a handwritten chalkboard sign advertising the events against the laundromat\u2019s scuffed exterior wall.]",
-                  "shifts": {
-                    "trivia": 0.4
-                  },
-                  "shift_total": 0.4,
+                  "name": "Jazmine \"Jax\" Marlow",
+                  "text": "C\u2019mon, Mac\u2014Burt\u2019s been bugging me nonstop about his carpentry spot for three months, and my grandpa\u2019s blueberry pancakes are the perfect way to drag every last neighbor through the lodge doors. We can slot a quick test run of his drop-in hour right after the breakfast line wraps, and Gloria\u2019s already lined up homemade apple cider for bingo anyway, so folks will stick around for hours after that.\n[leans in with a soft, playful grin and flutters a crumpled stack of handwritten pancake breakfast sign-up sheets from her worn flannel hip pocket]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Burt Haggerty",
+                  "text": "I saw the bingo notice taped to the laundromat\u2019s bulletin board, and that\u2019s nice for the regulars, but I didn\u2019t trek over here just for a free apple cider. That carpentry workshop I asked about three months back hasn\u2019t gotten so much as a quick reply from the lodge board. I just wanted to offer a low-key space for folks who like fixing things, whether that\u2019s their own porch railings or neighborhood park birdhouses.\n[He sets his half-empty, chipped ceramic coffee mug down with a soft clink on the scuffed front counter, crossing his arms over his worn flannel shirt.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Gloria Hale",
+                  "text": "I also put together a donated prize basket stuffed with local wildflower honey and hand-knit scarves for the bingo night\u2019s top winner, and we\u2019ve got free neon bingo daubers for anyone who forgets their own. It\u2019ll feel just like the cozy, familiar bingo nights we all loved back when the lodge was humming with weekly gatherings.\n[I tap a stack of brightly colored bingo cards against the scuffed front wooden counter and nod toward the steaming crockpot of spiced apple cider sitting on a folding table by the door.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
                   "role": ""
                 }
               ]
             }
           ],
           "resonance": {
-            "Marnie Hale": 0.0,
-            "Clay Torres": 0.0,
-            "Zoe Marquez": 0.8
+            "Marnie \"Mac\" MacKenzie": 0.0,
+            "Jazmine \"Jax\" Marlow": 0.0,
+            "Burt Haggerty": 0.0,
+            "Gloria Hale": 0.0
           },
           "citations": {
-            "Clay Torres": {
-              "Zoe Marquez": 1
+            "Marnie \"Mac\" MacKenzie": {
+              "Burt Haggerty": 1,
+              "Gloria Hale": 1
+            },
+            "Jazmine \"Jax\" Marlow": {
+              "Burt Haggerty": 1,
+              "Gloria Hale": 1
             }
           },
-          "dm_opening": "DM opening: the Marnie Hale takes a position; the cast gathers around a question the scene has been carrying for a year.",
-          "dm_closing": "DM closing: the Marnie Hale still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+          "dm_opening": "DM opening: the Marnie \"Mac\" MacKenzie takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marnie \"Mac\" MacKenzie still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
         }
-      ]
+      }
     },
     {
-      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
-      "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
-      "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "slug": "a-small-town-drive-in-theater-run-by-a-second-generatio",
       "scenario": {
-        "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
-        "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+        "title": "The Willow Creek Drive-In Crossroads",
+        "setting": "Set in the waning days of late summer in Willow Creek, a quiet rural town tucked between endless cornfields. The drive-in\u2019s gravel lot is dotted with a handful of early-arriving cars, their windshield wipers flicking away fine mist, and the concession stand\u2019s neon \u201cPOPCORN\u201d sign sputters intermittently. The second-generation owner stands behind the ticket booth, staring at a formal offer letter from a local housing developer tucked in her back pocket.",
         "characters": [
           {
-            "name": "Steward",
+            "name": "Jessa Mae Carver",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Tends the canon of the place.",
-            "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+            "tendencies": "She is the reserved second-generation owner of the drive-in, torn between accepting a lucrative housing developer offer and refinancing to honor her late father\u2019s legacy",
+            "keywords": "drive-in+0.6 locket with dad\u2019s film ticket+0.4 refinance-0.3",
             "ticks": 20
           },
           {
-            "name": "Counter",
+            "name": "Marnie Cole",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Counts what exists. Names by lineage.",
-            "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+            "tendencies": "She is a boisterous local community organizer who rallies townsfolk to fundraise and spread the word to save the drive-in",
+            "keywords": "megaphone+0.5 sunflower scrunchie+0.4 classic teen movie-0.3",
             "ticks": 20
           },
           {
-            "name": "Apprentice",
+            "name": "Arthur Hale",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Trusts the drift.",
-            "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+            "tendencies": "He is the cautious local bank manager who enforces strict lending rules but secretly sympathizes with the drive-in\u2019s plight",
+            "keywords": "leather loan binder+0.6 chipped ceramic mug+0.4 loan denial-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Clay Thornton",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He is a gruff retired drive-in projectionist who shares nostalgic stories of the theater\u2019s heyday to inspire community support",
+            "keywords": "vintage film reel+0.5 worn flannel shirt+0.4 overpriced developer offer-0.3",
             "ticks": 20
           }
         ]
       },
-      "versions": [
-        {
-          "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
+      "versions": {
+        "v1": {
+          "title": "The Willow Creek Drive-In Crossroads",
           "scenario": {
-            "title": "A three-generation fishing tackle shop now selling fly-tying supplies",
-            "setting": "A three-generation fishing tackle shop now selling fly-tying supplies",
+            "title": "The Willow Creek Drive-In Crossroads",
+            "setting": "Set in the waning days of late summer in Willow Creek, a quiet rural town tucked between endless cornfields. The drive-in\u2019s gravel lot is dotted with a handful of early-arriving cars, their windshield wipers flicking away fine mist, and the concession stand\u2019s neon \u201cPOPCORN\u201d sign sputters intermittently. The second-generation owner stands behind the ticket booth, staring at a formal offer letter from a local housing developer tucked in her back pocket.",
             "characters": [
               {
-                "name": "Steward",
+                "name": "Jessa Mae Carver",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Tends the canon of the place.",
-                "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+                "tendencies": "She is the reserved second-generation owner of the drive-in, torn between accepting a lucrative housing developer offer and refinancing to honor her late father\u2019s legacy",
+                "keywords": "drive-in+0.6 locket with dad\u2019s film ticket+0.4 refinance-0.3",
                 "ticks": 20
               },
               {
-                "name": "Counter",
+                "name": "Marnie Cole",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Counts what exists. Names by lineage.",
-                "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+                "tendencies": "She is a boisterous local community organizer who rallies townsfolk to fundraise and spread the word to save the drive-in",
+                "keywords": "megaphone+0.5 sunflower scrunchie+0.4 classic teen movie-0.3",
                 "ticks": 20
               },
               {
-                "name": "Apprentice",
+                "name": "Arthur Hale",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Trusts the drift.",
-                "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+                "tendencies": "He is the cautious local bank manager who enforces strict lending rules but secretly sympathizes with the drive-in\u2019s plight",
+                "keywords": "leather loan binder+0.6 chipped ceramic mug+0.4 loan denial-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Clay Thornton",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He is a gruff retired drive-in projectionist who shares nostalgic stories of the theater\u2019s heyday to inspire community support",
+                "keywords": "vintage film reel+0.5 worn flannel shirt+0.4 overpriced developer offer-0.3",
                 "ticks": 20
               }
             ]
           },
           "rounds": 2,
-          "ran_at": "2026-09-16T17:01:18.186914Z",
+          "ran_at": "2026-09-17T02:13:41.797470Z",
           "ran_by": "quick_volume/1.0",
           "history": [
             {
               "tick": 1,
               "turns": [
                 {
-                  "name": "Steward",
-                  "text": "Ah, howdy there\u2014these freshwater nymph hooks right here are the ones I\u2019ve stocked for nearly 40 years, ever since my own father handed me my first fly-tying kit. Every single one is sourced from a family blacksmith up in the hills west of town, no flimsy mass-produced gear here.\n[I reach across the scuffed wooden counter, grabbing a small, frayed leather sample pack of the hooks and holding it out to them while nodding at the row of jarred, brightly colored hackle vials lined up beside the cash register.]",
+                  "name": "Jessa Mae Carver",
+                  "text": "The developer\u2019s offer is tempting enough to wipe out the back taxes piling up for the past two years. But every time I walk past the chipped concession stand counter, I hear my dad calling out \u201cextra butter for the kids in the blue pickup\u201d like it was yesterday. I can\u2019t just walk away from this place.\n[She presses a crumpled polaroid of her teenage self standing beside her dad at the drive-in\u2019s projector booth into her jeans pocket, jaw set softly.]",
+                  "shifts": {
+                    "drive-in": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Marnie Cole",
+                  "text": "Hey there, Willow Creek neighbours! That beloved old drive-in\u2019s got just one last weekend left to stay open before the late summer corn blocks the main screen, and we\u2019ve only scraped together half the cash we need to patch the faulty projector! Every spare dollar, every hour of your time can keep this spot alive\u2014we can\u2019t let our town\u2019s favorite summer hangout turn into a weedy field!\n[She waves a stack of neon orange fundraiser flyers above her head, thumping a scuffed work boot against a tumbleweed tangled around the drive-in\u2019s rickety entry sign.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Counter",
-                  "text": "Let me tally up the front stock first: 32 spools of iridescent fly bodies, 41 packs of peacock herl, all sourced from the same river delta my grandfather first explored for tying supplies back in 1969. This tiny fishing tackle shop has operated under three generations of my family, every nook holding a piece of our shared fishing lineage.\n[Runs a calloused finger along the carved wooden fly mounted above the register, the delicate detail work done by my great-uncle decades ago.]",
+                  "name": "Arthur Hale",
+                  "text": "I swung by to touch base about your drive-in\u2019s pending loan renewal. The late-summer crop dips haven\u2019t done any favors for your weekend ticket sales, and I know business has been tighter than usual this year, but the regional bank\u2019s strict lending rules are non-negotiable right now. I wish I could push back the repayment deadline, but I can\u2019t overstep my formal authority without board approval.\n[taps a crumpled stack of ticket stubs taped to the inside of his leather bank folder before sliding a printed repayment timeline across the hood of his dented pickup truck]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Clay Thornton",
+                  "text": "Back when I ran this very booth, we\u2019d have lines stretched all the way down the cornfield road on nights just like this, when the summer sun lingered just long enough to paint the sky pink. Kids would dart between parked cars with glow sticks, and I\u2019d have to yell over the radio to quiet \u2019em down before the previews started.\n[Wiping a smudge of film emulsion off his worn flannel sleeve before prodding the rusted film reel perched on the projector\u2019s arm]",
                   "shifts": {
-                    "lineage": 0.5
+                    "reel": 0.5
                   },
                   "shift_total": 0.5,
                   "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Jessa Mae Carver",
+                  "text": "I\u2019ve been staring at the chipped concession counter all week, torn between wiping out these back taxes and honoring every memory Dad built here. Clay, you remember how Dad would beam when lines stretched out to the cornfield like that? I can\u2019t just shut this place down without at least trying to hang on.\n[She runs a shaky hand along the scuffed wooden edge of the concession counter, not meeting anyone\u2019s eyes for a long beat before lifting her gaze.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
                 },
                 {
-                  "name": "Apprentice",
-                  "text": "\"Welcome to Hale\u2019s Tackle\u2014we just unpacked a fresh shipment of premium peacock herl this morning, perfect for those classic streamer patterns you might be tying. I still keep the locked case of vintage casting reels behind the counter too, from when my grandpa first opened this shop back in 1952.\"\n[Wiping a fine layer of feather dust from his frayed flannel apron and gesturing toward a stack of illustrated fly-tying pamphlets propped by the cash register.]",
+                  "name": "Marnie Cole",
+                  "text": "Clay just reminded us all how this drive-in used to pack the cornfield road back in his booth-running days, and we ain\u2019t letting that legacy fade away now! Between the lagging ticket sales, looming back taxes, and that developer\u2019s tempting offer, one last weekend of packed parking spots is all we need to keep the gates open for good!\n[Pounding a fist against the chipped concession counter to drive her point home, already waving a stack of handwritten donation tickets toward the group loitering by the popcorn machine.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Arthur Hale",
+                  "text": "I know this final weekend is your last shot to drum up some much-needed cash flow. I\u2019ve flagged your account for the state\u2019s rural small business hardship grant and can walk you through the application before tomorrow\u2019s deadline. I\u2019m also willing to table your loan renewal paperwork for two weeks to give you some breathing room.\n[He set a stack of neatly printed grant forms on the scuffed concession counter, his usual firm posture relaxing slightly.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Clay Thornton",
+                  "text": "Back then, we\u2019d have kids sneaking in with paper bags of stolen corn from the rows right over there, and we\u2019d let \u2019em slide \u2019cause half of \u2019em couldn\u2019t afford a ticket anyway. We ran two double features most weekends, and the concession stand ran out of buttered popcorn before the first movie even finished. You folks can\u2019t just let this place get gobbled up by that developer\u2019s cash grab.\n[He leans his calloused, grease-stained forearms on the projection booth\u2019s cracked windowsill, rapping a knuckle against the scuffed metal frame of the booth\u2019s outdoor speaker box.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Jessa Mae Carver": 0.6,
+            "Marnie Cole": 0.0,
+            "Arthur Hale": 0.0,
+            "Clay Thornton": 0.5
+          },
+          "citations": {
+            "Jessa Mae Carver": {
+              "Clay Thornton": 1
+            },
+            "Marnie Cole": {
+              "Clay Thornton": 1
+            }
+          },
+          "dm_opening": "DM opening: the Jessa Mae Carver takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Jessa Mae Carver still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-three-generation-bookbindery-attached-to-a-small-libr",
+      "scenario": {
+        "title": "Hawthorne Bindery's Last Chapter",
+        "setting": "A sun-faded cobblestone alley in coastal Massachusetts, where the red brick Portside Small Library juts into a cramped, oak-lined bookbindery run by the Hawthorne family for 73 years. The bindery\u2019s back shelves are stacked with leather-bound classics and half-finished custom journals, and the air smells like waxed thread and old paper; the library\u2019s director has just notified the family the town council will cut their shared rental space in three months to make way for a free public wifi hub.",
+        "characters": [
+          {
+            "name": "Elias Hawthorne",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He has run the Hawthorne Bindery for 45 years, refusing to adopt modern binding equipment because he believes hand-tooled craft is the only way to honor the vintage books the library houses.",
+            "keywords": "hand-tools+0.6 leather+0.5 tradition+0.4 budget-cuts-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Hawthorne",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She is Elias\u2019 26-year-old granddaughter and the bindery\u2019s only apprentice, and she wants to launch a hybrid model of hand binding and digital design templates to keep the business operational after their rental space is lost.",
+            "keywords": "digital+0.6 hybrid+0.5 innovation+0.4 tradition-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Marisol \"Marcy\" Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She has served as Portside Small Library\u2019s director for 12 years, and she is lobbying the town council to reallocate part of the wifi hub budget to carve out a dedicated bindery space in the library\u2019s basement.",
+            "keywords": "library+0.6 advocacy+0.5 community+0.4 budget-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Tom Mendez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He is a 17-year-old high school poet and book club president who orders custom journals from the Hawthorne Bindery for his club\u2019s annual chapbook, and he organized a 220-signature petition to keep the bindery open for local creators.",
+            "keywords": "chapbooks+0.6 youth+0.5 craft+0.4 modernization-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Hawthorne Bindery's Last Chapter",
+          "scenario": {
+            "title": "Hawthorne Bindery's Last Chapter",
+            "setting": "A sun-faded cobblestone alley in coastal Massachusetts, where the red brick Portside Small Library juts into a cramped, oak-lined bookbindery run by the Hawthorne family for 73 years. The bindery\u2019s back shelves are stacked with leather-bound classics and half-finished custom journals, and the air smells like waxed thread and old paper; the library\u2019s director has just notified the family the town council will cut their shared rental space in three months to make way for a free public wifi hub.",
+            "characters": [
+              {
+                "name": "Elias Hawthorne",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He has run the Hawthorne Bindery for 45 years, refusing to adopt modern binding equipment because he believes hand-tooled craft is the only way to honor the vintage books the library houses.",
+                "keywords": "hand-tools+0.6 leather+0.5 tradition+0.4 budget-cuts-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Hawthorne",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She is Elias\u2019 26-year-old granddaughter and the bindery\u2019s only apprentice, and she wants to launch a hybrid model of hand binding and digital design templates to keep the business operational after their rental space is lost.",
+                "keywords": "digital+0.6 hybrid+0.5 innovation+0.4 tradition-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Marisol \"Marcy\" Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She has served as Portside Small Library\u2019s director for 12 years, and she is lobbying the town council to reallocate part of the wifi hub budget to carve out a dedicated bindery space in the library\u2019s basement.",
+                "keywords": "library+0.6 advocacy+0.5 community+0.4 budget-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Tom Mendez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He is a 17-year-old high school poet and book club president who orders custom journals from the Hawthorne Bindery for his club\u2019s annual chapbook, and he organized a 220-signature petition to keep the bindery open for local creators.",
+                "keywords": "chapbooks+0.6 youth+0.5 craft+0.4 modernization-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:12:52.729939Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Elias Hawthorne",
+                  "text": "This tattered 1902 edition of Cape Cod Folklore came in with a botched modern glue binding that\u2019s already begun to crumble away the paper\u2019s delicate edge. I\u2019d rather spend three days hand-stitching its custom calfskin cover than slap a quick, disposable binding on it that won\u2019t outlast the summer.\n[He sets down his scuffed wooden workbox, weighted with brass hand tools and spools of waxed linen thread, on a weathered wooden crate outside the library\u2019s back alley entrance]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Hawthorne",
+                  "text": "I\u2019ve been tinkering with a new hybrid bindery model that pairs hand-stamped leather covers with editable digital template inserts for custom journals or poetry books. I\u2019m testing a small pop-up right in this alley if the library lets me, and I wanted to hand out free sample sets to anyone passing through.\n[She adjusts the frayed canvas bindery apron stained with leather dye, then propped a wobbly collapsible display table against the library\u2019s red brick facade, arranging hand-bound mini notebooks alongside bright QR code flyers linked to her digital template shop.]",
+                  "shifts": {
+                    "digital": 1.2,
+                    "hybrid": 0.5
+                  },
+                  "shift_total": 1.7,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol \"Marcy\" Hale",
+                  "text": "I\u2019ve spent twelve years tending Portside\u2019s collection with only a rickety folding table in the basement\u2019s damp, drafty corner for binding repairs. The council\u2019s proposed wifi hub expansion could spare a tiny sliver of its budget for a proper dedicated bindery space, where we can preserve all the town\u2019s faded fishing logs, old harbor maps, and local newsletter archives instead of letting them rot away.\n[She pulls a crumpled hand-drawn sketch of a compact, waterproofed bindery layout from the breast pocket of her tweed blazer and taps the outline with a calloused, ink-stained finger.]",
+                  "shifts": {
+                    "budget": -0.3
+                  },
+                  "shift_total": -0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Tom Mendez",
+                  "text": "I brought the final polished poems from the Portside High Book Club\u2019s annual chapbook\u2014we spent all last week passing out petitions around the library and waterfront, and we turned in over 220 signatures to save your shop last week. I just hope we can get our copies printed before our end-of-semester book fair.\n[Kneeling to slide the manila folder of stapled-together poem pages under the bindery\u2019s slightly ajar service door, brushing a salt-crusted strand of brown hair off his forehead before giving a shy wave through the smudged front window.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
@@ -1167,22 +2032,35 @@
               "tick": 2,
               "turns": [
                 {
-                  "name": "Steward",
-                  "text": "Easy there, young apprentice\u2014no need to cut me off mid-talk to our regular. That fresh peacock herl is exactly the high-quality stock I\u2019ve been chasing for our dry fly anglers. These freshwater nymph hooks right here, though? They\u2019ve landed more trout in these local rivers than any other tackle I\u2019ve ever carried.\n[Leans on the scuffed pine tackle display case, tapping a row of nickel-plated nymph hooks with a weathered, ink-stained finger before nodding toward the stack of crinkly-labeled herl spools behind the front counter]",
+                  "name": "Elias Hawthorne",
+                  "text": "That hybrid journal scheme\u2019s a fine novelty for souvenir shops, but this 1902 Cape Cod Folklore doesn\u2019t need digital templates or that cheap modern glue ruining its spine. It deserves the same careful hand-sewing and beeswax binding that\u2019s kept books alive along this coast for generations.\n[Brushing flecks of dried beeswax from his oil-stained canvas apron before carefully tucking the tattered folio under one arm and grabbing his scuffed bindery hammer from the nearby stack of crates.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Counter",
-                  "text": "Let me tally up the front stock first: 32 spools of iridescent fly bodies, 41 packs of peacock herl, all sourced from the same river delta my grandfather first taught our family to forage these materials from, back when this shop was just a rickety wooden stall by the pier. I also just logged 17 new tins of tungsten bead heads waiting to be stocked on the top display shelf.\n[I tap a neatly stacked pack of peacock herl with a small fishing hook to straighten its edge before scribbling the counts into my water-stained leather stock ledger.]",
-                  "shifts": {},
-                  "shift_total": 0.0,
+                  "name": "Lila Hawthorne",
+                  "text": "Grandpa, Marcy, Tom\u2014this hybrid bindery model is exactly what we need to keep both our family shop afloat and help Portside finally get proper repair space. We could even print custom digital templates for chapbooks like the ones your book club put together, host small binding workshops in the library\u2019s unused back corner, and use that income to cover our own shop\u2019s upcoming rent shortfall while fixing up fragile library collections like this tattered 1902 folklore book.\n[I set down the crumpled stack of lighthouse and seascape-themed digital template prints I\u2019d tucked under my arm, then hold up a hand-stamped leather scrap I\u2019d prepped earlier to show off the hand-binding core of the plan.]",
+                  "shifts": {
+                    "digital": 1.2,
+                    "hybrid": 0.5
+                  },
+                  "shift_total": 1.7,
                   "role": ""
                 },
                 {
-                  "name": "Apprentice",
-                  "text": "\"Welcome to Hale\u2019s Tackle\u2014we just unpacked a fresh shipment of premium peacock herl this morning, perfect for those classic streamer patterns you might\u2019ve been planning to tie, and it\u2019s sourced from the same river delta my boss\u2019s family has used for ages. I can show you right where we\u2019ve got the tried-and-true freshwater nymph hooks Steward\u2019s stocked for nearly 40 years now.\"\n[I lean around the register counter, tucking a stray piece of packing material into a trash can under the front desk before gesturing toward the stacked fly-tying supply bins.]",
+                  "name": "Marisol \"Marcy\" Hale",
+                  "text": "I\u2019ve spent twelve years making do with that rickety, damp basement folding table for all our binding repairs, and seeing the care everyone\u2019s poured into these projects\u2014from Elias\u2019s rescued 1902 folklore to Lila\u2019s hybrid bindery plans and Tom\u2019s gorgeous chapbook\u2014makes it crystal clear we need that dedicated bindery space. These are exactly the kinds of hands-on, community-focused endeavors that\u2019ll help us preserve our local history and bring more neighbors through our library doors.\n[Picks up Lila\u2019s hand-stamped leather journal prototype, running a thumb over the embossed coastal lily design before setting it back carefully against the stack of Tom\u2019s chapbooks.]",
+                  "shifts": {
+                    "library": 0.6,
+                    "community": 0.4
+                  },
+                  "shift_total": 1.0,
+                  "role": ""
+                },
+                {
+                  "name": "Tom Mendez",
+                  "text": "These are the final polished poems for our Portside High Book Club\u2019s annual chapbook, ready for your signature sewn binding just like we agreed. I also wanted to tell you we\u2019ve crossed 230 signatures on the petition to keep your bindery open\u2014way more than I thought we\u2019d hit so fast.\n[I set the crisp, staple-free stack of printed poetry on the bindery\u2019s scuffed workbench and rest my thumb on the hand-stamped book club logo on the top page]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
@@ -1191,29 +2069,203 @@
             }
           ],
           "resonance": {
-            "Steward": 0.0,
-            "Counter": 0.5,
-            "Apprentice": 0.0
+            "Elias Hawthorne": 0.0,
+            "Lila Hawthorne": 3.4,
+            "Marisol \"Marcy\" Hale": 0.7,
+            "Tom Mendez": 0.0
           },
           "citations": {
-            "Steward": {
-              "Counter": 2,
-              "Apprentice": 1
+            "Elias Hawthorne": {
+              "Tom Mendez": 1
             },
-            "Apprentice": {
-              "Counter": 2,
-              "Steward": 1
+            "Lila Hawthorne": {
+              "Tom Mendez": 3
+            },
+            "Marisol \"Marcy\" Hale": {
+              "Elias Hawthorne": 1,
+              "Lila Hawthorne": 2,
+              "Tom Mendez": 2
             }
           },
-          "dm_opening": "DM opening: the Steward takes a position; the cast gathers around a question the scene has been carrying for a year.",
-          "dm_closing": "DM closing: the Steward still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+          "dm_opening": "DM opening: the Elias Hawthorne takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Elias Hawthorne still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
         }
-      ]
+      }
+    },
+    {
+      "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
+      "scenario": {
+        "title": "Reiger Fly & Tackle\u2019s Crossroads",
+        "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and the front window balances hand-tied steelhead flies beside dented saltwater tackle passed down from the shop\u2019s original owner. The current owner, Marnie Reiger, received an unexpected 40% rent hike last week, forcing her to choose between leaning into the sustainable fly-tying supplies that draw younger eco-conscious anglers or doubling down on the classic saltwater gear that has kept loyal regulars coming for decades.",
+        "characters": [
+          {
+            "name": "Marnie Reiger",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "A third-generation shop owner torn between honoring her family\u2019s 75-year legacy and updating the shop\u2019s inventory to survive a sudden, steep rent hike",
+            "keywords": "tackle+0.6 legacy+0.5 sustainable-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Ernie Reiger",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "A diehard traditionalist who refuses to stock 'fad' fly-tying supplies and insists the shop only sell classic saltwater fishing gear",
+            "keywords": "salt-reel+0.7 legacy+0.6 modern-0.5",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "A local environmental educator and fly fisher who pushes Marnie to stock sustainable fly-tying materials to attract younger, eco-conscious customers and boost the shop\u2019s revenue",
+            "keywords": "fly-tying+0.8 sustainable+0.6 rent-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Jake Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "A middle-aged commercial fisherman and weekly regular who buys both classic saltwater reels and occasional fly-tying supplies for his teen son, uncertain how the shop\u2019s changes will affect his favorite local spot",
+            "keywords": "reel+0.5 family+0.4 trend-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Reiger Fly & Tackle\u2019s Crossroads",
+          "scenario": {
+            "title": "Reiger Fly & Tackle\u2019s Crossroads",
+            "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and the front window balances hand-tied steelhead flies beside dented saltwater tackle passed down from the shop\u2019s original owner. The current owner, Marnie Reiger, received an unexpected 40% rent hike last week, forcing her to choose between leaning into the sustainable fly-tying supplies that draw younger eco-conscious anglers or doubling down on the classic saltwater gear that has kept loyal regulars coming for decades.",
+            "characters": [
+              {
+                "name": "Marnie Reiger",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "A third-generation shop owner torn between honoring her family\u2019s 75-year legacy and updating the shop\u2019s inventory to survive a sudden, steep rent hike",
+                "keywords": "tackle+0.6 legacy+0.5 sustainable-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Ernie Reiger",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "A diehard traditionalist who refuses to stock 'fad' fly-tying supplies and insists the shop only sell classic saltwater fishing gear",
+                "keywords": "salt-reel+0.7 legacy+0.6 modern-0.5",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "A local environmental educator and fly fisher who pushes Marnie to stock sustainable fly-tying materials to attract younger, eco-conscious customers and boost the shop\u2019s revenue",
+                "keywords": "fly-tying+0.8 sustainable+0.6 rent-0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Jake Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "A middle-aged commercial fisherman and weekly regular who buys both classic saltwater reels and occasional fly-tying supplies for his teen son, uncertain how the shop\u2019s changes will affect his favorite local spot",
+                "keywords": "reel+0.5 family+0.4 trend-0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:11:02.592885Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marnie Reiger",
+                  "text": "This shop\u2019s been perched on this La Push boardwalk for 75 years, longer than the neighboring salt-crusted clam shack even started serving their famous buttery chowder. I can\u2019t just swap out my great-grandpa\u2019s hand-tied salmon flies and vintage cedar tackle chests for mass-produced, cheap imported gear just to cover this sudden steep rent hike.\n[She brushes salt spray off a shelf of hand-carved driftwood lures she\u2019d been testing as a new inventory item before hunching slightly, crumpling the taped-to-the-door rent notice a little more in her calloused fingers.]",
+                  "shifts": {
+                    "tackle": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Ernie Reiger",
+                  "text": "I don\u2019t stock any of that trendy fad stuff\u2014this shop\u2019s for serious saltwater anglers, not weekend hobbyists chasing viral fishing hacks. A properly tied bucktail jig or spun deer hair dry fly is all you need to hook a chinook or red rockfish, no flimsy plastic nonsense required.\n[Slams a dented metal tin of hand-tied classic salmon flies onto the scuffed Formica counter, glowering at the customer who\u2019d laid out a pack of neon micro-synthetic flies on the register.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Marquez",
+                  "text": "I\u2019ve had three twenty-something and teen anglers ask about sustainable fly-tying materials already this shift. Swapping our stock of cheap synthetic furs for foraged local feathers and naturally shed deer mane would draw in that eco-conscious crowd and boost our bottom line without alienating our regulars.\n[I lean across the scuffed, salt-stained wooden counter and tap a glass jar brimming with iridescent, locally harvested abalone shell scraps, which make brilliant, zero-waste bead eyes for hand-tied flies.]",
+                  "shifts": {
+                    "fly-tying": 0.8,
+                    "sustainable": 0.6
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Jake Torres",
+                  "text": "Hey, how\u2019s it goin\u2019? I heard you guys revamped your inventory recently, and I was worried I\u2019d lose access to the Shimano big-game reels I\u2019ve used for my commercial cod runs for years. Also, my teen boy\u2019s been begging for premium wool bug bodies for his fly-tying projects, so I wanted to pick those up too.\n[He sets a salt-crusted commercial fishing glove on the scuffed wooden counter, shoving a crumpled, fish-stained note scrawled with his requested items out toward the clerk.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marnie Reiger",
+                  "text": "Jake, thank goodness you stopped by\u2014we\u2019re not getting rid of your go-to Shimano big-game reels, not on your or Dad\u2019s watch. We\u2019re just adding a small curated section of sustainable fly-tying supplies to keep up with steady customer demand and cover the sudden rent hike that landed in our mailbox last week.\n[Reaches under the scuffed pine counter and pulls out a dented cardboard box stenciled \"eco supplies\" in fading white paint, its edges crusted with coastal salt from the boardwalk\u2019s sea spray]",
+                  "shifts": {
+                    "sustainable": -0.3
+                  },
+                  "shift_total": -0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Ernie Reiger",
+                  "text": "Sustainable fly materials? That\u2019s a marketing gimmick, not serious tackle. I\u2019ve relied on deer hair and bucktail for 40 years, and this shop won\u2019t stock anything that undercuts the classic gear that\u2019s kept saltwater anglers landing trophy fish for generations. You won\u2019t lose your go-to Shimano big-game reels here\u2014we\u2019re not ditching the reliable stuff for flash-in-the-pan trends.\n[He nods toward the wall lined with polished vintage big-game reels, then taps a jar of hand-tied natural bucktail flies bolted to the countertop.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Marquez",
+                  "text": "\"Three of those younger, eco-conscious anglers already asked about sustainable fly-tying supplies this shift, folks who care about protecting the coastal waters we love to fish. Shifting just a portion of our stock to ethically sourced, eco-friendly materials would bring in this loyal, growing customer base without alienating our regular serious saltwater crew.\"\n[I gesture to the clear tackle tray I set on the shop\u2019s counter, filled with hand-tied flies made from recycled sinew and naturally shed local deer hair.]",
+                  "shifts": {
+                    "fly-tying": 0.8,
+                    "sustainable": 0.6
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Jake Torres",
+                  "text": "Hey, how\u2019s it goin\u2019? I heard you guys revamped your inventory recently, and I was worried I\u2019d lose access to the Shimano big-game reels I\u2019ve used for salmon charters out of Neah Bay for the last decade. Figured I\u2019d swing by to confirm you still carry the heavy-duty models I rely on, though my teen son\u2019s been pestering me to pick up some sustainable fly-tying supplies for his own small freshwater projects lately.\n[reaches into the frayed canvas tackle bag slung over one shoulder to pull out a crumpled list scrawled on a fish cleaning slip, one side scribbled with reel model numbers and the other with fly-tying material notes]",
+                  "shifts": {
+                    "reel": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marnie Reiger": 0.3,
+            "Ernie Reiger": 0.0,
+            "Lila Marquez": 2.8,
+            "Jake Torres": 0.5
+          },
+          "citations": {
+            "Marnie Reiger": {
+              "Jake Torres": 1
+            }
+          },
+          "dm_opening": "DM opening: the Marnie Reiger takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marnie Reiger still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
     },
     {
       "slug": "a-typewriter-repair-shop-that-has-just-outlived-its-last-typ",
-      "title": "The Last Key Struck",
-      "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
       "scenario": {
         "title": "The Last Key Struck",
         "setting": "This sun-faded brick typewriter repair shop has just passed its first anniversary, nestled between a laundromat and a shuttered record shop in a quiet midwestern college town. The wooden shelves hold crated typebar springs, reconditioned platen rubber, and half-spooled ribbon spools, but the last of the shop\u2019s working typewriters was collected by its final customer that morning. The front chalkboard still advertises free estimates, even as the shop\u2019s only remaining tools sit unused on the scuffed workbench.",
@@ -1248,8 +2300,8 @@
           }
         ]
       },
-      "versions": [
-        {
+      "versions": {
+        "v1": {
           "title": "The Last Key Struck",
           "scenario": {
             "title": "The Last Key Struck",
@@ -1396,7 +2448,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "The tide of gratitude settles as Javi's thank-you zines pass from hand to paw, the refurbished Royal's crisp print sealing a debt of repair repaid in full, and Mabel's fountain pen commits the whole visit to the community archives before the ink can dry in the salt air. What carries over: Pip"
         },
-        {
+        "v2": {
           "title": "The Last Key Struck",
           "scenario": {
             "title": "The Last Key Struck",
@@ -1544,7 +2596,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v3": {
           "title": "The Last Key Struck",
           "scenario": {
             "title": "The Last Key Struck",
@@ -1693,12 +2745,10 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "The maple-crumb mystery closes with Pip vanishing into the rafters, nest lined and guilty, while the shop's first anniversary chalk mark stands witnessed at last in Mabel's smudged navy notebook. What carries over: Javi's hand-stapled zine stack sits on the counter beside the jarred type sorts, and the town's official history now includes one mouse-sized accomplice. The hook: Javi's hype at the underground analog meetup means by next week the bell above the door will ring with university students hauling beat-up, clattering machines straight toward Elara's workbench."
         }
-      ]
+      }
     },
     {
       "slug": "a-volunteer-fire-department-that-has-just-had-its",
-      "title": "A volunteer fire department that has just had its first responder shortage",
-      "setting": "A volunteer fire department that has just had its first responder shortage",
       "scenario": {
         "title": "A volunteer fire department that has just had its first responder shortage",
         "setting": "A volunteer fire department that has just had its first responder shortage",
@@ -1726,8 +2776,8 @@
           }
         ]
       },
-      "versions": [
-        {
+      "versions": {
+        "v1": {
           "title": "A volunteer fire department that has just had its first responder shortage",
           "scenario": {
             "title": "A volunteer fire department that has just had its first responder shortage",
@@ -1830,12 +2880,326 @@
           "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door."
         }
-      ]
+      }
+    },
+    {
+      "slug": "a-volunteer-run-mountain-rescue-team-that-just-got-its",
+      "scenario": {
+        "title": "The Red Cliff Drone Dilemma",
+        "setting": "Nestled in southern Utah\u2019s Cedar Mesa backcountry, the all-volunteer Red Cliff Mountain Rescue team just took possession of their first donated drone\u2014a gently used DJI Air 2S\u2014after months of small community fundraisers. For years, the team has relied on foot patrols and satellite messengers to search for lost campers and fallen climbers, often taking four or more hours to cover expansive, unmarked desert terrain. Local backcountry outfitters and grieving family members of recent lost hikers are now pressuring the team to deploy the drone to cut search times dramatically, splitting the volunteer ranks over how to use the new gear safely.",
+        "characters": [
+          {
+            "name": "Mara Hines",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She fixates on liability waivers and lack of formal certification, arguing the drone must stay grounded until all team members complete approved flight training.",
+            "keywords": "liability+0.6 drone+0.5 training-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s a frontline rescue volunteer who wants to use the drone to save lives immediately, dismissing minor operational risks to push for unregulated test flights with the team\u2019s sole part-time trained operator.",
+            "keywords": "drone+0.7 lives+0.5 speed-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Marquez",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She\u2019s the only team member with basic drone flight experience, torn between following Mara\u2019s cautious rules and wanting to prove the drone\u2019s life-saving potential to her fellow volunteers.",
+            "keywords": "drone+0.5 inexperience+0.6 caution-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Red Cliff Drone Dilemma",
+          "scenario": {
+            "title": "The Red Cliff Drone Dilemma",
+            "setting": "Nestled in southern Utah\u2019s Cedar Mesa backcountry, the all-volunteer Red Cliff Mountain Rescue team just took possession of their first donated drone\u2014a gently used DJI Air 2S\u2014after months of small community fundraisers. For years, the team has relied on foot patrols and satellite messengers to search for lost campers and fallen climbers, often taking four or more hours to cover expansive, unmarked desert terrain. Local backcountry outfitters and grieving family members of recent lost hikers are now pressuring the team to deploy the drone to cut search times dramatically, splitting the volunteer ranks over how to use the new gear safely.",
+            "characters": [
+              {
+                "name": "Mara Hines",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She fixates on liability waivers and lack of formal certification, arguing the drone must stay grounded until all team members complete approved flight training.",
+                "keywords": "liability+0.6 drone+0.5 training-0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s a frontline rescue volunteer who wants to use the drone to save lives immediately, dismissing minor operational risks to push for unregulated test flights with the team\u2019s sole part-time trained operator.",
+                "keywords": "drone+0.7 lives+0.5 speed-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Marquez",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She\u2019s the only team member with basic drone flight experience, torn between following Mara\u2019s cautious rules and wanting to prove the drone\u2019s life-saving potential to her fellow volunteers.",
+                "keywords": "drone+0.5 inexperience+0.6 caution-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:14:27.036643Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Mara Hines",
+                  "text": "\"Hold up\u2014none of this volunteer rescue team has completed the mandatory FAA-approved drone flight training, and we don\u2019t have the signed liability waivers finalized. Until we cross every T and dot every I on those requirements, this drone stays right where it is.\"\n[She steps forward quickly, latches the newly delivered drone\u2019s hard case shut with a heavy-duty padlock, and hangs the key on her rescue lanyard around her neck to keep it secured.]",
+                  "shifts": {
+                    "liability": 0.6,
+                    "drone": 1.5,
+                    "training": -0.4
+                  },
+                  "shift_total": 1.7,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Torres",
+                  "text": "\"Guys, we don\u2019t have time to dot every i and cross every t on the training checklists right now. There\u2019s a lost backpacker whose emergency beacon went silent 90 minutes ago, and dusk is rolling in fast on Cedar Mesa. Our part-time drone operator has logged more flight time with this exact unit than anyone else on the team, so let\u2019s cut the red tape and launch for a quick test scan right now.\" [Snags the drone controller from the pile of stacked gear, thumb already hovering over the start motor button as he jogs toward the rocky ridgeline for the clearest aerial view.]",
+                  "shifts": {
+                    "drone": 1.4
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Marquez",
+                  "text": "\"Come on, Mara and the rest of the team\u2014this drone can cut our search time in half for this missing hiker. I\u2019ve flown these exact models in stronger gusts than what\u2019s rolling through this mesa right now. Just let me run a quick pre-planned sweep over the west gully?\"\n[She rests one hand lightly on the drone\u2019s propeller guard, gaze flicking quickly between Mara\u2019s stern face and the controller in her other hand.]",
+                  "shifts": {
+                    "drone": 1.0
+                  },
+                  "shift_total": 1.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara Hines",
+                  "text": "\"Not a single one of this volunteer team has completed the mandatory FAA-approved drone flight training, and we still don\u2019t have all the required signed liability waivers collected. Cutting training corners right now is dangerous and irresponsible, and skipping the waivers could leave all of us on the hook legally if something goes wrong. We\u2019re not launching this drone until every box is checked.\" [Slamming a fist lightly on the roof of the search and rescue 4WD to drive her point home, then snatching the uncompleted waiver stack from the nearby folding table.]",
+                  "shifts": {
+                    "liability": 0.6,
+                    "drone": 1.0,
+                    "training": -0.8
+                  },
+                  "shift_total": 0.8,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Torres",
+                  "text": "\"We can\u2019t pause this search over paperwork and checkbox training! That lost backpacker\u2019s emergency beacon is losing battery power by the minute, and every hour we wait could mean the difference between them being found safe or not. The part-timer\u2019s already familiar with this drone model from their earlier demo flights\u2014they\u2019ve got the skills to get this done right now.\" [Snags the drone\u2019s remote control from a teammate\u2019s outstretched hand and gestures wildly for the part-time operator to meet him at the nearby ridgeline staging spot.]",
+                  "shifts": {
+                    "drone": 1.4
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Marquez",
+                  "text": "I\u2019ve flown these exact models in stronger gusts back when I helped demo them for regional search and rescue groups. This drone can cover twice the treacherous ridgeline terrain in half the time our ground crews could hike it. Please let me run a quick, targeted sweep instead of getting bogged down in red tape right now.\n[Clasps the drone\u2019s flight controller tightly, fingers hovering over the pre-flight calibration switch, and glances quickly between Mara\u2019s stern face and the distant tree line marking the hiker\u2019s last known location.]",
+                  "shifts": {
+                    "drone": 1.0
+                  },
+                  "shift_total": 1.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara Hines": 2.5,
+            "Javi Torres": 2.8,
+            "Lila Marquez": 2.0
+          },
+          "citations": {
+            "Lila Marquez": {
+              "Mara Hines": 3
+            }
+          },
+          "dm_opening": "DM opening: the Mara Hines takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Mara Hines still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "an-old-movie-theater-converted-to-a-live-performance-ve",
+      "scenario": {
+        "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+        "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popcorn, its projection booth repurposed as a soundboard station, and a small group of lifelong residents is fighting to restore its vintage art deco marquee and host monthly classic film screenings alongside the indie folk and punk shows booked by the venue\u2019s young manager.",
+        "characters": [
+          {
+            "name": "Marv Pritchard",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He lobbies the city council to block funding for permanent live performance upgrades and organizes monthly classic film screenings in the theater\u2019s side lounge when possible",
+            "keywords": "marquee+0.6 rust+0.4 projection-booth+0.5 classic-film-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila Torres",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She books local indie acts three nights a week and campaigns to turn the theater\u2019s original balcony into a VIP seating area for ticketed concertgoers",
+            "keywords": "soundboard+0.5 riser+0.4 craft-cider+0.3 live-music+0.6",
+            "ticks": 20
+          },
+          {
+            "name": "Javi Ruiz",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He helps coordinate hybrid events that pair live music sets with classic film clips to bridge the two sides of the theater\u2019s community debate",
+            "keywords": "mixing-station+0.4 popcorn-stain-0.5 marquee+0.2 live-music+0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Gloria Wade",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She runs a neighborhood newsletter that features both concert listings and classic film event announcements to build unity among the theater\u2019s supporters",
+            "keywords": "newsletter+0.5 marquee+0.3 concession-0.4 classic-film+0.4",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+          "scenario": {
+            "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
+            "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popcorn, its projection booth repurposed as a soundboard station, and a small group of lifelong residents is fighting to restore its vintage art deco marquee and host monthly classic film screenings alongside the indie folk and punk shows booked by the venue\u2019s young manager.",
+            "characters": [
+              {
+                "name": "Marv Pritchard",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He lobbies the city council to block funding for permanent live performance upgrades and organizes monthly classic film screenings in the theater\u2019s side lounge when possible",
+                "keywords": "marquee+0.6 rust+0.4 projection-booth+0.5 classic-film-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila Torres",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She books local indie acts three nights a week and campaigns to turn the theater\u2019s original balcony into a VIP seating area for ticketed concertgoers",
+                "keywords": "soundboard+0.5 riser+0.4 craft-cider+0.3 live-music+0.6",
+                "ticks": 20
+              },
+              {
+                "name": "Javi Ruiz",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He helps coordinate hybrid events that pair live music sets with classic film clips to bridge the two sides of the theater\u2019s community debate",
+                "keywords": "mixing-station+0.4 popcorn-stain-0.5 marquee+0.2 live-music+0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Gloria Wade",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She runs a neighborhood newsletter that features both concert listings and classic film event announcements to build unity among the theater\u2019s supporters",
+                "keywords": "newsletter+0.5 marquee+0.3 concession-0.4 classic-film+0.4",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:16:57.937334Z",
+          "ran_by": "quick_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marv Pritchard",
+                  "text": "I\u2019ve been showing up to this theater for classic matinees since I was 10, and I can\u2019t believe the city\u2019s even considering funding permanent live performance upgrades that\u2019d gut the kind of quiet, communal film nights we\u2019ve been running out of the side lounge for two years now. This spot\u2019s legacy isn\u2019t stage lights\u2014it\u2019s big screen blockbusters and Saturday cartoons.\n[He adjusts the stack of 16mm film canisters tucked under his arm and smooths a crumpled screening flyer taped crookedly to the concession stand\u2019s side.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Torres",
+                  "text": "I just confirmed that local indie shoegaze act Soft Signal will play our first VIP balcony showcase next Friday, once we finish patching the drywall in the upper seating area. We already have 42 pre-sold tickets for the spot, which is double what we thought we\u2019d hit in just three days of spreading the word.\n[kneeling to brush a layer of dust off the weathered brass plaque marking the theater\u2019s original 1972 balcony entrance, tucked behind the concession stand\u2019s stack of unopened popcorn bags]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Ruiz",
+                  "text": "Good evening, everyone packed into this beloved chipped red-brick Orion Theater\u2014whether you\u2019re a lifelong regular or here for your first hybrid film-music night! We\u2019re kicking things off with a rare 1972 Saturday matinee cartoon clip before the local folk quartet takes the live stage.\n[I adjust the height of the projection screen hanging above the stage, running a hand to smooth out a tiny crease in the fabric.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Gloria Wade",
+                  "text": "Good evening, neighbors popping by the Orion tonight! This month\u2019s community newsletter drops right now, with full listings for our upcoming 1970s retro double features and a roundup of local acts playing the theater\u2019s lobby shows all summer. It\u2019s such a joy to see this old beloved brick spot filled with folks who want to keep its warm spirit alive.\n[Brushing a fleck of chipped red brick dust off a stack of freshly printed newsletters before tucking a handful under the concession stand\u2019s front ledge for passersby to grab]",
+                  "shifts": {
+                    "newsletter": 0.5,
+                    "concession": -0.4
+                  },
+                  "shift_total": 0.1,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marv Pritchard",
+                  "text": "Hold up, let\u2019s get our priorities straight first. We\u2019re here to sort out booking the side lounge for next month\u2019s Saturday matinee of *Paper Moon*, not vote on permanent live performance setups that\u2019ll jack up our monthly overhead for years to come. This theater\u2019s legacy is tied to classic Hollywood films, not random indie band showcases.\n[Grabs a tattered stack of classic film reservation slips from his canvas bag and slaps them down sharply on the chipped concession counter.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila Torres",
+                  "text": "Good evening, everyone\u2014thanks to the newsletter Gloria just shared, we have official sign-up sheets out by the box office for our first balcony VIP showcase next Friday with Soft Signal. For anyone who\u2019s loved this theater through decades of movies and matinees, this is our chance to save that empty upper level and turn it into a space for intimate live music.\n[I lean up to tap the weathered wooden railing of the half-restored balcony overhead, then hold up a stack of bright magenta event flyers to wave at the front rows of the crowd.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi Ruiz",
+                  "text": "Whether you\u2019re a lifelong regular or here for your first hybrid film-music night, thank you all for packing into this chipped Orion tonight. I wanted to share that we wrapped the balcony drywall patches earlier this week, so Soft Signal\u2019s shoegaze VIP showcase is officially locked in for next Friday, paired with a restored 1970s sci-fi favorite.\n[Holding up a stack of glossy event fliers while nodding toward Gloria, who was passing out community newsletter sheets by the popcorn machine]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Gloria Wade",
+                  "text": "Good evening, neighbors popping by the Orion tonight! This month\u2019s community newsletter drops right now, with full listings for our upcoming 1970s blockbuster retro series, plus all the details for next Friday\u2019s Soft Signal VIP balcony showcase and volunteer sign-ups to help patch the balcony drywall. Drop a suggestion for your favorite classic film to screen next month in the box by the front door too!\n[Holds aloft a stack of glossy black-and-orange newsletters, waving them gently to catch the eye of a group of kids staring up at the vintage Saturday matinee cartoon poster taped to the concession stand wall.]",
+                  "shifts": {
+                    "newsletter": 0.5,
+                    "concession": -0.4
+                  },
+                  "shift_total": 0.1,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marv Pritchard": 0.0,
+            "Lila Torres": 0.0,
+            "Javi Ruiz": 0.0,
+            "Gloria Wade": 0.2
+          },
+          "citations": {
+            "Lila Torres": {
+              "Gloria Wade": 1
+            },
+            "Javi Ruiz": {
+              "Gloria Wade": 1
+            }
+          },
+          "dm_opening": "DM opening: the Marv Pritchard takes a position; the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marv Pritchard still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
     },
     {
       "slug": "three-siblings-caring-for-an-orchard-planted-by-their-great",
-      "title": "Elara\u2019s Orchard: Blight and Branching Choices",
-      "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
       "scenario": {
         "title": "Elara\u2019s Orchard: Blight and Branching Choices",
         "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
@@ -1870,8 +3234,8 @@
           }
         ]
       },
-      "versions": [
-        {
+      "versions": {
+        "v1": {
           "title": "Elara\u2019s Orchard: Blight and Branching Choices",
           "scenario": {
             "title": "Elara\u2019s Orchard: Blight and Branching Choices",
@@ -2013,7 +3377,7 @@
           "dm_opening": "Fog rolls off the cistern row as the tide-bell tolls terce, and three of you stand at the base of the original cider apple \u2014 Mara kneeling at the weeping root flare, Lila clutching the copper pruning shears she's already sharpened twice, Javi hauling the last rain-barrel down from the heirloom guild beds because something has fouled the cistern water overnight with a faint sour reek. The neonatal blight is spreading faster than any text in Elara's journals promised, and Kaelin is still unaccounted for out at the mason bee boxes where the buzzing has gone strangely silent. Within the hour you must decide whether Lila cuts the infected flare wood tonight before the fog-borne spores ride the next tide-wind into the stone fruit barrier, or whether Mara's slow seaweed-and-ash packing buys the old tree time at the risk of everything planted since. Javi waits at the cistern valve, hands on the release that would flood the root cell with fresh rainwater \u2014 do you open it, or do you send someone running for Kaelin first?",
           "dm_closing": "The comfrey is tucked at the root flare and Mara's tablet hums as the historical steward roster finally surfaces\u2014names, tides, and treatment records all in one place, so the group parts with a plan: no impromptu recruits, no off-book sprays, just great-grandma's recorded tea until the root stress is read again. What carries over is the unresolved split over Kaelin"
         },
-        {
+        "v2": {
           "title": "Elara\u2019s Orchard: Blight and Branching Choices",
           "scenario": {
             "title": "Elara\u2019s Orchard: Blight and Branching Choices",
@@ -2147,7 +3511,7 @@
           "dm_opening": "Salt fog rolls off the harbor as the tide-bells ring dusk, and you",
           "dm_closing": "[EMPTY]"
         },
-        {
+        "v3": {
           "title": "Elara\u2019s Orchard: Blight and Branching Choices",
           "scenario": {
             "title": "Elara\u2019s Orchard: Blight and Branching Choices",
@@ -2285,8 +3649,7 @@
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
         }
-      ]
+      }
     }
-  ],
-  "n_scenarios": 7
+  ]
 }

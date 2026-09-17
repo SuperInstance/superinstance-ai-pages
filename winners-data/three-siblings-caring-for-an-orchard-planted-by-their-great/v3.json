@@ -1,0 +1,138 @@
+{
+  "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+  "scenario": {
+    "title": "Elara\u2019s Orchard: Blight and Branching Choices",
+    "setting": "Elara\u2019s Orchard is divided into 12 interconnected microcells: heirloom apple guild beds, mason bee nesting boxes, rain-harvest cisterns, and stone fruit barrier rows. Planted by their great-grandmother 13 years prior, it\u2019s now sustained by three sibling stewards and a rotating crew of local volunteers, having cleared its first critical growth year and entered its second decade of production. The core dilemma hinges on the orchard\u2019s original cider apple tree, whose root flare shows signs of neonatal blight, splitting the siblings over how best to save it.",
+    "characters": [
+      {
+        "name": "Mara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-code",
+        "tendencies": "She curates the siblings' shared digital archive of great-grandma's orchard notes, cross-referencing weekly microcell surveys against Elara\u2019s original planting plan. She refuses to consider untested treatments because she fears losing the orchard's original ancestral lineage.",
+        "keywords": "archive+0.52,lineage+0.51,blight-surveys+0.48,tradition-0.32",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "zai:glm-4.5",
+        "tendencies": "She\u2019s spent the last three months trialing organic copper sulfate sprays on the affected tree, refining application rates to minimize harm to nearby pollinator habitats. She argues that delaying the experimental treatment will lead to the tree's death before the autumn harvest.",
+        "keywords": "drip-irrigation+0.68,soil-tests+0.36,copper-sprays+0.25,urgency-0.03",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He runs the orchard\u2019s community-supported agriculture program, hosting monthly open houses and recruiting local volunteers to assist with daily maintenance. He worries that diverting all their resources to saving one tree will leave other parts of the orchard\u2019s microcell network under-cared for.",
+        "keywords": "csa-shares+0.52,community-events+0.41,pollinator-habitat+0.54,expansion-0.11",
+        "ticks": 20
+      },
+      {
+        "name": "Kaelin",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They\u2019re a local teen volunteer who first discovered the orchard through Javi\u2019s social media posts, and they\u2019ve begun documenting the orchard\u2019s unplanned volunteer saplings. They\u2019ve noticed new shoots sprouting from the base of the blighted tree, and they advocate for letting natural regeneration lead the way.",
+        "keywords": "volunteer-saplings+0.7,natural-regeneration+0.52,teen-advocacy+0.43,compromise-0.45",
+        "ticks": 20
+      }
+    ]
+  },
+  "version_seed": 300,
+  "rounds": 3,
+  "ran_at": "2026-09-16T16:49:34.616736Z",
+  "ran_by": "volume_loop/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "DM",
+          "text": "[EMPTY]",
+          "role": "DM"
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I just pulled the latest Microcell 4 soil moisture survey off the shared archive. I\u2019m cross-referencing it against Elara\u2019s formal planting plan to confirm we only use treatments great-grandma documented in her orchard notes. We can\u2019t risk introducing untested additives that could disrupt this orchard\u2019s original ancestral lineage.\n[leans in to adjust the handheld tablet\u2019s zoom to highlight the heirloom apple rootstock entries from 1927]",
+          "shifts": {
+            "archive": 0.52,
+            "lineage": 0.51
+          },
+          "shift_total": 1.03,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "[EMPTY]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "I just checked in with the first volunteer shift, and most are focused on the ailing heritage walnut we\u2019re all rallying to save. I can\u2019t shake the worry that the mason bee nesting boxes in the western microcells haven\u2019t been inspected in three weeks, so we need to carve out a small window tomorrow to split crews so no part of the orchard gets overlooked.\n[grabs a stack of torn volunteer sign-up sheets from the wooden tool cart at his feet]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "I stopped by the blighted heirloom apple tree in the south microcell earlier and spotted tender new saplings sprouting from its root base. We should skip cutting it down entirely\u2014these shoots will grow into healthy, fruiting trees with just a little space, and that\u2019s exactly the unplanned natural regen I\u2019ve been tracking for my project. It\u2019s such a quiet, perfect win for the orchard.\n[kneels to press a handwritten field tag next to the sapling cluster while scribbling a quick update in their spiral-bound notebook]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I need to cross-reference those south microcell apple root shoots against great-grandma\u2019s official propagation logs before we prioritize nurturing them\u2014we can\u2019t risk deviating from documented lineage practices. I also want to pull the western microcell mason bee nesting box placement records to address your earlier concern, to make sure we\u2019re sticking to her specified spacing rules rather than adjusting things on the fly.\n[reaches for the thick, leather-bound great-grandma orchard archive binder tucked under the shared worktable]",
+          "shifts": {
+            "archive": 0.52,
+            "lineage": 0.51
+          },
+          "shift_total": 1.03,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Three months of trials have taught me exactly how little copper sulfate these trees can take before runoff threatens the western nesting boxes\u2014my refined rates cut application volume by nearly half with no spike in bee activity loss. But blight doesn't wait for consensus, and every week we debate is a week closer to losing the walnut before autumn. I've documented every spray date, every dilution, every weather window; if we delay past this month, we might as well be sharpening the axe ourselves. Mara, my application logs are on the shared archive if you want to verify them against Elara's records yourself.\n\n[unrolls her spray-log ledger across the planning table, tapping the color-coded application schedule]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "I can\u2019t shake the worry that the western microcell\u2019s mason bee nesting boxes are going completely unmaintained while all our volunteers focus on the ailing heritage walnut. We need to reassign a small crew to tend those boxes and check in on the south apple tree\u2019s root saplings too. Let me pull up the volunteer rosters right now to rework today\u2019s shifts.\n[grabs the dog-eared volunteer shift clipboard from the tool shed counter]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Kaelin",
+          "text": "I stopped by the blighted heirloom apple tree in the south microcell earlier and spotted tender new saplings sprouting from its root base. We should skip cutting it down entirely\u2014these shoots will grow into full, healthy apple trees in a few years, and I\u2019ve been documenting every unplanned volunteer sapling across the orchard to track this kind of spontaneous regrowth.\n[kneels down to gently tuck a stray clump of grass away from one of the tiny, bright green shoots]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara": 2.06,
+    "Lila": 0.0,
+    "Javi": 0.0,
+    "Kaelin": 0.0
+  },
+  "citations": {
+    "Lila": {
+      "Mara": 1
+    }
+  },
+  "dm_opening": "[EMPTY]",
+  "dm_closing": "[EMPTY]"
+}

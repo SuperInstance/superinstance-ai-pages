@@ -1,0 +1,34 @@
+{
+  "title": "Hawthorne Bindery's Last Chapter",
+  "setting": "A sun-faded cobblestone alley in coastal Massachusetts, where the red brick Portside Small Library juts into a cramped, oak-lined bookbindery run by the Hawthorne family for 73 years. The bindery\u2019s back shelves are stacked with leather-bound classics and half-finished custom journals, and the air smells like waxed thread and old paper; the library\u2019s director has just notified the family the town council will cut their shared rental space in three months to make way for a free public wifi hub.",
+  "characters": [
+    {
+      "name": "Elias Hawthorne",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He has run the Hawthorne Bindery for 45 years, refusing to adopt modern binding equipment because he believes hand-tooled craft is the only way to honor the vintage books the library houses.",
+      "keywords": "hand-tools+0.6 leather+0.5 tradition+0.4 budget-cuts-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila Hawthorne",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She is Elias\u2019 26-year-old granddaughter and the bindery\u2019s only apprentice, and she wants to launch a hybrid model of hand binding and digital design templates to keep the business operational after their rental space is lost.",
+      "keywords": "digital+0.6 hybrid+0.5 innovation+0.4 tradition-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Marisol \"Marcy\" Hale",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She has served as Portside Small Library\u2019s director for 12 years, and she is lobbying the town council to reallocate part of the wifi hub budget to carve out a dedicated bindery space in the library\u2019s basement.",
+      "keywords": "library+0.6 advocacy+0.5 community+0.4 budget-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Tom Mendez",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He is a 17-year-old high school poet and book club president who orders custom journals from the Hawthorne Bindery for his club\u2019s annual chapbook, and he organized a 220-signature petition to keep the bindery open for local creators.",
+      "keywords": "chapbooks+0.6 youth+0.5 craft+0.4 modernization-0.2",
+      "ticks": 20
+    }
+  ]
+}

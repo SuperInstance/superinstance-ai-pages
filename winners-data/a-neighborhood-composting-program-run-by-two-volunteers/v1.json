@@ -1,0 +1,108 @@
+{
+  "title": "The Maple Street Compost Contamination Dilemma",
+  "scenario": {
+    "title": "The Maple Street Compost Contamination Dilemma",
+    "setting": "Nestled between the library\u2019s back porch and a row of overgrown tomato plants, Maple Street\u2019s neighborhood compost drop-off consists of three weathered wooden bins tagged with handwritten rules. For 18 months, volunteers Marisol and Jules ran the program without incident, collecting food scraps weekly until a batch of unlabeled dairy waste spoiled nearly 70% of the pile last Tuesday. The resulting foul stench has carried to nearby townhomes, prompting three residents to file formal complaints with the neighborhood association.",
+    "characters": [
+      {
+        "name": "Marisol Espinoza",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Insists on sticking strictly to the initial program guidelines to rebuild trust with local residents after the contamination incident",
+        "keywords": "rule+0.6 trust+0.4 compost-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Jules Torres",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Argues that bending the program rules temporarily to add free contamination testing stations will prevent future waste spoilage",
+        "keywords": "adapt+0.6 contamination+0.4 dropoff-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Clara Hale",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Demands the compost program be shut down entirely unless immediate, permanent changes are made to eliminate the persistent foul stench",
+        "keywords": "complaint+0.5 stench+0.4 shutdown-0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:16:01.076302Z",
+  "ran_by": "quick_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marisol Espinoza",
+          "text": "Good afternoon, neighbors stopping by the compost drop today. I wanted to share that all local compost materials collected and accepted here have passed recent contamination tests, so you can safely leave your kitchen scraps without any worry. I\u2019ve also restocked the free, sanitized collection bins for anyone who needs a clean way to transport their scraps.\n[Kneeling to stack the labeled, clear compost bins neatly on the wooden drop-off platform, brushing a strand of overgrown tomato vine off the handwritten sign posted to the library porch rail]",
+          "shifts": {
+            "compost": -0.9
+          },
+          "shift_total": -0.9,
+          "role": ""
+        },
+        {
+          "name": "Jules Torres",
+          "text": "\"Folks, the last two compost drop-off batches had hidden dairy and meat scraps that turned half the neighborhood pile rank and left us without usable garden soil all spring. We can\u2019t wait for the full council vote to add permanent contamination testing stations\u2014temporarily bending the rules to put up these free, temporary testing stations right here will stop spoiled waste from ruining the pile before it\u2019s too late.\"\n[Grabs a stack of hand-lettered \"Test Scraps Here\" signs from their canvas tote and prods one against a thick wooden stake holding up the overgrown tomato plants]",
+          "shifts": {
+            "contamination": 0.4
+          },
+          "shift_total": 0.4,
+          "role": ""
+        },
+        {
+          "name": "Clara Hale",
+          "text": "That unrelenting, putrid stench from the neighborhood compost program has drifted all the way over here between the library\u2019s back porch and overgrown tomato plants, and it\u2019s making it impossible to enjoy being outside right now. This can\u2019t keep going on without immediate, permanent fixes to fully eliminate that foul smell\u2014otherwise, I\u2019m leading the push to shut the entire compost drop-off program down permanently.\n[Grabs a crumpled stack of signed neighborhood complaint forms and slams them hard against the side of the compost bin]",
+          "shifts": {
+            "complaint": 0.5,
+            "stench": 0.4
+          },
+          "shift_total": 0.9,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marisol Espinoza",
+          "text": "I am deeply sorry for the putrid stench that\u2019s drifted through this neighborhood from the contaminated compost piles\u2014this was a mistake on my part for not enforcing clear drop-off rules strictly enough. We\u2019ve now set up clearly marked, dedicated bins only for plant-based scraps and posted large signs right by the porch so everyone knows what\u2019s allowed. I\u2019m here to answer any questions or help you sort your materials correctly today.\n[kneels to adjust a crinkled bright green \u201cNO ANIMAL PRODUCTS\u201d sign hanging above the new compost bins, while passing a printed quick-reference sheet to a nearby resident glancing at the posted rules]",
+          "shifts": {
+            "compost": -0.6
+          },
+          "shift_total": -0.6,
+          "role": ""
+        },
+        {
+          "name": "Jules Torres",
+          "text": "\"Look, we can\u2019t keep ignoring the hidden contaminated scraps ruining our compost pile\u2014this stench isn\u2019t just unpleasant, it\u2019s wasting the nutrient-rich soil we all rely on for our gardens. We need to temporarily bend the program\u2019s strict rules to set up free on-site contamination testing stations right here at the drop-off, so neighbors can check their scraps without extra cost or hassle, and stop this spoilage before it gets worse.\"\n[Kneels down, pulls a stack of handwritten test station signs from their work bag, and tapes one to the side of the library\u2019s back porch railing to alert passersby.]",
+          "shifts": {
+            "contamination": 0.4
+          },
+          "shift_total": 0.4,
+          "role": ""
+        },
+        {
+          "name": "Clara Hale",
+          "text": "That unrelenting, putrid stench from the neighborhood compost program has drifted all the way over here between the library\u2019s back porch and overgrown tomato plants, seeping into the peaceful afternoon air I was enjoying while walking home from the library. Either you make immediate, permanent changes to eliminate this foul stench entirely, or shut the entire compost program down right now. I won\u2019t tolerate this rank odor ruining our neighborhood\u2019s quiet spaces.\n[Clutching her frayed canvas library bag tight while swatting at the air repeatedly in front of her nose to dodge the acrid smell]",
+          "shifts": {
+            "stench": 0.8
+          },
+          "shift_total": 0.8,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marisol Espinoza": -1.5,
+    "Jules Torres": 0.8,
+    "Clara Hale": 1.7000000000000002
+  },
+  "citations": {},
+  "dm_opening": "DM opening: the Marisol Espinoza takes a position; the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marisol Espinoza still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+}
