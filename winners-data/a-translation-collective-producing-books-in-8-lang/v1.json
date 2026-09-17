@@ -1,0 +1,106 @@
+{
+  "title": "The 8-Language Translation Collective Dilemma",
+  "scenario": {
+    "title": "The 8-Language Translation Collective Dilemma",
+    "setting": "A small, passionate translation collective operates from a cluttered shared office in a former bookstore basement. They translate literary works across 8 underrepresented global languages for a struggling independent small press. Their critical deadline for their first bound anthology is two weeks away, but their funding has suddenly dried up.",
+    "characters": [
+      {
+        "name": "Kael",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Tracks all collective budgets, output totals, and billing cycles for the small press partnership",
+        "keywords": "count+0.6 budget+0.7 deadline-0.4 creativity-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Marisol",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Advocates for preserving linguistic and cultural authenticity in every translation, even if it means adjusting timeline expectations",
+        "keywords": "linguistics+0.8 culture+0.6 nuance+0.5 speed-0.3 budget-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Manages daily collective operations, coordinates between translators and the small press, and trains new volunteer translators",
+        "keywords": "admin+0.7 coordination+0.6 onboarding+0.5 precision-0.3 creativity-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:29:30.501726Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Kael",
+          "text": "I just pulled up the Q3 billing cycle spreadsheets\u2014we\u2019re still waiting on two freelance translator invoices to come through before we can finalize the royalty payouts for our debut chapbook line. We also just blew past our monthly fundraising target for the new literary translation seed grant, which is a huge win for the collective\u2019s future projects.\n[Leans against the cluttered desk, prodding a loose invoice slip tucked under a stack of used poetry translations with his shoe before pulling up a follow-up email draft on his work laptop.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "\"Hold on, let\u2019s hit pause on that quick edit. That regional Oaxacan folk saying the author included isn\u2019t disposable\u2014losing it would strip readers of the exact warmth and local context that makes this story feel alive. We can push back the client\u2019s deadline by a single day, but we can\u2019t get this cultural nuance back once it\u2019s cut.\"\n[She grabs a frayed bilingual anthology from the cluttered desk, flattening the coffee-stained page marked with a sticky note to highlight the phrase in question.]",
+          "shifts": {
+            "nuance": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Quick check-in, folks\u2014our small press contact just confirmed they\u2019ll drop off advance reader copies of the translated folk zine next week, and I\u2019ve put together a quick training breakdown for our new Portuguese translation volunteer who\u2019s sitting over by the old bookstore shelf of dictionaries. I\u2019m going to pull everyone into a 10-minute sync once we wrap up the first round of poem proofreads.\n[I grab a stack of crinkled, annotated translation drafts from the cluttered communal desk and gesture for the group to cluster in the sunlit corner by the stained-glass window.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Kael",
+          "text": "I\u2019ve got enough unallocated Q3 reserve to cover the zine\u2019s print fees early without those two pending freelance invoices, so we won\u2019t have to push back the ARC drop-off Javi just confirmed. Let\u2019s circle back to that regional folk saying note from Marisol right after I jot a quick follow-up reminder for the missing invoices.\n[Scratches a quick \"FOLLOW UP: TRANSLATOR INVOICES 17 & 22\" on a neon pink sticky note and presses it to the top of the Q3 spreadsheet stack]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "\"Hold on, let\u2019s hit pause on that quick edit. That regional Oaxacan folk saying the author included isn\u2019t disposable\u2014losing it would strip readers of the story\u2019s core cultural warmth and specific community context, not just a throwaway turn of phrase. We can rework our word count elsewhere instead of cutting something that makes this translation feel authentic.\"\n[Grabs a dog-eared Spanish-Zapotec glossary and a pad of translator\u2019s note sticky notes from the cluttered shared desk, nudging a loose stack of translated zine drafts aside to make space]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Quick check-in, folks\u2014our small press contact just confirmed they\u2019ll drop off advance reader copies of the translated folk zine next week. I also pulled together sign-up sheets for our upcoming volunteer translator training and extra regional dialect glossaries for anyone polishing tricky folk phrasing like the Oaxacan saying Marisol flagged.\n[I set the stack of printed materials down between Kael\u2019s open billing spreadsheet and Marisol\u2019s annotated manuscript, then nudged a smudged ceramic yerba mat\u00e9 mug off the cluttered conference table to clear a small work spot.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Kael": 0.0,
+    "Marisol": 0.5,
+    "Javi": 0.0
+  },
+  "citations": {
+    "Kael": {
+      "Marisol": 1,
+      "Javi": 1
+    },
+    "Javi": {
+      "Kael": 1,
+      "Marisol": 2
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door."
+}

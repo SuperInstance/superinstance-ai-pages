@@ -1,0 +1,106 @@
+{
+  "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+  "scenario": {
+    "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+    "setting": "The creaky, century-old Hale Funeral Home sits on a tree-lined main street in rural Ohio, its front showroom still lined with handcrafted oak caskets passed down through three generations. Third-generation owner Mara Hale struggles to keep the family business afloat as local families increasingly choose affordable direct cremations over traditional viewings and full burials, forcing her to confront changes that clash with her family\u2019s long-held legacy.",
+    "characters": [
+      {
+        "name": "Jessa Mae",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She greets every grieving family with gentle, traditional courtesy while quietly researching direct cremation compliance rules to support the business\u2019s evolving needs.",
+        "keywords": "door+0.5 rust+0.4 spec+0.3 lineage+0.4 drift+0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Elara Voss",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She writes clear, empathetic outreach materials and answers phone inquiries to help families understand direct cremation without dismissing traditional funeral preferences.",
+        "keywords": "urn+0.6 cremation+0.5 echo+0.3 tradition+0.4 cost+0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Toby Cole",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He maintains the funeral home\u2019s equipment, assists with all funeral preparations, and balances respect for the family\u2019s legacy with willingness to adopt modern direct cremation workflows.",
+        "keywords": "cremation+0.7 tool+0.4 legacy+0.3 order+0.5 calm+0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:34:11.249084Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Jessa Mae",
+          "text": "Good afternoon, Mr. and Mrs. Hale. I\u2019m Jessa Mae, and I was expecting you after you reached out earlier about direct cremation services for your father. Please, come in out of the crisp rural wind, and let me bring you both a glass of warm lemon tea before we discuss your options. [I step forward to turn the brass door latch fully, pulling the heavy oak entrance wide to usher them inside and smooth a wrinkle from the cuff of my modest wool skirt.]",
+          "shifts": {
+            "door": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "Hi there\u2014 I\u2019m Elara Voss, the direct cremation liaison who checked in with Mr. Hale earlier this morning. I noticed you lingering by the hand-carved hardwood casket displays, and I wanted to share that we can honor your loved one with the same quiet care you\u2019re seeking, just without the steep cost or rigid formalities that don\u2019t align with your family\u2019s wishes. There\u2019s no pressure to decide right now, either\u2014 I just wanted to make sure you had all the options available to you.\n[She steps forward slowly, holding a stack of plain-spoken, recycled-paper informational brochures, and gestures toward a small, tucked-away seating nook by the parlor\u2019s back window to invite them to chat at their own pace.]",
+          "shifts": {
+            "cremation": 0.5,
+            "cost": 0.2
+          },
+          "shift_total": 0.7,
+          "role": ""
+        },
+        {
+          "name": "Toby Cole",
+          "text": "Sorry for the quick delay, folks\u2014just putting the final shine on the hand-carved oak display casket that my grandfather helped select back in 1979. This old funeral home\u2019s got stories in every scuffed wooden trim and faded fabric, and I take pride in keeping it feeling warm, not just sterile for every family that walks through these doors.\n[Adjusting the small brass Hale family plaque mounted above the showroom display case, then reaching for his work tablet to pull up direct cremation pricing packets for the visiting couple.]",
+          "shifts": {
+            "cremation": 0.7
+          },
+          "shift_total": 0.7,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Jessa Mae",
+          "text": "Welcome, Mr. and Mrs. Hale, Ms. Voss, and Mr. Cole. I appreciate how thoughtful it is to give your grandfather\u2019s hand-carved casket that final gentle polish before we begin. Let me grab each of you a glass of sweet tea to help you settle in comfortably. [Reaches for the chipped ceramic tea pitcher and a stack of monogrammed paper cups from the front showroom\u2019s side table.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Elara Voss",
+          "text": "No rush at all\u2014taking time to polish that hand-carved casket, a piece with such rich family history, is exactly the kind of thoughtful care your father would have valued. I\u2019m Elara Voss, the direct cremation liaison who called earlier this morning, and I\u2019m here to walk you through straightforward, transparent cremation options without any pushy extras.\n[I set my embossed service folder on the front showroom desk and gesture gently to the cushioned rocking chairs by the window, inviting them to sit and talk at their own pace.]",
+          "shifts": {
+            "cremation": 1.0
+          },
+          "shift_total": 1.0,
+          "role": ""
+        },
+        {
+          "name": "Toby Cole",
+          "text": "Thanks for hanging tight a second\u2014this hand-carved oak casket\u2019s my grandfather\u2019s handiwork from 1979, and I didn\u2019t want to rush buffing out the last smudge. I\u2019m Toby Cole, the shop\u2019s prep technician, and I\u2019m happy to walk you through every part of your father\u2019s direct cremation services. Let\u2019s head through that back hallway to the cozy consultation nook so we can talk without distractions.\n[Drops his lint-free polishing rag onto the nearby workbench and gestures toward a quiet, carpeted back room off the main showroom floor.]",
+          "shifts": {
+            "cremation": 0.7
+          },
+          "shift_total": 0.7,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Jessa Mae": 0.5,
+    "Elara Voss": 1.7,
+    "Toby Cole": 1.4
+  },
+  "citations": {},
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Jessa Mae holds the line; the next session's hook waits at the door."
+}

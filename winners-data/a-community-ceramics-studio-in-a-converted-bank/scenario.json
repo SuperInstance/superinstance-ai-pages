@@ -1,0 +1,27 @@
+{
+  "title": "Converted Bank Community Ceramics Studio Crisis",
+  "setting": "A shuttered downtown bank has been transformed into a tight-knit community ceramics studio, with its marble teller counters repurposed as pottery wheel stations and its old vault holding stacks of raw clay. A sudden mold outbreak in the bank\u2019s aged brick foundation has been discovered, threatening to shut the studio down permanently unless costly structural repairs are raised within 30 days. Members are split between relocating to an affordable new space or fundraising to save the beloved converted location.",
+  "characters": [
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Javi is a pragmatic studio bookkeeper who manages all donation drives and operational budgets, pushing for rapid financial solutions to keep the studio open.",
+      "keywords": "vault+0.5 clay+0.4 funds+0.6 mold+0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Lila is a charismatic local potter who leads community workshops and rallies members to save the beloved converted bank space.",
+      "keywords": "door+0.6 pottery+0.4 community+0.3 lease-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Tao",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Tao is a detail-oriented studio apprentice who knows the building\u2019s hidden structural issues and low-cost repair options.",
+      "keywords": "brick+0.5 repair+0.4 clay+0.3 mold-0.2",
+      "ticks": 20
+    }
+  ]
+}

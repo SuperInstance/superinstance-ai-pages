@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T02:18:57.612246Z",
+  "generated_at": "2026-09-17T02:39:00.199101Z",
   "scenarios": [
     {
       "slug": "a-30-year-old-community-acupuncture-clinic",
@@ -169,6 +169,290 @@
           },
           "dm_opening": "DM opening: the Clara Maeve takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Clara Maeve still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-communal-laundry-facility-in-a-housing-project-w",
+      "scenario": {
+        "title": "Maple Court Laundry Reservation Dilemma",
+        "setting": "The damp basement of Maple Court public housing features three aging laundry machines, reserved using a smudged handwritten paper sheet taped to a rusted utility sink. Each weekday evening, a tense free-for-all breaks out as working parents, elderly tenants, and night-shift workers compete for the few available dryer slots. There are no formal rules beyond the handwritten sheet, leading to frequent arguments and erased reservations.",
+        "characters": [
+          {
+            "name": "Mabel",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Mabel has maintained the handwritten reservation sheet for eight months, strictly enforcing the time slots she writes down and ignoring requests for last-minute changes.",
+            "keywords": "sheet+0.6 reservation+0.5 strict+0.4 laundry+0.3 patience-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Jesse",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Jesse loudly complains to anyone within earshot about stolen reservation spots and has taken to crossing out other tenants\u2019 entries on the sheet.",
+            "keywords": "yell+0.6 reservation+0.5 anger+0.4 laundry+0.3 stress-0.1",
+            "ticks": 20
+          },
+          {
+            "name": "Ty",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Ty stops by monthly to fix the laundry machines but avoids engaging in reservation conflicts to keep his entry-level maintenance job.",
+            "keywords": "machine+0.7 repair+0.5 rust+0.3 caution+0.2 compliance-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Maple Court Laundry Reservation Dilemma",
+          "scenario": {
+            "title": "Maple Court Laundry Reservation Dilemma",
+            "setting": "The damp basement of Maple Court public housing features three aging laundry machines, reserved using a smudged handwritten paper sheet taped to a rusted utility sink. Each weekday evening, a tense free-for-all breaks out as working parents, elderly tenants, and night-shift workers compete for the few available dryer slots. There are no formal rules beyond the handwritten sheet, leading to frequent arguments and erased reservations.",
+            "characters": [
+              {
+                "name": "Mabel",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Mabel has maintained the handwritten reservation sheet for eight months, strictly enforcing the time slots she writes down and ignoring requests for last-minute changes.",
+                "keywords": "sheet+0.6 reservation+0.5 strict+0.4 laundry+0.3 patience-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Jesse",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Jesse loudly complains to anyone within earshot about stolen reservation spots and has taken to crossing out other tenants\u2019 entries on the sheet.",
+                "keywords": "yell+0.6 reservation+0.5 anger+0.4 laundry+0.3 stress-0.1",
+                "ticks": 20
+              },
+              {
+                "name": "Ty",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Ty stops by monthly to fix the laundry machines but avoids engaging in reservation conflicts to keep his entry-level maintenance job.",
+                "keywords": "machine+0.7 repair+0.5 rust+0.3 caution+0.2 compliance-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:35:05.811231Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Mabel",
+                  "text": "I can\u2019t bend the rules for you, not after eight months of keeping this reservation sheet straight. You put your name down for the 6 PM slot tomorrow, not this current window. I already locked in this time for Mrs. Hernandes an hour ago. [Tapping sharply at the smudged, ink-blotted handwritten sheet pinned to the laundry room\u2019s cinder block wall with a chipped pencil, then folding her arms firmly across her stained flannel shirt.]",
+                  "shifts": {
+                    "sheet": 1.2,
+                    "reservation": 0.5,
+                    "laundry": 0.3
+                  },
+                  "shift_total": 2.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jesse",
+                  "text": "Can you believe this total bullshit? Some cheapskate stole my pre-reserved laundry slot, and now I\u2019m left scrambling for a broken spare machine. I wrote my name on this smudged sheet first thing yesterday, too!\n[Grabs a chewed blue ballpoint pen from his pocket and viciously crosses out a stranger\u2019s scrawled reservation entry across the row from his intended machine]",
+                  "shifts": {
+                    "reservation": 0.5,
+                    "laundry": 0.3
+                  },
+                  "shift_total": 0.8,
+                  "role": ""
+                },
+                {
+                  "name": "Ty",
+                  "text": "I\u2019m sticking to fixing the machines first instead of untangling these smudged reservation slips\u2014last time I tried to sort the timeslots, two tenants screamed at each other for half an hour over a single wash cycle, and this damp basement\u2019s mildew isn\u2019t helping my mood either. I don\u2019t need that hassle right now, so I\u2019ll get these two dryers cleared of lint before anyone else shows up. I\u2019ll just knock out the quick fixes first so I can wrap up early before the arguing kicks off again.\n[Kneels to pry open the side panel of the nearest dryer, yanking free a wad of trapped lint and crumpled fast-food receipts wedged in its vent]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mabel",
+                  "text": "\"I\u2019ve been enforcing this exact booking rule for eight months, so don\u2019t go giving me grief about it! Anyone who swaps a slot without writing a clear note forfeits their spot, and that\u2019s exactly what happened here. You can wait for the 7 PM slot or use the finicky dryer by the back stair if you don\u2019t want to cool your heels.\"\n[Clenches the frayed, smudged handwritten reservation pad tight under one arm, tapping the faded, crossed-out line next to Jesse\u2019s name with a stubby blue pencil.]",
+                  "shifts": {
+                    "reservation": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Jesse",
+                  "text": "Can you all just shut up for one second and listen? I had this 6 PM laundry slot locked down three days ago, and some total stranger has scribbled over my name on the sheet! I\u2019m not sitting around waiting for a broken washer when I already reserved this spot fair and square!\n\n[slams their half-folded laundry basket down on the scuffed folding table and storms over to the smudged reservation sheet, scratching a thick black line through two recent, unrecognized entries]",
+                  "shifts": {
+                    "reservation": 0.5,
+                    "laundry": 0.6
+                  },
+                  "shift_total": 1.1,
+                  "role": ""
+                },
+                {
+                  "name": "Ty",
+                  "text": "I\u2019m not getting dragged into this reservation chaos\u2014last time I tried to sort those smudged slips, two tenants started bickering so loud the fire department stopped by to check things out. I\u2019m sticking strictly to my work order, which is just fixing these three aging machines, not picking sides over who\u2019s supposed to use what slot. I can give this spare washer a quick tune-up before I clock out if you need a working cycle, though.\n[Wipes grease from his hands onto a worn rag tucked into his coverall pocket, then kneels to unscrew a corroded bolt on the side of the leftmost broken washer]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mabel": 2.5,
+            "Jesse": 1.9000000000000001,
+            "Ty": 0.0
+          },
+          "citations": {
+            "Mabel": {
+              "Jesse": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Mabel holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-community-ceramics-studio-in-a-converted-bank",
+      "scenario": {
+        "title": "Converted Bank Community Ceramics Studio Crisis",
+        "setting": "A shuttered downtown bank has been transformed into a tight-knit community ceramics studio, with its marble teller counters repurposed as pottery wheel stations and its old vault holding stacks of raw clay. A sudden mold outbreak in the bank\u2019s aged brick foundation has been discovered, threatening to shut the studio down permanently unless costly structural repairs are raised within 30 days. Members are split between relocating to an affordable new space or fundraising to save the beloved converted location.",
+        "characters": [
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Javi is a pragmatic studio bookkeeper who manages all donation drives and operational budgets, pushing for rapid financial solutions to keep the studio open.",
+            "keywords": "vault+0.5 clay+0.4 funds+0.6 mold+0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Lila is a charismatic local potter who leads community workshops and rallies members to save the beloved converted bank space.",
+            "keywords": "door+0.6 pottery+0.4 community+0.3 lease-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Tao",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Tao is a detail-oriented studio apprentice who knows the building\u2019s hidden structural issues and low-cost repair options.",
+            "keywords": "brick+0.5 repair+0.4 clay+0.3 mold-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Converted Bank Community Ceramics Studio Crisis",
+          "scenario": {
+            "title": "Converted Bank Community Ceramics Studio Crisis",
+            "setting": "A shuttered downtown bank has been transformed into a tight-knit community ceramics studio, with its marble teller counters repurposed as pottery wheel stations and its old vault holding stacks of raw clay. A sudden mold outbreak in the bank\u2019s aged brick foundation has been discovered, threatening to shut the studio down permanently unless costly structural repairs are raised within 30 days. Members are split between relocating to an affordable new space or fundraising to save the beloved converted location.",
+            "characters": [
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi is a pragmatic studio bookkeeper who manages all donation drives and operational budgets, pushing for rapid financial solutions to keep the studio open.",
+                "keywords": "vault+0.5 clay+0.4 funds+0.6 mold+0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Lila is a charismatic local potter who leads community workshops and rallies members to save the beloved converted bank space.",
+                "keywords": "door+0.6 pottery+0.4 community+0.3 lease-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Tao",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Tao is a detail-oriented studio apprentice who knows the building\u2019s hidden structural issues and low-cost repair options.",
+                "keywords": "brick+0.5 repair+0.4 clay+0.3 mold-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:38:16.344874Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Javi",
+                  "text": "The midweek beginner class just burned through our last of the low-fire glazes this morning, and we\u2019ve got three more signup sheets waiting for supply restocks. I pulled the last of our emergency petty cash to grab a single pallet, but we need to push the community donation drive hard right now to cover the rest of the order before next weekend\u2019s pop-up sale\u2014we can\u2019t put this off without canceling two upcoming workshops.\n[Flipping through a dog-eared spreadsheet of studio expenses and slamming a highlighted line item down on the old marble teller counter]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Good morning, everyone\u2014look how the morning light spills through the old bank\u2019s arched stained glass onto the marble teller counter, making our fresh clay slabs glisten like wet river stones! I\u2019ve got a brand new wildflower glaze batch we\u2019re testing today, and let\u2019s remind each other: we fought hard to save this space, so let\u2019s make every moment here count.\n[grabs a handful of soft white clay from a wooden crate by the teller\u2019s window, holding it up for the group of workshop attendees to pass around]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Tao",
+                  "text": "\u201cWhoa, pause wedging your clay on that far corner of the old marble teller counter\u2014 I spotted a hidden hairline crack beneath the glaze grime yesterday. We can patch it for next to nothing using scrap clay and thinned slip instead of shelling out for pricey professional marble repairs, which would eat through our tiny monthly supply budget.\u201d\n[kneels down to tap the suspect marble surface lightly, then scrapes away a fleck of dried turquoise glaze to expose the faint, spreading crack creeping along the grout line]",
+                  "shifts": {
+                    "clay": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Javi",
+                  "text": "Tao, thank you for flagging that hidden hairline crack\u2014we can\u2019t risk anyone getting hurt or the counter needing costlier repairs down the line. First things first, we need to rush-restock our low-fire glazes before the afternoon beginner cohort shows up. I\u2019ll call our main supplier right after this quick huddle to lock in same-day delivery.\n[Grabs his frayed canvas clipboard from the nearby teach station and scribbles a quick reminder about the counter repair and glaze restock before tucking a pocket notebook into his workshop apron.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Easy, Tao\u2014let\u2019s move everyone\u2019s wedging stations over to the empty nook by the old vault grille right now, before that hairline crack shifts and ruins that beautiful original marble. I followed up with our glaze supplier the second Javi flagged we\u2019d burned through our last of the low-fire glazes, and they\u2019ll drop off a full restock by lunch to cover all the new sign-ups.\n[Grabs a stack of thick rubber wedging bats from the rolling supply cart by the front door and gestures toward the rear of the studio to guide the group]",
+                  "shifts": {
+                    "door": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Tao",
+                  "text": "Whoa, pause wedging your clay on that far corner of the old marble teller counter\u2014 I spotted a hidden hairline crack beneath the glaze grime yesterday. That spot\u2019s just waiting to split under the firm pressure of your wedge, and we don\u2019t have the spare cash for professional marble repairs till next month\u2019s community fundraiser. Let\u2019s shift your work over to the pine workbench by the front window instead.\n[Grabbing a stack of canvas drop cloths from the front desk\u2019s lower storage and spreading them across the pine workbench to protect the surface from clay slip]",
+                  "shifts": {
+                    "clay": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Javi": 0.0,
+            "Lila": 0.6,
+            "Tao": 1.2
+          },
+          "citations": {
+            "Javi": {
+              "Tao": 1
+            },
+            "Lila": {
+              "Javi": 1,
+              "Tao": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -348,6 +632,283 @@
           },
           "dm_opening": "DM opening: the Elias Voss takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Elias Voss still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-community-darkroom-that-has-resisted-going-digit",
+      "scenario": {
+        "title": "The Blackroom Collective's Digital Dilemma",
+        "setting": "Tucked in the basement of a 1920s repurposed church in a small Rust Belt town, the Blackroom Collective has resisted full digital photography adoption for 30 straight years. Its walls are lined with scuffed film tanks, frayed red safelight wires, and dog-eared notebooks of member-submitted developing notes. No digital cameras or screens are permitted within its locked front doors, only film, darkroom chemicals, and shared, quiet focus on analog craft.",
+        "characters": [
+          {
+            "name": "Mara",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "They steward the collective\u2019s budget, track chemical inventory, and enforce shared darkroom rules to keep the space functional for all members.",
+            "keywords": "counter+0.6 inventory+0.5 rule+0.4 stress-0.3 tradition-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "They serve as the collective\u2019s official historian, leading casual tours and sharing stories of the darkroom\u2019s founding to pass along its legacy to new members.",
+            "keywords": "voice+0.7 legacy+0.6 story+0.5 conflict-0.4 tech-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "They act as the collective\u2019s primary equipment operator, trains new apprentices, and quietly struggles with the urge to explore digital photography on the side.",
+            "keywords": "operator+0.8 train+0.5 doubt+0.4 loyalty-0.3 routine-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The Blackroom Collective's Digital Dilemma",
+          "scenario": {
+            "title": "The Blackroom Collective's Digital Dilemma",
+            "setting": "Tucked in the basement of a 1920s repurposed church in a small Rust Belt town, the Blackroom Collective has resisted full digital photography adoption for 30 straight years. Its walls are lined with scuffed film tanks, frayed red safelight wires, and dog-eared notebooks of member-submitted developing notes. No digital cameras or screens are permitted within its locked front doors, only film, darkroom chemicals, and shared, quiet focus on analog craft.",
+            "characters": [
+              {
+                "name": "Mara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They steward the collective\u2019s budget, track chemical inventory, and enforce shared darkroom rules to keep the space functional for all members.",
+                "keywords": "counter+0.6 inventory+0.5 rule+0.4 stress-0.3 tradition-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They serve as the collective\u2019s official historian, leading casual tours and sharing stories of the darkroom\u2019s founding to pass along its legacy to new members.",
+                "keywords": "voice+0.7 legacy+0.6 story+0.5 conflict-0.4 tech-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They act as the collective\u2019s primary equipment operator, trains new apprentices, and quietly struggles with the urge to explore digital photography on the side.",
+                "keywords": "operator+0.8 train+0.5 doubt+0.4 loyalty-0.3 routine-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:30:59.259334Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "\"Hey folks, quick heads-up\u2014we\u2019re down to half a bottle of stop bath, so swing by the front shelf to grab a labeled voucher if you need it for your print run this week. Please don\u2019t prop your exposed film sheets over the drying rack hook, either; they\u2019re blocking the locked chemical storage bin and create a sharp tripping hazard.\"\n[kneels to restack stray packs of glossy photo paper by the drying station and wipes down the communal film-developing tray with a diluted cleaner]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Welcome to the Blackroom, folks. This basement was repurposed from the church\u2019s old boiler room back in \u201978, when our founding members pooled their last few dollars to fix the leaking pipes and haul in a beat-up secondhand enlarger. Most of the original church\u2019s stained glass fragments we found tucked under the floorboards now line the edges of our processing trays.\n[I kneel down to pull a tattered leather photo album from under the metal processing sink, flipping open its cover to display a blurry, grainy shot of five grinning teens clustered around a scuffed darkroom enlarger.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "This beat-up enlarger\u2019s been glitching since last spring\u2019s basement flood, so grab the multimeter from the tool bin by the furnace so we can fix the bulb socket before the beginner\u2019s workshop tonight. I\u2019ve been tinkering with a thrift-store digital point-and-shoot on my off hours, too\u2014wanna sneak a test shot of the church\u2019s stained-glass side window after we wrap up?\n[I tuck the crumpled color calibration chart I\u2019d been holding under my arm, then reach for the frayed canvas tool bag slung over the workbench leg, my camera strap peeking out from over my shoulder.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I grabbed the spare multimeter from the furnace-side tool bin earlier while restocking fixer, so you won\u2019t have to dig for it yourself. Just remember to log your use of a stop bath voucher on the whiteboard once you\u2019re done, so we keep accurate inventory counts.\n[Hands the compact multimeter over to Lila before straightening to restack a toppled box of photo paper sleeves]",
+                  "shifts": {
+                    "inventory": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Welcome back, everyone\u2014glad so many of you braved the basement chill for our work night. Shoutout to Mara for flagging the low stop bath supply, and I know Lila\u2019s got her sights set on fixing that finicky enlarger once we\u2019ve got a minute. This space started as a ragtag group turning this old church boiler room into a darkroom back in 1978, and little fixes like this are exactly how we\u2019ve kept that legacy going.\n[Gestures first to the front shelf holding the stop bath vouchers, then taps the dented tool bin by the furnace where the multimeter rests.]",
+                  "shifts": {
+                    "legacy": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "I already grabbed the multimeter from the furnace-side tool bin\u2014its plastic handle\u2019s cracked, so go easy when you prod the enlarger\u2019s socket. If any new apprentices want a quick walkthrough of basic enlarger troubleshooting after we fix this, I\u2019ve got some cheat sheets stashed in my apron pocket. [twisting the stuck focus knob of the beat-up enlarger just enough to free its gears a little]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara": 0.5,
+            "Javi": 0.6,
+            "Lila": 0.0
+          },
+          "citations": {
+            "Mara": {
+              "Lila": 1
+            },
+            "Javi": {
+              "Mara": 1,
+              "Lila": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-community-garden-where-the-original-gardeners-c",
+      "scenario": {
+        "title": "Legacy Plot Community Garden Dilemma",
+        "setting": "Nestled between a laundromat and a row of bungalows, Maplewood\u2019s community garden has been tended by two generations of local families. Three decades ago, a group of original retiree gardeners carved out the plots, and now their adult children oversee the space alongside younger neighbors. Last month, a city zoning notice threatened to repurpose half the garden for a municipal parking lot, splitting the new garden stewards over whether to negotiate or protest.",
+        "characters": [
+          {
+            "name": "Marisol",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She tracks volunteer hours, plot yields, and donated supplies to mediate conflicting requests for garden space.",
+            "keywords": "plot+0.6 budget+0.5 tension-0.3 legacy+0.4 noise-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He shares oral histories of the original garden\u2019s founding to rally community members against the zoning proposal.",
+            "keywords": "story+0.7 crowd+0.4 legacy+0.5 proposal-0.3 calm-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She maintains the garden\u2019s tools and raised beds, and mentors young apprentice gardeners to carry on the original growers\u2019 practices.",
+            "keywords": "soil+0.6 repair+0.5 youth+0.4 plan-0.3 stress-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Legacy Plot Community Garden Dilemma",
+          "scenario": {
+            "title": "Legacy Plot Community Garden Dilemma",
+            "setting": "Nestled between a laundromat and a row of bungalows, Maplewood\u2019s community garden has been tended by two generations of local families. Three decades ago, a group of original retiree gardeners carved out the plots, and now their adult children oversee the space alongside younger neighbors. Last month, a city zoning notice threatened to repurpose half the garden for a municipal parking lot, splitting the new garden stewards over whether to negotiate or protest.",
+            "characters": [
+              {
+                "name": "Marisol",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She tracks volunteer hours, plot yields, and donated supplies to mediate conflicting requests for garden space.",
+                "keywords": "plot+0.6 budget+0.5 tension-0.3 legacy+0.4 noise-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He shares oral histories of the original garden\u2019s founding to rally community members against the zoning proposal.",
+                "keywords": "story+0.7 crowd+0.4 legacy+0.5 proposal-0.3 calm-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She maintains the garden\u2019s tools and raised beds, and mentors young apprentice gardeners to carry on the original growers\u2019 practices.",
+                "keywords": "soil+0.6 repair+0.5 youth+0.4 plan-0.3 stress-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:27:59.880989Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Marisol",
+                  "text": "\"Both of you mentioned needing a sunny plot for your tomato seedlings, but the signed allocation logs show the south plot was claimed by the local scout troop last month. I can walk you both over to the unused raised bed by the compost pile, which gets nearly identical morning and afternoon sun exposure.\"\n[Clips a stack of volunteer hour sign-in sheets tighter against her chest and adjusts a smudged sticker on her worn clipboard cover]",
+                  "shifts": {
+                    "plot": 1.2
+                  },
+                  "shift_total": 1.2,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Folks, let me tell you\u2014this garden wasn\u2019t handed to any of us. It was built back in 1998 by my grandpa and a ragtag group of neighbors who dug up broken glass and discarded lumber to turn this overgrown lot into our own little patch of earth. This new zoning proposal would pave it all over, erasing two generations of work and the only quiet, green space these nearby bungalows have. [I grip a weathered trowel\u2014the same one my grandpa used to plant the first tomato seedling here\u2014and hold it up to the crowd.]",
+                  "shifts": {
+                    "crowd": 0.4,
+                    "proposal": -0.3
+                  },
+                  "shift_total": 0.1,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "This plot\u2019s been cared for by two generations already\u2014my grandmother planted the first marigold borders right along this fence line back in 1978. Always loosen the soil around transplants before tucking them in, and never leave borrowed tools out overnight to rust.\n[She wipes a smudge of garden dirt from her cheek before stacking a pair of hand pruners into the labeled wooden caddy by the garden gate.]",
+                  "shifts": {
+                    "soil": 0.6
+                  },
+                  "shift_total": 0.6,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Marisol",
+                  "text": "Both of you mentioned needing a sunny plot for your tomato seedlings, but the signed allocation logs show the south plot was claimed by the local scout troop last month after they offered to repair the garden\u2019s broken raised bed frames. I know how personally tied both of your families are to this garden, so I\u2019ve set aside a second full-sun plot near the rain barrels that\u2019s been unclaimed since the previous tenant moved away this spring. I can also pull up the short liability waiver forms right now if you want to coordinate taking over that spot together.\n[Digs through her frayed canvas volunteer tote, pulling out a dog-eared plot allocation binder and tapping a hand-scrawled note on one of the empty plot listings with a chewed pencil.]",
+                  "shifts": {
+                    "plot": 3.0
+                  },
+                  "shift_total": 3.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Folks, let me finish what I was saying earlier\u2014this garden wasn\u2019t handed to any of us. It was built back in 1998 by my grandpa and a ragtag group of neighbors who dug up broken concrete, hauled in wheelbarrows of topsoil, and bartered extra summer squash for lumber for the raised beds. Now the city\u2019s new zoning proposal will pave every last plot over for a private parking lot, and we can\u2019t let them erase this community cornerstone we\u2019ve nurtured for decades.\n[I gesture sharply to the tangle of sunflower stalks and tomato vines winding through the plots, my calloused fingers brushing a dented metal tool rack stacked with shared trowels.]",
+                  "shifts": {
+                    "proposal": -0.3
+                  },
+                  "shift_total": -0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "This plot\u2019s been cared for by two generations already\u2014my grandmother planted the first marigold borders right along this fence line back in 1978. Always reserved a narrow strip here for those marigolds every season to ward off root nematodes for the nearby vegetable plots. I can help you two track down sunny, unclaimed raised beds near the water spigot for your tomato seedlings. [I tap the weathered wooden fence post where a faded 1978 garden club plaque peeks through creeping ivy, then grab a dog-eared allocation clipboard from the loop on my canvas tool belt.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Marisol": 4.2,
+            "Javi": -0.19999999999999998,
+            "Lila": 0.6
+          },
+          "citations": {},
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Marisol holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -990,6 +1551,142 @@
           },
           "dm_opening": "[EMPTY]",
           "dm_closing": "[EMPTY]"
+        }
+      }
+    },
+    {
+      "slug": "a-community-woodshop-where-the-foreman-is-the-foun",
+      "scenario": {
+        "title": "Rust and Legacy at Maplewood Woodshop",
+        "setting": "The century-old Maplewood Community Woodshop was founded by a local master carpenter, now run by his grandchild Jessa who serves as foreman. A recent shipment of reclaimed oak flecked with surface rust has divided the small, tight-knit crew, as they debate whether to use the discounted material or stick to the shop\u2019s original sourcing rules.",
+        "characters": [
+          {
+            "name": "Riley",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Riley is the shop\u2019s official inventory counter who strictly adheres to written material specifications and budget limits.",
+            "keywords": "inventory+0.5 spec+0.4 budget+0.3 count+0.2 stock+0.1",
+            "ticks": 20
+          },
+          {
+            "name": "Marisol",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Marisol is the senior woodworker who advocates for community-focused projects and speaks up for adapting materials to keep the shop accessible.",
+            "keywords": "voice+0.6 community+0.5 adapt+0.4 craft+0.3 tradition+0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Javi is the novice shop apprentice who operates the workshop\u2019s power tools and feels torn between following the foreman\u2019s family tradition and practical necessity.",
+            "keywords": "machine+0.5 lineage+0.4 apprentice+0.3 tool+0.2 practice+0.1",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Rust and Legacy at Maplewood Woodshop",
+          "scenario": {
+            "title": "Rust and Legacy at Maplewood Woodshop",
+            "setting": "The century-old Maplewood Community Woodshop was founded by a local master carpenter, now run by his grandchild Jessa who serves as foreman. A recent shipment of reclaimed oak flecked with surface rust has divided the small, tight-knit crew, as they debate whether to use the discounted material or stick to the shop\u2019s original sourcing rules.",
+            "characters": [
+              {
+                "name": "Riley",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Riley is the shop\u2019s official inventory counter who strictly adheres to written material specifications and budget limits.",
+                "keywords": "inventory+0.5 spec+0.4 budget+0.3 count+0.2 stock+0.1",
+                "ticks": 20
+              },
+              {
+                "name": "Marisol",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Marisol is the senior woodworker who advocates for community-focused projects and speaks up for adapting materials to keep the shop accessible.",
+                "keywords": "voice+0.6 community+0.5 adapt+0.4 craft+0.3 tradition+0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi is the novice shop apprentice who operates the workshop\u2019s power tools and feels torn between following the foreman\u2019s family tradition and practical necessity.",
+                "keywords": "machine+0.5 lineage+0.4 apprentice+0.3 tool+0.2 practice+0.1",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:33:19.868286Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Riley",
+                  "text": "Hi Jessa. I\u2019ve updated the official woodshop inventory log per the formal shop guidelines, and I flagged that we\u2019re down to only three replacement bandsaw blades, which falls below the minimum stock level outlined in the policy manual. I submitted a reorder request for exactly five blades, all within the allocated monthly budget to avoid overspending.\n[Taps the spine of the laminated official inventory policy binder stacked on the supply cart before picking up the printed low-stock alert form to extend toward Jessa]",
+                  "shifts": {
+                    "inventory": 1.0,
+                    "budget": 0.3,
+                    "stock": 0.2
+                  },
+                  "shift_total": 1.5,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "\"I noticed the pile of reclaimed pallets donated to the shop yesterday\u2014instead of letting them get hauled to the landfill, we can cut them down into practice blanks for our low-cost beginner workshops. Folks without the means to buy new lumber will be able to participate without extra financial barriers.\"\n[Grabs a handsaw from the overhead rack and gestures for a passing volunteer to help sort through the pallet stack by nail-free sections.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "\"I know Grandpa\u2019s old woodworking rule was never rush a single cut, but the community\u2019s picnic is tomorrow and we\u2019re already behind on these picnic tables. I tried to speed up the planer pass to catch up and now this plank\u2019s split right down the grain.\"\n[He twists the rubber grip of his protractor between his fingers, eyes darting between the ruined plank and Jessa\u2019s workbench where the master carpenter\u2019s original handwritten handbook lies open.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Riley",
+                  "text": "\"Reclaimed pallets can only be repurposed for the community picnic tables if we first mill them to match our official standardized lumber specs for the project. We also need to log every salvaged board separately in the inventory log to avoid inventory discrepancies down the line. I can help quick-measure each cut piece to keep us on track without skipping required documentation.\"\n[Leans over the scuffed workshop counter, grabs a fresh inventory log sheet and a waterproof marking pen to draft a temporary stock entry header for the pallet salvage]",
+                  "shifts": {
+                    "inventory": 1.5,
+                    "stock": 0.1
+                  },
+                  "shift_total": 1.6,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "\"I get wanting to honor Grandpa\u2019s slow, careful cuts, but these donated pallets are solid maple planks we can repurpose for the picnic table frames. It\u2019ll cut down our prep time and stretch our dwindling shop stock further, and we\u2019ll still finish everything in time for tomorrow\u2019s community picnic.\"\n[Grabs a flat pry bar from the wall-mounted tool rack and steps over to the tallest pallet stack to gently pry apart the boards without splitting usable lumber.]",
+                  "shifts": {
+                    "community": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "\"I know Grandpa\u2019s old woodworking rule was never rush a single cut, but the community\u2019s picnic is tomorrow and we\u2019re already behind on these picnic table blanks. I hate to skip the precise dry fits we usually do, but I don\u2019t see another way to make the deadline before sundown.\"\n[He sets down the half-calibrated handheld planer he\u2019d been hovering over, jaw tight with unspoken tension between shop tradition and the urgent community need.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Riley": 3.1,
+            "Marisol": 0.5,
+            "Javi": 0.0
+          },
+          "citations": {},
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Riley holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -1747,6 +2444,281 @@
       }
     },
     {
+      "slug": "a-pottery-co-op-where-the-kilns-are-older-than-any",
+      "scenario": {
+        "title": "Aging Kiln Co-op Dilemma",
+        "setting": "The small, sun-faded pottery co-op sits on a quiet country lane, its two wood-fired kilns older than every current member, all of whom joined within the last two years. The collective is weeks away from shutting down unless they can complete a successful bulk glaze order for a local caf\u00e9, but no one knows the original firing specs of the aging kilns to avoid ruining their final batches.",
+        "characters": [
+          {
+            "name": "Jessa",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She obsessively tracks firing cycle times, kiln temperature logs, and inventory counts, often correcting vague group estimates with precise numerical data.",
+            "keywords": "count+0.6 log+0.5 rust+0.3 spec-0.2 drift-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Marisol",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She acts as the co-op\u2019s public face, pitching their pottery to local businesses, mediating group disagreements, and keeping the community-focused spirit of the collective alive.",
+            "keywords": "pitch+0.7 chatter+0.4 door+0.3 lineage+0.5 glaze-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Tao",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "They\u2019re the only current member with hands-on kiln experience, having learned basic firing techniques from their grandparent who worked at the co-op\u2019s original run decades ago.",
+            "keywords": "fire+0.8 ash+0.6 spec+0.4 lineage+0.3 rust-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Aging Kiln Co-op Dilemma",
+          "scenario": {
+            "title": "Aging Kiln Co-op Dilemma",
+            "setting": "The small, sun-faded pottery co-op sits on a quiet country lane, its two wood-fired kilns older than every current member, all of whom joined within the last two years. The collective is weeks away from shutting down unless they can complete a successful bulk glaze order for a local caf\u00e9, but no one knows the original firing specs of the aging kilns to avoid ruining their final batches.",
+            "characters": [
+              {
+                "name": "Jessa",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She obsessively tracks firing cycle times, kiln temperature logs, and inventory counts, often correcting vague group estimates with precise numerical data.",
+                "keywords": "count+0.6 log+0.5 rust+0.3 spec-0.2 drift-0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Marisol",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She acts as the co-op\u2019s public face, pitching their pottery to local businesses, mediating group disagreements, and keeping the community-focused spirit of the collective alive.",
+                "keywords": "pitch+0.7 chatter+0.4 door+0.3 lineage+0.5 glaze-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Tao",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "They\u2019re the only current member with hands-on kiln experience, having learned basic firing techniques from their grandparent who worked at the co-op\u2019s original run decades ago.",
+                "keywords": "fire+0.8 ash+0.6 spec+0.4 lineage+0.3 rust-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:28:49.374450Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Jessa",
+                  "text": "\u201cI just pulled the official firing cycle logs for the east kiln\u2014you all tossed out a rough guess of a 10-hour soak, but the exact required hold time for the stoneware we\u2019re using today is 9 hours and 15 minutes. We also need to adjust the fuel feed rate to avoid undershooting the target temperature again like we did last Tuesday.\u201d\n[She prods the dog-eared logbook open to the page marked with a chunk of crushed fire clay, tapping the precise time stamp with her pencil eraser.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "I swung by Miller\u2019s roadside stand on my way in and picked up a jar of wild clover honey to test in our earth tone glazes\u2014figured it\u2019d add a subtle, warm golden hue that pairs perfectly with the Main Street caf\u00e9\u2019s homemade scone menu. I also dropped off a batch of our hand-thrown butter crocks at the bakery down the lane this morning, they called last week to say their regulars had been snatching up our earlier stock left and right.\n[She wipes a smudge of wet terracotta from her forearms, adjusting the crinkled handwritten price tags on the front display shelf of rounded, speckled mugs.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Tao",
+                  "text": "This wood-fired kiln\u2019s the original one this co-op opened with, and my grandparent spent 30 years tending its fires right here. I still keep their old firing schedule charts taped to the back of the toolbox over by the workbench. [Runs a calloused palm along the kiln\u2019s sun-faded brick exterior before picking up a damp sponge to wipe dust off a nearby unglazed bowl]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Jessa",
+                  "text": "\"I just pulled the official firing cycle logs for the east kiln\u2014you all tossed out a rough guess of a 10-hour soak, but the exact required hold time for our mid-range stoneware is 11 hours and 22 minutes, per last month\u2019s official test run. I double-checked the manufacturer\u2019s specs this morning to confirm there wasn\u2019t a recent update I\u2019d missed.\"\n[She flips quickly to the dog-eared page of her leather-bound logbook, tapping the crisp line of numerical data with a sharpened pencil to draw everyone\u2019s eyes to the precise numbers.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "I\u2019m so glad you flagged that exact required soak time, Jessa. Hearing about your grandparents\u2019 decades tending this kiln, Tao, makes this timing even more meaningful, and this wild clover honey I picked up will lend just the soft golden warmth we\u2019ve been chasing in our mossy earth glazes.\n[setting the half-pint jar of clover honey on the scuffed workbench between the east kiln firing log binder and Tao\u2019s tattered handwritten family kiln notes, then gesturing for the group to huddle closer to review the logs]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Tao",
+                  "text": "I still keep their old handwritten firing logs tucked in the under-counter drawer right by the east kiln. They jotted that this exact kiln needs an extra 90-minute hold specifically when we mix floral additives like that clover honey you picked up, Marisol. That\u2019s way more accurate than the rough guess we threw out earlier.\n[Reaches into the scuffed wooden under-counter drawer and pulls out a water-stained, leather-bound logbook tucked beneath a stack of crumpled glaze test slips.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Jessa": 0.0,
+            "Marisol": 0.0,
+            "Tao": 0.0
+          },
+          "citations": {
+            "Marisol": {
+              "Jessa": 1,
+              "Tao": 2
+            },
+            "Tao": {
+              "Marisol": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-roadside-farm-stand-that-has-run-continuously-fo",
+      "scenario": {
+        "title": "The 40-Year Farm Stand Dilemma",
+        "setting": "Tucked along a winding country highway, the weathered wooden farm stand has operated continuously for 40 years, passed down through three local farming families. A commercial truck stop developer has filed plans to build adjacent to the stand\u2019s small plot, threatening its loyal customer base and long-term viability. The current family owners face an impossible choice: take a substantial buyout or fight to preserve the community landmark they grew up with.",
+        "characters": [
+          {
+            "name": "Elara",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She focuses solely on crunching financial numbers, comparing the buyout offer to the stand\u2019s historical revenue to make a data-driven decision.",
+            "keywords": "money+0.6 legacy-0.5 projections+0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He organizes neighborhood petitions and social media campaigns to rally support for saving the farm stand.",
+            "keywords": "community+0.7 history+0.4 support-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She runs the stand\u2019s daily operations, restocks fresh produce, and greets every regular customer by name.",
+            "keywords": "produce+0.5 customers+0.6 routine-0.4",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The 40-Year Farm Stand Dilemma",
+          "scenario": {
+            "title": "The 40-Year Farm Stand Dilemma",
+            "setting": "Tucked along a winding country highway, the weathered wooden farm stand has operated continuously for 40 years, passed down through three local farming families. A commercial truck stop developer has filed plans to build adjacent to the stand\u2019s small plot, threatening its loyal customer base and long-term viability. The current family owners face an impossible choice: take a substantial buyout or fight to preserve the community landmark they grew up with.",
+            "characters": [
+              {
+                "name": "Elara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She focuses solely on crunching financial numbers, comparing the buyout offer to the stand\u2019s historical revenue to make a data-driven decision.",
+                "keywords": "money+0.6 legacy-0.5 projections+0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He organizes neighborhood petitions and social media campaigns to rally support for saving the farm stand.",
+                "keywords": "community+0.7 history+0.4 support-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She runs the stand\u2019s daily operations, restocks fresh produce, and greets every regular customer by name.",
+                "keywords": "produce+0.5 customers+0.6 routine-0.4",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:36:36.594710Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Elara",
+                  "text": "\u201cI\u2019m not leaning on guesswork here\u2014let\u2019s anchor this to hard numbers first. Our five-year average seasonal revenue sits right around $11,900 annually, and this buyout offer is nearly four times that yearly total, which blows past the standard 2x industry benchmark for rural farm stands.\u201d\n[pulling a battered solar-powered calculator from her work overalls pocket and tapping the handwritten offer sum against her pre-scrawled annual sales notes]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Hey there\u2014this weathered family farm stand has been a staple here for 40 years, and it\u2019s at risk of shutting down for good. I\u2019m collecting petition signatures to pressure local leaders to protect these small, neighborhood businesses. Could you take a minute to sign and spread the word to anyone else who cares about keeping our community\u2019s heart alive?\n[Tucks a stack of printed petition forms under one arm and holds up a bright homemade flyer decorated with sun-ripened tomatoes and jars of honey.]",
+                  "shifts": {
+                    "community": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Hey there, Mr. Hale! I just restocked those Brandywine heirloom tomatoes you raved about last week\u2014picked fresh straight from the backyard patch at dawn this morning. I also set aside a small carton of our just-harvested blueberries if you want to add something sweet to your order.\n[Wiping my sticky, juice-stained hands on my denim overalls and reaching for a sturdy paper grocery bag to pack his chosen produce]",
+                  "shifts": {
+                    "produce": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elara",
+                  "text": "\u201cI need to cross-reference this proposed buyout against both our five-year annual average and our peak seasonal sales windows, which make up nearly 70% of our total yearly earnings. A flat one-time offer won\u2019t reflect the full, ongoing value of this 40-year-old stand, so we can\u2019t finalize anything without further number-crunching.\u201d [She pulls a coffee-ringed spiral notebook from her canvas bag, flipping quickly to a page covered in handwritten revenue spreadsheets and circled seasonal sales peaks.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Hey Lila, those fresh picked tomatoes are exactly what\u2019ll draw drivers off the highway to listen. I\u2019ve got a fresh stack of hand-printed petitions to rally community support to save the 40-year-old farm stand, and I\u2019d love for you to sign one first before I start passing them around.\n[pulling a neat stack of cream-colored petition sheets from my canvas tote and tucking a black ballpoint pen through the top corner before holding the whole set out to her.]",
+                  "shifts": {
+                    "community": 0.7,
+                    "support": -0.3
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Hey there, Mr. Hale! I just restocked those Brandywine heirloom tomatoes you raved about last week\u2014picked fresh straight from the backyard patch at dawn, and I set out a basket of sun-ripened white peaches too for your weekly morning stop. I saw your petition papers earlier, and I\u2019ll definitely sign one before I head out later today.\n[I step out from behind the scuffed farm stand counter, grabbing a crumpled brown paper bag to pack his produce, and nod at the stack of clipboards propped against the jarred jam shelves.]",
+                  "shifts": {
+                    "produce": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elara": 0.0,
+            "Javi": 1.1,
+            "Lila": 1.0
+          },
+          "citations": {
+            "Javi": {
+              "Lila": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Elara holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
       "slug": "a-small-town-drive-in-theater-run-by-a-second-generatio",
       "scenario": {
         "title": "The Willow Creek Drive-In Crossroads",
@@ -1910,6 +2882,294 @@
           },
           "dm_opening": "DM opening: the Jessa Mae Carver takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Jessa Mae Carver still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-small-town-ice-rink-run-by-the-same-zamboni-driv",
+      "scenario": {
+        "title": "The 25-Year Zamboni Driver\u2019s Crossroads",
+        "setting": "Maple Creek is a quiet rural town of just 312 residents, anchored for 37 years by its downtown ice rink. For a quarter-century, Joe Mertz has been the rink\u2019s only Zamboni driver, meticulously prepping the ice for local hockey games, public skate, and youth lessons every winter. After his 1998 Zamboni suddenly broke down beyond repair, the town council declined to allocate funds for a replacement, putting the rink\u2019s decades-long future at risk.",
+        "characters": [
+          {
+            "name": "Lila Marlow",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She manages the rink\u2019s concession stand, keeps a small savings jar for last-minute repairs, and has volunteered every weekend at the rink for 12 years.",
+            "keywords": "concessions+0.6 savings+0.3 volunteer+0.4 closure-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Jax Hale",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He hosts Maple Creek\u2019s weekly community radio show, where he\u2019s been airing stories about the rink\u2019s plight and organizing a neighborhood fundraiser to buy a new Zamboni.",
+            "keywords": "radio+0.5 fundraiser+0.4 community+0.5 apathy-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Toby Rainer",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s been shadowing Joe Mertz for 8 months, learning every detail of Zamboni maintenance and ice resurfacing, and will take on any odd job to help keep the rink open.",
+            "keywords": "zamboni+0.7 apprentice+0.5 maintenance+0.4 tradition+0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The 25-Year Zamboni Driver\u2019s Crossroads",
+          "scenario": {
+            "title": "The 25-Year Zamboni Driver\u2019s Crossroads",
+            "setting": "Maple Creek is a quiet rural town of just 312 residents, anchored for 37 years by its downtown ice rink. For a quarter-century, Joe Mertz has been the rink\u2019s only Zamboni driver, meticulously prepping the ice for local hockey games, public skate, and youth lessons every winter. After his 1998 Zamboni suddenly broke down beyond repair, the town council declined to allocate funds for a replacement, putting the rink\u2019s decades-long future at risk.",
+            "characters": [
+              {
+                "name": "Lila Marlow",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She manages the rink\u2019s concession stand, keeps a small savings jar for last-minute repairs, and has volunteered every weekend at the rink for 12 years.",
+                "keywords": "concessions+0.6 savings+0.3 volunteer+0.4 closure-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Jax Hale",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He hosts Maple Creek\u2019s weekly community radio show, where he\u2019s been airing stories about the rink\u2019s plight and organizing a neighborhood fundraiser to buy a new Zamboni.",
+                "keywords": "radio+0.5 fundraiser+0.4 community+0.5 apathy-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Toby Rainer",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s been shadowing Joe Mertz for 8 months, learning every detail of Zamboni maintenance and ice resurfacing, and will take on any odd job to help keep the rink open.",
+                "keywords": "zamboni+0.7 apprentice+0.5 maintenance+0.4 tradition+0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:32:35.057772Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Lila Marlow",
+                  "text": "Hey there, little guy\u2014hold up a sec before you hit the ice with that frayed skate lace. I\u2019ve got a repair kit pulled from my little savings jar back at the stand, and I can fix that right up quick before the evening public skate picks up. I\u2019ve also got fresh apple cider simmering on the concession stove for anyone who wants to warm up mid-practice.\n[Reaches beneath the scuffed wooden concession counter to grab a frayed canvas repair kit tied with a faded red rubber band]",
+                  "shifts": {
+                    "savings": 0.3
+                  },
+                  "shift_total": 0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Jax Hale",
+                  "text": "Folks, this is Jax Hale on your weekly Maple Creek Community Radio show. Our downtown ice rink\u2019s decades-old Zamboni completely broke down overnight, leaving us unable to resurface the ice for this weekend\u2019s youth hockey practices and weekly public skates. We\u2019ve launched a neighborhood fundraiser to cover the cost of a new machine, with drop-off donations at Mabel\u2019s General Store and a Venmo link shared on the town\u2019s Facebook page.\n[He picks up a crumpled fundraiser flyer from his desk, holding it up to the studio\u2019s small broadcast camera for any video listeners tuned in]",
+                  "shifts": {
+                    "radio": 0.5,
+                    "fundraiser": 0.8,
+                    "community": 0.5
+                  },
+                  "shift_total": 1.8,
+                  "role": ""
+                },
+                {
+                  "name": "Toby Rainer",
+                  "text": "Hey Joe, I finished restocking the first aid kit by the concession stand about 20 minutes ago, and I also tightened the loose handrail by the skate rental desk so no one trips coming in off the ice. Figured those small little odds and ends would free you up to focus on the Zamboni prep for the late skate session.\n[He tucks a stray crumpled skate sharpening ticket into his work apron pocket before grabbing a broom to sweep up loose ice shavings by the front entrance.]",
+                  "shifts": {
+                    "zamboni": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Lila Marlow",
+                  "text": "Hey there, little guy\u2014hold up a sec before you hit the ice with that frayed skate lace. I\u2019ve got a repair kit pulled from my savings jar back here, and I just heard the community radio announcement that our Zamboni broke overnight; I\u2019ve got a stack of spare parts stashed from our annual tune-up last month to tide us over.\n[Sets down the half-stirred pot of spiced hot cocoa on the concession counter and reaches for the dented canvas repair bag slung under the front checkout shelf]",
+                  "shifts": {
+                    "savings": 0.3
+                  },
+                  "shift_total": 0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Jax Hale",
+                  "text": "\"Folks, this is Jax Hale on your weekly Maple Creek Community Radio show. Our downtown ice rink\u2019s decades-old Zamboni completely broke down overnight, leaving us without a way to prep the ice for weekly skates. I\u2019ve lined up a town-wide fundraiser this Saturday with a bake sale and silent auction to raise cash for a new machine, and I\u2019m inviting every Maple Creek resident to join in.\"\n[Grabs a stack of hand-printed flyers from his studio desk, holds one up briefly to the mic so listeners can see the bold \u201cSave Our Rink\u201d slogan across the top.]",
+                  "shifts": {
+                    "radio": 0.5,
+                    "fundraiser": 0.4,
+                    "community": 0.5
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Toby Rainer",
+                  "text": "Hey Joe, I finished restocking the first aid kit by the concession stand about 20 minutes ago, and I also tightened the loose handrail by the skate rental counter not long after that. I heard Jax\u2019s community radio bit about the main Zamboni conking out overnight, so I already hauled the backup resurfacer\u2019s toolkit out to prep it just in case we need to switch over before the morning youth hockey practice.\n[I brush a stray fleck of ice shavings off the cuff of my frayed flannel and nod toward the locked Zamboni shed out behind the concession building.]",
+                  "shifts": {
+                    "zamboni": 1.4
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Lila Marlow": 0.6,
+            "Jax Hale": 3.2,
+            "Toby Rainer": 2.0999999999999996
+          },
+          "citations": {
+            "Toby Rainer": {
+              "Jax Hale": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Lila Marlow holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-small-town-square-where-the-bandstand-has-been-s",
+      "scenario": {
+        "title": "Silent Bandstand Revival Dilemma",
+        "setting": "The sun-warmed cobblestones of Willow Creek\u2019s town square frame a weathered bandstand, silent for exactly five years after the town\u2019s marching band disbanded. Moss clings to its wooden support beams, and a crumpled 2019 concert poster tacks to one side, half-torn by wind. The square\u2019s only regular visitors are skateboarders and a stray tabby cat that naps on the stage steps.",
+        "characters": [
+          {
+            "name": "Kael",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He counts every leftover relic of Willow Creek\u2019s past to preserve fading local traditions.",
+            "keywords": "count+0.7 relic+0.5 tradition+0.4 quiet-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She shares stories of the old marching band at the square to rally community support for a revival.",
+            "keywords": "speak+0.6 story+0.5 concert+0.4 gather-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Jax",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He learns restoration work from a retired handyman to fix the bandstand\u2019s broken wood and rusted fixtures.",
+            "keywords": "tinker+0.6 rust+0.5 plank+0.4 repair-0.3",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Silent Bandstand Revival Dilemma",
+          "scenario": {
+            "title": "Silent Bandstand Revival Dilemma",
+            "setting": "The sun-warmed cobblestones of Willow Creek\u2019s town square frame a weathered bandstand, silent for exactly five years after the town\u2019s marching band disbanded. Moss clings to its wooden support beams, and a crumpled 2019 concert poster tacks to one side, half-torn by wind. The square\u2019s only regular visitors are skateboarders and a stray tabby cat that naps on the stage steps.",
+            "characters": [
+              {
+                "name": "Kael",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He counts every leftover relic of Willow Creek\u2019s past to preserve fading local traditions.",
+                "keywords": "count+0.7 relic+0.5 tradition+0.4 quiet-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She shares stories of the old marching band at the square to rally community support for a revival.",
+                "keywords": "speak+0.6 story+0.5 concert+0.4 gather-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Jax",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He learns restoration work from a retired handyman to fix the bandstand\u2019s broken wood and rusted fixtures.",
+                "keywords": "tinker+0.6 rust+0.5 plank+0.4 repair-0.3",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:35:59.606035Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Kael",
+                  "text": "I kneel on the sun-warmed cobblestones beside the weathered bandstand, holding up a chipped silver saxophone key I dug up beneath its floorboards yesterday, and murmur to the empty square that this was part of the town\u2019s last Fourth of July band set before the performances stopped five years ago. I tick a quick mark on my handheld tally counter, adding this tiny relic to my growing catalog of saved Willow Creek history.\n[I tuck the saxophone key carefully into a labeled fabric pouch strapped to my work belt.]",
+                  "shifts": {
+                    "relic": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Can\u2019t you almost hear the brassy swell of the old Willow Creek Marching Band winding through these sun-warmed cobblestones? It\u2019s been exactly five years since that band stood on this weathered bandstand, but we can bring that joy back to the square\u2014all we need is a few returning musicians and some eager new recruits.\n[She lifts a crinkled 2018 band photo, tapping the faded bandstand in the frame before gesturing to the empty platform beside her.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jax",
+                  "text": "I still can\u2019t believe how crusty this entire hardware setup is, Mr. Hale. You said tapping this bolt with a mallet and a scrap of pine will keep it from stripping, right?\n[Kneeling on the sun-warmed cobblestones, he sets down a half-used jar of wood filler and reaches for a wire brush to scrub grime from a rusted support bracket at his feet.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Kael",
+                  "text": "I run a calloused thumb over the chipped silver of the saxophone key, still warm from the afternoon sun despite being buried beneath these boards for five full years. This was the very key that stuck mid-brass swell during the town marching band\u2019s final performance, back when this square rang with their official march.\n[I carefully set the tiny relic atop the bandstand\u2019s splintered wooden rail, right beside the loose bolt Jax has been tapping with his mallet and scrap of pine.]",
+                  "shifts": {
+                    "relic": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "I nod toward Jax\u2019s half-tinkered hardware setup, twirling the chipped sax key Kael found between my fingers. Local teens have been stopping by the community center nonstop begging to join a revived marching band, and this square has sat too quiet for five whole years. We can bring back all those summer concerts and parade warm-ups right here, if we all pitch in a little.\n[I lean down to tap the same loose bandstand floorboard where the key was unearthed, brushing away a handful of dry grass to expose a faded band sticker stuck to its underside.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jax",
+                  "text": "I finish my mid-sentence thought with a sheepish laugh, noting that the scrap of pine smells exactly like the workshop my grandpa used to run back home. This old hardware\u2019s way more caked-on with rust than I initially guessed, but Mr. Hale\u2019s trick should do the trick. I\u2019m ready to tap that bolt whenever you say so.\n[I press the pine scrap firmly against the rusted bolt head, steadying it with one hand while I lift the mallet with the other.]",
+                  "shifts": {
+                    "rust": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Kael": 1.0,
+            "Lila": 0.0,
+            "Jax": 0.5
+          },
+          "citations": {
+            "Kael": {
+              "Jax": 1
+            },
+            "Lila": {
+              "Kael": 1,
+              "Jax": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -2093,6 +3353,152 @@
       }
     },
     {
+      "slug": "a-three-generation-cheese-making-operation-with-a",
+      "scenario": {
+        "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+        "setting": "Nestled in the sun-dappled Loire Valley farmlands, the three-generational Fromagerie Martin has produced award-winning goat crottin for 72 years using a single carefully guarded starter culture passed down through the family. New apprentice Jules has taken to storing a weekly starter batch in a stainless steel bin instead of the family\u2019s traditional cedar crock, altering the culture\u2019s ambient exposure. Farm owner Elara and long-time cheesemaker Papa Tom have clashed over whether to correct Jules or risk losing the dairy\u2019s signature tang.",
+        "characters": [
+          {
+            "name": "Elara Martin",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She runs the shop\u2019s front counter, fields customer orders, and prioritizes preserving the farm\u2019s iconic signature flavor over hasty changes to the family\u2019s legacy.",
+            "keywords": "starter+0.6 tradition+0.5 customer+0.4 legacy+0.3 drift-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Papa Tom Lefevre",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s the retired 70-year-old head cheesemaker who speaks with the unfiltered voice of the farm\u2019s 72-year history and demands strict adherence to the original starter process.",
+            "keywords": "tradition+0.7 starter+0.5 reputation+0.4 history+0.3 change-0.4",
+            "ticks": 20
+          },
+          {
+            "name": "Jules Moreau",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He\u2019s the eager new apprentice who studied modern cheese-making techniques and modified the starter storage to suit his culinary training.",
+            "keywords": "starter+0.8 innovation+0.5 nervous+0.4 legacy-0.3 quality+0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+          "scenario": {
+            "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+            "setting": "Nestled in the sun-dappled Loire Valley farmlands, the three-generational Fromagerie Martin has produced award-winning goat crottin for 72 years using a single carefully guarded starter culture passed down through the family. New apprentice Jules has taken to storing a weekly starter batch in a stainless steel bin instead of the family\u2019s traditional cedar crock, altering the culture\u2019s ambient exposure. Farm owner Elara and long-time cheesemaker Papa Tom have clashed over whether to correct Jules or risk losing the dairy\u2019s signature tang.",
+            "characters": [
+              {
+                "name": "Elara Martin",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She runs the shop\u2019s front counter, fields customer orders, and prioritizes preserving the farm\u2019s iconic signature flavor over hasty changes to the family\u2019s legacy.",
+                "keywords": "starter+0.6 tradition+0.5 customer+0.4 legacy+0.3 drift-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Papa Tom Lefevre",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s the retired 70-year-old head cheesemaker who speaks with the unfiltered voice of the farm\u2019s 72-year history and demands strict adherence to the original starter process.",
+                "keywords": "tradition+0.7 starter+0.5 reputation+0.4 history+0.3 change-0.4",
+                "ticks": 20
+              },
+              {
+                "name": "Jules Moreau",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He\u2019s the eager new apprentice who studied modern cheese-making techniques and modified the starter storage to suit his culinary training.",
+                "keywords": "starter+0.8 innovation+0.5 nervous+0.4 legacy-0.3 quality+0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:31:52.009313Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Elara Martin",
+                  "text": "Bonjour, mademoiselle! I saved you a fresh portion of our award-winning signature goat cheese, aged exactly two weeks in our cellar per Great-Grandmother\u2019s recipe. We didn\u2019t cut any corners this season to keep that iconic, earthy Loire Valley flavor you raved about last month.\n[Wraps the sliced cheese in crinkly brown parchment paper tied with a strip of twine harvested from the farm\u2019s hemp rows]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Papa Tom Lefevre",
+                  "text": "Now hold up, youngster\u2014that\u2019s not how you ladle the curds gently. We\u2019ve clung to this exact same starter process since Grandpapa Martin first set up our vat back in 1951, and rushing this step will ruin the earthy, floral finish that won us our first regional award.\n[He raps his weathered knuckles against a stack of hand-carved wooden cheese molds, then reaches for a crock of pale, tangy mother starter to add a splash to the fresh curd batch.]",
+                  "shifts": {
+                    "starter": 1.0
+                  },
+                  "shift_total": 1.0,
+                  "role": ""
+                },
+                {
+                  "name": "Jules Moreau",
+                  "text": "Chef Martin, I wanted to show you the tweaks I made to the starter storage last night! I installed insulated metal racks with calibrated heat mats to keep the goat and cow cultures at a steady, ideal temp instead of them swinging with the Loire Valley\u2019s weather. I also labeled every jar with the culture strain and harvest date so we can nail down exact ripening timelines moving forward.\n[Pausing to tap the digital temperature readout mounted above the rack, grinning widely as the screen flickers to show a steady 43\u00b0F]",
+                  "shifts": {
+                    "starter": 0.8
+                  },
+                  "shift_total": 0.8,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Elara Martin",
+                  "text": "\"Papa, easy now\u2014don\u2019t harp on my curd ladling just yet. Let Jules share what he\u2019s put together first; I know we\u2019ve stuck to Great-Grandmot\u2019s exact recipe for decades, but I don\u2019t want to write off an idea before we see if it keeps our signature flavor intact.\"\n[Leans against the weathered pine prep counter, tucking a stray sun-bleached strand of hair behind her ear while setting down her curd ladle for a moment.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Papa Tom Lefevre",
+                  "text": "Cut that out right now, Jules. Those insulated racks and heat mats are nothing but modern foolery that\u2019ll ruin the starter\u2019s delicate, decades-old colony. We\u2019ve stuck to this exact same process for three generations, and we ain\u2019t throwing it off now.\n[He swats Jules\u2019 experimenting hand away from the starter storage bin, then grabs his well-worn wooden starter spoon from the bench to jab at the original wicker shelves lining the cool cellar walls.]",
+                  "shifts": {
+                    "starter": 1.5
+                  },
+                  "shift_total": 1.5,
+                  "role": ""
+                },
+                {
+                  "name": "Jules Moreau",
+                  "text": "I installed insulated metal racks with calibrated heat mats to keep our mother starter at the exact steady temperature Great-Grandmot documented, no more random afternoon draft fluctuations throwing off its consistency. I didn\u2019t tamper with the traditional curd ladling process Papa Tom swears by at all, just fixed this tiny storage flaw I noticed last week.\n[He gestured over his shoulder toward the open cellar doorway, holding up a small digital temperature readout to display the locked-in 18\u00b0C setting he\u2019d calibrated overnight.]",
+                  "shifts": {
+                    "starter": 0.8
+                  },
+                  "shift_total": 0.8,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Elara Martin": 0.0,
+            "Papa Tom Lefevre": 2.5,
+            "Jules Moreau": 1.6
+          },
+          "citations": {
+            "Elara Martin": {
+              "Papa Tom Lefevre": 1,
+              "Jules Moreau": 1
+            },
+            "Papa Tom Lefevre": {
+              "Jules Moreau": 2
+            },
+            "Jules Moreau": {
+              "Papa Tom Lefevre": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Elara Martin holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
       "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
       "scenario": {
         "title": "Reiger Fly & Tackle\u2019s Crossroads",
@@ -2261,6 +3667,282 @@
           },
           "dm_opening": "DM opening: the Marnie Reiger takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Marnie Reiger still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-three-generation-funeral-home-adapting-to-direct",
+      "scenario": {
+        "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+        "setting": "The creaky, century-old Hale Funeral Home sits on a tree-lined main street in rural Ohio, its front showroom still lined with handcrafted oak caskets passed down through three generations. Third-generation owner Mara Hale struggles to keep the family business afloat as local families increasingly choose affordable direct cremations over traditional viewings and full burials, forcing her to confront changes that clash with her family\u2019s long-held legacy.",
+        "characters": [
+          {
+            "name": "Jessa Mae",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She greets every grieving family with gentle, traditional courtesy while quietly researching direct cremation compliance rules to support the business\u2019s evolving needs.",
+            "keywords": "door+0.5 rust+0.4 spec+0.3 lineage+0.4 drift+0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Elara Voss",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "She writes clear, empathetic outreach materials and answers phone inquiries to help families understand direct cremation without dismissing traditional funeral preferences.",
+            "keywords": "urn+0.6 cremation+0.5 echo+0.3 tradition+0.4 cost+0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Toby Cole",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "He maintains the funeral home\u2019s equipment, assists with all funeral preparations, and balances respect for the family\u2019s legacy with willingness to adopt modern direct cremation workflows.",
+            "keywords": "cremation+0.7 tool+0.4 legacy+0.3 order+0.5 calm+0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+          "scenario": {
+            "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+            "setting": "The creaky, century-old Hale Funeral Home sits on a tree-lined main street in rural Ohio, its front showroom still lined with handcrafted oak caskets passed down through three generations. Third-generation owner Mara Hale struggles to keep the family business afloat as local families increasingly choose affordable direct cremations over traditional viewings and full burials, forcing her to confront changes that clash with her family\u2019s long-held legacy.",
+            "characters": [
+              {
+                "name": "Jessa Mae",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She greets every grieving family with gentle, traditional courtesy while quietly researching direct cremation compliance rules to support the business\u2019s evolving needs.",
+                "keywords": "door+0.5 rust+0.4 spec+0.3 lineage+0.4 drift+0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Elara Voss",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "She writes clear, empathetic outreach materials and answers phone inquiries to help families understand direct cremation without dismissing traditional funeral preferences.",
+                "keywords": "urn+0.6 cremation+0.5 echo+0.3 tradition+0.4 cost+0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Toby Cole",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "He maintains the funeral home\u2019s equipment, assists with all funeral preparations, and balances respect for the family\u2019s legacy with willingness to adopt modern direct cremation workflows.",
+                "keywords": "cremation+0.7 tool+0.4 legacy+0.3 order+0.5 calm+0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:34:11.249084Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Jessa Mae",
+                  "text": "Good afternoon, Mr. and Mrs. Hale. I\u2019m Jessa Mae, and I was expecting you after you reached out earlier about direct cremation services for your father. Please, come in out of the crisp rural wind, and let me bring you both a glass of warm lemon tea before we discuss your options. [I step forward to turn the brass door latch fully, pulling the heavy oak entrance wide to usher them inside and smooth a wrinkle from the cuff of my modest wool skirt.]",
+                  "shifts": {
+                    "door": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Elara Voss",
+                  "text": "Hi there\u2014 I\u2019m Elara Voss, the direct cremation liaison who checked in with Mr. Hale earlier this morning. I noticed you lingering by the hand-carved hardwood casket displays, and I wanted to share that we can honor your loved one with the same quiet care you\u2019re seeking, just without the steep cost or rigid formalities that don\u2019t align with your family\u2019s wishes. There\u2019s no pressure to decide right now, either\u2014 I just wanted to make sure you had all the options available to you.\n[She steps forward slowly, holding a stack of plain-spoken, recycled-paper informational brochures, and gestures toward a small, tucked-away seating nook by the parlor\u2019s back window to invite them to chat at their own pace.]",
+                  "shifts": {
+                    "cremation": 0.5,
+                    "cost": 0.2
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                },
+                {
+                  "name": "Toby Cole",
+                  "text": "Sorry for the quick delay, folks\u2014just putting the final shine on the hand-carved oak display casket that my grandfather helped select back in 1979. This old funeral home\u2019s got stories in every scuffed wooden trim and faded fabric, and I take pride in keeping it feeling warm, not just sterile for every family that walks through these doors.\n[Adjusting the small brass Hale family plaque mounted above the showroom display case, then reaching for his work tablet to pull up direct cremation pricing packets for the visiting couple.]",
+                  "shifts": {
+                    "cremation": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Jessa Mae",
+                  "text": "Welcome, Mr. and Mrs. Hale, Ms. Voss, and Mr. Cole. I appreciate how thoughtful it is to give your grandfather\u2019s hand-carved casket that final gentle polish before we begin. Let me grab each of you a glass of sweet tea to help you settle in comfortably. [Reaches for the chipped ceramic tea pitcher and a stack of monogrammed paper cups from the front showroom\u2019s side table.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Elara Voss",
+                  "text": "No rush at all\u2014taking time to polish that hand-carved casket, a piece with such rich family history, is exactly the kind of thoughtful care your father would have valued. I\u2019m Elara Voss, the direct cremation liaison who called earlier this morning, and I\u2019m here to walk you through straightforward, transparent cremation options without any pushy extras.\n[I set my embossed service folder on the front showroom desk and gesture gently to the cushioned rocking chairs by the window, inviting them to sit and talk at their own pace.]",
+                  "shifts": {
+                    "cremation": 1.0
+                  },
+                  "shift_total": 1.0,
+                  "role": ""
+                },
+                {
+                  "name": "Toby Cole",
+                  "text": "Thanks for hanging tight a second\u2014this hand-carved oak casket\u2019s my grandfather\u2019s handiwork from 1979, and I didn\u2019t want to rush buffing out the last smudge. I\u2019m Toby Cole, the shop\u2019s prep technician, and I\u2019m happy to walk you through every part of your father\u2019s direct cremation services. Let\u2019s head through that back hallway to the cozy consultation nook so we can talk without distractions.\n[Drops his lint-free polishing rag onto the nearby workbench and gestures toward a quiet, carpeted back room off the main showroom floor.]",
+                  "shifts": {
+                    "cremation": 0.7
+                  },
+                  "shift_total": 0.7,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Jessa Mae": 0.5,
+            "Elara Voss": 1.7,
+            "Toby Cole": 1.4
+          },
+          "citations": {},
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Jessa Mae holds the line; the next session's hook waits at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-translation-collective-producing-books-in-8-lang",
+      "scenario": {
+        "title": "The 8-Language Translation Collective Dilemma",
+        "setting": "A small, passionate translation collective operates from a cluttered shared office in a former bookstore basement. They translate literary works across 8 underrepresented global languages for a struggling independent small press. Their critical deadline for their first bound anthology is two weeks away, but their funding has suddenly dried up.",
+        "characters": [
+          {
+            "name": "Kael",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Tracks all collective budgets, output totals, and billing cycles for the small press partnership",
+            "keywords": "count+0.6 budget+0.7 deadline-0.4 creativity-0.3",
+            "ticks": 20
+          },
+          {
+            "name": "Marisol",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Advocates for preserving linguistic and cultural authenticity in every translation, even if it means adjusting timeline expectations",
+            "keywords": "linguistics+0.8 culture+0.6 nuance+0.5 speed-0.3 budget-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Manages daily collective operations, coordinates between translators and the small press, and trains new volunteer translators",
+            "keywords": "admin+0.7 coordination+0.6 onboarding+0.5 precision-0.3 creativity-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "The 8-Language Translation Collective Dilemma",
+          "scenario": {
+            "title": "The 8-Language Translation Collective Dilemma",
+            "setting": "A small, passionate translation collective operates from a cluttered shared office in a former bookstore basement. They translate literary works across 8 underrepresented global languages for a struggling independent small press. Their critical deadline for their first bound anthology is two weeks away, but their funding has suddenly dried up.",
+            "characters": [
+              {
+                "name": "Kael",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Tracks all collective budgets, output totals, and billing cycles for the small press partnership",
+                "keywords": "count+0.6 budget+0.7 deadline-0.4 creativity-0.3",
+                "ticks": 20
+              },
+              {
+                "name": "Marisol",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Advocates for preserving linguistic and cultural authenticity in every translation, even if it means adjusting timeline expectations",
+                "keywords": "linguistics+0.8 culture+0.6 nuance+0.5 speed-0.3 budget-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Manages daily collective operations, coordinates between translators and the small press, and trains new volunteer translators",
+                "keywords": "admin+0.7 coordination+0.6 onboarding+0.5 precision-0.3 creativity-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:29:30.501726Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Kael",
+                  "text": "I just pulled up the Q3 billing cycle spreadsheets\u2014we\u2019re still waiting on two freelance translator invoices to come through before we can finalize the royalty payouts for our debut chapbook line. We also just blew past our monthly fundraising target for the new literary translation seed grant, which is a huge win for the collective\u2019s future projects.\n[Leans against the cluttered desk, prodding a loose invoice slip tucked under a stack of used poetry translations with his shoe before pulling up a follow-up email draft on his work laptop.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "\"Hold on, let\u2019s hit pause on that quick edit. That regional Oaxacan folk saying the author included isn\u2019t disposable\u2014losing it would strip readers of the exact warmth and local context that makes this story feel alive. We can push back the client\u2019s deadline by a single day, but we can\u2019t get this cultural nuance back once it\u2019s cut.\"\n[She grabs a frayed bilingual anthology from the cluttered desk, flattening the coffee-stained page marked with a sticky note to highlight the phrase in question.]",
+                  "shifts": {
+                    "nuance": 0.5
+                  },
+                  "shift_total": 0.5,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Quick check-in, folks\u2014our small press contact just confirmed they\u2019ll drop off advance reader copies of the translated folk zine next week, and I\u2019ve put together a quick training breakdown for our new Portuguese translation volunteer who\u2019s sitting over by the old bookstore shelf of dictionaries. I\u2019m going to pull everyone into a 10-minute sync once we wrap up the first round of poem proofreads.\n[I grab a stack of crinkled, annotated translation drafts from the cluttered communal desk and gesture for the group to cluster in the sunlit corner by the stained-glass window.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Kael",
+                  "text": "I\u2019ve got enough unallocated Q3 reserve to cover the zine\u2019s print fees early without those two pending freelance invoices, so we won\u2019t have to push back the ARC drop-off Javi just confirmed. Let\u2019s circle back to that regional folk saying note from Marisol right after I jot a quick follow-up reminder for the missing invoices.\n[Scratches a quick \"FOLLOW UP: TRANSLATOR INVOICES 17 & 22\" on a neon pink sticky note and presses it to the top of the Q3 spreadsheet stack]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "\"Hold on, let\u2019s hit pause on that quick edit. That regional Oaxacan folk saying the author included isn\u2019t disposable\u2014losing it would strip readers of the story\u2019s core cultural warmth and specific community context, not just a throwaway turn of phrase. We can rework our word count elsewhere instead of cutting something that makes this translation feel authentic.\"\n[Grabs a dog-eared Spanish-Zapotec glossary and a pad of translator\u2019s note sticky notes from the cluttered shared desk, nudging a loose stack of translated zine drafts aside to make space]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Quick check-in, folks\u2014our small press contact just confirmed they\u2019ll drop off advance reader copies of the translated folk zine next week. I also pulled together sign-up sheets for our upcoming volunteer translator training and extra regional dialect glossaries for anyone polishing tricky folk phrasing like the Oaxacan saying Marisol flagged.\n[I set the stack of printed materials down between Kael\u2019s open billing spreadsheet and Marisol\u2019s annotated manuscript, then nudged a smudged ceramic yerba mat\u00e9 mug off the cluttered conference table to clear a small work spot.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Kael": 0.0,
+            "Marisol": 0.5,
+            "Javi": 0.0
+          },
+          "citations": {
+            "Kael": {
+              "Marisol": 1,
+              "Javi": 1
+            },
+            "Javi": {
+              "Kael": 1,
+              "Marisol": 2
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -2750,86 +4432,89 @@
     {
       "slug": "a-volunteer-fire-department-that-has-just-had-its",
       "scenario": {
-        "title": "A volunteer fire department that has just had its first responder shortage",
-        "setting": "A volunteer fire department that has just had its first responder shortage",
+        "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
+        "setting": "The quiet rural town of Willowbrook\u2019s volunteer fire department gathers in its scuffed concrete fire hall. An overflowing ashtray sits next to a whiteboard marked with 12 empty first responder shifts over the next four days. Local farmers and shop owners have begun sharing urgent shift-swap requests across the town\u2019s only community Facebook group.",
         "characters": [
           {
-            "name": "Steward",
+            "name": "Jessa",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Tends the canon of the place.",
-            "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+            "tendencies": "She systematically counts available volunteers, supply stocks, and unmet shifts to identify critical gaps",
+            "keywords": "count+0.6 shift+0.5 supply+0.4 gap-0.2",
             "ticks": 20
           },
           {
-            "name": "Counter",
+            "name": "Tomas",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Counts what exists. Names by lineage.",
-            "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+            "tendencies": "He raises loud, public alarms about the staffing shortage to pressure townsfolk into stepping up to volunteer",
+            "keywords": "alarm+0.7 pressure+0.4 public+0.3 anxious-0.3",
             "ticks": 20
           },
           {
-            "name": "Apprentice",
+            "name": "Lila",
             "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-            "tendencies": "Trusts the drift.",
-            "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+            "tendencies": "She is a trainee learning department protocols and organizing small temporary fixes for the staffing shortfall",
+            "keywords": "protocol+0.5 practice+0.6 fix+0.4 unsure-0.2",
             "ticks": 20
           }
         ]
       },
       "versions": {
         "v1": {
-          "title": "A volunteer fire department that has just had its first responder shortage",
+          "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
           "scenario": {
-            "title": "A volunteer fire department that has just had its first responder shortage",
-            "setting": "A volunteer fire department that has just had its first responder shortage",
+            "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
+            "setting": "The quiet rural town of Willowbrook\u2019s volunteer fire department gathers in its scuffed concrete fire hall. An overflowing ashtray sits next to a whiteboard marked with 12 empty first responder shifts over the next four days. Local farmers and shop owners have begun sharing urgent shift-swap requests across the town\u2019s only community Facebook group.",
             "characters": [
               {
-                "name": "Steward",
+                "name": "Jessa",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Tends the canon of the place.",
-                "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+                "tendencies": "She systematically counts available volunteers, supply stocks, and unmet shifts to identify critical gaps",
+                "keywords": "count+0.6 shift+0.5 supply+0.4 gap-0.2",
                 "ticks": 20
               },
               {
-                "name": "Counter",
+                "name": "Tomas",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Counts what exists. Names by lineage.",
-                "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+                "tendencies": "He raises loud, public alarms about the staffing shortage to pressure townsfolk into stepping up to volunteer",
+                "keywords": "alarm+0.7 pressure+0.4 public+0.3 anxious-0.3",
                 "ticks": 20
               },
               {
-                "name": "Apprentice",
+                "name": "Lila",
                 "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-                "tendencies": "Trusts the drift.",
-                "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+                "tendencies": "She is a trainee learning department protocols and organizing small temporary fixes for the staffing shortfall",
+                "keywords": "protocol+0.5 practice+0.6 fix+0.4 unsure-0.2",
                 "ticks": 20
               }
             ]
           },
           "rounds": 2,
-          "ran_at": "2026-09-16T17:03:20.691939Z",
+          "ran_at": "2026-09-17T02:27:12.517634Z",
           "ran_by": "big_volume/1.0",
           "history": [
             {
               "tick": 1,
               "turns": [
                 {
-                  "name": "Steward",
-                  "text": "I just double-checked the current responder rosters and found we\u2019re short eight trained firefighters and two paramedics for the overnight shift. We can\u2019t ask the small crew that\u2019s left to cover both day and night assignments without risking serious burnout.\n[grabs a stack of neon yellow volunteer sign-up sheets from the front counter and tapes them to the fire engine\u2019s side panel and the station\u2019s front glass door]",
+                  "name": "Jessa",
+                  "text": "I\u2019ve counted 12 confirmed volunteer firefighters signed on so far, leaving a four-person shortfall for the overnight brush patrol shift. Our first-aid supply bins are overflowing with bandages and antiseptic, but we\u2019re down to only three pairs of reinforced fire gloves and a single extra hose coupling. We need to put out a quick call to the adjacent county fire department to borrow the remaining gear we need.\n[Bending over a smudged metal clipboard tucked under one arm, marking a bold red \u201cCRITICAL\u201d next to the listed gear shortage on her tally sheet]",
+                  "shifts": {
+                    "shift": 0.5,
+                    "supply": 0.4
+                  },
+                  "shift_total": 0.9,
+                  "role": ""
+                },
+                {
+                  "name": "Tomas",
+                  "text": "\"Folks, gather \u2018round\u2014last night\u2019s barn fire call pushed our entire volunteer crew to the breaking point, and we\u2019re operating with barely a quarter of our needed staff right now. I won\u2019t stand by while we put our town\u2019s safety at risk because no one wants to volunteer a few hours a month. We need bodies on the roster, and we need them now.\"\n[Slams a stack of dog-eared volunteer sign-up sheets hard against the scuffed concrete firehall counter, jabbing a finger at the empty driver\u2019s seat of the nearest fire engine bay.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Counter",
-                  "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I\u2019m asking anyone who can spare a shift or training hour to sign up before we field the next emergency call. I know most of us have been working double shifts for days straight, but we can\u2019t leave our town unprotected for the next structure fire or medical incident.\"\n[Pins a stack of volunteer sign-up sheets to the station\u2019s cork noticeboard, adjusting the frayed fire department flag taped to its edge first.]",
-                  "shifts": {},
-                  "shift_total": 0.0,
-                  "role": ""
-                },
-                {
-                  "name": "Apprentice",
-                  "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all upcoming shifts. I\u2019ve got stacks of volunteer sign-up sheets set up by the kitchen coffee pot, and we\u2019ll train anyone willing to help with everything from hose work to rehab support on-site absolutely free.\n[Grabs a chipped fire department coffee mug to gesture toward the crumpled sign-up sheets stacked on the nearby counter, a furrowed, urgent brow as he scans the quiet station bay for anyone willing to step up.]",
+                  "name": "Lila",
+                  "text": "I\u2019ve rounded up three local teen volunteers who completed our mandatory safety refresher course to cover the open shift slots left by the crew dispatched to the Route 7 barn fire. I left a stack of post-incident debrief forms on the back counter by the percolator for anyone who wants to fill them out after their shifts.\n[She shifts her scuffed training clipboard under one arm and nods toward the two nervous-looking teens hovering near the fire bay entrance, waiting to be oriented to station roles.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
@@ -2840,22 +4525,25 @@
               "tick": 2,
               "turns": [
                 {
-                  "name": "Steward",
-                  "text": "I already crunched the updated staffing numbers after the apprentice\u2019s update\u2014we\u2019re now short 11 trained firefighters and four paramedics for the overnight shift. I\u2019ve pulled our standby cross-trained volunteer roster, and we have enough on-call responders to fill the gap, but I need to lock in their confirmations right now before the 10 PM handoff deadline.\n[Grabs the wall-mounted CB radio, flips to the volunteer emergency channel, and leans in to press the talk button to broadcast the urgent shift request.]",
+                  "name": "Jessa",
+                  "text": "That\u2019s such a huge help\u2014those three teen volunteers cover three of the four overnight brush patrol spots we were short. I just need to track down one last volunteer to fill that final gap and cross-check our first-aid supplies to make sure we\u2019ve got enough for the shift.\n[She scribbles a quick note marking the remaining open patrol slot on the scuffed fire hall whiteboard before grabbing a clipboard to inventory the emergency medical stockpile.]",
+                  "shifts": {
+                    "shift": 0.5,
+                    "gap": -0.2
+                  },
+                  "shift_total": 0.3,
+                  "role": ""
+                },
+                {
+                  "name": "Tomas",
+                  "text": "\"Last night\u2019s barn fire pushed our volunteer crew to the breaking point, and we\u2019re still one person short for the overnight brush patrol even with those three teen trainees filling some slots. We can\u2019t leave Willowbrook\u2019s rural roads and brushlands unprotected tonight\u2014every single person who can lend a hand needs to step up right now. Don\u2019t wait until it\u2019s too late to do your part for the town you call home.\" [Slams a palm against the side of a nearby fire engine to draw everyone\u2019s eyes, then gestures sharply at the tattered volunteer sign-up sheet tacked to the wall]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
                 },
                 {
-                  "name": "Counter",
-                  "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I was just about to ask anyone who can spare a shift or training hour to step forward\u2014until now learning three more of our regular crew bailed right after that last fire? That\u2019s catastrophic. I\u2019m sticking through the entire overnight shift myself, and anyone with even basic fire response training needs to grab a sign-up sheet right now.\n[Slamming a fist against the metal edge of the dispatch desk then snatching a crumpled stack of printed volunteer sign-up forms off the counter and holding the stack out to the small group of remaining firefighters clustered near the station\u2019s fire engine bays.",
-                  "shifts": {},
-                  "shift_total": 0.0,
-                  "role": ""
-                },
-                {
-                  "name": "Apprentice",
-                  "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all overnight and morning patrol shifts. I know most of our regular volunteers have already picked up double shifts this week, but we can\u2019t leave this community uncovered for a single moment. If you have even a few free hours to fill a shift or help orient our new certified cadets, please come forward to sign up now.\n[Grabs a stack of blank shift sign-up sheets from the dispatch counter and pins a few to the station\u2019s main bulletin board for anyone passing by to grab.]",
+                  "name": "Lila",
+                  "text": "I rounded up the three teen volunteers who finished our mandatory safety refresher and had them wait by the brush truck in the fire bay. I\u2019ve already printed out the overnight patrol checklists and marked the high-risk dry brush zones they need to monitor closely.\n[Setting a stack of neatly stapled checklists and a spare portable radio on the scuffed concrete table before gesturing toward the waiting teens.]",
                   "shifts": {},
                   "shift_total": 0.0,
                   "role": ""
@@ -2864,21 +4552,13 @@
             }
           ],
           "resonance": {
-            "Steward": 0.0,
-            "Counter": 0.0,
-            "Apprentice": 0.0
+            "Jessa": 1.2,
+            "Tomas": 0.0,
+            "Lila": 0.0
           },
-          "citations": {
-            "Steward": {
-              "Counter": 1,
-              "Apprentice": 1
-            },
-            "Apprentice": {
-              "Counter": 2
-            }
-          },
+          "citations": {},
           "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
-          "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door."
+          "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -3026,6 +4706,144 @@
           },
           "dm_opening": "DM opening: the Mara Hines takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Mara Hines still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "a-volunteer-run-river-cleanup-crew-with-a-new-gene",
+      "scenario": {
+        "title": "Generational River Cleanup Crew Dilemma",
+        "setting": "A sun-bleached wooden dock straddling a shallow, trash-lined creek in western Pennsylvania. The volunteer cleanup crew has split into two groups: a small core of long-time organizers and a large cohort of first-time teen volunteers. Tensions simmer as the two sides clash over cleanup priorities and group dynamics.",
+        "characters": [
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Strictly tracks trash collection numbers and argues for faster, more efficient cleanup routes over casual volunteer chat.",
+            "keywords": "count+0.6 trash+0.5 route+0.4 chat-0.3 hesitate-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Marisol",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Amplifies quieter volunteer voices, shares personal creek restoration stories, and pushes for inclusive group decisions.",
+            "keywords": "story+0.7 listen+0.5 include+0.4 metric-0.3 rush-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Theo",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Manages heavy cleanup equipment, mentors new teen volunteers, and feels out of place between the crew\u2019s conflicting factions.",
+            "keywords": "gear+0.6 skimmer+0.5 mentor+0.4 doubt-0.3 distract-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Generational River Cleanup Crew Dilemma",
+          "scenario": {
+            "title": "Generational River Cleanup Crew Dilemma",
+            "setting": "A sun-bleached wooden dock straddling a shallow, trash-lined creek in western Pennsylvania. The volunteer cleanup crew has split into two groups: a small core of long-time organizers and a large cohort of first-time teen volunteers. Tensions simmer as the two sides clash over cleanup priorities and group dynamics.",
+            "characters": [
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Strictly tracks trash collection numbers and argues for faster, more efficient cleanup routes over casual volunteer chat.",
+                "keywords": "count+0.6 trash+0.5 route+0.4 chat-0.3 hesitate-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Marisol",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Amplifies quieter volunteer voices, shares personal creek restoration stories, and pushes for inclusive group decisions.",
+                "keywords": "story+0.7 listen+0.5 include+0.4 metric-0.3 rush-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Theo",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Manages heavy cleanup equipment, mentors new teen volunteers, and feels out of place between the crew\u2019s conflicting factions.",
+                "keywords": "gear+0.6 skimmer+0.5 mentor+0.4 doubt-0.3 distract-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:37:25.308545Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Javi",
+                  "text": "Cut the small talk\u2014we\u2019ve only tallied 13 full trash bags in the past hour, and we\u2019re already trailing the efficient route I drafted by 20 minutes. If we stick to the mapped upstream trash cluster instead of loitering by the dock posts, we can make up that lost ground before the high tide pushes more debris out into the cove.\n[slams his waterproof trash count tracker onto the sun-bleached dock rail, grabs a heavy-duty trash grabber, and strides toward the tangled pile of discarded bait buckets and plastic sheeting bobbing just offshore]",
+                  "shifts": {
+                    "count": 0.6,
+                    "trash": 2.0,
+                    "route": 0.4
+                  },
+                  "shift_total": 3.0,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "I want to shout out Lila, who\u2019s been quietly pointing out all the hidden litter spots along the back creek bend every time we pause. Three years ago, my abuela and I pulled a rusted lawnmower out of that exact same bend, and seeing how much less heavy trash clogs it now makes me hope we can expand this work with local students. Let\u2019s make sure every single person here gets a chance to share their ideas for how to grow our volunteer group.\n[Hands a branded trash grabber and a stack of student volunteer sign-up sheets to the shy teen Lila, then gestures for the scattered cleanup crew to huddle closer to brainstorm together.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Theo",
+                  "text": "Alright, y\u2019all, let\u2019s pause the infighting for five minutes. The eastern dock edge has a pile of broken fishing floats and chemical containers that need the heavy-duty grabber, so the crew that\u2019s been hogging the small tongs can step aside for that. The west bank\u2019s storm drains are clogged with plastic bags, so don\u2019t drag your feet tackling those once we split up.\n[Slings the heavy industrial cleanup grabber\u2019s strap over one broad shoulder, kicking a crumpled potato chip bag out of the way of the dock\u2019s wobbly plank stairs.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Javi",
+                  "text": "Cut the five-minute pause right now\u2014we\u2019re already 20 minutes behind my drafted efficient route, and we\u2019ve only tallied 13 full trash bags in the past hour. That fishing float pile and casual shoutouts can wait until we hit our assigned coverage targets first. I spotted the cluster of hidden litter Lila pointed out just further up the back creek bend, let\u2019s move now instead of wasting time on formalities.\n[Javi grabs his heavy-duty trash grabber from his tool belt and strides purposefully toward the back creek bend, ignoring the calls to halt for the eastern dock float pile inspection.",
+                  "shifts": {
+                    "trash": 1.0,
+                    "route": 0.4
+                  },
+                  "shift_total": 1.4,
+                  "role": ""
+                },
+                {
+                  "name": "Marisol",
+                  "text": "Three years ago, I was the harried volunteer rushing straight through these exact stretches, blind to every piece of trash tucked under the dock\u2019s rotting pilings and tucked in the creek\u2019s overgrown banks. Lila\u2019s been doing the quiet, careful work that actually makes this cleanup count, and I think we should shift a few folks to join her instead of only fixating on our tally numbers right now.\n[I kneel to pluck a crumpled plastic soda bottle wedged between two weathered dock slats, holding it up to gesture toward the overgrown back creek bend where Lila\u2019s crouched sorting hidden trash.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Theo",
+                  "text": "First off, Lila, that sharp eye for hidden litter has saved us so much hassle\u2014thank you for pointing all those tucked-away bits out. Javi, I hear your push to stick to your drafted route, but that pile of chemical containers by the east dock can\u2019t wait; we\u2019ve got to bag those safely first to keep everyone out of harm\u2019s way. Let\u2019s split the crew quick: half of you wrap up the full trash bags we\u2019ve already filled, and the rest follow me over to handle that hazardous pile right now.\n[Grabs a pair of thick, puncture-resistant work gloves from his utility belt, then hefts a roll of extra-heavy plastic trash bags over one shoulder to head toward the eastern dock edge.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Javi": 4.4,
+            "Marisol": 0.0,
+            "Theo": 0.0
+          },
+          "citations": {
+            "Theo": {
+              "Javi": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door."
         }
       }
     },
@@ -3195,6 +5013,152 @@
           },
           "dm_opening": "DM opening: the Marv Pritchard takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "dm_closing": "DM closing: the Marv Pritchard still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door."
+        }
+      }
+    },
+    {
+      "slug": "an-urban-farm-collective-on-a-former-parking-lot",
+      "scenario": {
+        "title": "Parking Lot Farm Plot Waitlist Dilemma",
+        "setting": "This vibrant urban farm occupies a repurposed asphalt parking lot, with raised wooden beds filled with leafy greens, herbs, and native wildflowers. A weathered wooden sign posted by the tool shed displays the long waitlist for individual growing plots, drawing daily questions from curious community members.",
+        "characters": [
+          {
+            "name": "Mara",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Mara manages the official plot waitlist, resolving small disputes between prospective farm holders.",
+            "keywords": "waitlist+0.6 plot+0.5 tally+0.4 sign-0.2",
+            "ticks": 20
+          },
+          {
+            "name": "Javi",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Javi fields community inquiries and shares farm updates via in-person chats and phone calls.",
+            "keywords": "call+0.7 announcement+0.5 chat+0.4 neighbor-0.1",
+            "ticks": 20
+          },
+          {
+            "name": "Lila",
+            "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+            "tendencies": "Lila tends the farm\u2019s raised beds and teaches beginner farming skills to new plot holders.",
+            "keywords": "soil+0.6 harvest+0.5 bed+0.4 beginner-0.2",
+            "ticks": 20
+          }
+        ]
+      },
+      "versions": {
+        "v1": {
+          "title": "Parking Lot Farm Plot Waitlist Dilemma",
+          "scenario": {
+            "title": "Parking Lot Farm Plot Waitlist Dilemma",
+            "setting": "This vibrant urban farm occupies a repurposed asphalt parking lot, with raised wooden beds filled with leafy greens, herbs, and native wildflowers. A weathered wooden sign posted by the tool shed displays the long waitlist for individual growing plots, drawing daily questions from curious community members.",
+            "characters": [
+              {
+                "name": "Mara",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Mara manages the official plot waitlist, resolving small disputes between prospective farm holders.",
+                "keywords": "waitlist+0.6 plot+0.5 tally+0.4 sign-0.2",
+                "ticks": 20
+              },
+              {
+                "name": "Javi",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Javi fields community inquiries and shares farm updates via in-person chats and phone calls.",
+                "keywords": "call+0.7 announcement+0.5 chat+0.4 neighbor-0.1",
+                "ticks": 20
+              },
+              {
+                "name": "Lila",
+                "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+                "tendencies": "Lila tends the farm\u2019s raised beds and teaches beginner farming skills to new plot holders.",
+                "keywords": "soil+0.6 harvest+0.5 bed+0.4 beginner-0.2",
+                "ticks": 20
+              }
+            ]
+          },
+          "rounds": 2,
+          "ran_at": "2026-09-17T02:30:16.693901Z",
+          "ran_by": "big_volume/1.0",
+          "history": [
+            {
+              "tick": 1,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "Excuse me, both of you\u2014let\u2019s not bicker over this prime sunlit raised bed before we walk through the official waitlist properly. I know you\u2019ve both been checking the lot daily for a spot, but Priya logged her waitlist request three full days before you, so she gets first dibs on this plot.\n[I step gently between the two frustrated prospective holders, tapping Priya\u2019s dated entry on my laminated waitlist clipboard to show both parties the timed log.]",
+                  "shifts": {
+                    "waitlist": 1.8,
+                    "plot": 0.5
+                  },
+                  "shift_total": 2.3,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Hey there! I\u2019m Javi, one of the farm stewards here at this repurposed downtown parking lot space. These raised wooden beds are stuffed with crisp kale, arugula, and Swiss chard we\u2019ve been harvesting daily for the local food co-op. Feel free to poke around or ask me anything about how we run this urban farm!\n[I brush a stray leaf from my soil-streaked flannel apron and gesture to the faint faded asphalt parking lines peeking through the straw mulch between the beds.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "Hey there, welcome to your first beginner farming workshop! Let\u2019s start by grabbing these handheld cultivators from the cart over yonder to loosen the topsoil around your lettuce beds without disturbing those fragile shallow roots. I\u2019ll walk you through each step slowly so you feel confident tending your own plot later.\n[Gesturing to a stack of smooth, sanded wooden cultivators propped against a repurposed metal farm cart, then patting a loose clump of soil back around a toppled arugula seedling]",
+                  "shifts": {
+                    "soil": 0.6,
+                    "beginner": -0.2
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                }
+              ]
+            },
+            {
+              "tick": 2,
+              "turns": [
+                {
+                  "name": "Mara",
+                  "text": "I know you\u2019ve both been looking forward to locking in a plot, but we can\u2019t skip the official waitlist checks over this sunlit raised bed. Let\u2019s step over to the sign-up clipboard so we can sort this out fairly instead of bickering back and forth.\n[She tucks a loose strand of dark hair behind her ear and gestures toward the well-worn clipboard slung at her hip, nodding for the two disputing parties to follow her toward the tool cart where Lila has laid out handheld cultivators.]",
+                  "shifts": {
+                    "waitlist": 0.6,
+                    "plot": 0.5,
+                    "sign": -0.2
+                  },
+                  "shift_total": 0.9,
+                  "role": ""
+                },
+                {
+                  "name": "Javi",
+                  "text": "Whoops, you\u2019re totally right, Mara\u2014 I got carried away gushing about these lush kale beds before sticking to the proper workshop flow. Let\u2019s stick to walking through the waitlist first, then we\u2019ll hop into how to use those handheld cultivators to prep the soil safely.\n[He reaches over to adjust the stack of labeled handheld cultivators on the nearby cart, tapping the laminated waitlist sheet clipped to its handle as he finishes speaking.]",
+                  "shifts": {},
+                  "shift_total": 0.0,
+                  "role": ""
+                },
+                {
+                  "name": "Lila",
+                  "text": "loosen the compacted topsoil surrounding our young arugula and kale seedlings without damaging their tender roots. Grab one cultivator each from the cart, and we\u2019ll go over how to thin overcrowded sprigs to help the remaining plants thrive. [I tap a tiny, bright green arugula sprout in the nearest raised bed to illustrate the delicate plants we\u2019ll be working around, then lift a stack of metal handheld cultivators from the wooden storage cart.]",
+                  "shifts": {
+                    "bed": 0.4
+                  },
+                  "shift_total": 0.4,
+                  "role": ""
+                }
+              ]
+            }
+          ],
+          "resonance": {
+            "Mara": 3.1999999999999997,
+            "Javi": 0.0,
+            "Lila": 0.8
+          },
+          "citations": {
+            "Mara": {
+              "Lila": 1
+            },
+            "Javi": {
+              "Mara": 1
+            }
+          },
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door."
         }
       }
     },

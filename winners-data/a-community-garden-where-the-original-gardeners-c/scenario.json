@@ -1,0 +1,27 @@
+{
+  "title": "Legacy Plot Community Garden Dilemma",
+  "setting": "Nestled between a laundromat and a row of bungalows, Maplewood\u2019s community garden has been tended by two generations of local families. Three decades ago, a group of original retiree gardeners carved out the plots, and now their adult children oversee the space alongside younger neighbors. Last month, a city zoning notice threatened to repurpose half the garden for a municipal parking lot, splitting the new garden stewards over whether to negotiate or protest.",
+  "characters": [
+    {
+      "name": "Marisol",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She tracks volunteer hours, plot yields, and donated supplies to mediate conflicting requests for garden space.",
+      "keywords": "plot+0.6 budget+0.5 tension-0.3 legacy+0.4 noise-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He shares oral histories of the original garden\u2019s founding to rally community members against the zoning proposal.",
+      "keywords": "story+0.7 crowd+0.4 legacy+0.5 proposal-0.3 calm-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She maintains the garden\u2019s tools and raised beds, and mentors young apprentice gardeners to carry on the original growers\u2019 practices.",
+      "keywords": "soil+0.6 repair+0.5 youth+0.4 plan-0.3 stress-0.2",
+      "ticks": 20
+    }
+  ]
+}

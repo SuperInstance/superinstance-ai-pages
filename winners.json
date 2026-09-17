@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-17T02:18:42.921627Z",
-  "n_scenarios": 15,
+  "generated_at": "2026-09-17T02:39:00.163661Z",
+  "n_scenarios": 29,
   "scenarios": [
     {
       "slug": "a-30-year-old-community-acupuncture-clinic",
@@ -19,6 +19,38 @@
       ]
     },
     {
+      "slug": "a-communal-laundry-facility-in-a-housing-project-w",
+      "title": "Maple Court Laundry Reservation Dilemma",
+      "setting": "The damp basement of Maple Court public housing features three aging laundry machines, reserved using a smudged handwritten paper sheet taped to a rusted utility sink. Each weekday evening, a tense free-for-all breaks out as working parents, elderly tenants, and night-shift workers compete for the f",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.4,
+          "dm_closing": "DM closing: the Mabel holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-community-ceramics-studio-in-a-converted-bank",
+      "title": "Converted Bank Community Ceramics Studio Crisis",
+      "setting": "A shuttered downtown bank has been transformed into a tight-knit community ceramics studio, with its marble teller counters repurposed as pottery wheel stations and its old vault holding stacks of raw clay. A sudden mold outbreak in the bank\u2019s aged brick foundation has been discovered, threatening t",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 1.8,
+          "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
       "slug": "a-community-clock-tower-maintained-by-a-retired-horolog",
       "title": "The Chime Dilemma of Willowbrook",
       "setting": "The tree-lined square of Willowbrook is anchored by an 118-year-old cast-iron clock tower, its face smudged with decades of rain grime and its hourly chime a familiar, warm tone that had rung over the town since 1905. Retired horologist Elias Voss has cared for the tower for 22 years, performing gen",
@@ -30,6 +62,38 @@
           "dm_closing": "DM closing: the Elias Voss still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
           "dm_opening": "DM opening: the Elias Voss takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-community-darkroom-that-has-resisted-going-digit",
+      "title": "The Blackroom Collective's Digital Dilemma",
+      "setting": "Tucked in the basement of a 1920s repurposed church in a small Rust Belt town, the Blackroom Collective has resisted full digital photography adoption for 30 straight years. Its walls are lined with scuffed film tanks, frayed red safelight wires, and dog-eared notebooks of member-submitted developin",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 1.1,
+          "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-community-garden-where-the-original-gardeners-c",
+      "title": "Legacy Plot Community Garden Dilemma",
+      "setting": "Nestled between a laundromat and a row of bungalows, Maplewood\u2019s community garden has been tended by two generations of local families. Three decades ago, a group of original retiree gardeners carved out the plots, and now their adult children oversee the space alongside younger neighbors. Last mont",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.6,
+          "dm_closing": "DM closing: the Marisol holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
           "n_rounds": 2
         }
       ]
@@ -79,6 +143,22 @@
           "dm_opening": "[EMPTY]",
           "n_turns": 9,
           "n_rounds": 3
+        }
+      ]
+    },
+    {
+      "slug": "a-community-woodshop-where-the-foreman-is-the-foun",
+      "title": "Rust and Legacy at Maplewood Woodshop",
+      "setting": "The century-old Maplewood Community Woodshop was founded by a local master carpenter, now run by his grandchild Jessa who serves as foreman. A recent shipment of reclaimed oak flecked with surface rust has divided the small, tight-knit crew, as they debate whether to use the discounted material or s",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 3.6,
+          "dm_closing": "DM closing: the Riley holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
         }
       ]
     },
@@ -147,6 +227,38 @@
       ]
     },
     {
+      "slug": "a-pottery-co-op-where-the-kilns-are-older-than-any",
+      "title": "Aging Kiln Co-op Dilemma",
+      "setting": "The small, sun-faded pottery co-op sits on a quiet country lane, its two wood-fired kilns older than every current member, all of whom joined within the last two years. The collective is weeks away from shutting down unless they can complete a successful bulk glaze order for a local caf\u00e9, but no one",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.0,
+          "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-roadside-farm-stand-that-has-run-continuously-fo",
+      "title": "The 40-Year Farm Stand Dilemma",
+      "setting": "Tucked along a winding country highway, the weathered wooden farm stand has operated continuously for 40 years, passed down through three local farming families. A commercial truck stop developer has filed plans to build adjacent to the stand\u2019s small plot, threatening its loyal customer base and lon",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 2.1,
+          "dm_closing": "DM closing: the Elara holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
       "slug": "a-small-town-drive-in-theater-run-by-a-second-generatio",
       "title": "The Willow Creek Drive-In Crossroads",
       "setting": "Set in the waning days of late summer in Willow Creek, a quiet rural town tucked between endless cornfields. The drive-in\u2019s gravel lot is dotted with a handful of early-arriving cars, their windshield wipers flicking away fine mist, and the concession stand\u2019s neon \u201cPOPCORN\u201d sign sputters intermitten",
@@ -158,6 +270,38 @@
           "dm_closing": "DM closing: the Jessa Mae Carver still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
           "dm_opening": "DM opening: the Jessa Mae Carver takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-small-town-ice-rink-run-by-the-same-zamboni-driv",
+      "title": "The 25-Year Zamboni Driver\u2019s Crossroads",
+      "setting": "Maple Creek is a quiet rural town of just 312 residents, anchored for 37 years by its downtown ice rink. For a quarter-century, Joe Mertz has been the rink\u2019s only Zamboni driver, meticulously prepping the ice for local hockey games, public skate, and youth lessons every winter. After his 1998 Zambon",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 5.9,
+          "dm_closing": "DM closing: the Lila Marlow holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-small-town-square-where-the-bandstand-has-been-s",
+      "title": "Silent Bandstand Revival Dilemma",
+      "setting": "The sun-warmed cobblestones of Willow Creek\u2019s town square frame a weathered bandstand, silent for exactly five years after the town\u2019s marching band disbanded. Moss clings to its wooden support beams, and a crumpled 2019 concert poster tacks to one side, half-torn by wind. The square\u2019s only regular v",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 1.5,
+          "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
           "n_rounds": 2
         }
       ]
@@ -179,6 +323,22 @@
       ]
     },
     {
+      "slug": "a-three-generation-cheese-making-operation-with-a",
+      "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+      "setting": "Nestled in the sun-dappled Loire Valley farmlands, the three-generational Fromagerie Martin has produced award-winning goat crottin for 72 years using a single carefully guarded starter culture passed down through the family. New apprentice Jules has taken to storing a weekly starter batch in a stai",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.1,
+          "dm_closing": "DM closing: the Elara Martin holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
       "slug": "a-three-generation-fishing-tackle-shop-now-selling-fly",
       "title": "Reiger Fly & Tackle\u2019s Crossroads",
       "setting": "Nestled between a salt-crusted clam shack and a driftwood art gallery in coastal La Push, Washington, Reiger Fly & Tackle has operated as a three-generation family shop since 1947. Its weathered clapboard siding is streaked with sea spray and faint rust from decades of displayed casting reels, and t",
@@ -190,6 +350,38 @@
           "dm_closing": "DM closing: the Marnie Reiger still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
           "dm_opening": "DM opening: the Marnie Reiger takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-three-generation-funeral-home-adapting-to-direct",
+      "title": "Three-Generation Funeral Home Adapting to Direct Cremation",
+      "setting": "The creaky, century-old Hale Funeral Home sits on a tree-lined main street in rural Ohio, its front showroom still lined with handcrafted oak caskets passed down through three generations. Third-generation owner Mara Hale struggles to keep the family business afloat as local families increasingly ch",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 3.6,
+          "dm_closing": "DM closing: the Jessa Mae holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "a-translation-collective-producing-books-in-8-lang",
+      "title": "The 8-Language Translation Collective Dilemma",
+      "setting": "A small, passionate translation collective operates from a cluttered shared office in a former bookstore basement. They translate literary works across 8 underrepresented global languages for a struggling independent small press. Their critical deadline for their first bound anthology is two weeks a",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 0.5,
+          "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
           "n_rounds": 2
         }
       ]
@@ -228,14 +420,14 @@
     },
     {
       "slug": "a-volunteer-fire-department-that-has-just-had-its",
-      "title": "A volunteer fire department that has just had its first responder shortage",
-      "setting": "A volunteer fire department that has just had its first responder shortage",
+      "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
+      "setting": "The quiet rural town of Willowbrook\u2019s volunteer fire department gathers in its scuffed concrete fire hall. An overflowing ashtray sits next to a whiteboard marked with 12 empty first responder shifts over the next four days. Local farmers and shop owners have begun sharing urgent shift-swap requests",
       "n_characters": 3,
       "versions": [
         {
           "label": "v1",
-          "total_resonance": 0.0,
-          "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door.",
+          "total_resonance": 1.2,
+          "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door.",
           "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 6,
           "n_rounds": 2
@@ -259,6 +451,22 @@
       ]
     },
     {
+      "slug": "a-volunteer-run-river-cleanup-crew-with-a-new-gene",
+      "title": "Generational River Cleanup Crew Dilemma",
+      "setting": "A sun-bleached wooden dock straddling a shallow, trash-lined creek in western Pennsylvania. The volunteer cleanup crew has split into two groups: a small core of long-time organizers and a large cohort of first-time teen volunteers. Tensions simmer as the two sides clash over cleanup priorities and ",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.4,
+          "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
       "slug": "an-old-movie-theater-converted-to-a-live-performance-ve",
       "title": "The Orion\u2019s Dilemma: Classic Cinema vs. Live Music",
       "setting": "The chipped red-brick Orion Theater, once a beloved regional spot for 1970s blockbusters and Saturday matinee cartoons, now operates as an intimate live-performance venue in a fading Rust Belt neighborhood. Its former concession stand now sells craft cider and vegan pretzels instead of buttered popc",
@@ -270,6 +478,22 @@
           "dm_closing": "DM closing: the Marv Pritchard still holds the line; the next session's hook \u2014 a new member, an old scar \u2014 is already at the door.",
           "dm_opening": "DM opening: the Marv Pritchard takes a position; the cast gathers around a question the scene has been carrying for a year.",
           "n_turns": 8,
+          "n_rounds": 2
+        }
+      ]
+    },
+    {
+      "slug": "an-urban-farm-collective-on-a-former-parking-lot",
+      "title": "Parking Lot Farm Plot Waitlist Dilemma",
+      "setting": "This vibrant urban farm occupies a repurposed asphalt parking lot, with raised wooden beds filled with leafy greens, herbs, and native wildflowers. A weathered wooden sign posted by the tool shed displays the long waitlist for individual growing plots, drawing daily questions from curious community ",
+      "n_characters": 3,
+      "versions": [
+        {
+          "label": "v1",
+          "total_resonance": 4.0,
+          "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door.",
+          "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+          "n_turns": 6,
           "n_rounds": 2
         }
       ]

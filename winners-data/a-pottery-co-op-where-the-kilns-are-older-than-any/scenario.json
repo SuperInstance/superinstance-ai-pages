@@ -1,0 +1,27 @@
+{
+  "title": "Aging Kiln Co-op Dilemma",
+  "setting": "The small, sun-faded pottery co-op sits on a quiet country lane, its two wood-fired kilns older than every current member, all of whom joined within the last two years. The collective is weeks away from shutting down unless they can complete a successful bulk glaze order for a local caf\u00e9, but no one knows the original firing specs of the aging kilns to avoid ruining their final batches.",
+  "characters": [
+    {
+      "name": "Jessa",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She obsessively tracks firing cycle times, kiln temperature logs, and inventory counts, often correcting vague group estimates with precise numerical data.",
+      "keywords": "count+0.6 log+0.5 rust+0.3 spec-0.2 drift-0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Marisol",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She acts as the co-op\u2019s public face, pitching their pottery to local businesses, mediating group disagreements, and keeping the community-focused spirit of the collective alive.",
+      "keywords": "pitch+0.7 chatter+0.4 door+0.3 lineage+0.5 glaze-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Tao",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "They\u2019re the only current member with hands-on kiln experience, having learned basic firing techniques from their grandparent who worked at the co-op\u2019s original run decades ago.",
+      "keywords": "fire+0.8 ash+0.6 spec+0.4 lineage+0.3 rust-0.2",
+      "ticks": 20
+    }
+  ]
+}

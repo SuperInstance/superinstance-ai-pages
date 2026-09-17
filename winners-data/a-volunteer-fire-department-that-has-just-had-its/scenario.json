@@ -1,26 +1,26 @@
 {
-  "title": "A volunteer fire department that has just had its first responder shortage",
-  "setting": "A volunteer fire department that has just had its first responder shortage",
+  "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
+  "setting": "The quiet rural town of Willowbrook\u2019s volunteer fire department gathers in its scuffed concrete fire hall. An overflowing ashtray sits next to a whiteboard marked with 12 empty first responder shifts over the next four days. Local farmers and shop owners have begun sharing urgent shift-swap requests across the town\u2019s only community Facebook group.",
   "characters": [
     {
-      "name": "Steward",
+      "name": "Jessa",
       "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-      "tendencies": "Tends the canon of the place.",
-      "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+      "tendencies": "She systematically counts available volunteers, supply stocks, and unmet shifts to identify critical gaps",
+      "keywords": "count+0.6 shift+0.5 supply+0.4 gap-0.2",
       "ticks": 20
     },
     {
-      "name": "Counter",
+      "name": "Tomas",
       "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-      "tendencies": "Counts what exists. Names by lineage.",
-      "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+      "tendencies": "He raises loud, public alarms about the staffing shortage to pressure townsfolk into stepping up to volunteer",
+      "keywords": "alarm+0.7 pressure+0.4 public+0.3 anxious-0.3",
       "ticks": 20
     },
     {
-      "name": "Apprentice",
+      "name": "Lila",
       "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-      "tendencies": "Trusts the drift.",
-      "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+      "tendencies": "She is a trainee learning department protocols and organizing small temporary fixes for the staffing shortfall",
+      "keywords": "protocol+0.5 practice+0.6 fix+0.4 unsure-0.2",
       "ticks": 20
     }
   ]

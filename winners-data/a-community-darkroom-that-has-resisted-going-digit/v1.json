@@ -1,0 +1,107 @@
+{
+  "title": "The Blackroom Collective's Digital Dilemma",
+  "scenario": {
+    "title": "The Blackroom Collective's Digital Dilemma",
+    "setting": "Tucked in the basement of a 1920s repurposed church in a small Rust Belt town, the Blackroom Collective has resisted full digital photography adoption for 30 straight years. Its walls are lined with scuffed film tanks, frayed red safelight wires, and dog-eared notebooks of member-submitted developing notes. No digital cameras or screens are permitted within its locked front doors, only film, darkroom chemicals, and shared, quiet focus on analog craft.",
+    "characters": [
+      {
+        "name": "Mara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They steward the collective\u2019s budget, track chemical inventory, and enforce shared darkroom rules to keep the space functional for all members.",
+        "keywords": "counter+0.6 inventory+0.5 rule+0.4 stress-0.3 tradition-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They serve as the collective\u2019s official historian, leading casual tours and sharing stories of the darkroom\u2019s founding to pass along its legacy to new members.",
+        "keywords": "voice+0.7 legacy+0.6 story+0.5 conflict-0.4 tech-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They act as the collective\u2019s primary equipment operator, trains new apprentices, and quietly struggles with the urge to explore digital photography on the side.",
+        "keywords": "operator+0.8 train+0.5 doubt+0.4 loyalty-0.3 routine-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:30:59.259334Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "\"Hey folks, quick heads-up\u2014we\u2019re down to half a bottle of stop bath, so swing by the front shelf to grab a labeled voucher if you need it for your print run this week. Please don\u2019t prop your exposed film sheets over the drying rack hook, either; they\u2019re blocking the locked chemical storage bin and create a sharp tripping hazard.\"\n[kneels to restack stray packs of glossy photo paper by the drying station and wipes down the communal film-developing tray with a diluted cleaner]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Welcome to the Blackroom, folks. This basement was repurposed from the church\u2019s old boiler room back in \u201978, when our founding members pooled their last few dollars to fix the leaking pipes and haul in a beat-up secondhand enlarger. Most of the original church\u2019s stained glass fragments we found tucked under the floorboards now line the edges of our processing trays.\n[I kneel down to pull a tattered leather photo album from under the metal processing sink, flipping open its cover to display a blurry, grainy shot of five grinning teens clustered around a scuffed darkroom enlarger.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "This beat-up enlarger\u2019s been glitching since last spring\u2019s basement flood, so grab the multimeter from the tool bin by the furnace so we can fix the bulb socket before the beginner\u2019s workshop tonight. I\u2019ve been tinkering with a thrift-store digital point-and-shoot on my off hours, too\u2014wanna sneak a test shot of the church\u2019s stained-glass side window after we wrap up?\n[I tuck the crumpled color calibration chart I\u2019d been holding under my arm, then reach for the frayed canvas tool bag slung over the workbench leg, my camera strap peeking out from over my shoulder.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I grabbed the spare multimeter from the furnace-side tool bin earlier while restocking fixer, so you won\u2019t have to dig for it yourself. Just remember to log your use of a stop bath voucher on the whiteboard once you\u2019re done, so we keep accurate inventory counts.\n[Hands the compact multimeter over to Lila before straightening to restack a toppled box of photo paper sleeves]",
+          "shifts": {
+            "inventory": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Welcome back, everyone\u2014glad so many of you braved the basement chill for our work night. Shoutout to Mara for flagging the low stop bath supply, and I know Lila\u2019s got her sights set on fixing that finicky enlarger once we\u2019ve got a minute. This space started as a ragtag group turning this old church boiler room into a darkroom back in 1978, and little fixes like this are exactly how we\u2019ve kept that legacy going.\n[Gestures first to the front shelf holding the stop bath vouchers, then taps the dented tool bin by the furnace where the multimeter rests.]",
+          "shifts": {
+            "legacy": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "I already grabbed the multimeter from the furnace-side tool bin\u2014its plastic handle\u2019s cracked, so go easy when you prod the enlarger\u2019s socket. If any new apprentices want a quick walkthrough of basic enlarger troubleshooting after we fix this, I\u2019ve got some cheat sheets stashed in my apron pocket. [twisting the stuck focus knob of the beat-up enlarger just enough to free its gears a little]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara": 0.5,
+    "Javi": 0.6,
+    "Lila": 0.0
+  },
+  "citations": {
+    "Mara": {
+      "Lila": 1
+    },
+    "Javi": {
+      "Mara": 1,
+      "Lila": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door."
+}

@@ -1,0 +1,111 @@
+{
+  "title": "Maple Court Laundry Reservation Dilemma",
+  "scenario": {
+    "title": "Maple Court Laundry Reservation Dilemma",
+    "setting": "The damp basement of Maple Court public housing features three aging laundry machines, reserved using a smudged handwritten paper sheet taped to a rusted utility sink. Each weekday evening, a tense free-for-all breaks out as working parents, elderly tenants, and night-shift workers compete for the few available dryer slots. There are no formal rules beyond the handwritten sheet, leading to frequent arguments and erased reservations.",
+    "characters": [
+      {
+        "name": "Mabel",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Mabel has maintained the handwritten reservation sheet for eight months, strictly enforcing the time slots she writes down and ignoring requests for last-minute changes.",
+        "keywords": "sheet+0.6 reservation+0.5 strict+0.4 laundry+0.3 patience-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Jesse",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Jesse loudly complains to anyone within earshot about stolen reservation spots and has taken to crossing out other tenants\u2019 entries on the sheet.",
+        "keywords": "yell+0.6 reservation+0.5 anger+0.4 laundry+0.3 stress-0.1",
+        "ticks": 20
+      },
+      {
+        "name": "Ty",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Ty stops by monthly to fix the laundry machines but avoids engaging in reservation conflicts to keep his entry-level maintenance job.",
+        "keywords": "machine+0.7 repair+0.5 rust+0.3 caution+0.2 compliance-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:35:05.811231Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Mabel",
+          "text": "I can\u2019t bend the rules for you, not after eight months of keeping this reservation sheet straight. You put your name down for the 6 PM slot tomorrow, not this current window. I already locked in this time for Mrs. Hernandes an hour ago. [Tapping sharply at the smudged, ink-blotted handwritten sheet pinned to the laundry room\u2019s cinder block wall with a chipped pencil, then folding her arms firmly across her stained flannel shirt.]",
+          "shifts": {
+            "sheet": 1.2,
+            "reservation": 0.5,
+            "laundry": 0.3
+          },
+          "shift_total": 2.0,
+          "role": ""
+        },
+        {
+          "name": "Jesse",
+          "text": "Can you believe this total bullshit? Some cheapskate stole my pre-reserved laundry slot, and now I\u2019m left scrambling for a broken spare machine. I wrote my name on this smudged sheet first thing yesterday, too!\n[Grabs a chewed blue ballpoint pen from his pocket and viciously crosses out a stranger\u2019s scrawled reservation entry across the row from his intended machine]",
+          "shifts": {
+            "reservation": 0.5,
+            "laundry": 0.3
+          },
+          "shift_total": 0.8,
+          "role": ""
+        },
+        {
+          "name": "Ty",
+          "text": "I\u2019m sticking to fixing the machines first instead of untangling these smudged reservation slips\u2014last time I tried to sort the timeslots, two tenants screamed at each other for half an hour over a single wash cycle, and this damp basement\u2019s mildew isn\u2019t helping my mood either. I don\u2019t need that hassle right now, so I\u2019ll get these two dryers cleared of lint before anyone else shows up. I\u2019ll just knock out the quick fixes first so I can wrap up early before the arguing kicks off again.\n[Kneels to pry open the side panel of the nearest dryer, yanking free a wad of trapped lint and crumpled fast-food receipts wedged in its vent]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mabel",
+          "text": "\"I\u2019ve been enforcing this exact booking rule for eight months, so don\u2019t go giving me grief about it! Anyone who swaps a slot without writing a clear note forfeits their spot, and that\u2019s exactly what happened here. You can wait for the 7 PM slot or use the finicky dryer by the back stair if you don\u2019t want to cool your heels.\"\n[Clenches the frayed, smudged handwritten reservation pad tight under one arm, tapping the faded, crossed-out line next to Jesse\u2019s name with a stubby blue pencil.]",
+          "shifts": {
+            "reservation": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Jesse",
+          "text": "Can you all just shut up for one second and listen? I had this 6 PM laundry slot locked down three days ago, and some total stranger has scribbled over my name on the sheet! I\u2019m not sitting around waiting for a broken washer when I already reserved this spot fair and square!\n\n[slams their half-folded laundry basket down on the scuffed folding table and storms over to the smudged reservation sheet, scratching a thick black line through two recent, unrecognized entries]",
+          "shifts": {
+            "reservation": 0.5,
+            "laundry": 0.6
+          },
+          "shift_total": 1.1,
+          "role": ""
+        },
+        {
+          "name": "Ty",
+          "text": "I\u2019m not getting dragged into this reservation chaos\u2014last time I tried to sort those smudged slips, two tenants started bickering so loud the fire department stopped by to check things out. I\u2019m sticking strictly to my work order, which is just fixing these three aging machines, not picking sides over who\u2019s supposed to use what slot. I can give this spare washer a quick tune-up before I clock out if you need a working cycle, though.\n[Wipes grease from his hands onto a worn rag tucked into his coverall pocket, then kneels to unscrew a corroded bolt on the side of the leftmost broken washer]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mabel": 2.5,
+    "Jesse": 1.9000000000000001,
+    "Ty": 0.0
+  },
+  "citations": {
+    "Mabel": {
+      "Jesse": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Mabel holds the line; the next session's hook waits at the door."
+}

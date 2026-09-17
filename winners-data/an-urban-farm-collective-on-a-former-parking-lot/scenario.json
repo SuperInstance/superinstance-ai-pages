@@ -1,0 +1,27 @@
+{
+  "title": "Parking Lot Farm Plot Waitlist Dilemma",
+  "setting": "This vibrant urban farm occupies a repurposed asphalt parking lot, with raised wooden beds filled with leafy greens, herbs, and native wildflowers. A weathered wooden sign posted by the tool shed displays the long waitlist for individual growing plots, drawing daily questions from curious community members.",
+  "characters": [
+    {
+      "name": "Mara",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Mara manages the official plot waitlist, resolving small disputes between prospective farm holders.",
+      "keywords": "waitlist+0.6 plot+0.5 tally+0.4 sign-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Javi fields community inquiries and shares farm updates via in-person chats and phone calls.",
+      "keywords": "call+0.7 announcement+0.5 chat+0.4 neighbor-0.1",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Lila tends the farm\u2019s raised beds and teaches beginner farming skills to new plot holders.",
+      "keywords": "soil+0.6 harvest+0.5 bed+0.4 beginner-0.2",
+      "ticks": 20
+    }
+  ]
+}

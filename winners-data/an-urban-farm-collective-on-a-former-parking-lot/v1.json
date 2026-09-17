@@ -1,0 +1,114 @@
+{
+  "title": "Parking Lot Farm Plot Waitlist Dilemma",
+  "scenario": {
+    "title": "Parking Lot Farm Plot Waitlist Dilemma",
+    "setting": "This vibrant urban farm occupies a repurposed asphalt parking lot, with raised wooden beds filled with leafy greens, herbs, and native wildflowers. A weathered wooden sign posted by the tool shed displays the long waitlist for individual growing plots, drawing daily questions from curious community members.",
+    "characters": [
+      {
+        "name": "Mara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Mara manages the official plot waitlist, resolving small disputes between prospective farm holders.",
+        "keywords": "waitlist+0.6 plot+0.5 tally+0.4 sign-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi fields community inquiries and shares farm updates via in-person chats and phone calls.",
+        "keywords": "call+0.7 announcement+0.5 chat+0.4 neighbor-0.1",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Lila tends the farm\u2019s raised beds and teaches beginner farming skills to new plot holders.",
+        "keywords": "soil+0.6 harvest+0.5 bed+0.4 beginner-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:30:16.693901Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "Excuse me, both of you\u2014let\u2019s not bicker over this prime sunlit raised bed before we walk through the official waitlist properly. I know you\u2019ve both been checking the lot daily for a spot, but Priya logged her waitlist request three full days before you, so she gets first dibs on this plot.\n[I step gently between the two frustrated prospective holders, tapping Priya\u2019s dated entry on my laminated waitlist clipboard to show both parties the timed log.]",
+          "shifts": {
+            "waitlist": 1.8,
+            "plot": 0.5
+          },
+          "shift_total": 2.3,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Hey there! I\u2019m Javi, one of the farm stewards here at this repurposed downtown parking lot space. These raised wooden beds are stuffed with crisp kale, arugula, and Swiss chard we\u2019ve been harvesting daily for the local food co-op. Feel free to poke around or ask me anything about how we run this urban farm!\n[I brush a stray leaf from my soil-streaked flannel apron and gesture to the faint faded asphalt parking lines peeking through the straw mulch between the beds.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Hey there, welcome to your first beginner farming workshop! Let\u2019s start by grabbing these handheld cultivators from the cart over yonder to loosen the topsoil around your lettuce beds without disturbing those fragile shallow roots. I\u2019ll walk you through each step slowly so you feel confident tending your own plot later.\n[Gesturing to a stack of smooth, sanded wooden cultivators propped against a repurposed metal farm cart, then patting a loose clump of soil back around a toppled arugula seedling]",
+          "shifts": {
+            "soil": 0.6,
+            "beginner": -0.2
+          },
+          "shift_total": 0.4,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Mara",
+          "text": "I know you\u2019ve both been looking forward to locking in a plot, but we can\u2019t skip the official waitlist checks over this sunlit raised bed. Let\u2019s step over to the sign-up clipboard so we can sort this out fairly instead of bickering back and forth.\n[She tucks a loose strand of dark hair behind her ear and gestures toward the well-worn clipboard slung at her hip, nodding for the two disputing parties to follow her toward the tool cart where Lila has laid out handheld cultivators.]",
+          "shifts": {
+            "waitlist": 0.6,
+            "plot": 0.5,
+            "sign": -0.2
+          },
+          "shift_total": 0.9,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Whoops, you\u2019re totally right, Mara\u2014 I got carried away gushing about these lush kale beds before sticking to the proper workshop flow. Let\u2019s stick to walking through the waitlist first, then we\u2019ll hop into how to use those handheld cultivators to prep the soil safely.\n[He reaches over to adjust the stack of labeled handheld cultivators on the nearby cart, tapping the laminated waitlist sheet clipped to its handle as he finishes speaking.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "loosen the compacted topsoil surrounding our young arugula and kale seedlings without damaging their tender roots. Grab one cultivator each from the cart, and we\u2019ll go over how to thin overcrowded sprigs to help the remaining plants thrive. [I tap a tiny, bright green arugula sprout in the nearest raised bed to illustrate the delicate plants we\u2019ll be working around, then lift a stack of metal handheld cultivators from the wooden storage cart.]",
+          "shifts": {
+            "bed": 0.4
+          },
+          "shift_total": 0.4,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Mara": 3.1999999999999997,
+    "Javi": 0.0,
+    "Lila": 0.8
+  },
+  "citations": {
+    "Mara": {
+      "Lila": 1
+    },
+    "Javi": {
+      "Mara": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Mara holds the line; the next session's hook waits at the door."
+}

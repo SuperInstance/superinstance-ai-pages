@@ -1,0 +1,27 @@
+{
+  "title": "The 40-Year Farm Stand Dilemma",
+  "setting": "Tucked along a winding country highway, the weathered wooden farm stand has operated continuously for 40 years, passed down through three local farming families. A commercial truck stop developer has filed plans to build adjacent to the stand\u2019s small plot, threatening its loyal customer base and long-term viability. The current family owners face an impossible choice: take a substantial buyout or fight to preserve the community landmark they grew up with.",
+  "characters": [
+    {
+      "name": "Elara",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She focuses solely on crunching financial numbers, comparing the buyout offer to the stand\u2019s historical revenue to make a data-driven decision.",
+      "keywords": "money+0.6 legacy-0.5 projections+0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He organizes neighborhood petitions and social media campaigns to rally support for saving the farm stand.",
+      "keywords": "community+0.7 history+0.4 support-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She runs the stand\u2019s daily operations, restocks fresh produce, and greets every regular customer by name.",
+      "keywords": "produce+0.5 customers+0.6 routine-0.4",
+      "ticks": 20
+    }
+  ]
+}

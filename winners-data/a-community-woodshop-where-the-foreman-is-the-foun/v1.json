@@ -1,0 +1,104 @@
+{
+  "title": "Rust and Legacy at Maplewood Woodshop",
+  "scenario": {
+    "title": "Rust and Legacy at Maplewood Woodshop",
+    "setting": "The century-old Maplewood Community Woodshop was founded by a local master carpenter, now run by his grandchild Jessa who serves as foreman. A recent shipment of reclaimed oak flecked with surface rust has divided the small, tight-knit crew, as they debate whether to use the discounted material or stick to the shop\u2019s original sourcing rules.",
+    "characters": [
+      {
+        "name": "Riley",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Riley is the shop\u2019s official inventory counter who strictly adheres to written material specifications and budget limits.",
+        "keywords": "inventory+0.5 spec+0.4 budget+0.3 count+0.2 stock+0.1",
+        "ticks": 20
+      },
+      {
+        "name": "Marisol",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Marisol is the senior woodworker who advocates for community-focused projects and speaks up for adapting materials to keep the shop accessible.",
+        "keywords": "voice+0.6 community+0.5 adapt+0.4 craft+0.3 tradition+0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi is the novice shop apprentice who operates the workshop\u2019s power tools and feels torn between following the foreman\u2019s family tradition and practical necessity.",
+        "keywords": "machine+0.5 lineage+0.4 apprentice+0.3 tool+0.2 practice+0.1",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:33:19.868286Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Riley",
+          "text": "Hi Jessa. I\u2019ve updated the official woodshop inventory log per the formal shop guidelines, and I flagged that we\u2019re down to only three replacement bandsaw blades, which falls below the minimum stock level outlined in the policy manual. I submitted a reorder request for exactly five blades, all within the allocated monthly budget to avoid overspending.\n[Taps the spine of the laminated official inventory policy binder stacked on the supply cart before picking up the printed low-stock alert form to extend toward Jessa]",
+          "shifts": {
+            "inventory": 1.0,
+            "budget": 0.3,
+            "stock": 0.2
+          },
+          "shift_total": 1.5,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "\"I noticed the pile of reclaimed pallets donated to the shop yesterday\u2014instead of letting them get hauled to the landfill, we can cut them down into practice blanks for our low-cost beginner workshops. Folks without the means to buy new lumber will be able to participate without extra financial barriers.\"\n[Grabs a handsaw from the overhead rack and gestures for a passing volunteer to help sort through the pallet stack by nail-free sections.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "\"I know Grandpa\u2019s old woodworking rule was never rush a single cut, but the community\u2019s picnic is tomorrow and we\u2019re already behind on these picnic tables. I tried to speed up the planer pass to catch up and now this plank\u2019s split right down the grain.\"\n[He twists the rubber grip of his protractor between his fingers, eyes darting between the ruined plank and Jessa\u2019s workbench where the master carpenter\u2019s original handwritten handbook lies open.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Riley",
+          "text": "\"Reclaimed pallets can only be repurposed for the community picnic tables if we first mill them to match our official standardized lumber specs for the project. We also need to log every salvaged board separately in the inventory log to avoid inventory discrepancies down the line. I can help quick-measure each cut piece to keep us on track without skipping required documentation.\"\n[Leans over the scuffed workshop counter, grabs a fresh inventory log sheet and a waterproof marking pen to draft a temporary stock entry header for the pallet salvage]",
+          "shifts": {
+            "inventory": 1.5,
+            "stock": 0.1
+          },
+          "shift_total": 1.6,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "\"I get wanting to honor Grandpa\u2019s slow, careful cuts, but these donated pallets are solid maple planks we can repurpose for the picnic table frames. It\u2019ll cut down our prep time and stretch our dwindling shop stock further, and we\u2019ll still finish everything in time for tomorrow\u2019s community picnic.\"\n[Grabs a flat pry bar from the wall-mounted tool rack and steps over to the tallest pallet stack to gently pry apart the boards without splitting usable lumber.]",
+          "shifts": {
+            "community": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "\"I know Grandpa\u2019s old woodworking rule was never rush a single cut, but the community\u2019s picnic is tomorrow and we\u2019re already behind on these picnic table blanks. I hate to skip the precise dry fits we usually do, but I don\u2019t see another way to make the deadline before sundown.\"\n[He sets down the half-calibrated handheld planer he\u2019d been hovering over, jaw tight with unspoken tension between shop tradition and the urgent community need.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Riley": 3.1,
+    "Marisol": 0.5,
+    "Javi": 0.0
+  },
+  "citations": {},
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Riley holds the line; the next session's hook waits at the door."
+}

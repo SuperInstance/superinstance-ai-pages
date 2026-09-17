@@ -1,0 +1,27 @@
+{
+  "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+  "setting": "Nestled in the sun-dappled Loire Valley farmlands, the three-generational Fromagerie Martin has produced award-winning goat crottin for 72 years using a single carefully guarded starter culture passed down through the family. New apprentice Jules has taken to storing a weekly starter batch in a stainless steel bin instead of the family\u2019s traditional cedar crock, altering the culture\u2019s ambient exposure. Farm owner Elara and long-time cheesemaker Papa Tom have clashed over whether to correct Jules or risk losing the dairy\u2019s signature tang.",
+  "characters": [
+    {
+      "name": "Elara Martin",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She runs the shop\u2019s front counter, fields customer orders, and prioritizes preserving the farm\u2019s iconic signature flavor over hasty changes to the family\u2019s legacy.",
+      "keywords": "starter+0.6 tradition+0.5 customer+0.4 legacy+0.3 drift-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Papa Tom Lefevre",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He\u2019s the retired 70-year-old head cheesemaker who speaks with the unfiltered voice of the farm\u2019s 72-year history and demands strict adherence to the original starter process.",
+      "keywords": "tradition+0.7 starter+0.5 reputation+0.4 history+0.3 change-0.4",
+      "ticks": 20
+    },
+    {
+      "name": "Jules Moreau",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He\u2019s the eager new apprentice who studied modern cheese-making techniques and modified the starter storage to suit his culinary training.",
+      "keywords": "starter+0.8 innovation+0.5 nervous+0.4 legacy-0.3 quality+0.2",
+      "ticks": 20
+    }
+  ]
+}

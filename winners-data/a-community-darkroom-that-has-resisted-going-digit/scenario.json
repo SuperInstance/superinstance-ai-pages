@@ -1,0 +1,27 @@
+{
+  "title": "The Blackroom Collective's Digital Dilemma",
+  "setting": "Tucked in the basement of a 1920s repurposed church in a small Rust Belt town, the Blackroom Collective has resisted full digital photography adoption for 30 straight years. Its walls are lined with scuffed film tanks, frayed red safelight wires, and dog-eared notebooks of member-submitted developing notes. No digital cameras or screens are permitted within its locked front doors, only film, darkroom chemicals, and shared, quiet focus on analog craft.",
+  "characters": [
+    {
+      "name": "Mara",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "They steward the collective\u2019s budget, track chemical inventory, and enforce shared darkroom rules to keep the space functional for all members.",
+      "keywords": "counter+0.6 inventory+0.5 rule+0.4 stress-0.3 tradition-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "They serve as the collective\u2019s official historian, leading casual tours and sharing stories of the darkroom\u2019s founding to pass along its legacy to new members.",
+      "keywords": "voice+0.7 legacy+0.6 story+0.5 conflict-0.4 tech-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "They act as the collective\u2019s primary equipment operator, trains new apprentices, and quietly struggles with the urge to explore digital photography on the side.",
+      "keywords": "operator+0.8 train+0.5 doubt+0.4 loyalty-0.3 routine-0.2",
+      "ticks": 20
+    }
+  ]
+}

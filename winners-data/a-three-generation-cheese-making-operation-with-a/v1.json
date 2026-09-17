@@ -1,0 +1,114 @@
+{
+  "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+  "scenario": {
+    "title": "Fromagerie Martin\u2019s Starter Drift Dilemma",
+    "setting": "Nestled in the sun-dappled Loire Valley farmlands, the three-generational Fromagerie Martin has produced award-winning goat crottin for 72 years using a single carefully guarded starter culture passed down through the family. New apprentice Jules has taken to storing a weekly starter batch in a stainless steel bin instead of the family\u2019s traditional cedar crock, altering the culture\u2019s ambient exposure. Farm owner Elara and long-time cheesemaker Papa Tom have clashed over whether to correct Jules or risk losing the dairy\u2019s signature tang.",
+    "characters": [
+      {
+        "name": "Elara Martin",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She runs the shop\u2019s front counter, fields customer orders, and prioritizes preserving the farm\u2019s iconic signature flavor over hasty changes to the family\u2019s legacy.",
+        "keywords": "starter+0.6 tradition+0.5 customer+0.4 legacy+0.3 drift-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Papa Tom Lefevre",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He\u2019s the retired 70-year-old head cheesemaker who speaks with the unfiltered voice of the farm\u2019s 72-year history and demands strict adherence to the original starter process.",
+        "keywords": "tradition+0.7 starter+0.5 reputation+0.4 history+0.3 change-0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Jules Moreau",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He\u2019s the eager new apprentice who studied modern cheese-making techniques and modified the starter storage to suit his culinary training.",
+        "keywords": "starter+0.8 innovation+0.5 nervous+0.4 legacy-0.3 quality+0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:31:52.009313Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Elara Martin",
+          "text": "Bonjour, mademoiselle! I saved you a fresh portion of our award-winning signature goat cheese, aged exactly two weeks in our cellar per Great-Grandmother\u2019s recipe. We didn\u2019t cut any corners this season to keep that iconic, earthy Loire Valley flavor you raved about last month.\n[Wraps the sliced cheese in crinkly brown parchment paper tied with a strip of twine harvested from the farm\u2019s hemp rows]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Papa Tom Lefevre",
+          "text": "Now hold up, youngster\u2014that\u2019s not how you ladle the curds gently. We\u2019ve clung to this exact same starter process since Grandpapa Martin first set up our vat back in 1951, and rushing this step will ruin the earthy, floral finish that won us our first regional award.\n[He raps his weathered knuckles against a stack of hand-carved wooden cheese molds, then reaches for a crock of pale, tangy mother starter to add a splash to the fresh curd batch.]",
+          "shifts": {
+            "starter": 1.0
+          },
+          "shift_total": 1.0,
+          "role": ""
+        },
+        {
+          "name": "Jules Moreau",
+          "text": "Chef Martin, I wanted to show you the tweaks I made to the starter storage last night! I installed insulated metal racks with calibrated heat mats to keep the goat and cow cultures at a steady, ideal temp instead of them swinging with the Loire Valley\u2019s weather. I also labeled every jar with the culture strain and harvest date so we can nail down exact ripening timelines moving forward.\n[Pausing to tap the digital temperature readout mounted above the rack, grinning widely as the screen flickers to show a steady 43\u00b0F]",
+          "shifts": {
+            "starter": 0.8
+          },
+          "shift_total": 0.8,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elara Martin",
+          "text": "\"Papa, easy now\u2014don\u2019t harp on my curd ladling just yet. Let Jules share what he\u2019s put together first; I know we\u2019ve stuck to Great-Grandmot\u2019s exact recipe for decades, but I don\u2019t want to write off an idea before we see if it keeps our signature flavor intact.\"\n[Leans against the weathered pine prep counter, tucking a stray sun-bleached strand of hair behind her ear while setting down her curd ladle for a moment.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Papa Tom Lefevre",
+          "text": "Cut that out right now, Jules. Those insulated racks and heat mats are nothing but modern foolery that\u2019ll ruin the starter\u2019s delicate, decades-old colony. We\u2019ve stuck to this exact same process for three generations, and we ain\u2019t throwing it off now.\n[He swats Jules\u2019 experimenting hand away from the starter storage bin, then grabs his well-worn wooden starter spoon from the bench to jab at the original wicker shelves lining the cool cellar walls.]",
+          "shifts": {
+            "starter": 1.5
+          },
+          "shift_total": 1.5,
+          "role": ""
+        },
+        {
+          "name": "Jules Moreau",
+          "text": "I installed insulated metal racks with calibrated heat mats to keep our mother starter at the exact steady temperature Great-Grandmot documented, no more random afternoon draft fluctuations throwing off its consistency. I didn\u2019t tamper with the traditional curd ladling process Papa Tom swears by at all, just fixed this tiny storage flaw I noticed last week.\n[He gestured over his shoulder toward the open cellar doorway, holding up a small digital temperature readout to display the locked-in 18\u00b0C setting he\u2019d calibrated overnight.]",
+          "shifts": {
+            "starter": 0.8
+          },
+          "shift_total": 0.8,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elara Martin": 0.0,
+    "Papa Tom Lefevre": 2.5,
+    "Jules Moreau": 1.6
+  },
+  "citations": {
+    "Elara Martin": {
+      "Papa Tom Lefevre": 1,
+      "Jules Moreau": 1
+    },
+    "Papa Tom Lefevre": {
+      "Jules Moreau": 2
+    },
+    "Jules Moreau": {
+      "Papa Tom Lefevre": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Elara Martin holds the line; the next session's hook waits at the door."
+}

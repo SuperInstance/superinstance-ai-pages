@@ -1,0 +1,106 @@
+{
+  "title": "Generational River Cleanup Crew Dilemma",
+  "scenario": {
+    "title": "Generational River Cleanup Crew Dilemma",
+    "setting": "A sun-bleached wooden dock straddling a shallow, trash-lined creek in western Pennsylvania. The volunteer cleanup crew has split into two groups: a small core of long-time organizers and a large cohort of first-time teen volunteers. Tensions simmer as the two sides clash over cleanup priorities and group dynamics.",
+    "characters": [
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Strictly tracks trash collection numbers and argues for faster, more efficient cleanup routes over casual volunteer chat.",
+        "keywords": "count+0.6 trash+0.5 route+0.4 chat-0.3 hesitate-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Marisol",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Amplifies quieter volunteer voices, shares personal creek restoration stories, and pushes for inclusive group decisions.",
+        "keywords": "story+0.7 listen+0.5 include+0.4 metric-0.3 rush-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Theo",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Manages heavy cleanup equipment, mentors new teen volunteers, and feels out of place between the crew\u2019s conflicting factions.",
+        "keywords": "gear+0.6 skimmer+0.5 mentor+0.4 doubt-0.3 distract-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:37:25.308545Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Javi",
+          "text": "Cut the small talk\u2014we\u2019ve only tallied 13 full trash bags in the past hour, and we\u2019re already trailing the efficient route I drafted by 20 minutes. If we stick to the mapped upstream trash cluster instead of loitering by the dock posts, we can make up that lost ground before the high tide pushes more debris out into the cove.\n[slams his waterproof trash count tracker onto the sun-bleached dock rail, grabs a heavy-duty trash grabber, and strides toward the tangled pile of discarded bait buckets and plastic sheeting bobbing just offshore]",
+          "shifts": {
+            "count": 0.6,
+            "trash": 2.0,
+            "route": 0.4
+          },
+          "shift_total": 3.0,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "I want to shout out Lila, who\u2019s been quietly pointing out all the hidden litter spots along the back creek bend every time we pause. Three years ago, my abuela and I pulled a rusted lawnmower out of that exact same bend, and seeing how much less heavy trash clogs it now makes me hope we can expand this work with local students. Let\u2019s make sure every single person here gets a chance to share their ideas for how to grow our volunteer group.\n[Hands a branded trash grabber and a stack of student volunteer sign-up sheets to the shy teen Lila, then gestures for the scattered cleanup crew to huddle closer to brainstorm together.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Theo",
+          "text": "Alright, y\u2019all, let\u2019s pause the infighting for five minutes. The eastern dock edge has a pile of broken fishing floats and chemical containers that need the heavy-duty grabber, so the crew that\u2019s been hogging the small tongs can step aside for that. The west bank\u2019s storm drains are clogged with plastic bags, so don\u2019t drag your feet tackling those once we split up.\n[Slings the heavy industrial cleanup grabber\u2019s strap over one broad shoulder, kicking a crumpled potato chip bag out of the way of the dock\u2019s wobbly plank stairs.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Javi",
+          "text": "Cut the five-minute pause right now\u2014we\u2019re already 20 minutes behind my drafted efficient route, and we\u2019ve only tallied 13 full trash bags in the past hour. That fishing float pile and casual shoutouts can wait until we hit our assigned coverage targets first. I spotted the cluster of hidden litter Lila pointed out just further up the back creek bend, let\u2019s move now instead of wasting time on formalities.\n[Javi grabs his heavy-duty trash grabber from his tool belt and strides purposefully toward the back creek bend, ignoring the calls to halt for the eastern dock float pile inspection.",
+          "shifts": {
+            "trash": 1.0,
+            "route": 0.4
+          },
+          "shift_total": 1.4,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "Three years ago, I was the harried volunteer rushing straight through these exact stretches, blind to every piece of trash tucked under the dock\u2019s rotting pilings and tucked in the creek\u2019s overgrown banks. Lila\u2019s been doing the quiet, careful work that actually makes this cleanup count, and I think we should shift a few folks to join her instead of only fixating on our tally numbers right now.\n[I kneel to pluck a crumpled plastic soda bottle wedged between two weathered dock slats, holding it up to gesture toward the overgrown back creek bend where Lila\u2019s crouched sorting hidden trash.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Theo",
+          "text": "First off, Lila, that sharp eye for hidden litter has saved us so much hassle\u2014thank you for pointing all those tucked-away bits out. Javi, I hear your push to stick to your drafted route, but that pile of chemical containers by the east dock can\u2019t wait; we\u2019ve got to bag those safely first to keep everyone out of harm\u2019s way. Let\u2019s split the crew quick: half of you wrap up the full trash bags we\u2019ve already filled, and the rest follow me over to handle that hazardous pile right now.\n[Grabs a pair of thick, puncture-resistant work gloves from his utility belt, then hefts a roll of extra-heavy plastic trash bags over one shoulder to head toward the eastern dock edge.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Javi": 4.4,
+    "Marisol": 0.0,
+    "Theo": 0.0
+  },
+  "citations": {
+    "Theo": {
+      "Javi": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door."
+}

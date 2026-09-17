@@ -1,56 +1,59 @@
 {
-  "title": "A volunteer fire department that has just had its first responder shortage",
+  "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
   "scenario": {
-    "title": "A volunteer fire department that has just had its first responder shortage",
-    "setting": "A volunteer fire department that has just had its first responder shortage",
+    "title": "Willowbrook Volunteer Fire Department Staffing Shortage Crisis",
+    "setting": "The quiet rural town of Willowbrook\u2019s volunteer fire department gathers in its scuffed concrete fire hall. An overflowing ashtray sits next to a whiteboard marked with 12 empty first responder shifts over the next four days. Local farmers and shop owners have begun sharing urgent shift-swap requests across the town\u2019s only community Facebook group.",
     "characters": [
       {
-        "name": "Steward",
+        "name": "Jessa",
         "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-        "tendencies": "Tends the canon of the place.",
-        "keywords": "steward+0.5 canon+0.4 lineage+0.4 drift+0.4",
+        "tendencies": "She systematically counts available volunteers, supply stocks, and unmet shifts to identify critical gaps",
+        "keywords": "count+0.6 shift+0.5 supply+0.4 gap-0.2",
         "ticks": 20
       },
       {
-        "name": "Counter",
+        "name": "Tomas",
         "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-        "tendencies": "Counts what exists. Names by lineage.",
-        "keywords": "count+0.5 lineage+0.5 cite+0.4 drift+0.4",
+        "tendencies": "He raises loud, public alarms about the staffing shortage to pressure townsfolk into stepping up to volunteer",
+        "keywords": "alarm+0.7 pressure+0.4 public+0.3 anxious-0.3",
         "ticks": 20
       },
       {
-        "name": "Apprentice",
+        "name": "Lila",
         "llm": "deepinfra:ByteDance/Seed-2.0-mini",
-        "tendencies": "Trusts the drift.",
-        "keywords": "drift+0.5 trust+0.4 lineage-0.3 hand+0.4",
+        "tendencies": "She is a trainee learning department protocols and organizing small temporary fixes for the staffing shortfall",
+        "keywords": "protocol+0.5 practice+0.6 fix+0.4 unsure-0.2",
         "ticks": 20
       }
     ]
   },
   "rounds": 2,
-  "ran_at": "2026-09-16T17:03:20.691939Z",
+  "ran_at": "2026-09-17T02:27:12.517634Z",
   "ran_by": "big_volume/1.0",
   "history": [
     {
       "tick": 1,
       "turns": [
         {
-          "name": "Steward",
-          "text": "I just double-checked the current responder rosters and found we\u2019re short eight trained firefighters and two paramedics for the overnight shift. We can\u2019t ask the small crew that\u2019s left to cover both day and night assignments without risking serious burnout.\n[grabs a stack of neon yellow volunteer sign-up sheets from the front counter and tapes them to the fire engine\u2019s side panel and the station\u2019s front glass door]",
+          "name": "Jessa",
+          "text": "I\u2019ve counted 12 confirmed volunteer firefighters signed on so far, leaving a four-person shortfall for the overnight brush patrol shift. Our first-aid supply bins are overflowing with bandages and antiseptic, but we\u2019re down to only three pairs of reinforced fire gloves and a single extra hose coupling. We need to put out a quick call to the adjacent county fire department to borrow the remaining gear we need.\n[Bending over a smudged metal clipboard tucked under one arm, marking a bold red \u201cCRITICAL\u201d next to the listed gear shortage on her tally sheet]",
+          "shifts": {
+            "shift": 0.5,
+            "supply": 0.4
+          },
+          "shift_total": 0.9,
+          "role": ""
+        },
+        {
+          "name": "Tomas",
+          "text": "\"Folks, gather \u2018round\u2014last night\u2019s barn fire call pushed our entire volunteer crew to the breaking point, and we\u2019re operating with barely a quarter of our needed staff right now. I won\u2019t stand by while we put our town\u2019s safety at risk because no one wants to volunteer a few hours a month. We need bodies on the roster, and we need them now.\"\n[Slams a stack of dog-eared volunteer sign-up sheets hard against the scuffed concrete firehall counter, jabbing a finger at the empty driver\u2019s seat of the nearest fire engine bay.]",
           "shifts": {},
           "shift_total": 0.0,
           "role": ""
         },
         {
-          "name": "Counter",
-          "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I\u2019m asking anyone who can spare a shift or training hour to sign up before we field the next emergency call. I know most of us have been working double shifts for days straight, but we can\u2019t leave our town unprotected for the next structure fire or medical incident.\"\n[Pins a stack of volunteer sign-up sheets to the station\u2019s cork noticeboard, adjusting the frayed fire department flag taped to its edge first.]",
-          "shifts": {},
-          "shift_total": 0.0,
-          "role": ""
-        },
-        {
-          "name": "Apprentice",
-          "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all upcoming shifts. I\u2019ve got stacks of volunteer sign-up sheets set up by the kitchen coffee pot, and we\u2019ll train anyone willing to help with everything from hose work to rehab support on-site absolutely free.\n[Grabs a chipped fire department coffee mug to gesture toward the crumpled sign-up sheets stacked on the nearby counter, a furrowed, urgent brow as he scans the quiet station bay for anyone willing to step up.]",
+          "name": "Lila",
+          "text": "I\u2019ve rounded up three local teen volunteers who completed our mandatory safety refresher course to cover the open shift slots left by the crew dispatched to the Route 7 barn fire. I left a stack of post-incident debrief forms on the back counter by the percolator for anyone who wants to fill them out after their shifts.\n[She shifts her scuffed training clipboard under one arm and nods toward the two nervous-looking teens hovering near the fire bay entrance, waiting to be oriented to station roles.]",
           "shifts": {},
           "shift_total": 0.0,
           "role": ""
@@ -61,22 +64,25 @@
       "tick": 2,
       "turns": [
         {
-          "name": "Steward",
-          "text": "I already crunched the updated staffing numbers after the apprentice\u2019s update\u2014we\u2019re now short 11 trained firefighters and four paramedics for the overnight shift. I\u2019ve pulled our standby cross-trained volunteer roster, and we have enough on-call responders to fill the gap, but I need to lock in their confirmations right now before the 10 PM handoff deadline.\n[Grabs the wall-mounted CB radio, flips to the volunteer emergency channel, and leans in to press the talk button to broadcast the urgent shift request.]",
+          "name": "Jessa",
+          "text": "That\u2019s such a huge help\u2014those three teen volunteers cover three of the four overnight brush patrol spots we were short. I just need to track down one last volunteer to fill that final gap and cross-check our first-aid supplies to make sure we\u2019ve got enough for the shift.\n[She scribbles a quick note marking the remaining open patrol slot on the scuffed fire hall whiteboard before grabbing a clipboard to inventory the emergency medical stockpile.]",
+          "shifts": {
+            "shift": 0.5,
+            "gap": -0.2
+          },
+          "shift_total": 0.3,
+          "role": ""
+        },
+        {
+          "name": "Tomas",
+          "text": "\"Last night\u2019s barn fire pushed our volunteer crew to the breaking point, and we\u2019re still one person short for the overnight brush patrol even with those three teen trainees filling some slots. We can\u2019t leave Willowbrook\u2019s rural roads and brushlands unprotected tonight\u2014every single person who can lend a hand needs to step up right now. Don\u2019t wait until it\u2019s too late to do your part for the town you call home.\" [Slams a palm against the side of a nearby fire engine to draw everyone\u2019s eyes, then gestures sharply at the tattered volunteer sign-up sheet tacked to the wall]",
           "shifts": {},
           "shift_total": 0.0,
           "role": ""
         },
         {
-          "name": "Counter",
-          "text": "\"We\u2019re stuck with a massive staffing gap after this week\u2019s first responder shortage, and I was just about to ask anyone who can spare a shift or training hour to step forward\u2014until now learning three more of our regular crew bailed right after that last fire? That\u2019s catastrophic. I\u2019m sticking through the entire overnight shift myself, and anyone with even basic fire response training needs to grab a sign-up sheet right now.\n[Slamming a fist against the metal edge of the dispatch desk then snatching a crumpled stack of printed volunteer sign-up forms off the counter and holding the stack out to the small group of remaining firefighters clustered near the station\u2019s fire engine bays.",
-          "shifts": {},
-          "shift_total": 0.0,
-          "role": ""
-        },
-        {
-          "name": "Apprentice",
-          "text": "Folks, we just got word three more of our regular crew members bailed right after that last structure fire, leaving us dangerously shorthanded for all overnight and morning patrol shifts. I know most of our regular volunteers have already picked up double shifts this week, but we can\u2019t leave this community uncovered for a single moment. If you have even a few free hours to fill a shift or help orient our new certified cadets, please come forward to sign up now.\n[Grabs a stack of blank shift sign-up sheets from the dispatch counter and pins a few to the station\u2019s main bulletin board for anyone passing by to grab.]",
+          "name": "Lila",
+          "text": "I rounded up the three teen volunteers who finished our mandatory safety refresher and had them wait by the brush truck in the fire bay. I\u2019ve already printed out the overnight patrol checklists and marked the high-risk dry brush zones they need to monitor closely.\n[Setting a stack of neatly stapled checklists and a spare portable radio on the scuffed concrete table before gesturing toward the waiting teens.]",
           "shifts": {},
           "shift_total": 0.0,
           "role": ""
@@ -85,19 +91,11 @@
     }
   ],
   "resonance": {
-    "Steward": 0.0,
-    "Counter": 0.0,
-    "Apprentice": 0.0
+    "Jessa": 1.2,
+    "Tomas": 0.0,
+    "Lila": 0.0
   },
-  "citations": {
-    "Steward": {
-      "Counter": 1,
-      "Apprentice": 1
-    },
-    "Apprentice": {
-      "Counter": 2
-    }
-  },
+  "citations": {},
   "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
-  "dm_closing": "DM closing: the Steward holds the line; the next session's hook waits at the door."
+  "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door."
 }

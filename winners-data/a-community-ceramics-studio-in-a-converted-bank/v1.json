@@ -1,0 +1,109 @@
+{
+  "title": "Converted Bank Community Ceramics Studio Crisis",
+  "scenario": {
+    "title": "Converted Bank Community Ceramics Studio Crisis",
+    "setting": "A shuttered downtown bank has been transformed into a tight-knit community ceramics studio, with its marble teller counters repurposed as pottery wheel stations and its old vault holding stacks of raw clay. A sudden mold outbreak in the bank\u2019s aged brick foundation has been discovered, threatening to shut the studio down permanently unless costly structural repairs are raised within 30 days. Members are split between relocating to an affordable new space or fundraising to save the beloved converted location.",
+    "characters": [
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Javi is a pragmatic studio bookkeeper who manages all donation drives and operational budgets, pushing for rapid financial solutions to keep the studio open.",
+        "keywords": "vault+0.5 clay+0.4 funds+0.6 mold+0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Lila is a charismatic local potter who leads community workshops and rallies members to save the beloved converted bank space.",
+        "keywords": "door+0.6 pottery+0.4 community+0.3 lease-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Tao",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "Tao is a detail-oriented studio apprentice who knows the building\u2019s hidden structural issues and low-cost repair options.",
+        "keywords": "brick+0.5 repair+0.4 clay+0.3 mold-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:38:16.344874Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Javi",
+          "text": "The midweek beginner class just burned through our last of the low-fire glazes this morning, and we\u2019ve got three more signup sheets waiting for supply restocks. I pulled the last of our emergency petty cash to grab a single pallet, but we need to push the community donation drive hard right now to cover the rest of the order before next weekend\u2019s pop-up sale\u2014we can\u2019t put this off without canceling two upcoming workshops.\n[Flipping through a dog-eared spreadsheet of studio expenses and slamming a highlighted line item down on the old marble teller counter]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Good morning, everyone\u2014look how the morning light spills through the old bank\u2019s arched stained glass onto the marble teller counter, making our fresh clay slabs glisten like wet river stones! I\u2019ve got a brand new wildflower glaze batch we\u2019re testing today, and let\u2019s remind each other: we fought hard to save this space, so let\u2019s make every moment here count.\n[grabs a handful of soft white clay from a wooden crate by the teller\u2019s window, holding it up for the group of workshop attendees to pass around]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Tao",
+          "text": "\u201cWhoa, pause wedging your clay on that far corner of the old marble teller counter\u2014 I spotted a hidden hairline crack beneath the glaze grime yesterday. We can patch it for next to nothing using scrap clay and thinned slip instead of shelling out for pricey professional marble repairs, which would eat through our tiny monthly supply budget.\u201d\n[kneels down to tap the suspect marble surface lightly, then scrapes away a fleck of dried turquoise glaze to expose the faint, spreading crack creeping along the grout line]",
+          "shifts": {
+            "clay": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Javi",
+          "text": "Tao, thank you for flagging that hidden hairline crack\u2014we can\u2019t risk anyone getting hurt or the counter needing costlier repairs down the line. First things first, we need to rush-restock our low-fire glazes before the afternoon beginner cohort shows up. I\u2019ll call our main supplier right after this quick huddle to lock in same-day delivery.\n[Grabs his frayed canvas clipboard from the nearby teach station and scribbles a quick reminder about the counter repair and glaze restock before tucking a pocket notebook into his workshop apron.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Easy, Tao\u2014let\u2019s move everyone\u2019s wedging stations over to the empty nook by the old vault grille right now, before that hairline crack shifts and ruins that beautiful original marble. I followed up with our glaze supplier the second Javi flagged we\u2019d burned through our last of the low-fire glazes, and they\u2019ll drop off a full restock by lunch to cover all the new sign-ups.\n[Grabs a stack of thick rubber wedging bats from the rolling supply cart by the front door and gestures toward the rear of the studio to guide the group]",
+          "shifts": {
+            "door": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        },
+        {
+          "name": "Tao",
+          "text": "Whoa, pause wedging your clay on that far corner of the old marble teller counter\u2014 I spotted a hidden hairline crack beneath the glaze grime yesterday. That spot\u2019s just waiting to split under the firm pressure of your wedge, and we don\u2019t have the spare cash for professional marble repairs till next month\u2019s community fundraiser. Let\u2019s shift your work over to the pine workbench by the front window instead.\n[Grabbing a stack of canvas drop cloths from the front desk\u2019s lower storage and spreading them across the pine workbench to protect the surface from clay slip]",
+          "shifts": {
+            "clay": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Javi": 0.0,
+    "Lila": 0.6,
+    "Tao": 1.2
+  },
+  "citations": {
+    "Javi": {
+      "Tao": 1
+    },
+    "Lila": {
+      "Javi": 1,
+      "Tao": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Javi holds the line; the next session's hook waits at the door."
+}

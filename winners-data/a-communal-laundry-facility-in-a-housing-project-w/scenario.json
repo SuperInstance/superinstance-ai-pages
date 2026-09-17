@@ -1,0 +1,27 @@
+{
+  "title": "Maple Court Laundry Reservation Dilemma",
+  "setting": "The damp basement of Maple Court public housing features three aging laundry machines, reserved using a smudged handwritten paper sheet taped to a rusted utility sink. Each weekday evening, a tense free-for-all breaks out as working parents, elderly tenants, and night-shift workers compete for the few available dryer slots. There are no formal rules beyond the handwritten sheet, leading to frequent arguments and erased reservations.",
+  "characters": [
+    {
+      "name": "Mabel",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Mabel has maintained the handwritten reservation sheet for eight months, strictly enforcing the time slots she writes down and ignoring requests for last-minute changes.",
+      "keywords": "sheet+0.6 reservation+0.5 strict+0.4 laundry+0.3 patience-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Jesse",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Jesse loudly complains to anyone within earshot about stolen reservation spots and has taken to crossing out other tenants\u2019 entries on the sheet.",
+      "keywords": "yell+0.6 reservation+0.5 anger+0.4 laundry+0.3 stress-0.1",
+      "ticks": 20
+    },
+    {
+      "name": "Ty",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Ty stops by monthly to fix the laundry machines but avoids engaging in reservation conflicts to keep his entry-level maintenance job.",
+      "keywords": "machine+0.7 repair+0.5 rust+0.3 caution+0.2 compliance-0.2",
+      "ticks": 20
+    }
+  ]
+}

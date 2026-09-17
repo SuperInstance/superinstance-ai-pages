@@ -1,0 +1,108 @@
+{
+  "title": "The 40-Year Farm Stand Dilemma",
+  "scenario": {
+    "title": "The 40-Year Farm Stand Dilemma",
+    "setting": "Tucked along a winding country highway, the weathered wooden farm stand has operated continuously for 40 years, passed down through three local farming families. A commercial truck stop developer has filed plans to build adjacent to the stand\u2019s small plot, threatening its loyal customer base and long-term viability. The current family owners face an impossible choice: take a substantial buyout or fight to preserve the community landmark they grew up with.",
+    "characters": [
+      {
+        "name": "Elara",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She focuses solely on crunching financial numbers, comparing the buyout offer to the stand\u2019s historical revenue to make a data-driven decision.",
+        "keywords": "money+0.6 legacy-0.5 projections+0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He organizes neighborhood petitions and social media campaigns to rally support for saving the farm stand.",
+        "keywords": "community+0.7 history+0.4 support-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She runs the stand\u2019s daily operations, restocks fresh produce, and greets every regular customer by name.",
+        "keywords": "produce+0.5 customers+0.6 routine-0.4",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:36:36.594710Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Elara",
+          "text": "\u201cI\u2019m not leaning on guesswork here\u2014let\u2019s anchor this to hard numbers first. Our five-year average seasonal revenue sits right around $11,900 annually, and this buyout offer is nearly four times that yearly total, which blows past the standard 2x industry benchmark for rural farm stands.\u201d\n[pulling a battered solar-powered calculator from her work overalls pocket and tapping the handwritten offer sum against her pre-scrawled annual sales notes]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Hey there\u2014this weathered family farm stand has been a staple here for 40 years, and it\u2019s at risk of shutting down for good. I\u2019m collecting petition signatures to pressure local leaders to protect these small, neighborhood businesses. Could you take a minute to sign and spread the word to anyone else who cares about keeping our community\u2019s heart alive?\n[Tucks a stack of printed petition forms under one arm and holds up a bright homemade flyer decorated with sun-ripened tomatoes and jars of honey.]",
+          "shifts": {
+            "community": 0.7
+          },
+          "shift_total": 0.7,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Hey there, Mr. Hale! I just restocked those Brandywine heirloom tomatoes you raved about last week\u2014picked fresh straight from the backyard patch at dawn this morning. I also set aside a small carton of our just-harvested blueberries if you want to add something sweet to your order.\n[Wiping my sticky, juice-stained hands on my denim overalls and reaching for a sturdy paper grocery bag to pack his chosen produce]",
+          "shifts": {
+            "produce": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Elara",
+          "text": "\u201cI need to cross-reference this proposed buyout against both our five-year annual average and our peak seasonal sales windows, which make up nearly 70% of our total yearly earnings. A flat one-time offer won\u2019t reflect the full, ongoing value of this 40-year-old stand, so we can\u2019t finalize anything without further number-crunching.\u201d [She pulls a coffee-ringed spiral notebook from her canvas bag, flipping quickly to a page covered in handwritten revenue spreadsheets and circled seasonal sales peaks.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Hey Lila, those fresh picked tomatoes are exactly what\u2019ll draw drivers off the highway to listen. I\u2019ve got a fresh stack of hand-printed petitions to rally community support to save the 40-year-old farm stand, and I\u2019d love for you to sign one first before I start passing them around.\n[pulling a neat stack of cream-colored petition sheets from my canvas tote and tucking a black ballpoint pen through the top corner before holding the whole set out to her.]",
+          "shifts": {
+            "community": 0.7,
+            "support": -0.3
+          },
+          "shift_total": 0.4,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Hey there, Mr. Hale! I just restocked those Brandywine heirloom tomatoes you raved about last week\u2014picked fresh straight from the backyard patch at dawn, and I set out a basket of sun-ripened white peaches too for your weekly morning stop. I saw your petition papers earlier, and I\u2019ll definitely sign one before I head out later today.\n[I step out from behind the scuffed farm stand counter, grabbing a crumpled brown paper bag to pack his produce, and nod at the stack of clipboards propped against the jarred jam shelves.]",
+          "shifts": {
+            "produce": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Elara": 0.0,
+    "Javi": 1.1,
+    "Lila": 1.0
+  },
+  "citations": {
+    "Javi": {
+      "Lila": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Elara holds the line; the next session's hook waits at the door."
+}

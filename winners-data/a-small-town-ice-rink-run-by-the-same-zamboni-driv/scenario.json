@@ -1,0 +1,27 @@
+{
+  "title": "The 25-Year Zamboni Driver\u2019s Crossroads",
+  "setting": "Maple Creek is a quiet rural town of just 312 residents, anchored for 37 years by its downtown ice rink. For a quarter-century, Joe Mertz has been the rink\u2019s only Zamboni driver, meticulously prepping the ice for local hockey games, public skate, and youth lessons every winter. After his 1998 Zamboni suddenly broke down beyond repair, the town council declined to allocate funds for a replacement, putting the rink\u2019s decades-long future at risk.",
+  "characters": [
+    {
+      "name": "Lila Marlow",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She manages the rink\u2019s concession stand, keeps a small savings jar for last-minute repairs, and has volunteered every weekend at the rink for 12 years.",
+      "keywords": "concessions+0.6 savings+0.3 volunteer+0.4 closure-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Jax Hale",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He hosts Maple Creek\u2019s weekly community radio show, where he\u2019s been airing stories about the rink\u2019s plight and organizing a neighborhood fundraiser to buy a new Zamboni.",
+      "keywords": "radio+0.5 fundraiser+0.4 community+0.5 apathy-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Toby Rainer",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He\u2019s been shadowing Joe Mertz for 8 months, learning every detail of Zamboni maintenance and ice resurfacing, and will take on any odd job to help keep the rink open.",
+      "keywords": "zamboni+0.7 apprentice+0.5 maintenance+0.4 tradition+0.3",
+      "ticks": 20
+    }
+  ]
+}

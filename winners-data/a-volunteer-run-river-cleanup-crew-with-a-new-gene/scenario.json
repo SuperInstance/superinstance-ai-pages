@@ -1,0 +1,27 @@
+{
+  "title": "Generational River Cleanup Crew Dilemma",
+  "setting": "A sun-bleached wooden dock straddling a shallow, trash-lined creek in western Pennsylvania. The volunteer cleanup crew has split into two groups: a small core of long-time organizers and a large cohort of first-time teen volunteers. Tensions simmer as the two sides clash over cleanup priorities and group dynamics.",
+  "characters": [
+    {
+      "name": "Javi",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Strictly tracks trash collection numbers and argues for faster, more efficient cleanup routes over casual volunteer chat.",
+      "keywords": "count+0.6 trash+0.5 route+0.4 chat-0.3 hesitate-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Marisol",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Amplifies quieter volunteer voices, shares personal creek restoration stories, and pushes for inclusive group decisions.",
+      "keywords": "story+0.7 listen+0.5 include+0.4 metric-0.3 rush-0.2",
+      "ticks": 20
+    },
+    {
+      "name": "Theo",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "Manages heavy cleanup equipment, mentors new teen volunteers, and feels out of place between the crew\u2019s conflicting factions.",
+      "keywords": "gear+0.6 skimmer+0.5 mentor+0.4 doubt-0.3 distract-0.2",
+      "ticks": 20
+    }
+  ]
+}

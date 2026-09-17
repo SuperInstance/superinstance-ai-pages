@@ -1,0 +1,103 @@
+{
+  "title": "Aging Kiln Co-op Dilemma",
+  "scenario": {
+    "title": "Aging Kiln Co-op Dilemma",
+    "setting": "The small, sun-faded pottery co-op sits on a quiet country lane, its two wood-fired kilns older than every current member, all of whom joined within the last two years. The collective is weeks away from shutting down unless they can complete a successful bulk glaze order for a local caf\u00e9, but no one knows the original firing specs of the aging kilns to avoid ruining their final batches.",
+    "characters": [
+      {
+        "name": "Jessa",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She obsessively tracks firing cycle times, kiln temperature logs, and inventory counts, often correcting vague group estimates with precise numerical data.",
+        "keywords": "count+0.6 log+0.5 rust+0.3 spec-0.2 drift-0.4",
+        "ticks": 20
+      },
+      {
+        "name": "Marisol",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She acts as the co-op\u2019s public face, pitching their pottery to local businesses, mediating group disagreements, and keeping the community-focused spirit of the collective alive.",
+        "keywords": "pitch+0.7 chatter+0.4 door+0.3 lineage+0.5 glaze-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Tao",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "They\u2019re the only current member with hands-on kiln experience, having learned basic firing techniques from their grandparent who worked at the co-op\u2019s original run decades ago.",
+        "keywords": "fire+0.8 ash+0.6 spec+0.4 lineage+0.3 rust-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:28:49.374450Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Jessa",
+          "text": "\u201cI just pulled the official firing cycle logs for the east kiln\u2014you all tossed out a rough guess of a 10-hour soak, but the exact required hold time for the stoneware we\u2019re using today is 9 hours and 15 minutes. We also need to adjust the fuel feed rate to avoid undershooting the target temperature again like we did last Tuesday.\u201d\n[She prods the dog-eared logbook open to the page marked with a chunk of crushed fire clay, tapping the precise time stamp with her pencil eraser.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "I swung by Miller\u2019s roadside stand on my way in and picked up a jar of wild clover honey to test in our earth tone glazes\u2014figured it\u2019d add a subtle, warm golden hue that pairs perfectly with the Main Street caf\u00e9\u2019s homemade scone menu. I also dropped off a batch of our hand-thrown butter crocks at the bakery down the lane this morning, they called last week to say their regulars had been snatching up our earlier stock left and right.\n[She wipes a smudge of wet terracotta from her forearms, adjusting the crinkled handwritten price tags on the front display shelf of rounded, speckled mugs.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Tao",
+          "text": "This wood-fired kiln\u2019s the original one this co-op opened with, and my grandparent spent 30 years tending its fires right here. I still keep their old firing schedule charts taped to the back of the toolbox over by the workbench. [Runs a calloused palm along the kiln\u2019s sun-faded brick exterior before picking up a damp sponge to wipe dust off a nearby unglazed bowl]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Jessa",
+          "text": "\"I just pulled the official firing cycle logs for the east kiln\u2014you all tossed out a rough guess of a 10-hour soak, but the exact required hold time for our mid-range stoneware is 11 hours and 22 minutes, per last month\u2019s official test run. I double-checked the manufacturer\u2019s specs this morning to confirm there wasn\u2019t a recent update I\u2019d missed.\"\n[She flips quickly to the dog-eared page of her leather-bound logbook, tapping the crisp line of numerical data with a sharpened pencil to draw everyone\u2019s eyes to the precise numbers.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Marisol",
+          "text": "I\u2019m so glad you flagged that exact required soak time, Jessa. Hearing about your grandparents\u2019 decades tending this kiln, Tao, makes this timing even more meaningful, and this wild clover honey I picked up will lend just the soft golden warmth we\u2019ve been chasing in our mossy earth glazes.\n[setting the half-pint jar of clover honey on the scuffed workbench between the east kiln firing log binder and Tao\u2019s tattered handwritten family kiln notes, then gesturing for the group to huddle closer to review the logs]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Tao",
+          "text": "I still keep their old handwritten firing logs tucked in the under-counter drawer right by the east kiln. They jotted that this exact kiln needs an extra 90-minute hold specifically when we mix floral additives like that clover honey you picked up, Marisol. That\u2019s way more accurate than the rough guess we threw out earlier.\n[Reaches into the scuffed wooden under-counter drawer and pulls out a water-stained, leather-bound logbook tucked beneath a stack of crumpled glaze test slips.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Jessa": 0.0,
+    "Marisol": 0.0,
+    "Tao": 0.0
+  },
+  "citations": {
+    "Marisol": {
+      "Jessa": 1,
+      "Tao": 2
+    },
+    "Tao": {
+      "Marisol": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Jessa holds the line; the next session's hook waits at the door."
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Silent Bandstand Revival Dilemma",
+  "setting": "The sun-warmed cobblestones of Willow Creek\u2019s town square frame a weathered bandstand, silent for exactly five years after the town\u2019s marching band disbanded. Moss clings to its wooden support beams, and a crumpled 2019 concert poster tacks to one side, half-torn by wind. The square\u2019s only regular visitors are skateboarders and a stray tabby cat that naps on the stage steps.",
+  "characters": [
+    {
+      "name": "Kael",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He counts every leftover relic of Willow Creek\u2019s past to preserve fading local traditions.",
+      "keywords": "count+0.7 relic+0.5 tradition+0.4 quiet-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Lila",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "She shares stories of the old marching band at the square to rally community support for a revival.",
+      "keywords": "speak+0.6 story+0.5 concert+0.4 gather-0.3",
+      "ticks": 20
+    },
+    {
+      "name": "Jax",
+      "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+      "tendencies": "He learns restoration work from a retired handyman to fix the bandstand\u2019s broken wood and rusted fixtures.",
+      "keywords": "tinker+0.6 rust+0.5 plank+0.4 repair-0.3",
+      "ticks": 20
+    }
+  ]
+}

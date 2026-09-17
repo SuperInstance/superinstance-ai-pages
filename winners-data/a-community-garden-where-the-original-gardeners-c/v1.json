@@ -1,0 +1,106 @@
+{
+  "title": "Legacy Plot Community Garden Dilemma",
+  "scenario": {
+    "title": "Legacy Plot Community Garden Dilemma",
+    "setting": "Nestled between a laundromat and a row of bungalows, Maplewood\u2019s community garden has been tended by two generations of local families. Three decades ago, a group of original retiree gardeners carved out the plots, and now their adult children oversee the space alongside younger neighbors. Last month, a city zoning notice threatened to repurpose half the garden for a municipal parking lot, splitting the new garden stewards over whether to negotiate or protest.",
+    "characters": [
+      {
+        "name": "Marisol",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She tracks volunteer hours, plot yields, and donated supplies to mediate conflicting requests for garden space.",
+        "keywords": "plot+0.6 budget+0.5 tension-0.3 legacy+0.4 noise-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Javi",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He shares oral histories of the original garden\u2019s founding to rally community members against the zoning proposal.",
+        "keywords": "story+0.7 crowd+0.4 legacy+0.5 proposal-0.3 calm-0.2",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She maintains the garden\u2019s tools and raised beds, and mentors young apprentice gardeners to carry on the original growers\u2019 practices.",
+        "keywords": "soil+0.6 repair+0.5 youth+0.4 plan-0.3 stress-0.2",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:27:59.880989Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Marisol",
+          "text": "\"Both of you mentioned needing a sunny plot for your tomato seedlings, but the signed allocation logs show the south plot was claimed by the local scout troop last month. I can walk you both over to the unused raised bed by the compost pile, which gets nearly identical morning and afternoon sun exposure.\"\n[Clips a stack of volunteer hour sign-in sheets tighter against her chest and adjusts a smudged sticker on her worn clipboard cover]",
+          "shifts": {
+            "plot": 1.2
+          },
+          "shift_total": 1.2,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Folks, let me tell you\u2014this garden wasn\u2019t handed to any of us. It was built back in 1998 by my grandpa and a ragtag group of neighbors who dug up broken glass and discarded lumber to turn this overgrown lot into our own little patch of earth. This new zoning proposal would pave it all over, erasing two generations of work and the only quiet, green space these nearby bungalows have. [I grip a weathered trowel\u2014the same one my grandpa used to plant the first tomato seedling here\u2014and hold it up to the crowd.]",
+          "shifts": {
+            "crowd": 0.4,
+            "proposal": -0.3
+          },
+          "shift_total": 0.1,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "This plot\u2019s been cared for by two generations already\u2014my grandmother planted the first marigold borders right along this fence line back in 1978. Always loosen the soil around transplants before tucking them in, and never leave borrowed tools out overnight to rust.\n[She wipes a smudge of garden dirt from her cheek before stacking a pair of hand pruners into the labeled wooden caddy by the garden gate.]",
+          "shifts": {
+            "soil": 0.6
+          },
+          "shift_total": 0.6,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Marisol",
+          "text": "Both of you mentioned needing a sunny plot for your tomato seedlings, but the signed allocation logs show the south plot was claimed by the local scout troop last month after they offered to repair the garden\u2019s broken raised bed frames. I know how personally tied both of your families are to this garden, so I\u2019ve set aside a second full-sun plot near the rain barrels that\u2019s been unclaimed since the previous tenant moved away this spring. I can also pull up the short liability waiver forms right now if you want to coordinate taking over that spot together.\n[Digs through her frayed canvas volunteer tote, pulling out a dog-eared plot allocation binder and tapping a hand-scrawled note on one of the empty plot listings with a chewed pencil.]",
+          "shifts": {
+            "plot": 3.0
+          },
+          "shift_total": 3.0,
+          "role": ""
+        },
+        {
+          "name": "Javi",
+          "text": "Folks, let me finish what I was saying earlier\u2014this garden wasn\u2019t handed to any of us. It was built back in 1998 by my grandpa and a ragtag group of neighbors who dug up broken concrete, hauled in wheelbarrows of topsoil, and bartered extra summer squash for lumber for the raised beds. Now the city\u2019s new zoning proposal will pave every last plot over for a private parking lot, and we can\u2019t let them erase this community cornerstone we\u2019ve nurtured for decades.\n[I gesture sharply to the tangle of sunflower stalks and tomato vines winding through the plots, my calloused fingers brushing a dented metal tool rack stacked with shared trowels.]",
+          "shifts": {
+            "proposal": -0.3
+          },
+          "shift_total": -0.3,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "This plot\u2019s been cared for by two generations already\u2014my grandmother planted the first marigold borders right along this fence line back in 1978. Always reserved a narrow strip here for those marigolds every season to ward off root nematodes for the nearby vegetable plots. I can help you two track down sunny, unclaimed raised beds near the water spigot for your tomato seedlings. [I tap the weathered wooden fence post where a faded 1978 garden club plaque peeks through creeping ivy, then grab a dog-eared allocation clipboard from the loop on my canvas tool belt.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Marisol": 4.2,
+    "Javi": -0.19999999999999998,
+    "Lila": 0.6
+  },
+  "citations": {},
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Marisol holds the line; the next session's hook waits at the door."
+}

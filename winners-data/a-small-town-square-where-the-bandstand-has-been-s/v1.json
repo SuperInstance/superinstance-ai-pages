@@ -1,0 +1,109 @@
+{
+  "title": "Silent Bandstand Revival Dilemma",
+  "scenario": {
+    "title": "Silent Bandstand Revival Dilemma",
+    "setting": "The sun-warmed cobblestones of Willow Creek\u2019s town square frame a weathered bandstand, silent for exactly five years after the town\u2019s marching band disbanded. Moss clings to its wooden support beams, and a crumpled 2019 concert poster tacks to one side, half-torn by wind. The square\u2019s only regular visitors are skateboarders and a stray tabby cat that naps on the stage steps.",
+    "characters": [
+      {
+        "name": "Kael",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He counts every leftover relic of Willow Creek\u2019s past to preserve fading local traditions.",
+        "keywords": "count+0.7 relic+0.5 tradition+0.4 quiet-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Lila",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "She shares stories of the old marching band at the square to rally community support for a revival.",
+        "keywords": "speak+0.6 story+0.5 concert+0.4 gather-0.3",
+        "ticks": 20
+      },
+      {
+        "name": "Jax",
+        "llm": "deepinfra:ByteDance/Seed-2.0-mini",
+        "tendencies": "He learns restoration work from a retired handyman to fix the bandstand\u2019s broken wood and rusted fixtures.",
+        "keywords": "tinker+0.6 rust+0.5 plank+0.4 repair-0.3",
+        "ticks": 20
+      }
+    ]
+  },
+  "rounds": 2,
+  "ran_at": "2026-09-17T02:35:59.606035Z",
+  "ran_by": "big_volume/1.0",
+  "history": [
+    {
+      "tick": 1,
+      "turns": [
+        {
+          "name": "Kael",
+          "text": "I kneel on the sun-warmed cobblestones beside the weathered bandstand, holding up a chipped silver saxophone key I dug up beneath its floorboards yesterday, and murmur to the empty square that this was part of the town\u2019s last Fourth of July band set before the performances stopped five years ago. I tick a quick mark on my handheld tally counter, adding this tiny relic to my growing catalog of saved Willow Creek history.\n[I tuck the saxophone key carefully into a labeled fabric pouch strapped to my work belt.]",
+          "shifts": {
+            "relic": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "Can\u2019t you almost hear the brassy swell of the old Willow Creek Marching Band winding through these sun-warmed cobblestones? It\u2019s been exactly five years since that band stood on this weathered bandstand, but we can bring that joy back to the square\u2014all we need is a few returning musicians and some eager new recruits.\n[She lifts a crinkled 2018 band photo, tapping the faded bandstand in the frame before gesturing to the empty platform beside her.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Jax",
+          "text": "I still can\u2019t believe how crusty this entire hardware setup is, Mr. Hale. You said tapping this bolt with a mallet and a scrap of pine will keep it from stripping, right?\n[Kneeling on the sun-warmed cobblestones, he sets down a half-used jar of wood filler and reaches for a wire brush to scrub grime from a rusted support bracket at his feet.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "turns": [
+        {
+          "name": "Kael",
+          "text": "I run a calloused thumb over the chipped silver of the saxophone key, still warm from the afternoon sun despite being buried beneath these boards for five full years. This was the very key that stuck mid-brass swell during the town marching band\u2019s final performance, back when this square rang with their official march.\n[I carefully set the tiny relic atop the bandstand\u2019s splintered wooden rail, right beside the loose bolt Jax has been tapping with his mallet and scrap of pine.]",
+          "shifts": {
+            "relic": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        },
+        {
+          "name": "Lila",
+          "text": "I nod toward Jax\u2019s half-tinkered hardware setup, twirling the chipped sax key Kael found between my fingers. Local teens have been stopping by the community center nonstop begging to join a revived marching band, and this square has sat too quiet for five whole years. We can bring back all those summer concerts and parade warm-ups right here, if we all pitch in a little.\n[I lean down to tap the same loose bandstand floorboard where the key was unearthed, brushing away a handful of dry grass to expose a faded band sticker stuck to its underside.]",
+          "shifts": {},
+          "shift_total": 0.0,
+          "role": ""
+        },
+        {
+          "name": "Jax",
+          "text": "I finish my mid-sentence thought with a sheepish laugh, noting that the scrap of pine smells exactly like the workshop my grandpa used to run back home. This old hardware\u2019s way more caked-on with rust than I initially guessed, but Mr. Hale\u2019s trick should do the trick. I\u2019m ready to tap that bolt whenever you say so.\n[I press the pine scrap firmly against the rusted bolt head, steadying it with one hand while I lift the mallet with the other.]",
+          "shifts": {
+            "rust": 0.5
+          },
+          "shift_total": 0.5,
+          "role": ""
+        }
+      ]
+    }
+  ],
+  "resonance": {
+    "Kael": 1.0,
+    "Lila": 0.0,
+    "Jax": 0.5
+  },
+  "citations": {
+    "Kael": {
+      "Jax": 1
+    },
+    "Lila": {
+      "Kael": 1,
+      "Jax": 1
+    }
+  },
+  "dm_opening": "DM opening: the cast gathers around a question the scene has been carrying for a year.",
+  "dm_closing": "DM closing: the Kael holds the line; the next session's hook waits at the door."
+}
